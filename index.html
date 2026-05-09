@@ -1,0 +1,5037 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL Product Portfolio</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div class="hero">
+<div class="hero-tagline">Built on Moringa. Powered by Ayurveda.</div>
+<h1 class="hero-title">TGL Product Portfolio</h1>
+<p class="hero-subtitle">Master brief for Deepika: 10-SKU multi-ingredient pivot, Q1 launches Cycle + Bloom + Reset, all formulations DEC-016 reformulated to vendor-network standard extracts only. ₹9-12 Cr ARR projection over 18 months.</p>
+<div class="hero-stats">
+<div class="stat"><span class="stat-num">10</span><span class="stat-label">SKUs in 18 months</span></div>
+<div class="stat"><span class="stat-num">3</span><span class="stat-label">Q1 launches</span></div>
+<div class="stat"><span class="stat-num">₹80-90L</span><span class="stat-label">Phase 1 capital</span></div>
+<div class="stat"><span class="stat-num">₹9-12Cr</span><span class="stat-label">18-month ARR target</span></div>
+</div>
+</div>
+
+<div class="portfolio-map">
+<h2 class="portfolio-map-title">Portfolio at a glance</h2>
+<p class="portfolio-map-sub">10 SKUs across 3 tiers, sequenced over 6 phases. Click any SKU to jump to its brief.</p>
+
+<div class="tier tier-a">
+<div class="tier-header">Tier A: Women's Hormonal Continuum<span class="tier-header-meta">4 SKUs · Moringa heritage 50-100mg</span></div>
+<div class="sku-grid">
+<a class="sku-card" href="#1-name-elevator-pitch">
+<div class="sku-card-meta"><span class="sku-phase">Q1 · Phase 1</span></div>
+<h4 class="sku-name">Cycle</h4>
+<p class="sku-outcome">PMS / Period care</p>
+<p class="sku-price">₹999 / ₹899 / ₹764</p>
+<p class="sku-heritage">Moringa 75mg · 5 extracts</p>
+</a>
+<a class="sku-card" href="#sku-2-reset-pcos">
+<div class="sku-card-meta"><span class="sku-phase">Q1 · Phase 1</span></div>
+<h4 class="sku-name">Reset</h4>
+<p class="sku-outcome">PCOS / hormonal dysregulation</p>
+<p class="sku-price">₹1,499 / ₹1,299 / ₹1,099</p>
+<p class="sku-heritage">Moringa 25mg/cap × 3 caps · 6 extracts</p>
+</a>
+<a class="sku-card" href="#sku-3-bloom-daily-womens-multi">
+<div class="sku-card-meta"><span class="sku-phase">Q1 · Phase 1</span></div>
+<h4 class="sku-name">Bloom</h4>
+<p class="sku-outcome">Daily Women's Multi</p>
+<p class="sku-price">₹1,099 / ₹999 / ₹849</p>
+<p class="sku-heritage">Moringa 100mg · 8 extracts (Size #00)</p>
+</a>
+<a class="sku-card" href="#sku-4-crest-menopause">
+<div class="sku-card-meta"><span class="sku-phase">Q4 · Phase 4</span></div>
+<h4 class="sku-name">Crest</h4>
+<p class="sku-outcome">Menopause / perimenopause</p>
+<p class="sku-price">₹1,799 / ₹1,599 / ₹1,359</p>
+<p class="sku-heritage">Moringa 75mg · 5 extracts</p>
+</a>
+</div>
+</div>
+
+<div class="tier tier-b">
+<div class="tier-header">Tier B: Cross-sells<span class="tier-header-meta">3 SKUs · Moringa heritage 50-200mg</span></div>
+<div class="sku-grid">
+<a class="sku-card" href="#sku-5-root-hair">
+<div class="sku-card-meta"><span class="sku-phase">Q2 · Phase 2</span></div>
+<h4 class="sku-name">Root</h4>
+<p class="sku-outcome">Hair fall + scalp health</p>
+<p class="sku-price">₹1,099 / ₹999 / ₹849</p>
+<p class="sku-heritage">Moringa 50mg · 5 extracts</p>
+</a>
+<a class="sku-card" href="#sku-6-calm-magnesium-sleep">
+<div class="sku-card-meta"><span class="sku-phase">Q3 · Phase 3</span></div>
+<h4 class="sku-name">Calm</h4>
+<p class="sku-outcome">Magnesium + sleep</p>
+<p class="sku-price">₹999 / ₹899 / ₹764</p>
+<p class="sku-heritage">Moringa 50mg · 3 extracts</p>
+</a>
+<a class="sku-card" href="#sku-7-nourish-lactation">
+<div class="sku-card-meta"><span class="sku-phase">Q3 · Phase 3</span></div>
+<h4 class="sku-name">Nourish</h4>
+<p class="sku-outcome">Lactation support</p>
+<p class="sku-price">₹1,199 / ₹1,099 / ₹934</p>
+<p class="sku-heritage">Moringa 200mg (galactagogue) · 4 extracts</p>
+</a>
+</div>
+</div>
+
+<div class="tier tier-c">
+<div class="tier-header">Tier C: Multi-ingredient extensions<span class="tier-header-meta">3 SKUs · TGL captive whole-plant base + Moringa 12.5mg</span></div>
+<div class="sku-grid">
+<a class="sku-card" href="#sku-8-pulse-triphala-digestive">
+<div class="sku-card-meta"><span class="sku-phase">M16-18 · Phase 6</span></div>
+<h4 class="sku-name">Pulse</h4>
+<p class="sku-outcome">Triphala+ digestive</p>
+<p class="sku-price">₹799 / ₹699 / ₹594</p>
+<p class="sku-heritage">Triphala captive · 2 extracts</p>
+</a>
+<a class="sku-card" href="#sku-9-glide-turmeric-joint">
+<div class="sku-card-meta"><span class="sku-phase">M13-15 · Phase 5</span></div>
+<h4 class="sku-name">Glide</h4>
+<p class="sku-outcome">Turmeric+ joint comfort</p>
+<p class="sku-price">₹999 / ₹899 / ₹764</p>
+<p class="sku-heritage">Turmeric captive · 2 extracts</p>
+</a>
+<a class="sku-card" href="#sku-10-spark-ashwagandha-stress">
+<div class="sku-card-meta"><span class="sku-phase">M13-15 · Phase 5</span></div>
+<h4 class="sku-name">Spark</h4>
+<p class="sku-outcome">Ashwagandha+ stress</p>
+<p class="sku-price">₹1,099 / ₹999 / ₹849</p>
+<p class="sku-heritage">Ashwagandha captive · 2 extracts</p>
+</a>
+</div>
+</div>
+</div>
+
+<div class="phase-timeline">
+<h2 class="phase-timeline-title">18-month rollout in 6 phases</h2>
+<div class="phase-grid">
+<div class="phase-card">
+<div class="phase-marker"></div>
+<div class="phase-num">Phase 1</div>
+<div class="phase-when">Q1 (M1-3)</div>
+<div class="phase-skus">Cycle<br>Bloom<br>Reset</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker"></div>
+<div class="phase-num">Phase 2</div>
+<div class="phase-when">Q2 (M4-6)</div>
+<div class="phase-skus">Root</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker"></div>
+<div class="phase-num">Phase 3</div>
+<div class="phase-when">Q3 (M7-9)</div>
+<div class="phase-skus">Calm<br>Nourish</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker"></div>
+<div class="phase-num">Phase 4</div>
+<div class="phase-when">Q4 (M10-12)</div>
+<div class="phase-skus">Crest</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker"></div>
+<div class="phase-num">Phase 5</div>
+<div class="phase-when">M13-15</div>
+<div class="phase-skus">Glide<br>Spark</div>
+</div>
+<div class="phase-card">
+<div class="phase-marker"></div>
+<div class="phase-num">Phase 6</div>
+<div class="phase-when">M16-18</div>
+<div class="phase-skus">Pulse</div>
+</div>
+</div>
+</div>
+
+<div class="brand-foundation">
+<div class="brand-thesis">
+<div class="brand-thesis-tag">Brand thesis · Locked 2026-05-05</div>
+<div class="brand-thesis-statement">Built on Moringa.<br>Powered by Ayurveda.</div>
+</div>
+<div class="brand-cols">
+<div>
+<div class="brand-col-title">5 Brand Pillars</div>
+<ol class="brand-list">
+<li>Natural-source first, never synthetic (HARD constraint)</li>
+<li>Ayurveda-rooted Indian heritage</li>
+<li>Women's life-stage continuity</li>
+<li>Founder-led, transparency-led trust</li>
+<li>Service / community wrapper for retention</li>
+</ol>
+</div>
+<div>
+<div class="brand-col-title">6 Operational Principles</div>
+<ol class="brand-list">
+<li>Capsule format only</li>
+<li>Outcome-led proprietary naming</li>
+<li>Best clinically-validated natural-source via Indian distributors</li>
+<li>Clinical-evidence-anchored ingredient selection</li>
+<li>Moringa Foundation: heritage signature dose calibrated per SKU tier</li>
+<li>Extract-first formulation philosophy with whole-plant heritage bases</li>
+</ol>
+</div>
+</div>
+</div>
+
+<h2 id="about-this-document">About this document</h2>
+<p>This master brief consolidates: Cycle (SKU 1) full product brief,
+short briefs for the other 9 SKUs, and the Plan Moving Forward / Deepika
+action items. Drafted 2026-05-09 by Aarav for Abhishek's meeting with
+Deepika. Per-SKU full briefs for SKUs 2-10 ship later this week. All
+formulations reference the canonical V3 strategic dossiers in
+<code>dossiers/01-cycle-pms.md</code> through
+<code>dossiers/10-spark-ashwagandha-stress.md</code>.</p>
+<h2 id="quick-navigation">Quick navigation</h2>
+<p><strong>Part 1: Portfolio overview</strong></p>
+<ul>
+<li><a href="#0-portfolio-map-at-a-glance">Portfolio map at a
+glance</a></li>
+</ul>
+<p><strong>Part 2: Cycle (SKU 1) full brief</strong></p>
+<ul>
+<li><a href="#1-name--elevator-pitch">1. Name + Elevator Pitch</a></li>
+<li><a href="#2-why-were-building-cycle-motivation">2. Why we're
+building Cycle (motivation)</a></li>
+<li><a
+href="#3-the-customer-who-she-is-what-shes-tried-what-fails-her">3. The
+customer (who she is, what she's tried, what fails her)</a></li>
+<li><a
+href="#4-what-the-product-does-the-lived-experience-over-3-6-months">4.
+What the product does (the lived experience over 3-6 months)</a></li>
+<li><a href="#5-composition--formulation-logic">5. Composition +
+formulation logic</a></li>
+<li><a href="#6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</a></li>
+<li><a
+href="#7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</a></li>
+<li><a href="#8-competitive-landscape">8. Competitive landscape</a></li>
+<li><a href="#9-right-to-win-why-a-real-woman-picks-cycle">9. Right to
+win (why a real woman picks Cycle)</a></li>
+<li><a href="#10-marketing-approach-brief">10. Marketing approach
+(brief)</a></li>
+<li><a href="#11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</a></li>
+<li><a href="#12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</a></li>
+</ul>
+<p><strong>Part 3: Short briefs for SKUs 2-10</strong></p>
+<ul>
+<li><a href="#sku-2-reset-pcos">SKU 2: Reset (PCOS)</a></li>
+<li><a href="#sku-3-bloom-daily-womens-multi">SKU 3: Bloom (Daily
+Women's Multi)</a></li>
+<li><a href="#sku-4-crest-menopause">SKU 4: Crest (Menopause)</a></li>
+<li><a href="#sku-5-root-hair">SKU 5: Root (Hair)</a></li>
+<li><a href="#sku-6-calm-magnesium--sleep">SKU 6: Calm (Magnesium +
+Sleep)</a></li>
+<li><a href="#sku-7-nourish-lactation">SKU 7: Nourish
+(Lactation)</a></li>
+<li><a href="#sku-8-pulse-triphala-digestive">SKU 8: Pulse (Triphala+
+digestive)</a></li>
+<li><a href="#sku-9-glide-turmeric-joint">SKU 9: Glide (Turmeric+
+Joint)</a></li>
+<li><a href="#sku-10-spark-ashwagandha-stress">SKU 10: Spark
+(Ashwagandha+ Stress)</a></li>
+</ul>
+<p><strong>Part 4: Plan moving forward</strong></p>
+<ul>
+<li><a
+href="#plan-moving-forward-what-deepika-needs-to-do-starting-tomorrow">Plan
+moving forward / Deepika action items</a></li>
+</ul>
+<hr />
+<h1 id="part-1-portfolio-overview">Part 1: Portfolio overview</h1>
+<h2 id="0-portfolio-map-at-a-glance">0. Portfolio map at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tier</th>
+<th>Name</th>
+<th>Outcome</th>
+<th>MRP / Sale / Sub</th>
+<th>Launch quarter</th>
+<th>Format</th>
+<th>Heritage base</th>
+<th>Composition (per cap)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A</td>
+<td><strong>Cycle</strong> (full brief separately)</td>
+<td>PMS / period-care</td>
+<td>₹999 / ₹899 / ₹764</td>
+<td><strong>Q1</strong></td>
+<td>Capsule, 2/day cyclic window</td>
+<td>Moringa 75mg (Tier A)</td>
+<td><strong>376mg / 6 actives</strong> (1h+5e). Mor 75 · Sha-ext 200 ·
+Ash-ext 25 · Lod-ext 13 · Man-ext 13 · Ses-ext 50</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A</td>
+<td><strong>Reset</strong></td>
+<td>PCOS / hormonal dysregulation</td>
+<td>₹1,499 / ₹1,299 / ₹1,099</td>
+<td>Q2</td>
+<td>Capsule, 2/day daily</td>
+<td>Moringa 75mg (Tier A)</td>
+<td><strong>725mg / 6 actives</strong> (1h+5e). Mor 75 · Met-ext 250 ·
+Sha-ext 200 · Cur-ext 150 · Bhr-ext 25 · Man-ext 25</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A</td>
+<td><strong>Bloom</strong></td>
+<td>Daily Women's Multi</td>
+<td>₹1,099 / ₹999 / ₹849</td>
+<td><strong>Q1</strong></td>
+<td>Capsule, 2/day daily</td>
+<td>Moringa 100mg (Tier A daily-multi anchor)</td>
+<td><strong>510mg / 8 actives</strong> (1h+7e). Mor 100 · Aqu-Ca 150 ·
+Sha-ext 100 · Ash-ext 100 · Aml-ext 50 · Iro 8 · D3 400IU · B12
+1.5µg</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A</td>
+<td><strong>Crest</strong></td>
+<td>Menopause / perimenopause</td>
+<td>₹1,799 / ₹1,599 / ₹1,359</td>
+<td>Q4</td>
+<td>Capsule, 2/day daily</td>
+<td>Moringa 75mg (Tier A)</td>
+<td><strong>540mg / 6 actives</strong> (1h+5e). Mor 75 · Sha-ext 200 ·
+Aqu-Ca 150 · Yas-ext 50 · Nov 40 · Vit-ext 25</td>
+</tr>
+<tr>
+<td>5</td>
+<td>B</td>
+<td><strong>Root</strong></td>
+<td>Hair fall + scalp health</td>
+<td>₹1,099 / ₹999 / ₹849</td>
+<td>Q2</td>
+<td>Capsule, 2/day daily</td>
+<td>Moringa 50mg (Tier B)</td>
+<td><strong>283mg / 6 actives</strong> (1h+5e). Mor 50 · Bhr-ext 100 ·
+Bra-ext 50 · Shi 50 · Man-ext 25 · Iro 8</td>
+</tr>
+<tr>
+<td>6</td>
+<td>B</td>
+<td><strong>Calm</strong></td>
+<td>Magnesium + sleep</td>
+<td>₹999 / ₹899 / ₹764</td>
+<td>Q3</td>
+<td>Capsule, 2/day evening</td>
+<td>Moringa 50mg (Tier B)</td>
+<td><strong>600mg / 4 actives</strong> (1h+3e). Mor 50 · Aqu-Mg 250 ·
+Ash-ext 250 · Bra-ext 50</td>
+</tr>
+<tr>
+<td>7</td>
+<td>B</td>
+<td><strong>Nourish</strong></td>
+<td>Lactation support</td>
+<td>₹1,199 / ₹1,099 / ₹934</td>
+<td>Q3</td>
+<td>Capsule, 2/day daily</td>
+<td>Moringa 200mg (Tier B galactagogue exception)</td>
+<td><strong>710mg / 5 actives</strong> (1h+4e). Mor 200 · Sha-ext 250 ·
+Aqu-Ca 150 · Met-ext 100 · Iro 10</td>
+</tr>
+<tr>
+<td>8</td>
+<td>C</td>
+<td><strong>Pulse</strong></td>
+<td>Triphala+ digestive (V1)</td>
+<td>₹799 / ₹699 / ₹594</td>
+<td>M16-18</td>
+<td>Capsule, 2/day daily</td>
+<td>Triphala whole-blend (TGL captive) + Moringa 12.5mg</td>
+<td><strong>388mg / 4 actives</strong> (2h+2e). Tri 300 · Mor 12.5 ·
+Gen-ext 50 · Pip-ext 25</td>
+</tr>
+<tr>
+<td>9</td>
+<td>C</td>
+<td><strong>Glide</strong></td>
+<td>Turmeric+ joint comfort</td>
+<td>₹999 / ₹899 / ₹764</td>
+<td>M13-15</td>
+<td>Capsule, 2/day daily</td>
+<td>Turmeric whole-rhizome (TGL captive) + Moringa 12.5mg</td>
+<td><strong>663mg / 4 actives</strong> (2h+2e). Tur 200 · Mor 12.5 ·
+Cur-C3-ext 250 · Bos-ext 200</td>
+</tr>
+<tr>
+<td>10</td>
+<td>C</td>
+<td><strong>Spark</strong></td>
+<td>Ashwagandha+ stress</td>
+<td>₹1,099 / ₹999 / ₹849</td>
+<td>M13-15</td>
+<td>Capsule, 2/day daily</td>
+<td>Ashwagandha whole-root (TGL captive) + Moringa 12.5mg</td>
+<td><strong>438mg / 4 actives</strong> (2h+2e). Ash 200 · Mor 12.5 ·
+KSM-66-ext 150 · Bra-ext 75</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bundle architecture</strong>: 5 bundles span ₹1,799-2,899
+(Cycle Care Kit, Cycle Glow Kit, Daily Woman Kit, Menopause Care Kit,
+New Mom Kit). Cross-sell engine starts Day 1.</p>
+<p><strong>18-month ARR projection</strong>: ₹9-12 Cr across the 10
+SKUs.</p>
+<hr />
+<hr />
+<h1 id="part-2-cycle-sku-1-full-product-brief">Part 2: Cycle (SKU 1)
+full product brief</h1>
+<blockquote>
+<p><strong>The full Cycle brief is duplicated below for single-doc
+convenience. The standalone version lives at
+<code>sku-1-cycle-product-brief.md</code> if you want a focused
+single-product view. Both stay in sync; this master doc is the source of
+truth going forward.</strong></p>
+</blockquote>
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Cycle (working name; final lock pending TM
+clearance per TGL-P1-DEC-007).</p>
+<p><strong>Elevator pitch (3 sentences, repeatable by anyone on the
+team):</strong></p>
+<blockquote>
+<p>Cycle is TGL's flagship women's wellness SKU, designed for the 28-35
+year old Indian woman who suffers PMS and period symptoms 1-2 days every
+month and is tired of relying on painkillers, birth control pills, or
+bitter-tasting Ayurvedic kashayams. Two plant-cellulose capsules a day
+during her cycle window deliver six classical Ayurvedic herbs
+(Shatavari, Ashoka, Lodhra, Manjistha, Moringa, Black Sesame) to ease
+cramps, regulate her cycle, and reduce PMS bloating over 3 cycles of
+consistent use. It's the SKU our existing 10K+ TGL customers were
+already pulling moringa for; Cycle gives that latent demand the right
+formulation.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-cycle-motivation">2. Why we're building
+Cycle (motivation)</h2>
+<p>Four reasons, in priority order:</p>
+<p><strong>1. Existing demand we're under-serving.</strong> TGL's 10K+
+existing customers already pull our moringa capsules for "period
+regulation". It's the dominant theme in our Customer Reviews Repository.
+But moringa alone is a thin formulation for cycle care: it adds
+nutritive support without moving the cramp / flow / PMS levers. Cycle
+takes that latent demand and gives it the formulation it deserves.
+Moringa stays as the heritage signature carrying the brand thread;
+Shatavari, Ashoka, Lodhra, Manjistha, and Sesame do the actual work.</p>
+<p><strong>2. Pricing whitespace at ₹600-900 sale.</strong> Period-care
+has two visible tiers in India today:</p>
+<ul>
+<li><strong>Pharma-tier</strong>: Gynoveda Period Cure ₹1,200-1,800,
+doctor-coded, complex multi-cap kit, intimidating.</li>
+<li><strong>Mass-tier</strong>: Patanjali, Baidyanath at ₹150-300,
+low-trust, kashayam-format, bitter.</li>
+</ul>
+<p>In between, a single accessible-premium player exists (Earthful
+HerSupport at ₹589, but PCOS-anchored, not PMS-anchored). Cycle slots
+cleanly into the premium D2C band where no PMS-specific SKU exists
+today.</p>
+<p><strong>3. Best portfolio fit across all 10 SKUs (TGL-Fit score
+28/30, top of the portfolio).</strong> Cycle wins on four dimensions:
+customer-voice match (existing customers ask for it), founder
+authenticity (Deepika's audience is dominantly women 28-42), pillar
+alignment (all-Indian supply chain, no flagged imports, fully Ayurvedic
+stack), and acquisition friction (warm cohort, not cold launch).</p>
+<p><strong>4. Cleanest repurchase mechanic in the portfolio.</strong>
+Cyclic-use (15-21 days/month around her cycle, then pause, then return)
+creates a built-in monthly rhythm. Cycle doesn't have to convince her to
+"try a daily wellness habit"; it slots into the rhythm her body already
+has. That makes it the cleanest subscription play in the portfolio, with
+6-week cadence aligned to consumption.</p>
+<p><strong>Why now, why paired with Bloom</strong>: Cycle alone is
+<strong>acquisition</strong>. Bloom (daily women's multi) is
+<strong>retention + cross-sell</strong>. The Q1 pair is designed so the
+same customer enters via Cycle for her acute symptom, gets warm-pitched
+into Bloom as her foundational daily routine, and starts the
+bundle-attach pattern that funds Phase 2 unlocks (Reset PCOS + Root
+Hair). One launches the brand; the other fuels the unit economics.</p>
+<p><strong>Single-sentence motivation</strong>: Cycle is the SKU TGL's
+existing customers were already asking for, sitting in the price band
+where no one else has built a credible PMS-specific Ayurvedic blend,
+designed to be the acquisition gateway into a bigger women's wellness
+portfolio.</p>
+<hr />
+<h2 id="3-the-customer-who-she-is-what-shes-tried-what-fails-her">3. The
+customer (who she is, what she's tried, what fails her)</h2>
+<p><strong>Who she is</strong> (core 28-35, edge 25-40):</p>
+<p>She's an urban Indian woman, primarily South India (Tamil Nadu the
+strongest cluster, Karnataka + Andhra + Telangana close behind),
+expanding to metros nationally over time, household income ₹6-25L,
+multilingual (English-Tamil or English-Hindi mix is the dominant
+register; Deepika's natural speaking voice works in both registers),
+educated, working or running a household with kids 0-8. She's
+wellness-conscious but supplement-skeptical: tried multivitamins and
+dropped them, buys ghee from a known farm, prefers cold-pressed oils,
+reads ingredient lists. Distrusts allopathic gynaecology for non-acute
+concerns and is allergic to mass-market Ayurveda. Wants modern Ayurveda
+with accessible language, clean packaging, transparent sourcing,
+founder-led trust. Active on Instagram Reels; trusts founder voice over
+influencer voice.</p>
+<p><strong>Regional concentration matters at launch.</strong> TGL's
+strongest existing footprint is in Tamil Nadu, with secondary strength
+across Karnataka, Andhra Pradesh, and Telangana. Phase 1 launch indexes
+on this region first: heavier Meta targeting weighting, founder content
+with English-Tamil and English-Telugu language layering, regional
+creator partnerships, packaging copy that doesn't alienate
+non-Hindi-first audiences. The brand expands outward (Mumbai, Bangalore,
+Delhi metros) once the South Indian cohort is solid. This isn't a
+permanent regional cap; it's a launch-sequence choice that uses the
+existing trust footprint instead of fighting cold acquisition in markets
+where TGL has zero customer density.</p>
+<p><strong>What's happening to her body</strong> (the medical
+context):</p>
+<p>She has painful periods (dysmenorrhea, 50-60% of menstruating Indian
+women), often irregular cycles (20-25%), sometimes heavy flow (15-20%),
+and PMS (mood, bloating, cramps) for 3-7 days every month. She's not
+pathologically diagnosed; she's symptomatic. 1-2 days every month, she
+leaves work early or struggles through it.</p>
+<p><strong>What she's tried, and why each fails her</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What she tries</th>
+<th>Why it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Painkillers (Meftal-Spas, Combiflam)</td>
+<td>Works for cramps but creates GI side effects + long-term-use
+guilt</td>
+</tr>
+<tr>
+<td>Birth control pills (prescribed by gynaec)</td>
+<td>"Regularises" cycles but unwanted hormonal load, long-term
+concern</td>
+</tr>
+<tr>
+<td>Ayurvedic kashayams / asavas (Ashokarishta, Stree Rasayan Vati)</td>
+<td>Bitter taste, hard to dose, sticky bottles, low compliance</td>
+</tr>
+<tr>
+<td>Magnesium / B6 single-ingredient supplements</td>
+<td>Not category-coded for period care; she doesn't think to buy it for
+her cycle</td>
+</tr>
+<tr>
+<td>Period-tracker apps</td>
+<td>Helps awareness, doesn't actually solve any symptom</td>
+</tr>
+<tr>
+<td>Hot water bottle, dietary changes</td>
+<td>Coping, not solving</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The 28-day journey</strong> (where the pain peaks, where
+Cycle fits):</p>
+<table>
+<thead>
+<tr>
+<th>Cycle phase</th>
+<th>Days</th>
+<th>What she experiences</th>
+<th>Where Cycle fits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Period</td>
+<td>1-5</td>
+<td>Cramps, low energy, mood, sometimes heavy flow</td>
+<td>2 caps/day during the window</td>
+</tr>
+<tr>
+<td>Follicular</td>
+<td>6-12</td>
+<td>Energy returning, no acute symptom</td>
+<td>Continue daily, nutritive support</td>
+</tr>
+<tr>
+<td>Ovulation</td>
+<td>13-17</td>
+<td>Mild bloating, breast tenderness</td>
+<td>Optional pause if not strict daily user</td>
+</tr>
+<tr>
+<td>Luteal / PMS</td>
+<td>18-26</td>
+<td>Mood swings, cramps building, bloating, breast tenderness, sleep
+disturbance</td>
+<td>2 caps/day; biggest-leverage window</td>
+</tr>
+<tr>
+<td>Pre-period</td>
+<td>27-28</td>
+<td>Pre-period symptoms peak</td>
+<td>Continue</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The gap Cycle fills</strong>: a capsule format she can take
+twice a day on her cycle days, in her kitchen-counter routine, that
+combines the herbs her grandmother would name with the convenience her
+schedule demands. Not a painkiller (no instant cramp shutdown). Not a
+hormonal pill (no synthetic load). Not a kashayam (no taste / dosing
+friction). Cycle promises gradual cycle regulation + reduced symptom
+intensity over 3+ cycles. Two caps a day, on a 6-week subscription
+cadence aligned to her actual consumption.</p>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-3-6-months">4.
+What the product does (the lived experience over 3-6 months)</h2>
+<p><strong>Cycle is not a painkiller, and we don't market it as
+one.</strong> Painkillers shut down a cramp in 30 minutes; Cycle works
+on a different timescale. It's a body-rhythm intervention: gradual cycle
+regulation + reduced symptom intensity over 3+ cycles of consistent use.
+Setting that expectation honestly is what protects us from the "I took
+it for two weeks and felt nothing" review wall that kills D2C wellness
+brands.</p>
+<p>Here's what she actually experiences if she takes 2 caps/day during
+her cyclic window for 6 months:</p>
+<p><strong>Cycle 1 (first 30 days): the compliance test.</strong></p>
+<p>Minimal perceived change. Maybe a small mood-lift in luteal week
+(Manjistha + Sesame). Maybe slightly less bloating. Often, nothing she'd
+register. <strong>This is the highest drop-off window in any wellness
+D2C; most customers quit here.</strong> The marketing job in Cycle 1 is
+not to sell efficacy; it's to sell patience. Deepika's content arc in
+launch month is <em>"give it 3 cycles before you decide. Real plants
+take time to work."</em></p>
+<p><strong>Cycles 2-3 (60-90 days): the first signal.</strong></p>
+<p>A meaningful proportion of consistent users start to report:</p>
+<ul>
+<li>Cramp intensity reduction (not elimination, but Day 1 stops feeling
+like a write-off day)</li>
+<li>PMS bloating reduction (luteal week feels less heavy)</li>
+<li>Mood swings less sharp</li>
+<li>Sleep disturbance pre-period less acute</li>
+</ul>
+<p>The user pattern at this stage: she finishes Pack 2, recognises she
+felt better last cycle than the one before, and decides "let me see if
+it sticks." This is the conversion moment from trial to loyal customer.
+<strong>Subscription retention math says: if she finishes Pack 2 and
+reorders Pack 3, she's typically a 12-month customer.</strong></p>
+<p><strong>Cycles 4-6 (4-6 months): regularisation kicks
+in.</strong></p>
+<p>For users with mild-moderate cycle irregularity (the dominant subset
+of TGL's customer base), Cycle starts to settle her cycle window. She
+knows when her period will arrive within a 2-3 day envelope vs the 5-10
+day envelope she lived with before. Cramp intensity continues to soften.
+Some users report cyclical acne (a Manjistha-sensitive marker) clearing.
+The "I forgot I had PMS this month" moment lands somewhere in this
+window.</p>
+<p><strong>6+ months: maintenance and step-down.</strong></p>
+<p>Once the body is regulated, some users step down from full
+cyclic-window dosing (15-21 days) to period-only dosing (5-7
+days/cycle). Pack consumption stretches from 1.5 months to 2.5-3 months.
+Subscription cadence adjusts; annual revenue per customer drops
+modestly, but lifetime stays high. Others stay on full cyclic-window
+dose for the consistency. We don't push customers either way; the
+product trains its own dose.</p>
+<p><strong>What we're NOT promising</strong> (so customers and Deepika
+both stay credible):</p>
+<table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pain shutdown in 30 minutes</td>
+<td>Painkillers do that; this isn't one</td>
+</tr>
+<tr>
+<td>"Cure" of dysmenorrhea / PCOD / endometriosis</td>
+<td>Disease-coded claims violate Schedule VI; also untrue</td>
+</tr>
+<tr>
+<td>Hormonal therapy alternative</td>
+<td>She'll need her gynaec for diagnosed conditions</td>
+</tr>
+<tr>
+<td>Replacement for dietary changes or sleep hygiene</td>
+<td>Cycle stacks with lifestyle, doesn't replace it</td>
+</tr>
+<tr>
+<td>Effect inside 30 days</td>
+<td>Too aggressive; wrong expectation; review wall</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest customer message</strong> Deepika repeats across
+content: <em>"Built on Moringa. Powered by Ayurveda. Two caps a day
+during your cycle window. Give it 3 cycles before you decide. Real
+plants take time to work, that's what makes it work."</em></p>
+<hr />
+<div class="cycle-journey">
+<h3 class="cycle-journey-title">Cycle's place in her 28-day cycle</h3>
+<p class="cycle-journey-sub">Cycle is taken during her cyclic-use window (15-21 days/month around her period). The dosing slots into a rhythm her body already has.</p>
+
+<div class="cycle-bar">
+<div class="cycle-segment menstrual">Period<span class="cycle-segment-day">Days 1-5</span></div>
+<div class="cycle-segment follicular">Follicular<span class="cycle-segment-day">Days 6-12</span></div>
+<div class="cycle-segment ovulation">Ovulation<span class="cycle-segment-day">Days 13-17</span></div>
+<div class="cycle-segment luteal">Luteal / PMS<span class="cycle-segment-day">Days 18-26</span></div>
+<div class="cycle-segment preperiod">Pre-period<span class="cycle-segment-day">Days 27-28</span></div>
+</div>
+
+<div class="cycle-dosing">
+<div class="cycle-dose full" style="flex: 5;">2 caps/day</div>
+<div class="cycle-dose optional" style="flex: 7;">Optional / nutritive</div>
+<div class="cycle-dose none" style="flex: 5;">Pause OK</div>
+<div class="cycle-dose full" style="flex: 9;">2 caps/day · biggest leverage</div>
+<div class="cycle-dose full" style="flex: 2;">Continue</div>
+</div>
+
+<div class="cycle-legend">
+<span><span class="legend-swatch" style="background: var(--heading);"></span>Active dosing window</span>
+<span><span class="legend-swatch" style="background: var(--tier-b);"></span>Optional / nutritive support</span>
+<span><span class="legend-swatch" style="background: transparent; border: 1px dashed var(--border);"></span>Pause window</span>
+</div>
+</div>
+
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Six actives in the cap, organised as one moringa whole-leaf
+heritage base + five standardised extracts.</strong> This is TGL's
+extract-first formulation philosophy in action (per
+<code>02-brand-dna.md</code> Operational Principle 6, locked 2026-05-09
+as TGL-P1-DEC-011).</p>
+<p><strong>Format: Size #0 capsule × 2 caps/day during cyclic-use window
+(15-21 days/month around her period).</strong> ✅ Hits the
+highest-priority UX target per DEC-016.</p>
+<p><strong>The 6-active stack</strong> (each named with form +
+standardisation marker + concentration + primary vendor — DEC-016
+verified all-vendor-network all-standard-grade):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (376mg fill, 2 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Shatavari</strong></td>
+<td>Standardised extract, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>200 mg</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Ashoka</strong></td>
+<td>Standardised extract, ~40% tannins (concentrated 8:1 from
+whole-bark, DNA-authenticated species)</td>
+<td>Akay Group OR Vidya Herbs</td>
+<td>25 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Lodhra</strong></td>
+<td>Standardised extract, ~30% tannins (concentrated 8:1 from
+whole-bark, DNA-authenticated)</td>
+<td>Akay Group OR Vidya Herbs</td>
+<td>13 mg</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Manjistha</strong></td>
+<td>Standardised extract, ~10% anthraquinones (concentrated 8:1 from
+whole-root)</td>
+<td>Akay Group OR Vidya Herbs</td>
+<td>13 mg</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Moringa</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa)</td>
+<td>TGL captive</td>
+<td>75 mg</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Black sesame</strong></td>
+<td>Standardised extract, 40-50% sesamin (HPLC, hexane-free)</td>
+<td>Plant Lipids OR Arjuna Natural</td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~376 mg / cap</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>DEC-016 compliance check (2026-05-09)</strong>: All 5
+extracts are vendor-network standard concentrations (no specialty /
+hyper-premium / single-supplier branded ingredients required). Cycle is
+the cleanest fit of the 10 SKUs to the 500mg Size #0 × 2 caps/day
+high-priority UX target, with no compromises on therapeutic dose.</p>
+<p><strong>On-pack and PDP labelling shows the whole-plant
+equivalence</strong> (example: "Ashoka extract 25mg, equivalent to 200mg
+whole-bark") so the customer sees classical-dose efficacy delivered via
+standardised pharma-grade consistency.</p>
+<p><strong>Daily intake at 2 caps/day</strong> during her cyclic-use
+window (15-21 days/month):</p>
+<ul>
+<li>Shatavari extract: 400mg (delivers ~16-20mg saponins/day, classical
+therapeutic range)</li>
+<li>Ashoka extract: 50mg (equivalent to ~400mg whole-bark)</li>
+<li>Lodhra extract: 26mg (equivalent to ~200mg whole-bark)</li>
+<li>Manjistha extract: 26mg (equivalent to ~200mg whole-root)</li>
+<li>Moringa whole-leaf: 150mg (Tier A heritage signature dose, locked
+per Moringa Foundation principle)</li>
+<li>Black sesame extract: 100mg (delivers ~40-50mg sesamin/day)</li>
+<li><strong>Total daily extract + heritage intake: ~750mg actual mass;
+~1,250mg whole-plant-equivalent dose</strong></li>
+</ul>
+<p><strong>Rough nutrient density roll-up</strong> (what the body gets,
+beyond the bioactive headlines):</p>
+<ul>
+<li><strong>Iron</strong>: from moringa whole-leaf at 150mg/day,
+delivers ~0.6-0.9mg natural-source iron (~6-9% adult women's RDA).
+Supportive replenishment for menstruation-related iron loss; not a full
+iron supplement.</li>
+<li><strong>Calcium</strong>: moringa (~45-75mg/day) + sesame extract
+trace, combined ~50-85mg natural-source calcium (~5-8% RDA). Supportive,
+not therapeutic dose.</li>
+<li><strong>Vitamin C, folate, B-complex, antioxidants</strong>: trace
+nutritive support from moringa whole-leaf phytocomplex.</li>
+<li><strong>Bioactive markers</strong> (the things doing the actual
+work):
+<ul>
+<li>Shatavarins (saponins): ~16-20mg/day, hormonal modulation via
+phytoestrogen pathway</li>
+<li>Tannins (Ashoka + Lodhra extracts): ~12-16mg/day combined, uterine
+tonic + astringent action</li>
+<li>Anthraquinones (Manjistha extract): bioactive presence sufficient
+for anti-inflammatory + lymphatic support</li>
+<li>Sesamin lignans: ~40-50mg/day, phytoestrogen +
+Vata-pacification</li>
+<li>Whole-plant phytocomplex from moringa: nutritive + cellular
+antioxidant</li>
+</ul></li>
+</ul>
+<p><strong>Why this specific 6-active stack</strong>:</p>
+<ul>
+<li><strong>Shatavari extract</strong>: gold-standard hormonal
+modulator. The 4-5% saponin standardisation is industry norm (no premium
+for higher %). Cannot build a credible women's hormonal SKU without
+it.</li>
+<li><strong>Ashoka extract</strong>: classical primary uterine tonic for
+cramp + flow. The 8:1 concentrated extract preserves the bioactive
+complex while delivering classical-dose equivalence at a small
+footprint.</li>
+<li><strong>Lodhra extract</strong>: classical pair-with-Ashoka for
+heavy-flow patients. Doubles down the astringent action.</li>
+<li><strong>Manjistha extract</strong>: addresses the bloating +
+skin-clarity angle of PMS that competitors under-serve. Also balances
+the Pitta-aggravation that Ashoka can cause solo.</li>
+<li><strong>Moringa whole-leaf</strong>: brand heritage thread (the
+"Built on Moringa" anchor) + real nutritive support during a phase of
+monthly nutrient loss. The ONE whole-plant ingredient in the cap, per
+Operational Principle 6.</li>
+<li><strong>Black sesame extract</strong>: Vata-pacification (cramp
+angle) + concentrated calcium + sesamin lignans in a small
+footprint.</li>
+</ul>
+<p><strong>What's NOT in the stack, and why</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Excluded active</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Methi (fenugreek)</td>
+<td>Cramp angle covered by Ashoka + Sesame. Cleaner Schedule VI.
+Vendor-formulator can revisit at trial-fill if data supports.</td>
+</tr>
+<tr>
+<td>Brahmi, Ashwagandha</td>
+<td>Those serve other SKUs (Bloom, Spark). Mood angle here is covered by
+Manjistha.</td>
+</tr>
+<tr>
+<td>Iron salt, calcium salt, B6 isolated</td>
+<td>Would violate Pillar 1 (natural-source only). Moringa + sesame
+provide natural-source supportive doses.</td>
+</tr>
+<tr>
+<td>D-Inositol</td>
+<td>That is SKU 2 (Reset / PCOS). Different mechanism, different
+customer.</td>
+</tr>
+<tr>
+<td>Curcumin</td>
+<td>Limited cycle-care evidence. Lives in SKU 9 (Glide / Joint).</td>
+</tr>
+<tr>
+<td>Whole-bark Ashoka or Lodhra (powder)</td>
+<td>Per Operational Principle 6: extracts default for consistency.
+Whole-plant reserved as brand-heritage base; only Moringa fills that
+role here.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: 375mg total fill is well within
+standard Size #0 capsule capacity (~410-500mg). No granulation step
+needed. Standard manufacturing across most Indian capsule CMOs. Detailed
+in <code>formulation-specs/sku-1-cycle-formulation-spec-v2.md</code> (V2
+spec needs revision to reflect this lock).</p>
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 6 actives: mechanism, classical basis, modern
+clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. Shatavari extract (4-5% saponins, 200mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: phytoestrogenic steroidal saponins
+(shatavarins I-IV) bind weakly to estrogen receptors. Modulates estrogen
+activity (agonist where deficient, antagonist where excess). Adaptogenic
+action on the hypothalamic-pituitary-ovarian (HPO) axis. Mild diuretic
+helps PMS bloating.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a>. Primary <em>Stree-rasayana</em> (women's tonic). Single
+most-cited herb in classical women's health pharmacology.</li>
+<li><strong>Modern clinical evidence</strong>: Pandey et al. <em>"Impact
+of stress on female reproductive health disorders: Possible beneficial
+effects of shatavari (Asparagus racemosus)."</em> Biomed Pharmacother,
+2018; 103:46-49. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29635127/">PubMed</a>. Plus Alok
+et al. <em>"Plant profile, phytochemistry and pharmacology of Asparagus
+racemosus (Shatavari): A review."</em> Asian Pacific Journal of Tropical
+Disease, 2013; 3(3):242-251. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4027291/">PMC full
+text</a>.</li>
+<li><strong>Dose rationale</strong>: 200mg/cap × 2 caps = 400mg daily
+extract. Delivers 16-20mg shatavarins/day, in the classical therapeutic
+range (200-500mg extract daily for cycle regularity).</li>
+</ul>
+<p><strong>2. Ashoka extract (~40% tannins, 8:1 from whole-bark,
+25mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: tannins + flavonoids + phytosterols.
+Uterine stimulant + tonic action. Reduces uterine contractility (cramp
+relief). Astringent action on excessive menstrual flow.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
++ classical <em>Ashokarishta</em> fermented preparations (centuries-old
+gold-standard menstrual formulation). M.A. Iyengar (1934) classical
+pharmacology positions Ashoka as the primary uterine tonic.</li>
+<li><strong>Modern clinical evidence</strong>: Multiple small Indian
+RCTs (2010-2018) document Ashoka bark extract reducing dysmenorrhea pain
+intensity by 30-40% over 2-3 cycles. No single landmark paper at
+meta-analysis quality. Reference review: <a
+href="https://www.irjmets.com/uploadedfiles/paper//issue_12_december_2023/47304/final/fin_irjmets1702495339.pdf">Saraca
+asoca pharmacology review (IRJMETS, 2023)</a>. Dominant evidence base
+remains classical-textual.</li>
+<li><strong>Dose rationale</strong>: 25mg extract/cap × 2 caps = 50mg
+daily extract = approximately 400mg whole-bark equivalent (classical
+dose range 200-500mg whole-bark daily).</li>
+</ul>
+<p><strong>3. Lodhra extract (~30% tannins, 8:1 from whole-bark,
+13mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: astringent via tannins. Mild
+estrogenic-modulating action. Hemostatic.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>.
+Classical <em>Sangrahi</em> (astringent). Combined with Ashoka in
+<em>Ashokarishta</em> and adjacent classical formulations.</li>
+<li><strong>Modern clinical evidence</strong>: Limited modern RCTs. This
+is a classical-traditional-strong, modern-thin active. We use it because
+the classical pairing logic with Ashoka holds and the bioactive (tannin)
+is well-characterised. No specific landmark clinical paper to cite at
+this stage.</li>
+<li><strong>Dose rationale</strong>: 13mg extract/cap × 2 caps = 26mg
+daily = approximately 200mg whole-bark equivalent. Conservative
+classical dose; classical formulations use 250-500mg whole-bark for
+severe menorrhagia.</li>
+</ul>
+<p><strong>4. Manjistha extract (~10% anthraquinones, 8:1 from
+whole-root, 13mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: anthraquinones + glycosides. Classical
+<em>Raktashodhaka</em> (blood purifier). Modern: anti-inflammatory +
+lymphatic decongestant. Addresses cyclical skin clarity.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> primary <em>Raktaprasadana</em> herb. <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
++ Sushruta both feature it.</li>
+<li><strong>Modern clinical evidence</strong>: anti-inflammatory in
+vitro studies; cycle-specific clinical data limited. Traditional-strong,
+modern-emerging. No specific landmark clinical paper to cite at this
+stage.</li>
+<li><strong>Dose rationale</strong>: 13mg extract/cap × 2 caps = 26mg
+daily = approximately 200mg whole-root equivalent (modern Ayurvedic
+supplement dose typically 100-300mg whole-root).</li>
+</ul>
+<p><strong>5. Moringa whole-leaf powder (heat-treated, TGL captive
+supply, 75mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (iron, calcium,
+vitamin C, antioxidants, chlorophyll). Not a primary cycle-regulation
+active; supports replenishment of period-related nutrient losses,
+especially iron.</li>
+<li><strong>Folk + modern basis</strong>: established nutraceutical
+literature on moringa as iron + folate + B-complex source. Iron
+deficiency exacerbates PMS symptoms; many menstruating Indian women are
+sub-clinically deficient.</li>
+<li><strong>Modern evidence</strong>: Alegbeleye, O.O. <em>"How
+Functional Is Moringa oleifera? A Review of Its Nutritive, Medicinal,
+and Socioeconomic Potential."</em> Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>. Plus 2023
+systematic review: <em>"The Impact of Moringa oleifera Supplementation
+on Anemia and other Variables during Pregnancy and Breastfeeding: A
+Narrative Review."</em> <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10301989/">PMC full
+text</a>. Strong nutritive evidence base; not specifically PMS-clinical,
+but population-nutritional support is well-established.</li>
+<li><strong>Dose rationale</strong>: 75mg/cap × 2 caps = 150mg daily.
+Calibrated heritage signature dose (Tier A 50-75mg band per Moringa
+Foundation principle). Substantive enough to carry the moringa thread;
+calibrated to avoid stacking-overload when taken alongside other
+moringa-bearing TGL SKUs.</li>
+<li><strong>Brand role</strong>: heritage signature carrying the "every
+cap a piece of our farms" cross-portfolio narrative. Works in dual mode
+as nutritive + brand thread.</li>
+</ul>
+<p><strong>6. Black sesame extract (40-50% sesamin, hexane-free,
+50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: sesamin lignans + phytoestrogens
+(sesamolin). Calcium-rich. Classical Ayurvedic Vata-pacifier in lower
+abdomen, reduces cramping.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a>. <em>Tila</em> in gynaecological formulations. Used in
+classical Vata-shaman therapies for menstrual care.</li>
+<li><strong>Modern clinical evidence</strong>: Wu WH et al. <em>"Sesame
+Ingestion Affects Sex Hormones, Antioxidant Status, and Blood Lipids in
+Postmenopausal Women."</em> The Journal of Nutrition, 2006;
+136(5):1270-1275. <a
+href="https://academic.oup.com/jn/article-abstract/136/5/1270/4669984">Oxford
+Academic</a>. Confirmed sesame ingestion shifts endogenous estrogen
+markers; not period-specific RCTs but mechanism-aligned.</li>
+<li><strong>Dose rationale</strong>: 50mg extract/cap × 2 caps = 100mg
+daily extract. At 40-50% sesamin = 40-50mg sesamin/day, within bioactive
+range cited in lignan literature.</li>
+</ul>
+<hr />
+<p><strong>How the 6 actives work as a layered stack</strong> (not in
+isolation):</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Actives doing the work</th>
+<th>What it accomplishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hormonal modulation</td>
+<td>Shatavari + Sesame lignans</td>
+<td>HPO-axis support, phytoestrogen balance</td>
+</tr>
+<tr>
+<td>Uterine tonic + cramp relief</td>
+<td>Ashoka + Sesame (Vata-pacification)</td>
+<td>Direct contractility reduction</td>
+</tr>
+<tr>
+<td>Flow regulation</td>
+<td>Ashoka + Lodhra (astringent stack)</td>
+<td>Heavy-flow control</td>
+</tr>
+<tr>
+<td>PMS bloating + skin + mood</td>
+<td>Manjistha</td>
+<td>Luteal-phase symptom reduction, lymphatic decongestant</td>
+</tr>
+<tr>
+<td>Nutritive replenishment + brand heritage</td>
+<td>Moringa</td>
+<td>Iron + calcium support + DPR farm thread</td>
+</tr>
+</tbody>
+</table>
+<p>Each active addresses a specific facet of the cycle-care problem. The
+full stack's synergy is the value; no single active alone matches
+it.</p>
+<p><strong>The "give it 3 cycles" claim is biologically honest, not
+marketing patience theatre.</strong></p>
+<p>Modern clinical evidence on Ayurvedic herbs consistently shows effect
+at 60-90 days minimum. Phytoestrogens take cycles to balance the HPO
+axis. Tannin-rich actives need consistent presence to modulate uterine
+tone. Manjistha's anti-inflammatory action accumulates with consistent
+daily dosing. When Deepika tells customers "give it 3 cycles before you
+decide", that is the actual biology speaking, not marketing
+patience.</p>
+<p><strong>Evidence-strength summary</strong> (so the team knows where
+we are confident vs cautious):</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Traditional basis</th>
+<th>Modern clinical evidence</th>
+<th>Overall strength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shatavari</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(primary Stree-rasayana)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29635127/">Pandey 2018
+review</a> + <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4027291/">Alok 2013
+pharmacology review</a></td>
+<td>Moderate-strong</td>
+</tr>
+<tr>
+<td>Ashoka</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
++ classical <em>Ashokarishta</em> (centuries of clinical use)</td>
+<td>Multiple small Indian RCTs (2010-2018), no landmark paper. <a
+href="https://www.irjmets.com/uploadedfiles/paper//issue_12_december_2023/47304/final/fin_irjmets1702495339.pdf">IRJMETS
+2023 pharmacology review</a></td>
+<td>Traditional-strong, modern-moderate</td>
+</tr>
+<tr>
+<td>Lodhra</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Sangrahi)</td>
+<td>Limited modern RCTs; no landmark paper</td>
+<td>Traditional-strong, modern-thin</td>
+</tr>
+<tr>
+<td>Manjistha</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>
+(Raktashodhaka)</td>
+<td>Anti-inflammatory in vitro studies</td>
+<td>Traditional-strong, modern-emerging</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>Folk + modern nutraceutical literature</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29284305/">Alegbeleye 2018
+review</a> + <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10301989/">2023 anemia
+&amp; pregnancy review</a></td>
+<td>Modern-strong</td>
+</tr>
+<tr>
+<td>Black sesame</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>
+(Tila in gynaec)</td>
+<td><a
+href="https://academic.oup.com/jn/article-abstract/136/5/1270/4669984">Wu
+2006 sesame &amp; sex hormones</a> + lignan literature</td>
+<td>Moderate</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Cycle as the SKU it is.</p>
+<p><strong>Layer 1: Why Cycle as Phase 1 launch (not Reset, Bloom-alone,
+or Crest)</strong></p>
+<p>We evaluated all 10 SKUs across four cross-validating dimensions: (1)
+Volume potential (category size in India), (2) Profitability (margin ×
+LTV potential), (3) TGL-fit (existing customer voice + pillar
+alignment), (4) Founder authenticity (Deepika's voice fits the segment).
+Cycle scored 28/30 on TGL-fit and ranked top across the four-lens
+triangulation (full rationale in
+<code>03-segment-prioritization.md</code>). Four reasons it won:</p>
+<ul>
+<li><strong>Highest customer-voice match.</strong> Period regulation is
+the dominant theme in TGL's existing 10K+ customer review base. We are
+serving demand that is already there, not creating new demand.</li>
+<li><strong>Lowest acquisition friction.</strong> TGL's existing buyers
+convert directly. Reset (PCOS) requires a colder cohort; Crest
+(Menopause) needs creator partnerships TGL doesn't have yet; Root (Hair)
+is a high-CAC competitive category dominated by Be Bodywise.</li>
+<li><strong>Cleanest pricing whitespace.</strong> ₹600-900 PMS-anchored
+Ayurveda doesn't exist today. Earthful is PCOS-anchored; Gynoveda is
+pharma-tier ₹1,200+; Patanjali is ₹150 mass-tier. Direct path to
+category leadership at the accessible-premium tier.</li>
+<li><strong>All-Indian supply chain, fully Ayurvedic stack.</strong> No
+imports flagged. No D-Inositol natural-source uncertainty (that's SKU
+2). No regulatory edge cases. Lowest execution risk for a Phase 1
+launch.</li>
+</ul>
+<p>Bloom (Daily Multi) joins Cycle in Q1 not because it's the
+second-best Phase 1 candidate in isolation, but because the
+<strong>Cycle + Bloom pair</strong> completes a unit-economics arc
+(Cycle = acquisition; Bloom = retention + cross-sell). Reset, Root,
+Crest, Calm, Nourish, Pulse, Glide, Spark all ship across Phases 2-6
+once Cycle's Month 3 validation gate clears.</p>
+<p><strong>Layer 2: Why this 6-active stack (and not
+another)</strong></p>
+<p>The classical Indian Ayurvedic gynaecology library has roughly 25
+cited herbs for cycle-care use. Modern PMS Ayurvedic blends typically
+pick 4-8 of them. We considered 12 candidates and selected 6:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shatavari</td>
+<td>INCLUDED</td>
+<td>Primary <em>Stree-rasayana</em>. Single most-evidence-backed herb in
+classical women's health pharmacology. Non-negotiable.</td>
+</tr>
+<tr>
+<td>Ashoka</td>
+<td>INCLUDED</td>
+<td>Classical primary uterine tonic. Non-negotiable for any credible PMS
+formulation.</td>
+</tr>
+<tr>
+<td>Lodhra</td>
+<td>INCLUDED</td>
+<td>Classical pair-with-Ashoka for heavy-flow patients. Doubles down
+astringent action.</td>
+</tr>
+<tr>
+<td>Manjistha</td>
+<td>INCLUDED</td>
+<td>Anti-inflammatory + lymphatic decongestant. Addresses bloating +
+skin angle competitors miss. Balances the Pitta-aggravation that Ashoka
+can cause solo.</td>
+</tr>
+<tr>
+<td>Black sesame</td>
+<td>INCLUDED</td>
+<td>Calcium + Vata-pacification + sesamin lignans in small footprint.
+Multi-function ingredient that earns its space.</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>INCLUDED (heritage base)</td>
+<td>Brand heritage thread + nutritive replenishment. The "Built on
+Moringa" anchor.</td>
+</tr>
+<tr>
+<td>Methi (fenugreek)</td>
+<td>EXCLUDED</td>
+<td>Cramp angle covered by Ashoka + Sesame already. Adds no new
+dimension. Vendor-formulator can revisit.</td>
+</tr>
+<tr>
+<td>Ashwagandha</td>
+<td>EXCLUDED</td>
+<td>Mood angle here covered by Manjistha. Ashwagandha lives in SKU 10
+(Spark / Stress) where it's the hero.</td>
+</tr>
+<tr>
+<td>Brahmi</td>
+<td>EXCLUDED</td>
+<td>Cognitive angle not central to PMS. Lives in SKU 5 (Root) and SKU 10
+(Spark).</td>
+</tr>
+<tr>
+<td>Vitex / Chasteberry</td>
+<td>EXCLUDED</td>
+<td>Strong PMS evidence but not Indian-source supply chain. Lives in SKU
+4 (Crest / Menopause).</td>
+</tr>
+<tr>
+<td>Triphala</td>
+<td>EXCLUDED</td>
+<td>Digestive angle, not cycle-care. Lives in SKU 8 (Pulse).</td>
+</tr>
+<tr>
+<td>Curcumin</td>
+<td>EXCLUDED</td>
+<td>Limited cycle-care evidence. Lives in SKU 9 (Glide / Joint).</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio approach forces discipline: every active is in exactly
+one SKU's "primary" role, no duplication of hero ingredients across
+SKUs.</p>
+<p><strong>Layer 3: Why this specific dose architecture (and not
+another)</strong></p>
+<p>Every dose was triangulated across three constraints:</p>
+<ol type="1">
+<li><strong>Classical therapeutic range</strong> (what Bhavaprakasha or
+modern Ayurvedic supplements actually use)</li>
+<li><strong>Capsule fill feasibility</strong> (Size #0 = ~500mg max
+practical fill)</li>
+<li><strong>2-cap-per-day compliance ceiling</strong> (anything beyond 2
+caps creates retention friction)</li>
+</ol>
+<p>That triangulation forced the extract-first decision (Operational
+Principle 6, locked as TGL-P1-DEC-011). With 5 extracts + 1 whole-leaf
+base at 8:1 concentration on the bark/root extracts, we deliver
+classical-equivalent doses (Ashoka 400mg whole-bark equivalent, etc.)
+while staying inside the 375mg fill × 2 caps/day envelope.</p>
+<p><strong>Trade-offs we accepted, openly stated:</strong></p>
+<ul>
+<li><strong>Some classical whole-plant phytocomplex synergy in Ashoka,
+Lodhra, Manjistha.</strong> Switching to standardised extracts loses
+some of the natural ratio of co-occurring compounds. Mitigated by
+specifying full-spectrum / spray-dried extracts (Akay, Plant Lipids both
+offer this format) rather than isolated-marker extracts.</li>
+<li><strong>Less supplier diversity for less-traded extracts</strong>
+(Ashoka, Lodhra extracts are smaller markets than the powders).
+Mitigated by multi-sourcing primary + backup per active.</li>
+<li><strong>Per-active mg numbers look small on label</strong>
+(Manjistha 13mg/cap reads weak to a customer doing math). Mitigated by
+labelling whole-plant equivalence on-pack ("Ashoka extract 25mg,
+equivalent to 200mg whole-bark").</li>
+<li><strong>Lodhra and Manjistha modern clinical evidence is
+thin.</strong> We use them on classical-textual basis, not modern-RCT
+evidence. Marketing language must respect this gap (no "clinically
+proven" claim language for these two specifically).</li>
+</ul>
+<p><strong>The decision trail in one sentence</strong>: Cycle is the SKU
+TGL's existing customer base voted for with their reviews; the 6-active
+stack is the smallest credible Ayurvedic women's-tonic blend that
+respects classical therapeutic ranges; the extract-first architecture is
+what made it fit a 2-cap-per-day Size #0 capsule without compromising
+clinical-equivalent dosing.</p>
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p>Cycle plays in the accessible-premium D2C Ayurvedic women's wellness
+category. Five players cover most of the customer's mental shelf
+today.</p>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>Price (sale)</th>
+<th>Format</th>
+<th>Positioning</th>
+<th>Active focus</th>
+<th>Per-day cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cycle (TGL)</strong></td>
+<td>₹899</td>
+<td>Capsule, 2/day</td>
+<td><strong>PMS-anchored</strong> Ayurveda, accessible-premium,
+founder-led, moringa heritage thread</td>
+<td>5 standardised extracts + moringa whole-leaf base</td>
+<td>~₹15/day</td>
+</tr>
+<tr>
+<td>Earthful HerSupport</td>
+<td>₹589</td>
+<td>Capsule, 2/day</td>
+<td>Hormonal balance, PCOS-leaning</td>
+<td>8-active extract stack, no moringa thread</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td>Gynoveda Period Cure</td>
+<td>₹3,599-3,999 (90-day kit)</td>
+<td>Multi-cap kit, 4-6 caps/day</td>
+<td>Pharma-clinical, doctor-coded</td>
+<td>Cyclic-day numbered protocol</td>
+<td>~₹40-44/day</td>
+</tr>
+<tr>
+<td>OZiva HerBalance</td>
+<td>₹999</td>
+<td>Capsule, 2/day</td>
+<td>Extract-stack, English-first, urban-millennial</td>
+<td>Isolated extracts, synthetic-adjacent</td>
+<td>~₹17/day</td>
+</tr>
+<tr>
+<td>Plix Goodbye PMS</td>
+<td>₹699 (15-day pack)</td>
+<td>Effervescent tablet, 1/day</td>
+<td>Format-gimmick, taste-driven</td>
+<td>Plant extracts + synthetic Mg/B6/B-complex</td>
+<td>~₹47/day</td>
+</tr>
+<tr>
+<td>Mass-tier (Patanjali, Baidyanath)</td>
+<td>₹150-300</td>
+<td>Vati or asava (kashayam)</td>
+<td>Mass-Ayurveda, low-trust signal</td>
+<td>Generic classical</td>
+<td>~₹5-10/day</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The single-sentence competitive position</strong>: Cycle is
+the only Indian D2C SKU that is PMS-anchored (not PCOS-leaning), uses
+standardised extracts of classical Ayurvedic herbs (not synthetic
+adjuncts), in capsule format (not effervescent or kashayam), at the
+accessible-premium price (not pharma-clinical or mass-market), with a
+moringa heritage thread in every cap.</p>
+<h2 id="9-right-to-win-why-a-real-woman-picks-cycle">9. Right to win
+(why a real woman picks Cycle)</h2>
+<p>Five reasons she chooses Cycle when she's looking at the shelf.</p>
+<p><strong>1. It speaks her actual problem.</strong> PMS-anchored, not
+generic "hormonal balance." She doesn't have to translate a
+PCOS-anchored product (Earthful) into her PMS reality. She doesn't have
+to scale down a pharma-tier 90-day kit (Gynoveda) to fit her actual
+symptom. She sees "Cycle" on the bottle and immediately knows: this is
+for the bad days, every month.</p>
+<p><strong>2. It respects her time and her body.</strong> 2 caps a day
+during her cyclic window. No 4-6 cap pharma protocol, no daily-forever
+multivitamin habit, no bitter kashayam she would avoid by dinner. Her
+body already has a monthly rhythm; Cycle slots into it instead of
+fighting it.</p>
+<p><strong>3. It tells her the truth about the timeline.</strong> "Give
+it 3 cycles" is the message. Not "results in 7 days." Not "instant
+relief." Real plants take time to work, and the brand says so directly.
+By Cycle 2, she starts to notice. By Cycle 4-6, the regularity settles.
+Honest expectation-setting builds the trust that compounds into a long
+subscription relationship.</p>
+<p><strong>4. It's built on something she can see.</strong> Deepika's
+face is on the brand. Deepika's farm grew the moringa in every cap.
+There is an ingredient list she can read, a sourcing story she can
+verify, a founder voice she trusts more than any influencer's. The brand
+is a person, not a marketing budget.</p>
+<p><strong>5. The price feels right for what she gets.</strong> ₹899
+sale, ₹764 subscription, ~₹15 a day during her cyclic window. A quarter
+of what Gynoveda costs per day. A third of what Plix costs per day.
+Above Patanjali's ₹150 because Patanjali isn't what she would actually
+take. The price says "premium that is earned," not "premium because we
+said so."</p>
+<p><strong>Two things that do not show up in the matrix but matter in
+real life:</strong></p>
+<ul>
+<li><strong>Deepika speaks her register.</strong> English-Tamil and
+English-Hindi natural mix. Most premium D2C wellness brands speak only
+English-first Mumbai-Bangalore-coded. Cycle's customer is South
+Indian-leaning, multilingual, and Deepika sounds like her aunt or her
+older cousin who happens to know about Ayurvedic herbs. That register
+difference is hard for any English-first urban brand to replicate from
+outside.</li>
+<li><strong>The ingredient label tells the same story Deepika tells in
+her Reels.</strong> No marketing-only descriptors hidden behind
+"proprietary blend." The standardisation percentages on the label (4-5%
+saponins, 40% tannins, 40-50% sesamin) match what Deepika quotes in her
+content. Internal-external consistency builds trust.</li>
+</ul>
+<p><strong>The single-sentence right to win</strong>: Cycle wins because
+it speaks the customer's actual problem, fits her actual schedule, tells
+the truth about results, comes from a person she can see, and costs the
+right amount for the trust it asks of her.</p>
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p>Cycle's marketing playbook is detailed in the broader Phase 1 launch
+plan (<code>09-q1-launch-shortlist.md</code>). Headline shape only; this
+section gets a deeper rewrite at Week 15 when ad creative is in
+production and we have early audience-test signal.</p>
+<p><strong>Channel mix</strong> (within Bucket 4 ₹15-20L for first 30-45
+days post-launch):</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta (Instagram + Facebook)</td>
+<td>Primary acquisition</td>
+<td>~60%</td>
+</tr>
+<tr>
+<td>Founder Reels (organic + boosted)</td>
+<td>Trust + content engine</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Creator partnerships (South India focus)</td>
+<td>Geographic + cultural reach</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Email / Klaviyo (existing TGL list)</td>
+<td>Warm cohort capture</td>
+<td>~5%</td>
+</tr>
+<tr>
+<td>Google Search + SEO</td>
+<td>Brand-search defense</td>
+<td>~5%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Geography priority</strong>: Phase 1 weights ~60% of Meta
+budget toward Tamil Nadu, Karnataka, Andhra Pradesh, Telangana per
+Section 3. Tier 1 metros (Mumbai, Bangalore, Delhi) at Month 3 only
+after South Indian cohort is solid.</p>
+<p><strong>Deepika's content cadence</strong>: ~1 founder Reel per week
+through launch month. Pre-launch (Weeks 14-16) covers "why I'm making
+Cycle," "what's wrong with what's on shelves today," "the 6 herbs,"
+"extracts vs powder," "give it 3 cycles." Launch month rotates: founder
+use, customer Q&amp;A, ingredient story, expectation-setting.</p>
+<p><strong>Asset list (Boco produces, Weeks 13-16)</strong>: Cycle PDP,
+brand kit V0 (logo, colors, typography, packaging artwork), 5 ad
+creative templates, Klaviyo email flows for launch + onboarding +
+retention, Ingredient Library v0 site section. Live by Week 14 per doc
+09.</p>
+<p><strong>Owner split</strong>: Deepika owns founder content (~6-8
+hrs/week). Unnati owns Meta channel ops + creator outreach + email
+execution (~12-15 hrs/week launch month). Boco (Meera, Kavya, Aarav)
+owns asset production, front-loaded Weeks 13-16, lighter maintenance
+after.</p>
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p>Three pitches scaled to the conversation length, plus the recurring
+tagline.</p>
+<p><strong>5-second elevator</strong> (chance encounters, quick brand
+mentions):</p>
+<blockquote>
+<p>"Cycle is our PMS supplement. Two capsules a day during your cycle
+window. Built on moringa, powered by Ayurveda."</p>
+</blockquote>
+<p><strong>30-second customer pitch</strong> (the version most people
+will hear, in Deepika's voice):</p>
+<blockquote>
+<p>"You know how every month you get those one or two days where cramps
+and PMS make life miserable? I built Cycle for exactly that. Two
+capsules a day during your cycle window: six classical Ayurvedic herbs
+(Shatavari, Ashoka, Lodhra, Manjistha, Black Sesame), plus our
+farm-grown moringa. They work together to ease cramps, regulate your
+cycle, and reduce PMS bloating. Give it three cycles to settle in. Real
+plants take time, but they work consistently."</p>
+</blockquote>
+<p><strong>60-second partner pitch</strong> (creator partnerships,
+retail conversations, in Unnati's or Deepika's voice):</p>
+<blockquote>
+<p>"Cycle is The Good Leaf's first multi-ingredient SKU, designed
+specifically for women with PMS and cyclic period symptoms. Six
+classical Ayurvedic herbs at standardised extract doses (Shatavari 4-5%
+saponins, Ashoka 8:1 concentrate, Lodhra, Manjistha, Black Sesame), plus
+our farm-grown moringa as the heritage signature. Two capsules a day,
+₹899 sale, around ₹15 per day, 6-week subscription cadence. We're the
+only PMS-anchored Ayurvedic capsule at this price tier; most competitors
+are PCOS-anchored, pharma-tier, or mass-market. Our existing 10,000-plus
+TGL customers are the warm launch cohort, and we partner with creators
+whose audiences match: South India primary, women 28-40,
+wellness-curious but supplement-skeptical."</p>
+</blockquote>
+<p><strong>The honest message Deepika repeats across organic
+content</strong> (the recurring tagline pattern):</p>
+<blockquote>
+<p>"Built on Moringa. Powered by Ayurveda. Two caps a day during your
+cycle window. Give it three cycles before you decide. Real plants take
+time to work, and that's what makes it work."</p>
+</blockquote>
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<p>The "can we actually build this" layer. How we judge vendor quality,
+per-active vendor candidates with 3-5 options each, contact directory,
+packaging, capsule shell, CMO, QC protocol, capsule fill, regulatory,
+aggregate risk.</p>
+<h3 id="121-how-we-judge-vendor-quality-the-compliance-framework">12.1
+How we judge vendor quality (the compliance framework)</h3>
+<p>When TGL evaluates an extract supplier, we score against three tiers.
+Tier 1 is mandatory (deal-breaker if missing). Tier 2 is strongly
+preferred (premium signal). Tier 3 is application-specific.</p>
+<p><strong>Tier 1: Mandatory (deal-breaker if missing)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Why it matters</th>
+<th>What we ask vendor to provide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FSSAI Central License</td>
+<td>Mandatory for any nutraceutical-grade extract sold in India</td>
+<td>License number + expiry date</td>
+</tr>
+<tr>
+<td>GMP certification (WHO-GMP preferred, AYUSH-GMP minimum)</td>
+<td>Manufacturing process discipline</td>
+<td>Certificate copy + valid through date</td>
+</tr>
+<tr>
+<td>Per-batch CoA (Certificate of Analysis)</td>
+<td>Verifies every shipment matches spec</td>
+<td>3 recent CoAs from different batches</td>
+</tr>
+<tr>
+<td>NABL-accredited lab inputs</td>
+<td>Independent QC verification</td>
+<td>Lab partner name + NABL accreditation number</td>
+</tr>
+<tr>
+<td>HPLC or HPTLC standardisation method</td>
+<td>Reproducibility verification</td>
+<td>Method document + marker compound name</td>
+</tr>
+<tr>
+<td>Pillar 1 extraction method</td>
+<td>Natural-source-only pillar compliance</td>
+<td>Confirmation: water / hydroalcoholic / CO2 / supercritical only. No
+synthetic-residue solvents. Hexane-free for sesame specifically.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tier 2: Strongly preferred (premium signal)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISO 22000 (food safety management)</td>
+<td>Premium production discipline</td>
+</tr>
+<tr>
+<td>HACCP (food safety hazard analysis)</td>
+<td>Risk-based food safety</td>
+</tr>
+<tr>
+<td>ISO 9001 (quality management)</td>
+<td>Process consistency</td>
+</tr>
+<tr>
+<td>USDA Organic certification</td>
+<td>Where on-pack claim applies</td>
+</tr>
+<tr>
+<td>Multi-batch reproducibility (3+ batches at same spec)</td>
+<td>Real consistency, not first-batch luck</td>
+</tr>
+<tr>
+<td>24-month stability testing</td>
+<td>Shelf-life claim substantiation</td>
+</tr>
+<tr>
+<td>Public CoA transparency (publishes lab reports)</td>
+<td>Trust signal benchmark (Earthful does this)</td>
+</tr>
+<tr>
+<td>Audit-readiness (accepts third-party facility audit)</td>
+<td>Long-term partnership viability</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tier 3: Application-specific</strong></p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>When it applies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DNA barcoding capability</strong></td>
+<td><strong>MANDATORY</strong> for endangered species (Saraca asoca /
+Symplocos racemosa). Verify they can authenticate species per
+batch.</td>
+</tr>
+<tr>
+<td>USP-NF or IP pharmacopeial alignment</td>
+<td>Where extract is referenced in official pharmacopeia</td>
+</tr>
+<tr>
+<td>Vegan / vegetarian certification</td>
+<td>If on-pack claim relevant</td>
+</tr>
+<tr>
+<td>Halal / Kosher</td>
+<td>If export market relevant</td>
+</tr>
+<tr>
+<td>Allergen control protocol</td>
+<td>If facility processes nuts / dairy / gluten and we want
+allergen-free claim</td>
+</tr>
+</tbody>
+</table>
+<p><strong>10 questions to ask on every first vendor call:</strong></p>
+<ol type="1">
+<li>Show us 3 recent CoAs from different batches. Are markers within
+±10% spec?</li>
+<li>What is your standardisation method (HPLC / HPTLC / UV-Vis)?</li>
+<li>What is your extraction process? Confirm water / hydroalcoholic /
+CO2 only.</li>
+<li>What is your typical lead time at our MOQ tier?</li>
+<li>What is your minimum order quantity (in kg)?</li>
+<li>What is your price per kg at our MOQ?</li>
+<li>Do you provide 24-month accelerated stability data?</li>
+<li>Will you accept TGL doing third-party verification testing on every
+batch (NABL lab)?</li>
+<li>Can you supply at scale if we grow 3-5x in 18 months?</li>
+<li>Have you supplied to other Indian D2C wellness brands? Names if
+shareable.</li>
+</ol>
+<h3 id="122-per-active-vendor-matrix-3-5-candidates-each">12.2
+Per-active vendor matrix (3-5 candidates each)</h3>
+<p><strong>Shatavari extract</strong> (4-5% saponins HPLC,
+water/hydroalcoholic)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Website</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa (Asparoot)</strong></td>
+<td>Bangalore</td>
+<td><a
+href="https://sami-sabinsagroup.com">sami-sabinsagroup.com</a></td>
+<td>4-5% saponins HPLC</td>
+<td>5-25kg</td>
+<td>₹2,500-4,000/kg (benchmark)</td>
+<td>FSSAI, GMP, ISO 9001/22000, USDA Organic</td>
+</tr>
+<tr>
+<td><strong>Arjuna Natural</strong></td>
+<td>Aluva, Kerala</td>
+<td><a
+href="https://arjunanatural.com/contact-us/">arjunanatural.com</a></td>
+<td>Standardised extract</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, FSSAI, multi-export grades</td>
+</tr>
+<tr>
+<td><strong>Indfrag Biosciences</strong></td>
+<td>Bangalore</td>
+<td><a href="https://indfraghealth.com">indfraghealth.com</a></td>
+<td>Standardised extract</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>GMP, FSSAI</td>
+</tr>
+<tr>
+<td><strong>SA Herbal Bioactives</strong></td>
+<td>Surat, Gujarat</td>
+<td><a
+href="https://www.saherbalbioactives.com/shatavari-extract/">saherbalbioactives.com</a></td>
+<td>20-50% saponins by gravimetry</td>
+<td>25kg minimum</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><strong>Bixa Botanical India</strong></td>
+<td>India</td>
+<td><a
+href="https://bixabotanical.in/collections/herbal-extracts/products/satavar-asparagus-racemosus-dry-extract-40-saponnins-by-gravimetry">bixabotanical.in</a></td>
+<td>40% saponins by gravimetry</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ashoka extract</strong> (~40% tannins, 8:1 from whole-bark,
+DNA-authenticated)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Website</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Akay Bioactives / Akay Group</strong></td>
+<td>Cochin, Kerala</td>
+<td><a href="https://www.akay-group.com/contact">akay-group.com</a></td>
+<td>Saraca asoca extract + bark powder line</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, FSSAI, US/EU export grades</td>
+</tr>
+<tr>
+<td><strong>AOS Products</strong></td>
+<td>India</td>
+<td><a
+href="https://www.aosproduct.com/HERBAL-EXTRACTS/Ashoka-Bark-Extract">aosproduct.com</a></td>
+<td>Food/cosmetic/pharma grades</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><strong>SA Herbal Bioactives</strong></td>
+<td>Surat</td>
+<td><a
+href="https://www.saherbalbioactives.com/saraca-indica-extract/">saherbalbioactives.com</a></td>
+<td>5% tannins by titration</td>
+<td>25kg</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><strong>Plant Lipids</strong></td>
+<td>Cochin, Kerala</td>
+<td>plantlipids.com</td>
+<td>Botanical extracts incl Ashoka</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>GMP, ISO, exports</td>
+</tr>
+<tr>
+<td><strong>Ambeorganic</strong></td>
+<td>India</td>
+<td><a
+href="https://www.ambeorganic.com/Ashoka.html">ambeorganic.com</a></td>
+<td>Ashoka bark extract powder</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Ashoka extracts are less commonly traded than the powders. Many
+suppliers carry Ashoka as bark powder; standardised extract format may
+require custom-spec order. <strong>DNA barcoding capability is the key
+differentiator at this active.</strong></p>
+<p><strong>Lodhra extract</strong> (~30% tannins, 8:1,
+DNA-authenticated)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Website</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Akay Bioactives / Akay Group</strong></td>
+<td>Cochin, Kerala</td>
+<td><a href="https://www.akay-group.com/">akay-group.com</a></td>
+<td>Lodhra extract (consolidate with Ashoka + Manjistha)</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, FSSAI</td>
+</tr>
+<tr>
+<td><strong>Phyto Life Sciences</strong></td>
+<td>Ahmedabad, Gujarat</td>
+<td><a href="https://www.plpl.in/manjistha-extract.php">plpl.in</a></td>
+<td>Lodhra extract + multi-active</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><strong>Herbal Hills</strong></td>
+<td>India</td>
+<td><a
+href="https://herbalhillswellness.com/ayurvedic-supplements-manufacturer/lodhra-ayurvedic-medicine/">herbalhillswellness.com</a></td>
+<td>Lodhra powder + private-label extract</td>
+<td>Flexible MOQ</td>
+<td>On inquiry</td>
+<td>GMP, ISO, USFDA</td>
+</tr>
+<tr>
+<td><strong>Athreya Herbs</strong></td>
+<td>India</td>
+<td><a
+href="https://www.athreyaherbs.com/products/lodhra-symplocos-racemosa">athreyaherbs.com</a></td>
+<td>Lodhra powder (extract on inquiry)</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>Organic certified</td>
+</tr>
+<tr>
+<td><strong>Samriddhi Trading Co. (raw bark)</strong></td>
+<td>New Delhi</td>
+<td>Via IndiaMART</td>
+<td>Bark @ ₹90/kg (raw, not extract)</td>
+<td>TBD</td>
+<td>₹90/kg (raw bark)</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Lodhra extracts are the THINNEST commercial market of the 5
+extracts. Most suppliers carry Lodhra as bark powder. Standardised
+extract format will likely require custom-spec orders + 2-3 supplier
+qualification rounds.</p>
+<p><strong>Manjistha extract</strong> (~10% anthraquinones, 8:1)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Website</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phyto Life Sciences (P) Ltd</strong></td>
+<td>Ahmedabad, Gujarat</td>
+<td><a
+href="https://www.plpl.in/manjistha-extract.php">plpl.in/manjistha-extract</a></td>
+<td>Standardised extract, anthraquinone marker</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><strong>Akay Bioactives / Akay Group</strong></td>
+<td>Cochin, Kerala</td>
+<td><a href="https://www.akay-group.com/contact">akay-group.com</a></td>
+<td>Manjistha extract</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, FSSAI</td>
+</tr>
+<tr>
+<td><strong>MUBY Chemicals</strong></td>
+<td>Ambernath Mumbai + Ankleshwar Gujarat</td>
+<td><a
+href="https://mubychem.com/manjisthaextract-manufacturers-rubiacordifoliaextract.html">mubychem.com/manjisthaextract</a></td>
+<td>Rubia cordifolia extract with SDS/MSDS</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><strong>Bioactive Compounds India</strong></td>
+<td>Pune</td>
+<td>(TBD)</td>
+<td>Standardised extract</td>
+<td>25kg</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><strong>Hiya India Biotech</strong></td>
+<td>New Delhi</td>
+<td>Via IndiaMART</td>
+<td>Manjistha extract</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Black sesame extract</strong> (40-50% sesamin HPLC,
+hexane-free)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Website</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ingex Botanicals (Sesavita)</strong></td>
+<td>India</td>
+<td><a
+href="https://www.ingexbotanicals.com/sesavita">ingexbotanicals.com/sesavita</a></td>
+<td>Sesamin 10-97% HPLC, premium grade</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, HACCP, ISO certified</td>
+</tr>
+<tr>
+<td><strong>Sami-Sabinsa (Sesamin Complex)</strong></td>
+<td>Bangalore</td>
+<td>sami-sabinsagroup.com</td>
+<td>Sesamum indicum branded extract</td>
+<td>5-25kg</td>
+<td>On inquiry</td>
+<td>FSSAI, GMP, ISO 9001/22000, USDA</td>
+</tr>
+<tr>
+<td><strong>Plant Lipids</strong></td>
+<td>Cochin, Kerala</td>
+<td>plantlipids.com</td>
+<td>Plant extracts including sesame</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>GMP, ISO, exports</td>
+</tr>
+<tr>
+<td><strong>Vora Spice Mills</strong></td>
+<td>India</td>
+<td><a
+href="https://voraspices.com/products/sesame-seeds-exporters/">voraspices.com</a></td>
+<td>Sesame seeds (extract on inquiry)</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td><strong>Bixa Botanical India</strong></td>
+<td>India</td>
+<td>bixabotanical.in</td>
+<td>Sesame extract</td>
+<td>TBD</td>
+<td>On inquiry</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p>Note on OmniActive Lignavita: cited earlier in V2 spec as primary
+sesamin candidate, but could not verify "Lignavita" as a specific
+sesamin extract product in this research pass. Replacing primary with
+Ingex Botanicals Sesavita; Sami-Sabinsa Sesamin Complex as backup.
+Confirm at vendor call stage.</p>
+<h3 id="123-consolidated-vendor-contact-directory">12.3 Consolidated
+vendor contact directory</h3>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Address</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa Group Limited</strong></td>
+<td>19/1 &amp; 19/2, I Main, II Phase Peenya Industrial Area, Bangalore
+560058, Karnataka</td>
+<td>+91 80 6852 7777, +91 80 2839 7974/75/78</td>
+<td><a
+href="mailto:info@sami-sabinsagroup.com">info@sami-sabinsagroup.com</a></td>
+<td>Tier-1 priority; carries Asparoot Shatavari + Sesamin Complex</td>
+</tr>
+<tr>
+<td><strong>Arjuna Natural Pvt Ltd</strong></td>
+<td>Desom P.O., Aluva 683102, Kerala (plus Erumathala + Binanipuram,
+Ernakulam)</td>
+<td>Via <a
+href="https://arjunanatural.com/contact-us/">arjunanatural.com/contact-us</a></td>
+<td>Via website inquiry form</td>
+<td>Tier-1 priority; multi-extract</td>
+</tr>
+<tr>
+<td><strong>Akay Group / Akay Natural Ingredients</strong></td>
+<td>Ambunad, Malaidamthuruthu P.O, Cochin 683561, Kerala</td>
+<td>+91 484 268 6111, +91 9946086111</td>
+<td><a href="mailto:info@akay-group.com">info@akay-group.com</a></td>
+<td>Tier-1 priority; carries Ashoka + Lodhra + Manjistha (procurement
+leverage)</td>
+</tr>
+<tr>
+<td><strong>Akay Spices Pvt Ltd</strong> (sister entity)</td>
+<td>Akanad, Mudakuzha, Perumbavoor, Ernakulam 683546</td>
+<td>+91 484 2597888</td>
+<td><a href="mailto:info@akay-group.com">info@akay-group.com</a></td>
+<td>Sister entity to Akay Group</td>
+</tr>
+<tr>
+<td><strong>Vidya Herbs Pvt Ltd</strong></td>
+<td>Vidya Building #N3-3, 24th Main, JP Nagar 1st Phase, Bangalore
+560078</td>
+<td>+91 80 4172 2212</td>
+<td>Via <a
+href="https://www.vidyaherbs.com/contact">vidyaherbs.com/contact</a></td>
+<td>Backup option; in-house R&amp;D + clinical trials</td>
+</tr>
+<tr>
+<td><strong>Indfrag Biosciences Pvt Ltd</strong></td>
+<td>15, 12th Cross, Service Road HAL II Stage, Bangalore 560008</td>
+<td>(Public phone TBD)</td>
+<td><a
+href="mailto:name@indfragbiosciences.com">name@indfragbiosciences.com</a>
+(format), <a
+href="mailto:dimple@indfragbiosciences.com">dimple@indfragbiosciences.com</a>
+(HR)</td>
+<td>Backup; standardised manufacturing</td>
+</tr>
+<tr>
+<td><strong>Phyto Life Sciences (P) Ltd</strong></td>
+<td>Ahmedabad, Gujarat</td>
+<td>(Public phone TBD)</td>
+<td>Via <a
+href="https://www.plpl.in/manjistha-extract.php">plpl.in</a></td>
+<td>Manjistha + Lodhra primary; multi-active capability</td>
+</tr>
+<tr>
+<td><strong>Plant Lipids (P) Ltd</strong></td>
+<td>Cochin, Kerala</td>
+<td>(Public phone TBD)</td>
+<td>Via website</td>
+<td>Already known via cost model V1; multi-active</td>
+</tr>
+<tr>
+<td><strong>Ingex Botanicals (P) Ltd</strong></td>
+<td>India</td>
+<td>(Public phone TBD)</td>
+<td>Via <a
+href="https://www.ingexbotanicals.com/sesavita">ingexbotanicals.com</a></td>
+<td>Sesavita sesamin primary</td>
+</tr>
+<tr>
+<td><strong>MUBY Chemicals</strong></td>
+<td>Ambernath Mumbai + Ankleshwar Gujarat</td>
+<td>(Public phone TBD)</td>
+<td>Via <a href="https://mubychem.com">mubychem.com</a></td>
+<td>Manjistha extract with full SDS/MSDS</td>
+</tr>
+<tr>
+<td><strong>SA Herbal Bioactives</strong></td>
+<td>Surat, Gujarat</td>
+<td>(Public phone TBD)</td>
+<td>Via <a
+href="https://www.saherbalbioactives.com">saherbalbioactives.com</a></td>
+<td>Backup across multiple actives</td>
+</tr>
+<tr>
+<td><strong>AOS Products</strong></td>
+<td>India</td>
+<td>(Public phone TBD)</td>
+<td><a href="mailto:aosproduct@gmail.com">aosproduct@gmail.com</a></td>
+<td>Ashoka backup</td>
+</tr>
+<tr>
+<td><strong>Bioactive Compounds India</strong></td>
+<td>Pune, Maharashtra</td>
+<td>(Public phone TBD)</td>
+<td>Via website</td>
+<td>Manjistha + Shatavari backup</td>
+</tr>
+<tr>
+<td><strong>Herbal Hills</strong></td>
+<td>India</td>
+<td>(Public phone TBD)</td>
+<td>Via <a
+href="https://herbalhillswellness.com/">herbalhillswellness.com</a></td>
+<td>Lodhra + private-label flexibility</td>
+</tr>
+<tr>
+<td><strong>Bixa Botanical India</strong></td>
+<td>India</td>
+<td><a href="https://bixabotanical.in/">bixabotanical.in</a></td>
+<td>Via website</td>
+<td>Multi-active backup</td>
+</tr>
+</tbody>
+</table>
+<p>For most specialty extract suppliers, B2B contact gates behind
+website inquiry forms. <strong>Aarav dispatches first-call email
+outreach in Phase 1 Week 7 with the spec brief PDF; Deepika handles
+relationship layer post-first-call.</strong></p>
+<h3 id="124-packaging-capsule-shell-bottle-cmo">12.4 Packaging, capsule
+shell, bottle, CMO</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Vendor</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Lead time</th>
+<th>₹/pack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HPMC capsule shells</td>
+<td><strong>Deepika owns this vendor relationship</strong> (per
+TGL-P1-DEC-002)</td>
+<td>Plant cellulose, Size #0</td>
+<td>TBD via Deepika</td>
+<td>TBD</td>
+<td>~₹24 (60 caps × ₹0.40 benchmark)</td>
+</tr>
+<tr>
+<td>HDPE amber bottle (60-cap)</td>
+<td>Likely Karur-area Deepika source</td>
+<td>60-cap amber, ~50mm diameter</td>
+<td>~5K MOQ</td>
+<td>2-3 weeks</td>
+<td>~₹6</td>
+</tr>
+<tr>
+<td>Outer label (50×145mm)</td>
+<td>Pragati Pack India, Hyderabad</td>
+<td>PP white sticker, 1+5+gloss varnish</td>
+<td><strong>8K (binding constraint)</strong></td>
+<td>3-4 weeks</td>
+<td>~₹2.88</td>
+</tr>
+<tr>
+<td>Monocarton (53×53×98mm)</td>
+<td>Pragati Pack India, Hyderabad</td>
+<td>60-cap monocarton</td>
+<td><strong>8K (binding constraint)</strong></td>
+<td>3-4 weeks</td>
+<td>~₹7.48</td>
+</tr>
+<tr>
+<td>CMO encapsulation + bottling</td>
+<td>TBD primary (Hyderabad / TN site visits Week 9)</td>
+<td>FSSAI Central + GMP + HPMC capability + multi-ingredient blend
+experience</td>
+<td>per CMO ~25-50K caps</td>
+<td>4-6 weeks</td>
+<td>~₹50 (Greenfield benchmark)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Packaging note</strong>: Pragati Pack is verified internally
+(PO history through Zoho Books). The 8K-pack MOQ on label + monocarton
+is the <strong>binding constraint for first launch batch</strong>. Two
+ways to clear it: (a) order 8K Cycle packs minimum, OR (b) share the 8K
+MOQ across Cycle + Bloom (4K each) since both run through Pragati.</p>
+<p><strong>CMO note</strong>: Final CMO selection at Week 9 site visits
+per doc 09 critical path. Hyderabad cluster (Lifecare Nutritions, Kabir
+Lifesciences, Gnova) is primary; Tamil Nadu (Kai Herbals, Zoic) is
+backup. Vendor-formulator confirms capsule fill at trial-fill Week
+10.</p>
+<h3 id="125-quality-control-protocol">12.5 Quality control protocol</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Active(s)</th>
+<th>Frequency</th>
+<th>Lab partner</th>
+<th>Cost per test</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNA barcoding</td>
+<td>Ashoka, Lodhra</td>
+<td>Every incoming batch</td>
+<td>Eurofins India / IL India / Bionivid Bangalore</td>
+<td>₹3-5K per active per batch</td>
+<td>Match Saraca asoca / Symplocos racemosa reference sequence</td>
+</tr>
+<tr>
+<td>Heavy metal panel (Pb, Cd, Hg, As)</td>
+<td>Manjistha (mandatory), other herbs (1-in-5 sample)</td>
+<td>Every batch (Manjistha)</td>
+<td>Eurofins / SGS / IL India NABL-accredited</td>
+<td>₹2-3K per batch</td>
+<td>Pb &lt;1ppm, Cd &lt;0.1ppm, Hg &lt;0.1ppm, As &lt;1ppm (FSSAI
+limits)</td>
+</tr>
+<tr>
+<td>Tannin / anthraquinone assay</td>
+<td>Ashoka, Lodhra, Manjistha</td>
+<td>Vendor CoA + every 5th batch verify-sample</td>
+<td>Same lab partner</td>
+<td>Bundled + verify cost</td>
+<td>Per spec</td>
+</tr>
+<tr>
+<td>Microbial limits</td>
+<td>All actives + finished product</td>
+<td>Vendor CoA + every finished batch</td>
+<td>Same lab</td>
+<td>Bundled</td>
+<td>IP/AYUSH-PLIM limits</td>
+</tr>
+<tr>
+<td>Stability testing</td>
+<td>Finished product</td>
+<td>Pre-launch baseline + Month 3 / 6 / 12 / 24 checkpoints</td>
+<td>Same lab</td>
+<td>~₹15-25K per checkpoint</td>
+<td>24-month shelf life claim substantiated</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Per-batch testing budget</strong>: ~₹13K mid-estimate. At
+60K-pack steady-state batch, ~₹0.20/pack allocation. At 8K-pack pilot
+batch, ~₹1.63/pack (higher allocation, smaller batch).</p>
+<h3 id="126-capsule-fill-feasibility">12.6 Capsule fill feasibility</h3>
+<p>375mg total fill in Size #0 capsule (capacity ~410-500mg standard
+density). <strong>Comfortable fit, no granulation step
+required.</strong> Verified at standard CMO trial-fill at Week 10.
+Fallback paths if any vendor cannot meet at trial: switch to Size #00
+(~600-720mg capacity) OR reduce one active by 10-15%. V2 execution spec
+on disk
+(<code>formulation-specs/sku-1-cycle-formulation-spec-v2.md</code>)
+needs revision to reflect this lock; queued for batch update.</p>
+<h3 id="127-regulatory-feasibility">12.7 Regulatory feasibility</h3>
+<p>All 6 actives FSSAI-permitted under Schedule VI of the Health
+Supplements Regulations 2022. Ashoka + Lodhra warrant a regulatory
+consultant pre-formulation review at Week 4 (Bucket 6 ₹5-10L) because
+their primary classical use is medicinal (uterine tonic) and FSSAI
+scrutinises claim drift between nutraceutical and AYUSH-medicinal
+categories. Likely consultant outcome:</p>
+<ul>
+<li><strong>Permitted claim language</strong>: "supports menstrual
+comfort," "helps maintain regular menstrual cycles," "traditionally used
+in Ayurveda for women's wellness," "supports the body during the monthly
+cycle."</li>
+<li><strong>NOT permitted</strong>: "cures dysmenorrhea / PCOD /
+endometriosis," "treats period pain," "eliminates cramps," "hormonal
+therapy alternative."</li>
+</ul>
+<p>Plus standard label compliance: "Not for medicinal use," "Consult
+your physician before use if pregnant, breastfeeding, or on medication,"
+FSSAI license number, veg symbol (green dot), 24-month shelf life with
+stability substantiation, full per-active disclosure in mg.</p>
+<h3 id="128-aggregate-supply-chain-risk-and-mitigation">12.8 Aggregate
+supply chain risk and mitigation</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Severity</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ashoka + Lodhra adulteration (endangered species, fraud risk)</td>
+<td>HIGH</td>
+<td>Mandatory DNA barcoding per batch + multi-sourcing primary + backup.
+Two-strike rule on quality issues.</td>
+</tr>
+<tr>
+<td>Shatavari wild-collection vs cultivated</td>
+<td>Medium</td>
+<td>Specification insists on cultivated origin in PO; backup vendor
+(Arjuna Natural) available</td>
+</tr>
+<tr>
+<td>Manjistha heavy metal contamination (Himalayan tracts)</td>
+<td>Medium</td>
+<td>Mandatory per-batch heavy metal panel; cultivated Karnataka source
+preferred</td>
+</tr>
+<tr>
+<td>Moringa supply continuity (single-source DPR)</td>
+<td>Low (captive)</td>
+<td>TGL existing flow; backup CMO Andhra/TN identified for
+emergency</td>
+</tr>
+<tr>
+<td>Black sesame (sesamin extract) availability</td>
+<td>Low</td>
+<td>Ingex Botanicals primary + Sami-Sabinsa backup; sesame widely
+cultivated</td>
+</tr>
+<tr>
+<td>Pragati Pack 8K packaging MOQ vs first-batch demand</td>
+<td>Low</td>
+<td>Share MOQ across Cycle + Bloom (4K each) OR commit 8K Cycle
+alone</td>
+</tr>
+<tr>
+<td>CMO selection slippage (no vendor passes Week 9 visit)</td>
+<td>Low (5 candidates in scope)</td>
+<td>Backup pool extends to Bangalore CMOs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="129-open-sourcing-questions-for-week-7-8-vendor-calls">12.9 Open
+sourcing questions for Week 7-8 vendor calls</h3>
+<ol type="1">
+<li><strong>Akay Spices Ashoka + Lodhra extract availability.</strong>
+Smaller commercial market than Shatavari extract. Confirm extract format
+(vs powder primary line) and MOQ flexibility.</li>
+<li><strong>Sami-Sabinsa Asparoot pricing at TGL MOQ.</strong> 5-25kg
+first batch. 5-10% volume discount expected at LOI.</li>
+<li><strong>Ingex Botanicals Sesavita reproducibility
+batch-to-batch.</strong> Sesamin standardisation tolerance window at
+40-50% target.</li>
+<li><strong>Capsule shell pricing from Deepika's vendor</strong> (per
+DEC-002 ownership). Size #0 HPMC plant-cellulose at 100K-cap
+volume.</li>
+<li><strong>CMO multi-ingredient blend capability + MOQ flexibility
+25-50K caps.</strong> Hyderabad site visits Week 9.</li>
+</ol>
+<h2 id="13-effort-capital-and-execution-action-plan">13. Effort,
+capital, and execution action plan</h2>
+<p><em>Pending. Phase 1 12-week critical path mapped to owner + spend
+bucket. The "who does what, when, with how much money" layer. Bridges
+this brief to the program management spec
+(<code>10-phase-1-program-management.md</code>).</em></p>
+<h2 id="14-technical-appendix">14. Technical appendix</h2>
+<p><em>Pending. References V2 execution spec
+(<code>formulation-specs/sku-1-cycle-formulation-spec-v2.md</code>), V3
+theory dossier (<code>dossiers/01-cycle-pms.md</code>), governance doc
+10 (<code>10-phase-1-program-management.md</code>), brand DNA
+(<code>02-brand-dna.md</code>).</em></p>
+<hr />
+<hr />
+<div class="critical-path">
+<h3 class="critical-path-title">Phase 1: 12-week critical path to first batch</h3>
+<p class="critical-path-sub">Cycle + Bloom share the same launch path. Sample-in-hand at Week 10. LOI + first MOQ at Week 12. Site dev + creative Weeks 13-16. Launch Week 17.</p>
+
+<div class="gantt">
+<div class="gantt-header" style="grid-column: 1;">Workstream / Owner</div>
+<div class="gantt-header">W1</div><div class="gantt-header">W2</div><div class="gantt-header">W3</div><div class="gantt-header">W4</div><div class="gantt-header">W5</div><div class="gantt-header">W6</div><div class="gantt-header">W7</div><div class="gantt-header">W8</div><div class="gantt-header">W9</div><div class="gantt-header">W10</div><div class="gantt-header">W11</div><div class="gantt-header">W12</div><div class="gantt-header">W13</div><div class="gantt-header">W14</div><div class="gantt-header">W15</div><div class="gantt-header">W16</div><div class="gantt-header">W17+</div>
+
+<div class="gantt-row-label">Vendor matrix · Aarav</div>
+<div class="gantt-cell research">●</div><div class="gantt-cell research">●</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+<div class="gantt-row-label">Spec brief + reg consult · Aarav + consultant</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div>
+<div class="gantt-cell research">●</div><div class="gantt-cell research">●</div><div class="gantt-cell research">●</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+<div class="gantt-row-label">Subscription + NABL · Boco</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+<div class="gantt-cell research">●</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+<div class="gantt-row-label">Vendor calls · Deepika + Aarav</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+<div class="gantt-cell outreach">●</div><div class="gantt-cell outreach">●</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+<div class="gantt-row-label">Site visits + samples · Deepika</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+<div class="gantt-cell outreach">●</div>
+<div class="gantt-cell milestone">★</div>
+<div class="gantt-cell outreach">●</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+<div class="gantt-row-label">Vendor selection + LOI · all</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+<div class="gantt-cell milestone">★</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+<div class="gantt-row-label">Site dev + PDPs · Boco</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+<div class="gantt-cell build">●</div><div class="gantt-cell build">●</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+
+<div class="gantt-row-label">Creative + ad prep · Boco + Deepika</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+<div class="gantt-cell build">●</div><div class="gantt-cell build">●</div>
+<div class="gantt-cell"></div>
+
+<div class="gantt-row-label">Launch · ops + Boco</div>
+<div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
+<div class="gantt-cell launch">●</div>
+</div>
+<p style="margin-top: 16px; font-size: 12px; color: var(--text-muted);"><span style="background: var(--accent-deep); color: var(--bg); padding: 2px 6px; border-radius: 3px;">★</span> Milestone: Sample-in-hand (W10) and LOI signed (W12).</p>
+</div>
+
+<div class="capital-chart">
+<h3 class="capital-chart-title">Phase 1 capital allocation</h3>
+<p class="capital-chart-sub">₹80-90L envelope across 7 buckets. Hard ceiling at ₹125L. Mid-plan ₹85L. CMO MOQ batches are the single biggest lift, hitting in Weeks 11-12.</p>
+<div class="capital-bars">
+<div class="capital-bar-row">
+<div class="capital-bar-label">B1: CMO MOQ batches (2 SKUs)</div>
+<div class="capital-bar-track"><div class="capital-bar-fill" style="width: 80%;">₹30-50L</div></div>
+<div class="capital-bar-value">₹40L mid</div>
+</div>
+<div class="capital-bar-row">
+<div class="capital-bar-label">B2: CMO + formulator + lab setup</div>
+<div class="capital-bar-track"><div class="capital-bar-fill" style="width: 20%;">₹10L</div></div>
+<div class="capital-bar-value">₹10L</div>
+</div>
+<div class="capital-bar-row">
+<div class="capital-bar-label">B3: Site dev + design</div>
+<div class="capital-bar-track"><div class="capital-bar-fill" style="width: 30%;">₹15L</div></div>
+<div class="capital-bar-value">₹15L</div>
+</div>
+<div class="capital-bar-row">
+<div class="capital-bar-label">B4: Initial Meta ad spend (30-45d)</div>
+<div class="capital-bar-track"><div class="capital-bar-fill" style="width: 35%;">₹15-20L</div></div>
+<div class="capital-bar-value">₹17.5L mid</div>
+</div>
+<div class="capital-bar-row">
+<div class="capital-bar-label">B5: Naming + packaging + brand kit</div>
+<div class="capital-bar-track"><div class="capital-bar-fill" style="width: 10%;">₹5L</div></div>
+<div class="capital-bar-value">₹5L</div>
+</div>
+<div class="capital-bar-row">
+<div class="capital-bar-label">B6: Regulatory + Schedule VI consult</div>
+<div class="capital-bar-track"><div class="capital-bar-fill" style="width: 18%;">₹5-10L</div></div>
+<div class="capital-bar-value">₹7.5L mid</div>
+</div>
+<div class="capital-bar-row">
+<div class="capital-bar-label">B7: Reserve / contingency</div>
+<div class="capital-bar-track"><div class="capital-bar-fill" style="width: 18%;">₹5-10L</div></div>
+<div class="capital-bar-value">₹7.5L mid</div>
+</div>
+</div>
+</div>
+
+<h1 id="part-3-short-briefs-for-skus-2-10">Part 3: Short briefs for SKUs
+2-10</h1>
+<blockquote>
+<p><strong>These are visibility-level briefs covering product, pitch,
+positioning, broad formulation, and active library notes.
+Cycle-equivalent depth (full Sections 1-11 with theoretical
+justification, customer profile, lived experience, decision narrative,
+right to win) ships later this week SKU by SKU.</strong></p>
+</blockquote>
+<h2 id="sku-2-reset-pcos">SKU 2: Reset (PCOS)</h2>
+<p><strong>Tier A. Q2 launch (Phase 2). ₹1,499 MRP / ₹1,299 sale /
+₹1,099 sub.</strong></p>
+<h3 id="what-it-is">What it is</h3>
+<p>A daily Ayurvedic capsule for women with PCOS or PCOS-spectrum
+hormonal dysregulation (irregular cycles, weight gain, acne, hirsutism).
+Two capsules a day, daily (not cyclic, since PCOS needs continuous
+support).</p>
+<h3 id="30-second-pitch">30-second pitch</h3>
+<blockquote>
+<p>"PCOS doesn't get fixed with a single ingredient. Reset is TGL's PCOS
+protocol: classical Ayurvedic herbs that target insulin sensitivity,
+cycle regularity, and the inflammatory side of PCOS, with our farm-grown
+moringa as the heritage thread. Two caps a day. Give it 3-4 cycles to
+feel real change. Built to work alongside your gynaecologist's plan, not
+against it."</p>
+</blockquote>
+<h3 id="positioning--competitors">Positioning + competitors</h3>
+<p>Accessible-premium PCOS-specific Ayurvedic capsule. Sits between
+Earthful HerSupport (PCOS-anchored at ₹589 sale, lighter formulation),
+Gynoveda PCOS Cure (pharma-tier ₹1,800-2,400, doctor-coded multi-cap
+kit), and OZiva HerBalance (₹999, less PCOS-specific extract-stack).
+Reset is the credible mid-tier with denser PCOS-specific stack.</p>
+<h3
+id="broad-formulation-v2-reformulated-2026-05-09-per-dec-014--dec-016">Broad
+formulation (V2, reformulated 2026-05-09 per DEC-014 + DEC-016)</h3>
+<p><strong>Format: Size #0 capsule × 3 caps/day daily</strong> (split
+morning + lunch + evening with meals for blood-level consistency on
+insulin sensitivity).</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap (3 caps/day)</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Methi (fenugreek) extract</td>
+<td>Standardised, 4-5% saponins (generic vendor-standard, <strong>NOT
+Furocyst 40%</strong> — that's Indus Biotech specialty, deferred to
+V2)</td>
+<td>Vidya Herbs OR Sami-Sabinsa</td>
+<td>333 mg</td>
+<td>Insulin sensitivity primary — 1000 mg/day delivers 40-50 mg saponins
+(matches PCOS clinical trial range)</td>
+</tr>
+<tr>
+<td>Shatavari extract</td>
+<td>Standardised, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>133 mg</td>
+<td>Hormonal modulation, cycle regularity, classical Stree-rasayana</td>
+</tr>
+<tr>
+<td>Curcumin <strong>C3 Complex</strong> extract</td>
+<td>Sami-Sabinsa standardised, 95-97% curcuminoids</td>
+<td>Sami-Sabinsa C3 Complex</td>
+<td>100 mg</td>
+<td>Anti-inflammatory (PCOS inflammatory pathway) — 300 mg/day at 95%
+curcuminoids = clinical anti-inflammatory dose</td>
+</tr>
+<tr>
+<td>Manjistha extract</td>
+<td>Standardised, ~10% anthraquinones (8:1 from whole-root)</td>
+<td>Akay Group OR Vidya Herbs</td>
+<td>25 mg</td>
+<td>Cyclical acne + Pitta-pacification</td>
+</tr>
+<tr>
+<td>Bhringraj extract</td>
+<td>Standardised 8:1 from whole-leaf</td>
+<td>Akay Group OR Plant Lipids</td>
+<td>25 mg</td>
+<td>Stress + secondary insulin/cortisol support</td>
+</tr>
+<tr>
+<td>Pippali piperine</td>
+<td><strong>BioPerine</strong> standardised, 95% piperine</td>
+<td>Sami-Sabinsa BioPerine</td>
+<td>5 mg</td>
+<td>Bioavailability enhancer (boosts curcumin absorption 2000% per Shoba
+1998)</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR Moringa, heat-treated)</td>
+<td>TGL captive</td>
+<td>25 mg</td>
+<td><strong>Heritage signature (Tier A)</strong> + nutritive</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~496 mg / cap</strong> (Size #0 ✓)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 3 caps/day</strong>: 1000 mg Methi extract
+(40-50 mg saponins, PCOS insulin-sensitivity clinical dose); 400 mg
+Shatavari (cycle regularity); 300 mg curcuminoids (PCOS
+anti-inflammatory clinical dose); 75 mg Manjistha 8:1; 75 mg Bhringraj
+8:1; 15 mg piperine (cross-SKU bioavailability); 75 mg Moringa
+heritage.</p>
+<h3 id="active-library-notes">Active library notes</h3>
+<p><strong>Methi locked to generic 4-5% saponins (Vidya Herbs /
+Sami-Sabinsa) for V1, NOT Furocyst 40% (Indus Biotech specialty branded
+ingredient).</strong> Furocyst is the higher-saponin specialty extract
+referenced in DEC-016 memory file as "standard commercially-available
+form" — but it's a single-supplier branded product, not a vendor-network
+commodity. Phase 1 launch uses generic 4-5% saponins (commodity grade
+across multiple vendors) at 1000 mg/day to deliver clinical saponin
+dose, matching DEC-016 vetted-vendor-only intent. Furocyst can land in
+V2 Reset if Indus Biotech relationship + MOQ economics work. <strong>3
+caps/day Size #0 path locked per DEC-014</strong> (preserves therapeutic
+doses over capsule-size minimisation; split-meal dosing improves
+insulin-sensitivity blood-level consistency). D-Inositol remains future
+V2 candidate if a clean Indian-source distributor surfaces.</p>
+<hr />
+<h2 id="sku-3-bloom-daily-womens-multi">SKU 3: Bloom (Daily Women's
+Multi)</h2>
+<p><strong>Tier A. Q1 launch (Phase 1). ₹1,099 MRP / ₹999 sale / ₹849
+sub. The retention + cross-sell engine alongside Cycle.</strong></p>
+<h3 id="what-it-is-1">What it is</h3>
+<p>A foundational daily multivitamin for women, built on natural-source
+vitamins and minerals plus an Ayurvedic herbal stack. Two capsules a
+day, every day. Pairs with Cycle (PMS) as the Q1 launch couplet: Cycle =
+acquisition; Bloom = daily routine + cross-sell flywheel.</p>
+<h3 id="30-second-pitch-1">30-second pitch</h3>
+<blockquote>
+<p>"Most women's multivitamins are pharma-coded synthetic blends. Bloom
+is built differently: natural-source vitamins from spirulina, lichen,
+curry leaf, and amla, plus an Ayurvedic stack of Shatavari and
+Ashwagandha, plus our farm-grown moringa as the daily-multi anchor. Two
+caps a day, every day. The foundation under everything else."</p>
+</blockquote>
+<h3 id="positioning--competitors-1">Positioning + competitors</h3>
+<p>Accessible-premium Daily Women's Multi with natural-source
+vitamins/minerals + Ayurvedic herbal stack. Differentiates from Earthful
+Multi 40+ (₹699, age-specific), HealthKart Women's Multi (₹500,
+pharma-coded), OZiva Women's Multi (₹899, extract-stack but lighter
+Ayurvedic component). Bloom is the only daily-multi anchored on
+whole-plant moringa with both natural-source vitamins AND Ayurvedic
+herbs.</p>
+<h3 id="broad-formulation-v2-reformulated-2026-05-09-per-dec-016">Broad
+formulation (V2, reformulated 2026-05-09 per DEC-016)</h3>
+<p><strong>Format: Size #00 capsule × 2 caps/day daily.</strong> Size
+#00 chosen over Size #0 because the natural-source vitamin/mineral
+matrix needs more fill volume than a 500mg cap allows; 2 caps/day stays
+within the high-priority UX target.</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive farm supply (DPR Moringa, heat-treated)</td>
+<td>TGL captive</td>
+<td>100 mg</td>
+<td><strong>Heritage signature (Tier A daily-multi anchor)</strong> +
+supportive iron / Ca / phytocomplex</td>
+</tr>
+<tr>
+<td>Spirulina platensis</td>
+<td>Solar-dried organic, ~60-65% protein</td>
+<td>Parry Nutraceuticals (Chennai, Oonaiyur facility)</td>
+<td>250 mg</td>
+<td>B-vitamin matrix + protein + phycocyanin antioxidant</td>
+</tr>
+<tr>
+<td>Amla Vit-C extract</td>
+<td>Standardised, 25% ascorbic equivalents (low-temp processed)</td>
+<td>Plant Lipids (Cochin)</td>
+<td>200 mg (~50 mg natural Vit C)</td>
+<td>Natural Vit C (~100 mg/day = 133% RDA) + iron-absorption
+co-factor</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>Algae lithothamnion calcium (Marigot)</td>
+<td>via Inhalation Health India</td>
+<td>150 mg (~50 mg elemental Ca)</td>
+<td>Natural-source calcium</td>
+</tr>
+<tr>
+<td>Shatavari extract</td>
+<td>Standardised, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>100 mg</td>
+<td>Hormonal modulation</td>
+</tr>
+<tr>
+<td>Ashwagandha extract</td>
+<td>Standardised, 5% withanolides (generic, KSM-66 reserved for Calm +
+Spark)</td>
+<td>Vidya Herbs OR Indfrag</td>
+<td>100 mg</td>
+<td>Adaptogen + cortisol support</td>
+</tr>
+<tr>
+<td>Methylcobalamin (fermentation-derived)</td>
+<td>MecobalActiv (microbial fermentation, Pillar-1 compliant under
+"naturally produced")</td>
+<td>Sami-Sabinsa</td>
+<td>1.5 mcg</td>
+<td>True bioavailable B12 (3 mcg/day = 125% RDA, allows dietary
+headroom)</td>
+</tr>
+<tr>
+<td>Vitashine D3</td>
+<td>Lichen-derived vitamin D3</td>
+<td>UK origin via Avlaan (Chennai distributor)</td>
+<td>400 IU equivalent</td>
+<td>Natural-source vitamin D</td>
+</tr>
+<tr>
+<td>Curry leaf extract</td>
+<td>Standardised carbazole alkaloids (NOT iron-standardised — see ⚠️
+below)</td>
+<td>Plant Lipids OR Vidya Herbs</td>
+<td>50 mg</td>
+<td>Brand story (curry leaf in Indian kitchen heritage) + supportive
+phytochemicals</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~950 mg / cap</strong> (fits Size #00 ≤1000mg with
+granulation)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 2 caps/day</strong>:</p>
+<ul>
+<li>Moringa whole-leaf: 200 mg/day (Tier A daily-multi anchor; ~1-2 mg
+natural Fe + 30-50 mg Ca + B-complex + Vit C)</li>
+<li>Spirulina: 500 mg/day (B-complex + protein matrix; ~7 mg natural Fe
++ co-factors)</li>
+<li>Amla Vit C: 400 mg extract = ~100 mg ascorbic equivalents (133% Vit
+C RDA)</li>
+<li>Aquamin-Ca: 300 mg extract = ~100 mg elemental Ca (10% Ca RDA)</li>
+<li>Shatavari + Ashwagandha extracts: 200 mg each (modest hormonal +
+adaptogenic dose for daily multi)</li>
+<li>MecobalActiv methylcobalamin: 3 mcg (125% B12 RDA)</li>
+<li>Vitashine D3: 800 IU (100% D3 RDA)</li>
+<li>Curry leaf extract: 100 mg (supportive natural-source
+phytochemicals)</li>
+</ul>
+<p><strong>Net iron delivery</strong>: ~8-10 mg natural Fe/day from
+moringa + spirulina co-source = ~50% premenopausal women's RDA (18 mg).
+This is <strong>supportive replenishment</strong>, not full RDA. Frame
+to customer as "natural-source iron support" not "100% iron RDA
+multivitamin."</p>
+<h3
+id="warning-three-open-pillar-1--composition-questions-for-deepika-v2-lock-pending">⚠️
+Three open Pillar-1 + composition questions for Deepika (V2 lock
+pending)</h3>
+<ol type="1">
+<li><strong>Curry leaf as iron source (V1 reframe).</strong> Round-2
+research shows NO Indian vendor offers a standardised "X% Fe from
+Murraya koenigii" branded ingredient as of mid-2026. Plant Lipids and
+Vidya Herbs sell curry leaf for carbazole alkaloids, not iron.
+<strong>Two paths</strong>:
+<ul>
+<li><strong>(A) V1 launch posture (recommended):</strong> Lead the iron
+story with Moringa + Spirulina (true natural-source iron carriers); use
+Curry leaf as supportive brand-story phytochemical (~50 mg/cap). Honest,
+Pillar-1 unambiguous. Net iron delivery ~50% RDA, marketed as
+"natural-source iron support."</li>
+<li><strong>(B) V2 / future:</strong> Add a fermentation-derived
+iron-yeast (e.g., MicroMins) for an additional ~5 mg Fe/cap if Deepika
+rules fermentation-iron Pillar-1 compliant. Pushes Bloom toward 100% RDA
+iron territory.</li>
+</ul></li>
+<li><strong>Spirulina-only B12 vs spirulina + fermentation
+methylcobalamin.</strong> Spirulina alone CANNOT meet B12 RDA reliably —
+its B12 is largely pseudo-cobamides (not bioavailable). MecobalActiv
+methylcobalamin (Sami-Sabinsa) is fermentation-derived from
+<em>Pseudomonas denitrificans</em> — naturally produced, NOT chemically
+synthesised. <strong>Recommended:</strong> keep both — spirulina for
+B-complex matrix story + MecobalActiv 1.5 mcg/cap for actual B12 RDA
+delivery. Confirm Pillar-1 framing with Deepika.</li>
+<li><strong>Bloom positioning: "100% RDA multi" vs "70% RDA +
+diet."</strong> Per V1 fill table, Bloom sits at ~50% iron RDA, ~10%
+calcium RDA, 100% Vit C, 125% B12, 100% D3. This is honest
+natural-source delivery. Marketing to call it "foundational daily multi
+alongside an Ayurvedic plate" not a "100% RDA daily multi."</li>
+</ol>
+<h3 id="active-library-notes-1">Active library notes</h3>
+<p>Bloom uses imported actives (Aquamin-Ca, Vitashine-D3) via Indian
+distributors per Op Principle 3. Single-distributor concentration risk
+on Aquamin (Inhalation Health India is sole Indian agent). MecobalActiv
+(Sami-Sabinsa) is a new addition to TGL vendor stack — already in BOCO
+network for other clients. Plant Lipids' Amla 25% Vit C is the best
+Indian-source Vit C delivery vehicle (Arjuna Capros is tannin-spec, not
+Vit C-spec; Vidya Herbs Amla 40% tannins similarly not Vit C-led).</p>
+<hr />
+<h2 id="sku-4-crest-menopause">SKU 4: Crest (Menopause)</h2>
+<p><strong>Tier A. Q4 launch (Phase 4). ₹1,799 MRP / ₹1,599 sale /
+₹1,359 sub. The life-stage extension proof point.</strong></p>
+<h3 id="what-it-is-2">What it is</h3>
+<p>A daily Ayurvedic + phytoestrogen capsule for women in perimenopause
+and menopause (typically 45-58) experiencing hot flashes, mood swings,
+sleep disturbance, joint stiffness, and bone density concerns. Two
+capsules a day, daily.</p>
+<h3 id="30-second-pitch-2">30-second pitch</h3>
+<blockquote>
+<p>"Menopause is a transition, not a disease. Crest is plant-source
+phytoestrogen support paired with Ayurvedic herbs and natural-source
+calcium. For the woman who wants real symptom support without HRT, with
+the same farm-grown moringa heritage that runs through every TGL
+product."</p>
+</blockquote>
+<h3 id="positioning--competitors-2">Positioning + competitors</h3>
+<p>Premium-tier menopause Ayurvedic capsule. Competes with dedicated
+menopause brands (Menoveda ₹1,200-1,500, Vitalbeing Menopause ₹1,500),
+Gynoveda Menopause Cure (pharma-tier ₹2,500+), and global brands
+(Kindra, Bonafide via Indian online retailers). Crest is the credible
+Ayurvedic-anchored mid-premium option without HRT framing.</p>
+<h3
+id="broad-formulation-v2-reformulated-2026-05-09-per-dec-016-1">Broad
+formulation (V2, reformulated 2026-05-09 per DEC-016)</h3>
+<p><strong>Format: Size #00 capsule × 2 caps/day daily.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Soy isoflavones</td>
+<td><strong>SoyLife</strong> standardised, 40% isoflavones (genistein +
+daidzein + glycitein)</td>
+<td>Sami-Sabinsa (Bangalore — Indian-sourced, no NovaSoy import
+overhead)</td>
+<td>100 mg (~40 mg total isoflavones)</td>
+<td>Phytoestrogen — clinical menopause dose at 80 mg/day
+(lower-therapeutic, Crisafulli 2004 + Taku 2012 meta)</td>
+</tr>
+<tr>
+<td>Shatavari extract</td>
+<td>Standardised, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>200 mg</td>
+<td>Hormonal modulation, classical Stree-rasayana for menopause</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>Algae lithothamnion calcium (Marigot)</td>
+<td>via Inhalation Health India</td>
+<td>150 mg (~50 mg elemental Ca)</td>
+<td>Natural-source calcium for bone density</td>
+</tr>
+<tr>
+<td>Yashtimadhu (licorice) extract</td>
+<td>Standardised, 4% glycyrrhizin (well below 100 mg/day
+pseudoaldosteronism threshold)</td>
+<td>Sami-Sabinsa OR Plant Lipids</td>
+<td>50 mg</td>
+<td>Adaptogenic + hot-flash support (Pitta-pacification) — delivers 4 mg
+glycyrrhizin/day</td>
+</tr>
+<tr>
+<td>Vitex / Chasteberry extract</td>
+<td>Standardised, 0.5% agnusides (industry norm)</td>
+<td>Sami-Sabinsa OR Vidya Herbs OR Arjuna Natural</td>
+<td>25 mg</td>
+<td>Residual hormonal balance for perimenopausal users (sub-clinical
+primary, supportive)</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR Moringa, heat-treated)</td>
+<td>TGL captive</td>
+<td>75 mg</td>
+<td><strong>Heritage signature (Tier A)</strong> + nutritive</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~600 mg / cap</strong> (Size #00 ✓)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 2 caps/day</strong>: 80 mg total soy
+isoflavones (clinical menopause range 50-80 mg/day, lower-therapeutic
+floor for hot flashes per Taku 2012 meta-analysis); 400 mg Shatavari
+extract; 100 mg elemental Ca; 8 mg glycyrrhizin (safe chronic-use
+range); 50 mg Vitex (residual cycle support); 150 mg Moringa
+heritage.</p>
+<p><strong>Safety label requirements</strong>: Yashtimadhu — chronic-use
+cap at 4-6 weeks unless practitioner-supervised; contraindicated in
+hypertension/heart-kidney disease/pregnancy/diuretic co-medication
+(label must show mg glycyrrhizin per serving). Vitex — contraindicated
+in pregnancy, breastfeeding, dopamine-receptor medication.</p>
+<h3 id="active-library-notes-2">Active library notes</h3>
+<p><strong>Switched from NovaSoy (US-imported, ADM-branded) to
+Sami-Sabinsa SoyLife (Bangalore-sourced, 40% standardised) per DEC-016 —
+eliminates US-import logistics overhead and US-distributor
+dependency.</strong> SoyLife is in BOCO vendor stack already (alongside
+BoswelliaSeralin, BioPerine, MecobalActiv). Vitex 0.5% agnusides is the
+industry-standard concentration across Indian vendors (Sami-Sabinsa,
+Vidya Herbs, Arjuna). Yashtimadhu 4% glycyrrhizin is similarly the
+workhorse spec — DGL grade (deglycyrrhizinated) reserved for future
+GI-focused SKUs. <strong>Backup formulation if SoyLife MOQ unworkable at
+TGL batch tier</strong>: increase Shatavari to 250 mg/cap + add black
+cohosh extract substitute (also Indian-vendor-available via Vidya
+Herbs).</p>
+<hr />
+<h2 id="sku-5-root-hair">SKU 5: Root (Hair)</h2>
+<p><strong>Tier B. Q2 launch (Phase 2). ₹1,099 MRP / ₹999 sale / ₹849
+sub. Cross-sell anchor with Bloom (Daily Woman Kit bundle).</strong></p>
+<h3 id="what-it-is-3">What it is</h3>
+<p>A daily Ayurvedic hair-care capsule for women experiencing hair fall,
+thinning, slow regrowth, or scalp health concerns (especially
+post-pregnancy, post-stress, post-illness). Two capsules a day,
+daily.</p>
+<h3 id="30-second-pitch-3">30-second pitch</h3>
+<blockquote>
+<p>"Hair fall isn't fixed by a single biotin tablet. Real hair health is
+iron + protein + scalp circulation + stress + hormonal balance, all
+together. Root is the Ayurvedic stack that classical women's-tonic
+medicine has used for centuries: Bhringraj, Brahmi, curry-leaf iron,
+Shilajit. Plus our moringa heritage. Two caps a day, give it 3-6 months
+to see real regrowth."</p>
+</blockquote>
+<h3 id="positioning--competitors-3">Positioning + competitors</h3>
+<p>Accessible-premium Ayurvedic hair-care capsule. Competes with Be
+Bodywise Hair Growth (₹699, telehealth-coded), Mamaearth Onion Hair
+(₹599, mass-market), Forest Essentials hair (₹1,500, premium luxury),
+HealthKart Biotin (₹700, single-active pharma). Root is the credible
+mid-premium Ayurvedic-anchored option.</p>
+<h3
+id="broad-formulation-v2-reformulated-2026-05-09-per-dec-016-2">Broad
+formulation (V2, reformulated 2026-05-09 per DEC-016)</h3>
+<p><strong>Format: Size #0 capsule × 2 caps/day daily.</strong>
+Comfortable Size #0 fit at the high-priority UX target.</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bhringraj extract</td>
+<td>Standardised 8:1 from whole-leaf</td>
+<td>Akay Group OR Plant Lipids OR Sami-Sabinsa</td>
+<td>100 mg</td>
+<td>Classical hair-tonic primary herb</td>
+</tr>
+<tr>
+<td>Brahmi (Bacopa) extract</td>
+<td>Standardised 50% bacosides — <strong>BacoMind</strong>
+(Sami-Sabinsa) preferred OR generic 20-50%</td>
+<td>Sami-Sabinsa BacoMind OR Arjuna BacoSense OR Vidya Herbs Bacopa</td>
+<td>50 mg</td>
+<td>Stress + scalp circulation (adjunctive dose; primary cognition role
+lives in Spark)</td>
+</tr>
+<tr>
+<td>Shilajit (purified resin)</td>
+<td><strong>PrimaVie</strong> standardised (≥50% fulvic acid + 10.3%
+DBPs, NABL heavy-metal cleared)</td>
+<td>Sami-Sabinsa PrimaVie</td>
+<td>50 mg</td>
+<td>Mineral + adaptogenic (sub-clinical adjunctive dose; full PrimaVie
+250 mg clinical dose lives in Spark)</td>
+</tr>
+<tr>
+<td>Manjistha extract</td>
+<td>Standardised, ~10% anthraquinones (8:1 from whole-root)</td>
+<td>Akay Group OR Vidya Herbs</td>
+<td>25 mg</td>
+<td>Anti-inflammatory + scalp clarity</td>
+</tr>
+<tr>
+<td>Curry leaf extract</td>
+<td>Standardised carbazole alkaloids (NOT iron-standardised — same
+caveat as Bloom)</td>
+<td>Plant Lipids OR Vidya Herbs</td>
+<td>50 mg</td>
+<td>Brand story + supportive phytochemicals</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR Moringa, heat-treated)</td>
+<td>TGL captive</td>
+<td>50 mg</td>
+<td><strong>Heritage signature (Tier B)</strong> + supportive
+natural-source iron / Ca / phytocomplex</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~325 mg / cap</strong> (Size #0 comfortable, headroom for
+granulation)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 2 caps/day</strong>: 200 mg Bhringraj 8:1
+(~1600 mg whole-plant equivalent, classical hair-tonic dose); 100 mg
+Bacopa 50% bacosides (50 mg bacosides/day, sub-clinical for cognition
+primary, supportive for stress/circulation); 100 mg PrimaVie Shilajit
+(sub-clinical adjunctive); 50 mg Manjistha 8:1 (200 mg whole-root
+equivalent); 100 mg Curry leaf (supportive phytochemical); 100 mg
+Moringa heritage (~1-2 mg supportive natural Fe).</p>
+<h3 id="active-library-notes-3">Active library notes</h3>
+<p><strong>Shilajit</strong> locked to <strong>PrimaVie
+(Sami-Sabinsa)</strong> — only Shilajit ingredient with published RCTs
+at clinical dose, eliminates heavy-metal risk inherent in raw Shilajit
+(mandatory NABL heavy-metal clearance per dossier).
+<strong>Bhringraj</strong> has multiple Indian vendor options (Akay,
+Plant Lipids, Sami-Sabinsa); recommend Akay Group as primary on cost.
+<strong>Curry leaf iron reframe (same as Bloom)</strong>: no Indian
+vendor offers standardised iron from Murraya koenigii; use curry leaf
+for brand story + supportive phytochemicals, lead iron narrative with
+moringa whole-leaf at heritage dose. Net iron delivery from Root: ~2-3
+mg natural Fe/day from moringa + curry leaf — <strong>supportive, NOT
+therapeutic anaemia treatment</strong>. Iron-deficient hair-fall users
+should pair Root with Bloom or with practitioner-prescribed iron
+supplementation.</p>
+<hr />
+<h2 id="sku-6-calm-magnesium--sleep">SKU 6: Calm (Magnesium +
+Sleep)</h2>
+<p><strong>Tier B. Q3 launch (Phase 3). ₹999 MRP / ₹899 sale / ₹764
+sub.</strong></p>
+<h3 id="what-it-is-4">What it is</h3>
+<p>A nightly Ayurvedic + magnesium capsule for adults with sleep
+disruption, magnesium deficiency, stress-related muscle tension, or
+anxiety-spectrum sleep issues. Two capsules taken in the evening,
+daily.</p>
+<h3 id="30-second-pitch-4">30-second pitch</h3>
+<blockquote>
+<p>"Sleep isn't broken because of one thing. It's broken because of
+magnesium deficiency, cortisol dysregulation, and cognitive overload.
+Calm has natural-source algae magnesium plus classical Ayurvedic
+adaptogens (Ashwagandha, Brahmi) plus our moringa heritage. Two caps in
+the evening. Real sleep, no melatonin, no synthetic sedation."</p>
+</blockquote>
+<h3 id="positioning--competitors-4">Positioning + competitors</h3>
+<p>Accessible-premium Ayurvedic sleep-magnesium capsule. Competes with
+Cosmix Sleep Stack (₹999), HealthKart Magnesium (₹599 single-active),
+Setu Sleep+ (₹1,200), Plix Sleep effervescent (₹699). Calm is the
+credible Ayurvedic-anchored option with natural-source magnesium (vs
+synthetic Mg salts in most competitors).</p>
+<h3
+id="broad-formulation-v2-reformulated-2026-05-09-per-dec-016-3">Broad
+formulation (V2, reformulated 2026-05-09 per DEC-016)</h3>
+<p><strong>Format: Size #00 capsule × 2 caps/day evening (preferred) OR
+Size #0 × 3 caps/day evening (alternate).</strong> Size #00 × 2 holds
+priority UX target; vendor-formulator may recommend Size #0 × 3 for
+finer Mg delivery split.</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap (Size #00 path)</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aquamin-Mg</td>
+<td>Algae magnesium (Marigot)</td>
+<td>via Inhalation Health India</td>
+<td>250 mg (~75 mg elemental Mg)</td>
+<td>Natural-source magnesium — 150 mg elemental Mg/day = ~36% RDA,
+supportive sleep + muscle relaxation</td>
+</tr>
+<tr>
+<td>Ashwagandha <strong>KSM-66</strong> extract</td>
+<td>Ixoreal Biomed standardised, 5% withanolides</td>
+<td>Ixoreal Biomed (Hyderabad)</td>
+<td>250 mg</td>
+<td>Adaptogen + cortisol support — 500 mg/day matches Salve 2019
+cortisol RCT clinical dose</td>
+</tr>
+<tr>
+<td>Brahmi (Bacopa) extract</td>
+<td>Standardised, 50% bacosides (BacoMind)</td>
+<td>Sami-Sabinsa BacoMind</td>
+<td>50 mg</td>
+<td>Cognitive calm + sleep onset support (50 mg bacosides/day;
+lower-therapeutic for cognition primary, supportive for sleep)</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR, heat-treated)</td>
+<td>TGL captive</td>
+<td>50 mg</td>
+<td><strong>Heritage signature (Tier B)</strong> + nutritive</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~600 mg / cap</strong> (Size #00 ✓)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 2 caps/day</strong>: 150 mg elemental Mg (36%
+RDA, evening dose for sleep); 500 mg KSM-66 Ashwagandha (Salve 2019
+cortisol clinical dose); 100 mg Bacopa 50% bacosides; 100 mg Moringa
+heritage.</p>
+<h3 id="active-library-notes-4">Active library notes</h3>
+<p><strong>Ashwagandha locked to KSM-66 (Ixoreal Biomed,
+Hyderabad)</strong> — 250 mg/cap × 2 = 500 mg/day matches Salve 2019
+randomised controlled trial cortisol-specific dose. KSM-66 is ~3x cost
+of generic 5% withanolides but clinical evidence strongly tilted on
+cortisol outcomes; Calm's positioning premium justifies the margin
+lever. Brahmi spec switched from "8:1 whole-leaf" generic to
+<strong>Bacopa 50% bacosides (BacoMind)</strong> for cleaner per-mg dose
+accounting + clearer compliance with Stough 2001 / Roodenrys 2002 /
+Calabrese 2008 cognitive-RCT lineage. Aquamin-Mg shares
+single-distributor concentration risk with Aquamin-Ca (Bloom + Crest +
+Nourish).</p>
+<hr />
+<h2 id="sku-7-nourish-lactation">SKU 7: Nourish (Lactation)</h2>
+<p><strong>Tier B. Q3 launch (Phase 3). ₹1,199 MRP / ₹1,099 sale / ₹934
+sub. Moringa Foundation exception (200mg/cap for galactagogue
+use).</strong></p>
+<h3 id="what-it-is-5">What it is</h3>
+<p>A daily Ayurvedic lactation capsule for new mothers (typically 0-6
+months postpartum) supporting milk supply, postpartum nutritive
+replenishment, and recovery. Two capsules a day, daily during
+lactation.</p>
+<h3 id="30-second-pitch-5">30-second pitch</h3>
+<blockquote>
+<p>"Lactation needs real galactagogues, not a single-herb fix. Nourish
+brings together Shatavari (the classical Stree-rasayana for lactation),
+Methi, calcium, iron, and our farm-grown moringa at therapeutic
+galactagogue dose, all in one capsule. Two caps a day. Built
+specifically for the new mother whose body is doing the most demanding
+nutrient-export job it will ever do."</p>
+</blockquote>
+<h3 id="positioning--competitors-5">Positioning + competitors</h3>
+<p>Accessible-premium Ayurvedic lactation capsule. Competes with
+HealthyMomma Galactagogue (₹999), Earthly Lactation (₹699), Pediasure
+Mom (₹1,500, pharma-tier). Nourish is the credible Ayurvedic option with
+classical galactagogue stack + therapeutic moringa dose + natural-source
+minerals.</p>
+<h3
+id="broad-formulation-v2-reformulated-2026-05-09-per-dec-016-4">Broad
+formulation (V2, reformulated 2026-05-09 per DEC-016)</h3>
+<p><strong>Format: Size #0 capsule × 3 caps/day daily</strong>
+(recommended) <strong>OR Size #00 × 2 caps/day with granulation</strong>
+(alternate). 3 caps Size #0 chosen as primary path because postpartum
+users tolerate splitting doses across morning + lunch + evening with
+meals (better galactagogue absorption).</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap (Size #0 × 3 path)</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shatavari extract</td>
+<td>Standardised, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>167 mg</td>
+<td>Classical primary galactagogue — 500 mg/day = high-end therapeutic
+Stree-rasayana dose</td>
+</tr>
+<tr>
+<td>Methi (fenugreek) extract</td>
+<td>Standardised, 4-5% saponins (generic vendor-standard)</td>
+<td>Vidya Herbs OR Sami-Sabinsa</td>
+<td>67 mg</td>
+<td>Galactagogue + iron co-factor</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>Algae lithothamnion calcium (Marigot)</td>
+<td>via Inhalation Health India</td>
+<td>100 mg (~33 mg elemental Ca)</td>
+<td>Postpartum calcium for breast-milk export</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR Moringa, heat-treated)</td>
+<td>TGL captive</td>
+<td>133 mg</td>
+<td><strong>Heritage signature exception (Tier B galactagogue
+dose)</strong> + therapeutic galactagogue + supportive natural Fe / Ca /
+B-complex</td>
+</tr>
+<tr>
+<td>Curry leaf extract</td>
+<td>Standardised carbazole alkaloids (NOT iron-standardised — same
+caveat as Bloom)</td>
+<td>Plant Lipids OR Vidya Herbs</td>
+<td>33 mg</td>
+<td>Brand story + supportive phytochemicals</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~500 mg / cap</strong> (Size #0 ✓)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 3 caps/day</strong>: 500 mg Shatavari extract
+(high-end galactagogue dose); 200 mg Methi extract; 100 mg elemental Ca;
+400 mg Moringa heritage (galactagogue exception dose); 100 mg Curry leaf
+supportive.</p>
+<h3 id="active-library-notes-5">Active library notes</h3>
+<p><strong>Moringa at 133 mg/cap × 3 = 400 mg/day is the documented
+exception in Moringa Foundation tier calibration</strong> — moringa is
+itself a clinically-supported galactagogue at this dose plus rich in
+postpartum-relevant nutrients (iron, calcium, B-complex). <strong>Curry
+leaf iron reframe (same as Bloom + Root)</strong>: lead postpartum iron
+narrative with moringa + methi + aquamin-Ca co-delivery; curry leaf
+carries brand story + supportive phytochemicals. Net postpartum iron
+delivery from Nourish: ~3-5 mg natural Fe/day — supportive, NOT
+replacement for postpartum-iron prescription if user is anaemic. Deepika
+is the founder voice per TGL-P1-DEC-004; motherhood status non-blocking
+for content authenticity.</p>
+<hr />
+<h2 id="sku-8-pulse-triphala-digestive">SKU 8: Pulse (Triphala+
+digestive)</h2>
+<p><strong>Tier C. Months 16-18 launch (Phase 6). ₹799 MRP / ₹699 sale /
+₹594 sub. Entry-tier extension of TGL's existing Triphala
+SKU.</strong></p>
+<h3 id="what-it-is-6">What it is</h3>
+<p>A daily Ayurvedic digestive blend built on TGL's existing Triphala
+captive supply chain, extended with digestive bitter herbs. Two capsules
+a day, daily. V1 ships without probiotic; V2 (Year 2) adds Unique
+Biotech IS-2 strain if vendor scouting clears.</p>
+<h3 id="30-second-pitch-6">30-second pitch</h3>
+<blockquote>
+<p>"Triphala is TGL's classic. Pulse takes that heritage formulation and
+extends it with digestive bitters that work alongside Triphala for real
+day-to-day digestive comfort. Same farm-source moringa thread. Two caps
+a day, daily."</p>
+</blockquote>
+<h3 id="positioning--competitors-6">Positioning + competitors</h3>
+<p>Entry-tier Ayurvedic digestive blend. Competes with Earthful Triphala
+(₹399 single-active), Cosmix Digestive (₹999, format-gimmick), Patanjali
+Triphala (mass-tier ₹150). Pulse is the modern D2C upgrade to TGL's
+existing single-ingredient Triphala SKU.</p>
+<h3 id="broad-formulation-v1-reformulated-2026-05-09-per-dec-016">Broad
+formulation V1 (reformulated 2026-05-09 per DEC-016)</h3>
+<p><strong>Format: Size #0 capsule × 2 caps/day daily.</strong>
+Comfortable Size #0 fit at the high-priority UX target.</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triphala whole-blend</td>
+<td>TGL captive supply (existing single-ingredient SKU base)</td>
+<td>TGL captive</td>
+<td>100 mg</td>
+<td><strong>Heritage base (Tier C, TGL captive)</strong> — classical
+digestive triad</td>
+</tr>
+<tr>
+<td>Pippali (long pepper) extract</td>
+<td>Standardised 4:1 from whole-fruit</td>
+<td>Vidya Herbs OR Arjuna Natural</td>
+<td>250 mg</td>
+<td>Digestive primary — Kumar 2011 dyspepsia clinical dose 500
+mg/day</td>
+</tr>
+<tr>
+<td>Gentian root bitter extract</td>
+<td>Standardised extract (gentiopicroside)</td>
+<td>Vidya Herbs OR Plant Lipids</td>
+<td>50 mg</td>
+<td>Digestive bitter, gastric secretion support</td>
+</tr>
+<tr>
+<td>Pippali piperine</td>
+<td><strong>BioPerine</strong> standardised, 95% piperine</td>
+<td>Sami-Sabinsa BioPerine</td>
+<td>5 mg</td>
+<td>Bioavailability enhancer (Shoba 1998 standard cross-SKU dose)</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR Moringa, heat-treated)</td>
+<td>TGL captive</td>
+<td>12.5 mg</td>
+<td><strong>Heritage signature (Tier C minimal)</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~417 mg / cap</strong> (Size #0 ✓)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 2 caps/day</strong>: 200 mg Triphala (Tier C
+heritage anchor); 500 mg Pippali 4:1 extract (Kumar 2011 digestive
+clinical dose); 100 mg Gentian bitter; 10 mg piperine (cross-SKU
+bioavailability); 25 mg Moringa heritage.</p>
+<h3 id="active-library-notes-6">Active library notes</h3>
+<p><strong>Pippali dose increased from 25 mg/cap (V1 sub-clinical) to
+250 mg/cap (V2 clinical-therapeutic per Kumar 2011 dyspepsia
+trial)</strong> — the role shifts from "bioavailability enhancer only"
+to "digestive primary"; bioavailability role moves to dedicated 5 mg
+BioPerine slot. Triphala mass calibrated down from 300 mg → 100 mg as
+heritage anchor (Tier C minimal) since Pippali becomes the therapeutic
+digestive lead in V1. Probiotic remains V2 add (if Unique Biotech IS-2
+strain vendor scouting clears) — cold-chain handling + delayed-release
+encapsulation are the capability gaps that disqualify probiotic from V1
+launch.</p>
+<hr />
+<h2 id="sku-9-glide-turmeric-joint">SKU 9: Glide (Turmeric+ Joint)</h2>
+<p><strong>Tier C. Months 13-15 launch (Phase 5). ₹999 MRP / ₹899 sale /
+₹764 sub. Joint comfort extension of TGL's existing Turmeric
+SKU.</strong></p>
+<h3 id="what-it-is-7">What it is</h3>
+<p>A daily Ayurvedic joint-support capsule built on TGL's existing
+Turmeric captive supply, extended with curcumin-concentrate and
+Boswellia for therapeutic anti-inflammatory dose. Two capsules a day,
+daily. For adults with joint pain, osteoarthritis, sports overuse, or
+post-injury inflammation.</p>
+<h3 id="30-second-pitch-7">30-second pitch</h3>
+<blockquote>
+<p>"Turmeric is TGL's heritage. But raw turmeric powder doesn't deliver
+therapeutic curcumin dose. Glide pairs our turmeric whole-rhizome
+heritage base with Curcumin C3 standardised extract and Boswellia 65 for
+real anti-inflammatory action on joint comfort. Two caps a day."</p>
+</blockquote>
+<h3 id="positioning--competitors-7">Positioning + competitors</h3>
+<p>Accessible-premium Ayurvedic joint blend. Competes with Earthful
+Joint Care (₹699), Setu Joint (₹1,200), branded curcumin single-actives
+(₹500-1,500). Glide is the credible Ayurvedic-heritage option with
+branded curcumin + Boswellia synergy.</p>
+<h3
+id="broad-formulation-v2-reformulated-2026-05-09-per-dec-016-5">Broad
+formulation (V2, reformulated 2026-05-09 per DEC-016)</h3>
+<p><strong>Format: Size #00 capsule × 2 caps/day daily</strong> with
+granulation.</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Curcumin <strong>C3 Complex</strong> extract</td>
+<td>Sami-Sabinsa standardised, 95-97% curcuminoids</td>
+<td>Sami-Sabinsa C3 Complex</td>
+<td>250 mg</td>
+<td>Therapeutic anti-inflammatory dose — 500 mg/day matches clinical OA
+pain RCT range</td>
+</tr>
+<tr>
+<td>Boswellia 65% BA extract</td>
+<td><strong>BoswelliaSeralin</strong> standardised, 65% boswellic
+acids</td>
+<td>Sami-Sabinsa BoswelliaSeralin OR Arjuna Natural OR Vidya Herbs
+Boswellin</td>
+<td>350 mg (~227 mg BA)</td>
+<td>Joint synergy with curcumin — 700 mg/day = 455 mg BA, comfortably in
+Kimmatkar 2003 clinical therapeutic range</td>
+</tr>
+<tr>
+<td>Turmeric whole-rhizome</td>
+<td>TGL captive supply (existing single-ingredient SKU base)</td>
+<td>TGL captive</td>
+<td>100 mg</td>
+<td><strong>Heritage base (Tier C, TGL captive)</strong>
+anti-inflammatory whole-plant</td>
+</tr>
+<tr>
+<td>Pippali piperine</td>
+<td><strong>BioPerine</strong> standardised, 95% piperine</td>
+<td>Sami-Sabinsa BioPerine</td>
+<td>5 mg</td>
+<td>Curcumin bioavailability enhancer (Shoba 1998 — 2000% curcumin
+bioavailability boost)</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR Moringa, heat-treated)</td>
+<td>TGL captive</td>
+<td>12.5 mg</td>
+<td><strong>Heritage signature (Tier C minimal)</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~717 mg / cap</strong> (Size #00 with granulation ✓)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 2 caps/day</strong>: 500 mg curcuminoids (C3
+95-97%); 700 mg Boswellia extract = 455 mg total boswellic acids
+(Kimmatkar 2003 OA clinical dose); 200 mg Turmeric heritage; 10 mg
+piperine; 25 mg Moringa heritage.</p>
+<h3 id="active-library-notes-7">Active library notes</h3>
+<p><strong>Boswellia dose increased from 200 mg/cap (V1 sub-clinical for
+chronic OA) to 350 mg/cap (V2 clinical-therapeutic per Kimmatkar 2003
+RCT)</strong> — at standard 65% BA grade, ≥300 mg/cap is needed to clear
+the clinical therapeutic floor (~200-260 mg total BA/day). Curcumin C3
+95% retained as gold-standard premium curcumin (Aggarwal-lab evidence
+base); generic 95% curcumin available as ~2-3x cost-lever margin path if
+Glide cost model needs adjustment in Phase 5. Bioavailability
+enhancement standardised across Tier C SKUs via 5 mg BioPerine slot.
+Turmeric whole-rhizome reduced 200 mg → 100 mg as Tier C heritage
+minimum (the curcumin C3 extract is the therapeutic lead, not the
+whole-rhizome).</p>
+<hr />
+<h2 id="sku-10-spark-ashwagandha-stress">SKU 10: Spark (Ashwagandha+
+Stress)</h2>
+<p><strong>Tier C. Months 13-15 launch (Phase 5). ₹1,099 MRP / ₹999 sale
+/ ₹849 sub. Stress + cognitive extension of TGL's existing Ashwagandha
+SKU.</strong></p>
+<h3 id="what-it-is-8">What it is</h3>
+<p>A daily Ayurvedic stress + cognitive support capsule built on TGL's
+existing Ashwagandha captive supply, extended with KSM-66 standardised
+extract and Brahmi. Two capsules a day, daily. For adults with chronic
+stress, cortisol dysregulation, sleep + mood + focus issues.</p>
+<h3 id="30-second-pitch-8">30-second pitch</h3>
+<blockquote>
+<p>"Stress isn't fixed by one ashwagandha cap. Spark pairs TGL's
+heritage ashwagandha whole-root with KSM-66, the clinically-validated
+branded extract that has the strongest cortisol evidence base, plus
+Brahmi for cognitive support. Two caps a day. Real cortisol regulation,
+real cognitive resilience."</p>
+</blockquote>
+<h3 id="positioning--competitors-8">Positioning + competitors</h3>
+<p>Accessible-premium Ayurvedic stress capsule. Competes with Cosmix
+Stress (₹999), Setu Stress (₹1,200), HealthKart Ashwagandha (₹599
+single-active), Mihiral KSM-66 (premium ₹1,500). Spark is the credible
+Ayurvedic option with TGL heritage + branded KSM-66 + cognitive
+layer.</p>
+<h3
+id="broad-formulation-v2-reformulated-2026-05-09-per-dec-016-6">Broad
+formulation (V2, reformulated 2026-05-09 per DEC-016)</h3>
+<p><strong>Format: Size #00 capsule × 2 caps/day daily.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>mg / cap</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ashwagandha <strong>KSM-66</strong> extract</td>
+<td>Ixoreal Biomed standardised, 5% withanolides</td>
+<td>Ixoreal Biomed (Hyderabad)</td>
+<td>250 mg</td>
+<td>Therapeutic cortisol-specific dose — 500 mg/day matches Salve 2019
+RCT cortisol-reduction dose</td>
+</tr>
+<tr>
+<td>Shilajit <strong>PrimaVie</strong></td>
+<td>Sami-Sabinsa standardised, ≥50% fulvic acid + 10.3% DBPs</td>
+<td>Sami-Sabinsa PrimaVie</td>
+<td>250 mg</td>
+<td>Mitochondrial + adaptogenic — 500 mg/day matches Pandit 2016 +
+Keller 2019 RCT energy/strength dose</td>
+</tr>
+<tr>
+<td>Brahmi (Bacopa) extract</td>
+<td><strong>BacoMind</strong> standardised, 50% bacosides</td>
+<td>Sami-Sabinsa BacoMind</td>
+<td>150 mg</td>
+<td>Cognitive resilience — 300 mg/day matches Stough 2001 + Roodenrys
+2002 + Calabrese 2008 cognition RCT dose</td>
+</tr>
+<tr>
+<td>Ashwagandha whole-root</td>
+<td>TGL captive supply (existing single-ingredient SKU base)</td>
+<td>TGL captive</td>
+<td>100 mg</td>
+<td><strong>Heritage base (Tier C, TGL captive)</strong> classical
+adaptogen</td>
+</tr>
+<tr>
+<td>Pippali piperine</td>
+<td><strong>BioPerine</strong> standardised, 95% piperine</td>
+<td>Sami-Sabinsa BioPerine</td>
+<td>5 mg</td>
+<td>Bioavailability enhancer (cross-SKU standard)</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR Moringa, heat-treated)</td>
+<td>TGL captive</td>
+<td>12.5 mg</td>
+<td><strong>Heritage signature (Tier C minimal)</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td><strong>~768 mg / cap</strong> (Size #00 with granulation ✓)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Daily intake at 2 caps/day</strong>: 500 mg KSM-66 (Salve
+2019 cortisol clinical dose); 500 mg PrimaVie Shilajit (Pandit 2016
+energy/T clinical dose); 300 mg Bacopa 50% bacosides
+(Stough/Roodenrys/Calabrese cognition clinical dose); 200 mg Ashwagandha
+heritage; 10 mg piperine; 25 mg Moringa heritage.</p>
+<h3 id="active-library-notes-8">Active library notes</h3>
+<p><strong>KSM-66 dose increased from 150 mg/cap (V1 sub-clinical) to
+250 mg/cap (V2 clinical-therapeutic per Salve 2019 RCT)</strong> — at 5%
+withanolides, 500 mg/day clears the cortisol-reduction clinical floor.
+<strong>Brahmi spec changed from generic 8:1 to BacoMind 50%
+bacosides</strong> for clean dose accounting against
+Stough/Roodenrys/Calabrese cognition RCT lineage (300 mg/day clinical
+dose). <strong>PrimaVie added at 250 mg/cap</strong> for the
+energy/mitochondrial layer per Pandit 2016 + Keller 2019 — fits Spark's
+stress + cognitive + energy positioning more completely than V1 KSM-only
+stack. TGL's existing Ashwagandha single-ingredient SKU stays as a
+separate entry-tier product; Spark is the multi-ingredient Tier C
+upgrade.</p>
+<hr />
+<h2 id="dec-016-v2-reformulation-summary-2026-05-09">DEC-016 V2
+reformulation summary (2026-05-09)</h2>
+<p>All 10 SKUs reformulated to use <strong>only readily-available
+standard-concentration extracts</strong> from BOCO's vetted Indian
+vendor network (Sami-Sabinsa, Akay Group, Arjuna Natural, Indfrag
+Biosciences, OmniActive, Plant Lipids, Vidya Herbs, Ixoreal Biomed for
+KSM-66, Parry Nutraceuticals for spirulina). No specialty /
+hyper-premium / single-supplier-branded ingredients required for Phase 1
+launch.</p>
+<h3 id="cap-format--ux-target-compliance">Cap format + UX target
+compliance</h3>
+<table>
+<thead>
+<tr>
+<th>SKU</th>
+<th>Tier</th>
+<th>Cap path</th>
+<th>UX target hit?</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cycle</strong> (PMS)</td>
+<td>A</td>
+<td>Size #0 × 2 caps cyclic</td>
+<td>✅ Yes</td>
+<td>Cleanest fit — 376 mg/cap, no compromises</td>
+</tr>
+<tr>
+<td><strong>Reset</strong> (PCOS)</td>
+<td>A</td>
+<td>Size #0 × 3 caps daily</td>
+<td>⚠️ 3 caps</td>
+<td>Methi 1000 mg/day clinical PCOS dose forces 3 caps; split-meal
+dosing improves insulin-sensitivity blood-level consistency (DEC-014
+lock)</td>
+</tr>
+<tr>
+<td><strong>Bloom</strong> (Daily Multi)</td>
+<td>A</td>
+<td>Size #00 × 2 caps daily</td>
+<td>✅ 2 caps, Size #00</td>
+<td>Natural-source vit/mineral matrix needs Size #00 fill volume; 3 open
+Pillar-1 questions for Deepika</td>
+</tr>
+<tr>
+<td><strong>Crest</strong> (Menopause)</td>
+<td>A</td>
+<td>Size #00 × 2 caps daily</td>
+<td>✅ 2 caps, Size #00</td>
+<td>NovaSoy → Sami-Sabinsa SoyLife (Indian-sourced 40% isoflavones)</td>
+</tr>
+<tr>
+<td><strong>Root</strong> (Hair)</td>
+<td>B</td>
+<td>Size #0 × 2 caps daily</td>
+<td>✅ Yes</td>
+<td>Comfortable Size #0 fit — 325 mg/cap with headroom</td>
+</tr>
+<tr>
+<td><strong>Calm</strong> (Sleep)</td>
+<td>B</td>
+<td>Size #00 × 2 caps evening</td>
+<td>✅ 2 caps, Size #00</td>
+<td>KSM-66 500 mg/day cortisol clinical dose locked</td>
+</tr>
+<tr>
+<td><strong>Nourish</strong> (Lactation)</td>
+<td>B</td>
+<td>Size #0 × 3 caps daily</td>
+<td>⚠️ 3 caps</td>
+<td>High galactagogue + Aquamin-Ca + moringa exception dose forces 3
+caps OR Size #00 × 2 with granulation (vendor-formulator picks at
+trial-fill)</td>
+</tr>
+<tr>
+<td><strong>Pulse</strong> (Digestive)</td>
+<td>C</td>
+<td>Size #0 × 2 caps daily</td>
+<td>✅ Yes</td>
+<td>Pippali increased to clinical 500 mg/day; BioPerine added</td>
+</tr>
+<tr>
+<td><strong>Glide</strong> (Joint)</td>
+<td>C</td>
+<td>Size #00 × 2 caps daily</td>
+<td>✅ 2 caps, Size #00</td>
+<td>Boswellia increased to clinical 700 mg/day (455 mg BA); C3 +
+BioPerine for curcumin bioavailability</td>
+</tr>
+<tr>
+<td><strong>Spark</strong> (Stress)</td>
+<td>C</td>
+<td>Size #00 × 2 caps daily</td>
+<td>✅ 2 caps, Size #00</td>
+<td>KSM-66 + PrimaVie + BacoMind all at clinical RCT doses</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Score: 7 SKUs hit the 2 caps/day UX target; 2 SKUs (Reset +
+Nourish) need 3 caps for therapeutic dose preservation per
+DEC-014.</strong> All SKUs use vendor-network standard
+concentrations.</p>
+<h3
+id="three-pillar-1-questions-surfaced-for-deepika-bloom-anchored">Three
+Pillar-1 questions surfaced for Deepika (Bloom-anchored)</h3>
+<p>These came up in V2 reformulation research (Round 2, 2026-05-09) and
+need her sign-off before vendor outreach Week 7:</p>
+<ol type="1">
+<li><strong>Curry leaf as iron source.</strong> No Indian vendor offers
+a standardised "X% Fe from Murraya koenigii" branded ingredient. Three
+SKUs that previously cited "curry-leaf iron" (Bloom + Root + Nourish)
+now reframe iron narrative as moringa-led + curry leaf supportive.
+Recommended V1 launch posture: lead with moringa/spirulina as
+natural-source iron carriers; use curry leaf for brand-story
+phytochemicals.</li>
+<li><strong>Spirulina-only B12 vs spirulina + fermentation
+methylcobalamin (MecobalActiv).</strong> Spirulina alone CANNOT meet B12
+RDA reliably (largely pseudo-cobamides). MecobalActiv is
+fermentation-derived (Sami-Sabinsa, <em>Pseudomonas denitrificans</em>)
+— naturally produced, NOT chemically synthesised. Recommended: keep
+both, frame as "natural B-complex + fermentation-derived B12."</li>
+<li><strong>Bloom positioning: "100% RDA multi" vs "70% RDA +
+diet."</strong> With natural-source-only vits/minerals at
+vendor-standard concentrations, Bloom honestly delivers ~50% iron RDA +
+10% calcium RDA + 100% Vit C + 125% B12 + 100% D3. Recommended marketing
+posture: "foundational daily multi alongside an Ayurvedic plate" — NOT
+"100% RDA daily multi" (which would force synthetic-vitamin
+compromises).</li>
+</ol>
+<h3 id="vendor-concentration-map">Vendor concentration map</h3>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>SKUs depending on this vendor</th>
+<th>Risk level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa</strong> (Bangalore)</td>
+<td>Cycle (Shatavari), Reset (Shatavari, C3, BioPerine), Bloom
+(Shatavari, MecobalActiv, BacoMind option), Crest (SoyLife, Shatavari,
+Yashtimadhu), Calm (BacoMind), Nourish (Shatavari), Pulse (BioPerine),
+Glide (C3, BoswelliaSeralin, BioPerine), Spark (BacoMind, PrimaVie,
+BioPerine)</td>
+<td><strong>HIGH concentration — 9 of 10 SKUs depend on Sami-Sabinsa for
+at least one active.</strong> Counter-balance: Sami-Sabinsa is the
+largest Indian specialty extract supplier with strongest QC + supply
+reliability. Backup vendors named for every active.</td>
+</tr>
+<tr>
+<td><strong>Vidya Herbs</strong> (Bangalore)</td>
+<td>Tier-2 backup for Shatavari, Methi, Bacopa, Yashtimadhu, Vitex,
+Manjistha, Pippali, Amla, Boswellin, Curry leaf</td>
+<td>Backup vendor across the portfolio — provides single-vendor
+consolidation alternative if Sami-Sabinsa MOQ economics break</td>
+</tr>
+<tr>
+<td><strong>Ixoreal Biomed</strong> (Hyderabad)</td>
+<td>Calm (KSM-66), Spark (KSM-66)</td>
+<td>KSM-66 is single-supplier; no substitute exists. Generic 5%
+withanolides is the margin-lever fallback (used in Bloom).</td>
+</tr>
+<tr>
+<td><strong>Inhalation Health India</strong></td>
+<td>Bloom (Aquamin-Ca), Crest (Aquamin-Ca), Calm (Aquamin-Mg), Nourish
+(Aquamin-Ca)</td>
+<td><strong>Single Indian distributor for Marigot Aquamin</strong> — 4
+SKUs depend. Pre-existing R1 risk in Cycle's risk register applies
+portfolio-wide.</td>
+</tr>
+<tr>
+<td><strong>TGL captive</strong></td>
+<td>Cycle, Reset, Bloom, Crest, Root, Calm, Nourish (Moringa); Pulse
+(Triphala); Glide (Turmeric); Spark (Ashwagandha)</td>
+<td>DPR Moringa for Tier A+B; existing single-ingredient SKU supply
+chain extends to Tier C heritage bases</td>
+</tr>
+<tr>
+<td>Plant Lipids (Cochin)</td>
+<td>Cycle (Black sesame), Bloom (Amla 25% Vit C, Curry leaf), Root
+(Bhringraj alt, Curry leaf), Crest (Yashtimadhu alt), Nourish (Curry
+leaf), Pulse (Gentian)</td>
+<td>Moderate spread; second-tier alongside Sami-Sabinsa</td>
+</tr>
+<tr>
+<td>Akay Group (Cochin)</td>
+<td>Cycle (Ashoka, Lodhra, Manjistha), Reset (Manjistha, Bhringraj),
+Root (Bhringraj, Manjistha)</td>
+<td>Concentrated in Tier A women's hormonal SKUs; primary vendor for the
+Ashoka-Lodhra-Manjistha bark/root extract triad</td>
+</tr>
+<tr>
+<td>Parry Nutraceuticals (Chennai)</td>
+<td>Bloom (Spirulina)</td>
+<td>Single-vendor for Bloom spirulina; Parry's Oonaiyur facility is
+solar-dried + organic-certified (strong story for Deepika)</td>
+</tr>
+<tr>
+<td>Arjuna Natural (Kerala)</td>
+<td>Tier-2 backup (Bacopa BacoSense, Boswellin, Vitex, Capros Amla)</td>
+<td>Backup vendor breadth</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mitigation</strong>: Every active has 2-3 vendor candidates
+named. Single-vendor risks are Marigot/Aquamin (Inhalation Health India)
+and KSM-66 (Ixoreal Biomed). Both are pre-existing risks documented in
+Cycle dossier; mitigation paths are formulation substitutes
+(synthetic-Mg salt avoided per Pillar 1; generic 5% withanolides for
+KSM-66 substitution).</p>
+<hr />
+<div class="active-matrix">
+<h3 class="active-matrix-title">Active library cross-reference (V2, DEC-016 reformulated)</h3>
+<p class="active-matrix-sub">mg/cap by SKU. All extracts are vendor-network standard concentrations from Sami-Sabinsa, Akay Group, Arjuna Natural, Indfrag, OmniActive, Plant Lipids, Vidya Herbs, Ixoreal Biomed (KSM-66), Parry Nutraceuticals (spirulina) — no specialty / hyper-premium / single-supplier branded ingredients. Reformulated 2026-05-09. Heritage bases (whole-plant) shown in dark green; standardised extracts in warm orange; TGL captive supply in beige.</p>
+<table class="matrix-table">
+<thead>
+<tr>
+<th>Active</th>
+<th>Cycle</th>
+<th>Reset</th>
+<th>Bloom</th>
+<th>Crest</th>
+<th>Root</th>
+<th>Calm</th>
+<th>Nourish</th>
+<th>Pulse</th>
+<th>Glide</th>
+<th>Spark</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="label">Moringa whole-leaf</td><td class="heritage">75</td><td class="heritage">25</td><td class="heritage">100</td><td class="heritage">75</td><td class="heritage">50</td><td class="heritage">50</td><td class="heritage">133</td><td class="heritage">12.5</td><td class="heritage">12.5</td><td class="heritage">12.5</td></tr>
+<tr><td class="label">Triphala whole-blend</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="captive">100</td><td></td><td></td></tr>
+<tr><td class="label">Turmeric whole-rhizome</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="captive">100</td><td></td></tr>
+<tr><td class="label">Ashwagandha whole-root</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="captive">100</td></tr>
+<tr><td class="label">Shatavari extract (4-5% sap)</td><td class="extract">200</td><td class="extract">133</td><td class="extract">100</td><td class="extract">200</td><td></td><td></td><td class="extract">167</td><td></td><td></td><td></td></tr>
+<tr><td class="label">Ashoka extract (8:1, 40% tan)</td><td class="extract">25</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Lodhra extract (8:1, 30% tan)</td><td class="extract">13</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Manjistha extract (8:1, 10% anth)</td><td class="extract">13</td><td class="extract">25</td><td></td><td></td><td class="extract">25</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Black sesame extract (40-50% ses)</td><td class="extract">50</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Methi extract (4-5% sap, generic)</td><td></td><td class="extract">333</td><td></td><td></td><td></td><td></td><td class="extract">67</td><td></td><td></td><td></td></tr>
+<tr><td class="label">Curcumin C3 (95% curcuminoids)</td><td></td><td class="extract">100</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="extract">250</td><td></td></tr>
+<tr><td class="label">Bhringraj extract (8:1)</td><td></td><td class="extract">25</td><td></td><td></td><td class="extract">100</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Bacopa BacoMind (50% bacosides)</td><td></td><td></td><td></td><td></td><td class="extract">50</td><td class="extract">50</td><td></td><td></td><td></td><td class="extract">150</td></tr>
+<tr><td class="label">Ashwagandha ext (KSM-66/generic 5%)</td><td></td><td></td><td class="extract">100</td><td></td><td></td><td class="extract">250</td><td></td><td></td><td></td><td class="extract">250</td></tr>
+<tr><td class="label">Aquamin-Ca (algae lithothamnion)</td><td></td><td></td><td class="extract">150</td><td class="extract">150</td><td></td><td></td><td class="extract">100</td><td></td><td></td><td></td></tr>
+<tr><td class="label">Aquamin-Mg (algae)</td><td></td><td></td><td></td><td></td><td></td><td class="extract">250</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Vitashine D3 (lichen)</td><td></td><td></td><td class="extract">400IU</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Spirulina (Parry organic)</td><td></td><td></td><td class="extract">250</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">MecobalActiv methylcobalamin</td><td></td><td></td><td class="extract">1.5mcg</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Curry leaf extract (NOT iron-std)</td><td></td><td></td><td class="extract">50</td><td></td><td class="extract">50</td><td></td><td class="extract">33</td><td></td><td></td><td></td></tr>
+<tr><td class="label">Amla Vit-C (Plant Lipids 25%)</td><td></td><td></td><td class="extract">200</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Soy isoflavones (SoyLife 40%)</td><td></td><td></td><td></td><td class="extract">100</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Vitex (0.5% agnusides)</td><td></td><td></td><td></td><td class="extract">25</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Yashtimadhu (4% glycyrrhizin)</td><td></td><td></td><td></td><td class="extract">50</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="label">Shilajit PrimaVie (purified)</td><td></td><td></td><td></td><td></td><td class="extract">50</td><td></td><td></td><td></td><td></td><td class="extract">250</td></tr>
+<tr><td class="label">Boswellia 65% BA (BoswelliaSeralin)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="extract">350</td><td></td></tr>
+<tr><td class="label">Pippali 4:1 (long pepper)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="extract">250</td><td></td><td></td></tr>
+<tr><td class="label">BioPerine (95% piperine)</td><td></td><td class="extract">5</td><td></td><td></td><td></td><td></td><td></td><td class="extract">5</td><td class="extract">5</td><td class="extract">5</td></tr>
+<tr><td class="label">Gentian root bitter extract</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="extract">50</td><td></td><td></td></tr>
+</tbody>
+</table>
+<p style="margin-top: 16px; font-size: 12px; color: var(--text-muted);">Numbers are mg/cap. <span style="background: var(--tier-a); color: var(--bg); padding: 2px 6px; border-radius: 3px;">Heritage base (whole-plant)</span> · <span style="background: var(--tier-c-soft); color: var(--tier-c); padding: 2px 6px; border-radius: 3px; font-weight: 700;">TGL captive whole-plant base</span> · <span style="background: var(--accent-soft); color: var(--accent-deep); padding: 2px 6px; border-radius: 3px; font-weight: 700;">Standardised extract</span></p>
+</div>
+
+<h2
+id="plan-moving-forward-what-deepika-needs-to-do-starting-tomorrow">Plan
+moving forward (what Deepika needs to do, starting tomorrow)</h2>
+<h3
+id="where-this-product-portfolio-sits-today-the-snapshot-for-deepika">Where
+this product portfolio sits today (the snapshot for Deepika)</h3>
+<p>10-SKU multi-ingredient pivot, ₹80-90L Phase 1 capital, <strong>Q1
+launches Cycle + Bloom + Reset (3-SKU expanded per DEC-012)</strong>.
+18-month ARR target ₹9-12 Cr. Brand thesis "Built on Moringa. Powered by
+Ayurveda." Locked operational principles: capsule format only,
+outcome-led naming, best clinically-validated natural-source actives via
+Indian distributors, Moringa Foundation per-cap dosing by tier,
+<strong>extract-first formulation philosophy with one whole-plant
+heritage base per SKU</strong> (locked TGL-P1-DEC-011, 2026-05-09),
+<strong>all formulations use vendor-network standard extracts
+only</strong> (locked TGL-P1-DEC-016, 2026-05-09).</p>
+<h3 id="5-things-deepika-confirms-or-aligns-on-at-the-meeting">5 things
+Deepika confirms or aligns on at the meeting</h3>
+<ol type="1">
+<li><p><strong>Brand thesis + 10-SKU portfolio shape.</strong> "Built on
+Moringa. Powered by Ayurveda." 4 Tier A women's hormonal SKUs (Cycle /
+Reset / Bloom / Crest), 3 Tier B cross-sells (Root / Calm / Nourish), 3
+Tier C extensions of TGL's existing single-ingredient SKUs (Pulse /
+Glide / Spark). Phase 1 launch Q1 = Cycle + Bloom. Validation gate at
+Month 3 unlocks Phase 2 (Reset + Root).</p></li>
+<li><p><strong>Extract-first formulation philosophy.</strong>
+Standardised extracts from established Indian specialty suppliers as
+default. Whole-plant ingredient = exactly ONE per SKU as heritage base
+(Moringa for Tiers A+B; Triphala/Turmeric/Ashwagandha for Tier C).
+Approved by Abhishek as TGL-P1-DEC-011. Confirms with Deepika.</p></li>
+<li><p><strong>Capsule shell + DPR moringa cost rate
+disclosure.</strong> Deepika owns capsule shell vendor relationship per
+TGL-P1-DEC-002. Share spec + pricing for Size #0 HPMC plant-cellulose at
+100K-cap volume so cost model goes from BENCHMARK to VERIFIED. Plus DPR
+moringa effective per-kg cost.</p></li>
+<li><p><strong>Vendor outreach calendar (W7-12 critical path).</strong>
+Confirm Deepika's bandwidth for ~12-15 hr/wk during weeks 7-12 of Phase
+1 (vendor calls + site visits + sample logistics). If too tight, extend
+the calling window to W6-13.</p></li>
+<li><p><strong>Shopflo API access.</strong> Provide API key + secret +
+merchant_id for TGL + Varalife to unblock revenue-truth pipeline (R12
+risk, TGL-P1-DEC-010). Without this, Phase 1 Month 3 validation gate
+cannot be reliably measured (Shopify Admin captures only ~30% of TGL
+true revenue).</p></li>
+</ol>
+<h3
+id="5-things-deepika-commits-to-do-in-phase-1-weeks-1-6-pre-vendor-outreach">5
+things Deepika commits to do in Phase 1 Weeks 1-6
+(pre-vendor-outreach)</h3>
+<ol type="1">
+<li><strong>Naming sprint review</strong> for SKU 1 Cycle + SKU 3 Bloom.
+Final name lock pending TM clearance (Aarav runs IP India Class 5 search
++ TM agent commission if needed).</li>
+<li><strong>Brand kit V0 review</strong> (logo, color, typography,
+packaging artwork for Cycle + Bloom) by Week 13.</li>
+<li><strong>Founder content sprint plan</strong> confirmed: ~12 founder
+Reels in Phase 1 launch month covering "why I'm making Cycle + Bloom,"
+"what's wrong with what's on shelves," "the 6 herbs," "extracts vs
+powder," "give it 3 cycles."</li>
+<li><strong>Capsule shell + bottle vendor pricing</strong> shared for
+cost model V2 update.</li>
+<li><strong>Calendar block</strong> for W7-8 vendor calls + W9 site
+visits (Hyderabad / Chennai / Bangalore).</li>
+</ol>
+<h3 id="deepikas-calendar-commitment-by-phase">Deepika's calendar
+commitment by phase</h3>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Focus</th>
+<th>Deepika weekly time commitment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weeks 1-6 (pre-outreach)</td>
+<td>Brand alignment + vendor matrix prep + capsule shell pricing
+share</td>
+<td>2-3 hrs/week</td>
+</tr>
+<tr>
+<td>Weeks 7-12 (vendor calls + site visits + samples + LOI)</td>
+<td><strong>Heaviest stretch</strong></td>
+<td>12-15 hrs/week</td>
+</tr>
+<tr>
+<td>Weeks 13-16 (site dev + creative prep)</td>
+<td>Founder content + brand kit review</td>
+<td>4-6 hrs/week</td>
+</tr>
+<tr>
+<td>Weeks 17+ (launch + Month 3 validation gate)</td>
+<td>Founder content + customer comms in Tamil/English/Hindi mix</td>
+<td>6-8 hrs/week</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-deepika-walks-away-from-the-meeting-with">What Deepika
+walks away from the meeting with</h3>
+<ul>
+<li><strong>Clarity</strong> on the 10-SKU portfolio shape, the Q1
+commitment (Cycle + Bloom), and how the validation gate at Month 3
+unlocks Phase 2.</li>
+<li><strong>Buy-in</strong> on the extract-first formulation philosophy
++ Moringa Foundation calibration + the brand thesis.</li>
+<li><strong>Visibility</strong> on the 9 SKU short briefs above, so she
+sees how Cycle + Bloom open the funnel that Reset / Root / Crest / Calm
+/ Nourish / Pulse / Glide / Spark complete over 18 months.</li>
+<li><strong>Action items</strong> confirmed: capsule shell pricing
+share, DPR cost rate share, Shopflo creds, Week 7-12 calendar
+block.</li>
+</ul>
+<h3 id="deeper-per-sku-briefs-ship-later-this-week">Deeper per-SKU
+briefs ship later this week</h3>
+<p>The 9 short briefs above are visibility-level. Deeper briefs
+(Cycle-equivalent depth covering customer profile, lived experience,
+theoretical justification with clinical citations, decision narrative,
+right to win) ship later this week SKU by SKU. Cycle's full brief at
+<code>sku-1-cycle-product-brief.md</code> is the template.</p>
+<h3 id="reference-docs">Reference docs</h3>
+<ul>
+<li><strong>Cycle full brief</strong>:
+<code>product-briefs/sku-1-cycle-product-brief.md</code></li>
+<li><strong>Brand DNA + 6 operational principles</strong>:
+<code>02-brand-dna.md</code></li>
+<li><strong>SKU shortlist with full pricing + bundle
+architecture</strong>: <code>04-sku-shortlist.md</code></li>
+<li><strong>Portfolio strategy (6-phase rollout, capital deploy, ARR
+projections)</strong>: <code>05-portfolio-strategy.md</code></li>
+<li><strong>Supply chain operating model + Deepika's role</strong>:
+<code>06-supply-chain-and-deepika-system.md</code></li>
+<li><strong>Q1 launch commitment doc</strong>:
+<code>09-q1-launch-shortlist.md</code></li>
+<li><strong>Phase 1 program management spec (capital ledger, decision
+log, risk register, kill criteria)</strong>:
+<code>10-phase-1-program-management.md</code></li>
+<li><strong>Per-SKU V3 strategic dossiers</strong>:
+<code>dossiers/01-cycle-pms.md</code> through
+<code>dossiers/10-spark-ashwagandha-stress.md</code></li>
+</ul>
+<hr />
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 master brief, drafted 2026-05-09 by Aarav for Abhishek's meeting
+with Deepika. Cycle full brief consolidated from
+<code>sku-1-cycle-product-brief.md</code>. Portfolio short briefs (SKUs
+2-10) consolidated from <code>portfolio-short-briefs.md</code>. Both
+source files retained as standalones; this master is the single
+navigable doc.</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial master brief. Combines Cycle full brief (12
+sections) + 9 short briefs (SKUs 2-10) + Plan Moving Forward / Deepika
+action items. Quick-navigation TOC at top.</p>
+</main>
+</body>
+</html>
