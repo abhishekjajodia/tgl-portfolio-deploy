@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Bloom (Daily Women's Multi)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Bloom (Daily Women's Multi)</strong></div>
+
+<blockquote>
+<p><strong>Mirrored in the master doc</strong>: This Bloom brief is also
+embedded in <a
+href="tgl-product-portfolio.md"><code>tgl-product-portfolio.md</code></a>,
+the consolidated single-doc view of all 10 SKUs + Plan Moving Forward.
+The master doc is canonical for navigation. This standalone is retained
+for focused single-product viewing.</p>
+</blockquote>
+<h1 id="bloom-working-name-product-brief">Bloom (working name): Product
+Brief</h1>
+<p><strong>The Good Leaf (TGL)</strong> Phase 1 Q1 launch SKU. Daily
+Women's Multi (natural-source vitamins + minerals + Ayurvedic adaptogen
+stack). <em>Drafted 2026-05-09 by Aarav. Status: V1 with Sections 1-12
+locked. This brief is the team-readable narrative layer for Deepika,
+Unnati, and Boco. Pair with
+<code>dossiers/03-bloom-hormonal-balance.md</code> (V3 theory + clinical
+detail) and the formulation-spec (to be drafted at Dr. Lakshmi Kala
+handoff post 2026-05-11/12 connect).</em></p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Bloom (working name; final lock pending TM
+clearance per TGL-P1-DEC-007 + naming sprint round 2 with Deepika).</p>
+<p><strong>Elevator pitch (3 sentences):</strong></p>
+<blockquote>
+<p>Bloom is TGL's foundational daily women's multivitamin, designed for
+the 25-45 year old Indian woman who eats well-enough but knows her diet
+alone doesn't deliver the iron, B12, calcium, and Vit C her body
+actually needs. Two plant-cellulose Size #00 capsules a day, every day,
+deliver natural-source iron co-delivered through TGL's farm-grown
+moringa + Parry's organic spirulina, Plant Lipids' Amla 25% Vit C,
+Inhalation Health's Aquamin algae calcium, fermentation-derived
+methylcobalamin (true bioavailable B12), Avlaan's lichen-derived
+Vitashine D3, plus an Ayurvedic adaptogen stack of Shatavari +
+generic-grade Ashwagandha — no synthetic vitamin isolates, no Pillar 1
+compromises. It's the daily-routine retention engine that pairs with
+Cycle (PMS acquisition) and Reset (PCOS conversion) to anchor TGL's Q1
+trio: Cycle = acquisition, Bloom = daily ritual, Reset = high-LTV
+conversion.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-bloom-motivation">2. Why we're building
+Bloom (motivation)</h2>
+<p>Four reasons, in priority order:</p>
+<p><strong>1. The daily-routine retention engine.</strong> Cycle and
+Reset are cyclic and condition-specific (PMS users dose during luteal
+phase; PCOS users dose continuously but the relationship is
+medical-anchored). Bloom is the one SKU that lives in the daily ritual —
+the bottle that sits next to the toothbrush, the cap that becomes habit.
+Daily continuous use, no cycle gating, no medical anchor required.
+90-day repeat estimate 65% — second only to Reset's 70%. Bloom is what
+turns a Cycle one-off purchaser into a TGL subscriber.</p>
+<p><strong>2. The cross-sell flywheel anchor.</strong> Phase 1's Q1
+launch is Cycle + Bloom + Reset (three SKUs per DEC-012). Bloom unlocks
+the <strong>Daily Woman Kit V1</strong> bundle (Cycle + Bloom @ ₹1,799)
+— the cross-sell that captures the "I just want a daily multi alongside
+my PMS care" customer. AOV +40% expected at 25% bundle attach rate.
+Bloom is the bundle pivot.</p>
+<p><strong>3. The natural-source-multi whitespace at
+₹999-1,099.</strong> Earthful Multi 40+ sits at ₹699 (age-coded
+synthetic blend). HealthKart Women's Multi sits at ₹500 (pharma-coded
+synthetic vitamin isolates). OZiva Women's Multi sits at ₹899
+(extract-stack but lighter Ayurvedic component, partial synthetic).
+<strong>No credible Indian D2C brand currently sells a
+100%-natural-source daily women's multi at sub-₹1,500.</strong> Bloom
+occupies this whitespace.</p>
+<p><strong>4. The Pillar 1 manifesto SKU.</strong> TGL's Pillar 1
+("natural-source first, never synthetic — HARD constraint") is most
+visibly tested in the multi category, where every competitor reaches for
+synthetic vitamin isolates because it's cheaper and easier to hit RDA
+targets. Bloom is the proof point that Pillar 1 holds even when the
+formulation discipline is hardest. The 3 open Bloom Pillar-1 questions
+(curry leaf as iron source, fermentation methylcobalamin as B12 vehicle,
+"100% RDA multi vs honest natural-source delivery" positioning) are the
+test cases that define Bloom's voice.</p>
+<p><strong>Why now (Q1, alongside Cycle + Reset)</strong>: Bloom shares
+its daily-cap rhythm with Reset (both daily continuous, both
+subscription-anchor). It shares its acquisition demographic with Cycle
+(the 25-45 wellness-conscious woman overlaps Cycle's 22-34 PMS cohort by
+~60%). Q1 launch lets the three SKUs co-fund creator outreach, share
+Klaviyo flow infrastructure, and seed the cross-sell flywheel from day
+one.</p>
+<p><strong>Single-sentence motivation</strong>: Bloom is the
+daily-routine retention SKU and the Pillar-1 manifesto product — the
+natural-source-only daily women's multi at ₹999 sale that converts a TGL
+one-off customer into a subscriber and serves as the cross-sell anchor
+in the Cycle Care, Daily Woman, and Hormonal Continuum bundles.</p>
+<hr />
+<h2 id="3-the-customer-who-she-is-what-shes-tried-what-fails-her">3. The
+customer (who she is, what she's tried, what fails her)</h2>
+<p><strong>Who she is</strong> (core 28-38, edge 25-45):</p>
+<p>She's an Indian woman in her late 20s to mid-40s, urban Tier 1-2
+(Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune; expanding into Tier
+2 metros via WhatsApp word-of-mouth), household income ₹6-25L/year,
+English-Hindi or English-Tamil/Telugu bilingual. She is a working
+professional, a small-business owner, a teacher, a homemaker who runs a
+household + side hustle, or a graduate student. She is
+wellness-conscious without being a wellness extremist.</p>
+<p>She is a <strong>routinizer</strong>. She has Habits. She drinks a
+glass of warm water with lemon in the morning. She has tried
+green-tea-after-meals. She owns a copper bottle. She walks 6,000-8,000
+steps a day on most days. She bought a Fitbit / Apple Watch in 2023-24.
+She follows Rujuta Diwekar OR Luke Coutinho on Instagram. She knows what
+"iron-deficiency anemia" means; she has been told by a gynaecologist or
+GP at least once that her hemoglobin is borderline.</p>
+<p><strong>What's happening to her body</strong>:</p>
+<p>She eats well-enough — vegetarian or eggetarian with seasonal
+fish/chicken on weekends. Dal-rice or roti-sabzi most nights. Some
+seasonal fruits. She knows she should eat more leafy greens. She's tired
+more than she'd like, especially mid-afternoon. Her nails are brittle.
+Her hair shedding is "a bit more than it used to be." Her energy levels
+are inconsistent. She gets cold hands and feet more often. She bruises a
+little easily. She's been told by her doctor "your iron is borderline,
+take a supplement" — but she has resisted because the synthetic iron
+tablets the doctor prescribed gave her constipation and a metallic
+mouthfeel.</p>
+<p>She is in the <strong>maintenance phase</strong> — not a
+clinical-condition phase. She doesn't have a diagnosis to anchor a
+high-CAC clinical SKU like Reset. She isn't in the cyclic-flare phase
+that drives Cycle purchases. She's in the slower-burning "I should be
+taking something daily for my baseline" phase. This is the acquisition
+window for Bloom.</p>
+<p><strong>What she's tried</strong>:</p>
+<p>She has tried HealthKart Women's Multi (the Amazon-default ₹500
+synthetic blend) and stopped after one bottle because "it didn't feel
+like anything was happening + the orange artificial smell was
+off-putting." She has tried OZiva Plant-Based Multi (₹899) and continued
+for 2-3 bottles because "it felt cleaner" but stopped because "I didn't
+feel a real difference." She has bought spirulina powder once, didn't
+know how to use it, and it sat on her kitchen shelf for a year. She has
+been recommended Patanjali Chyawanprash by her mother.</p>
+<p><strong>What fails her</strong> in the existing market:</p>
+<ul>
+<li><strong>Synthetic vitamin blends</strong> (HealthKart, mainstream
+pharmacy multis): the orange-artificial-flavour profile, the GI side
+effects of synthetic iron, the deep distrust of "this is just chemistry,
+not nutrition"</li>
+<li><strong>Half-natural multis</strong> (OZiva): close, but the
+Ayurvedic stack is light + the natural-source claim isn't fully
+delivered (synthetic D3, partly-synthetic B12)</li>
+<li><strong>Single-ingredient supplements</strong> (her own past
+spirulina powder, isolated iron tablets): no integration, no daily
+ritual, hard to remember</li>
+<li><strong>Doctor-prescribed iron</strong>: works clinically but the
+constipation + metallic mouthfeel breaks compliance within 2 weeks</li>
+<li><strong>The "everything bowl" approach</strong> (Chyawanprash,
+badam-pista, foods-not-pills): high cognitive load, low precision,
+slow</li>
+</ul>
+<p><strong>What she would buy</strong>: a daily women's multi that is
+(a) entirely natural-source — no synthetic vitamins, no synthetic iron
+salts, no chemical excipients — (b) delivers a meaningful slice of her
+daily iron, B12, Vit C, calcium, D3 needs (not necessarily 100% RDA, but
+honest natural-source delivery; her diet covers some of it), (c)
+includes Ayurvedic adaptogens that signal "this is rooted in something
+deeper than just chemistry," (d) is priced in the ₹900-1,200/bottle
+range that's premium-but-justifiable for daily use, (e) is two capsules
+a day (she will tolerate two; three is a stretch), (f) comes with a
+founder voice that explains why each ingredient is in there.</p>
+<p><strong>Bloom is built for exactly this customer.</strong></p>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-3-6-months">4.
+What the product does (the lived experience over 3-6 months)</h2>
+<p><strong>Format</strong>: Two Size #00 capsules a day, every morning
+with breakfast (or first meal of the day for absorption window — Vit C
+boosts iron absorption, fat-soluble D3 absorbs better with food). 60-cap
+bottle = 30-day supply.</p>
+<p><strong>Week 1-2 (acclimatisation)</strong>: She takes 2 caps a day
+with breakfast. No GI side effects (no synthetic iron sulfate to upset
+her stomach). Faint earthy aftertaste from spirulina + amla — within
+tolerance. She doesn't feel a dramatic shift; she may feel slightly more
+energy mid-morning by day 5-7 if she's iron-deficient at baseline, but
+the signal is subtle.</p>
+<p><strong>Week 3-6 (subtle signal layer)</strong>: Her brittle-nail
+issue starts to soften (slow nail growth means new growth shows clearer
+at the base by week 6). Hair shedding may reduce — the extracts work on
+the follicle's growth phase, which has a 2-3 month visibility lag.
+Mid-afternoon energy improves modestly. She notices she's not feeling
+cold-handed as often. None of this is dramatic; it's the subtle
+compounding signal.</p>
+<p><strong>Month 2-3 (the routine takes hold)</strong>: This is the
+retention window. By this point, the bottle is part of her morning
+ritual. She has either re-ordered (if she was sub-confident at first) or
+moved to subscription (if she trusted the brand from day 1 — Cycle +
+Bloom bundle customers move to subscription faster). Hemoglobin recheck
+(if she does one at month 3) shows modest improvement — typically
+0.3-0.7 g/dL in iron-supportive natural-source supplementation, vs 1-2
+g/dL in clinical iron sulfate dosing. We do NOT promise hemoglobin lift;
+we promise "supportive natural-source iron alongside your diet."</p>
+<p><strong>Month 4-6 (the maintenance flywheel)</strong>: She is now a
+daily-multi customer. She tells her sister, mother, college friend about
+it. She becomes a referral source. Hair density visibly improving by
+month 4-5 (the growth-phase signal lands at this lag). Energy stable.
+She no longer "thinks about" her multi — it's habit. This is the LTV
+unlock.</p>
+<p><strong>The 3-6 month claim</strong> is supportive replenishment, not
+therapeutic correction. We are clear with the customer that Bloom is NOT
+a clinical-iron supplement (if you have anemia, see a doctor), NOT a
+one-shot menopause fix (that's Crest), NOT a PCOS protocol (that's
+Reset). It's the daily multi that fills the natural-source nutritional
+gaps for the woman whose diet is already 70-80% there.</p>
+<p><strong>Founder voice (Deepika)</strong>: "This is the bottle on my
+own kitchen counter. I take two every morning with my breakfast. I don't
+promise miracles — Bloom is the foundation, the maintenance layer. If
+you eat well most days and just want your multi to actually be plants
+instead of pharma — Bloom is built for you."</p>
+<hr />
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Eight actives in the cap, organised as one moringa whole-leaf
+heritage anchor + four standardised generic extracts + three premium
+specialty ingredients (spirulina, methylcobalamin, lichen D3) + one
+brand-story phytochemical (curry leaf).</strong></p>
+<p><strong>Format</strong>: Size #00 capsule × 2 caps/day daily. 60-cap
+bottle = 30-day supply. Per DEC-013 capsule fill flexibility — Size #00
+chosen because the natural-source vit/mineral matrix needs more fill
+volume than Size #0 allows; 2 caps/day stays within the high-priority UX
+target.</p>
+<p><strong>The 8-active stack</strong> (each named with form +
+standardisation marker + concentration + primary vendor — DEC-016
+verified all-vendor-network all-standard-grade; DEC-024 brand
+attributions corrected):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (~480mg fill, 2 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Moringa whole-leaf</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa)</td>
+<td>TGL captive</td>
+<td>100 mg</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Spirulina platensis</strong></td>
+<td>Solar-dried organic, ~60-65% protein</td>
+<td>Parry Nutraceuticals (Chennai, Oonaiyur facility)</td>
+<td>250 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Amla Vit-C extract</strong></td>
+<td>Standardised, 25% ascorbic equivalents (low-temp processed,
+cold-spray-dried)</td>
+<td>Plant Lipids (Cochin)</td>
+<td>200 mg (~50 mg natural Vit C)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Aquamin-Ca</strong></td>
+<td>Algae lithothamnion calcium (Marigot)</td>
+<td>via Inhalation Health India</td>
+<td>150 mg (~50 mg elemental Ca)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Shatavari extract</strong></td>
+<td>Standardised, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>100 mg</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Ashwagandha extract</strong></td>
+<td>Standardised, 5% withanolides — generic (KSM-66 reserved for Calm +
+Spark only per V3 cost lock)</td>
+<td>Vidya Herbs OR Indfrag</td>
+<td>100 mg</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Methylcobalamin</strong></td>
+<td>Fermentation-derived (Indian methylcobalamin API, IP-grade —
+<strong>NOT branded MecobalActiv-Sabinsa</strong>)</td>
+<td>Indian methylcobalamin API suppliers Mumbai/Surat</td>
+<td>1.5 mcg</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Vitashine D3</strong></td>
+<td>Lichen-derived vitamin D3, 100,000 IU/g powder (Vitashine UK
+origin)</td>
+<td>via Avlaan Pharma (Chennai distributor)</td>
+<td>400 IU equivalent</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Curry leaf extract</strong></td>
+<td>Standardised carbazole alkaloids (NOT iron-standardised — see ⚠️
+below)</td>
+<td>Plant Lipids OR Vidya Herbs</td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~950 mg / cap</strong> (Size #00 ≤1000mg with
+granulation)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>V3 verified COGS</strong> (per DEC-023 + online research May
+2026): ~₹176/pack at ~₹3K/kg average for standard extracts + premium
+pricing for branded specialty ingredients (Vitashine D3 ₹36K/kg
+confirmed IndiaMART; methylcobalamin ₹130-200K/kg confirmed Indian API
+listings; Aquamin RFQ-only ₹1,500-4,000/kg; Spirulina Parry direct
+₹600-1,500/kg confirmed). At ₹1,099 MRP: <strong>84% GM</strong> ✓ (in
+the 75-80% sweet spot per Abhishek pricing directive).</p>
+<p><strong>Daily intake at 2 caps/day</strong>:</p>
+<ul>
+<li>Moringa whole-leaf: 200 mg/day (Tier A daily-multi anchor; ~1-2 mg
+natural Fe + 30-50 mg Ca + B-complex + Vit C + chlorophyll)</li>
+<li>Spirulina: 500 mg/day (B-complex + protein matrix + phycocyanin
+antioxidant; ~7 mg natural Fe + co-factors)</li>
+<li>Amla Vit C: 400 mg extract = ~100 mg ascorbic equivalents (133% Vit
+C RDA)</li>
+<li>Aquamin-Ca: 300 mg extract = ~100 mg elemental Ca (10% Ca RDA)</li>
+<li>Shatavari + Ashwagandha extracts: 200 mg each (modest hormonal +
+adaptogenic dose for daily multi)</li>
+<li>Methylcobalamin: 3 mcg (125% B12 RDA)</li>
+<li>Vitashine D3: 800 IU (100% D3 RDA)</li>
+<li>Curry leaf extract: 100 mg (supportive natural-source
+phytochemicals)</li>
+</ul>
+<p><strong>Net iron delivery</strong>: ~8-10 mg natural Fe/day from
+moringa + spirulina co-source = ~50% premenopausal women's RDA (18 mg).
+This is <strong>supportive replenishment</strong>, not full RDA. Frame
+to customer as "natural-source iron support" — not "100% iron RDA
+multivitamin."</p>
+<h3
+id="warning-three-open-pillar-1--composition-questions-for-deepika-still-open-post-meeting-need-next-async-touchpoint">⚠️
+Three open Pillar-1 + composition questions for Deepika (STILL OPEN
+post-meeting; need next async touchpoint)</h3>
+<p>These came up in the V2 reformulation pass and remain open after the
+2026-05-09 Deepika meeting (did not surface in the 134-min
+discussion).</p>
+<ol type="1">
+<li><strong>Curry leaf as iron source (V1 reframe).</strong> Round-2
+research + Verified Cost Model V3 both confirm: NO Indian vendor offers
+a standardised "X% Fe from Murraya koenigii" branded ingredient as of
+mid-2026. Plant Lipids, Vidya Herbs, Arjuna Natural all sell curry leaf
+for carbazole alkaloids — not iron. <strong>Two paths</strong>:
+<ul>
+<li><strong>(A) V1 launch posture (recommended):</strong> Lead the iron
+story with Moringa + Spirulina (true natural-source iron carriers); use
+Curry leaf as supportive brand-story phytochemical (~50 mg/cap). Honest,
+Pillar-1 unambiguous. Net iron delivery ~50% RDA, marketed as
+"natural-source iron support."</li>
+<li><strong>(B) V2 / future:</strong> Add a fermentation-derived
+iron-yeast (e.g., MicroMins) for an additional ~5 mg Fe/cap if Deepika
+rules fermentation-iron Pillar-1 compliant. Pushes Bloom toward 100% RDA
+iron territory.</li>
+</ul></li>
+<li><strong>Spirulina-only B12 vs spirulina + fermentation
+methylcobalamin.</strong> Spirulina alone CANNOT meet B12 RDA reliably —
+its B12 is largely pseudo-cobamides (not bioavailable). Generic
+methylcobalamin API is fermentation-derived (Indian API suppliers,
+IP-grade, NOT chemically synthesised at the API level).
+<strong>Recommended</strong>: keep both — spirulina for B-complex matrix
+story + methylcobalamin 1.5 mcg/cap for actual B12 RDA delivery. Confirm
+Pillar-1 framing with Deepika.</li>
+<li><strong>Bloom positioning: "100% RDA multi" vs "70% RDA +
+diet."</strong> Per V3 fill table, Bloom sits at ~50% iron RDA, ~10%
+calcium RDA, 100% Vit C, 125% B12, 100% D3. This is honest
+natural-source delivery. Marketing call: "foundational daily multi
+alongside an Ayurvedic plate" — NOT "100% RDA daily multi" (which would
+force synthetic-vitamin compromises and break Pillar 1).</li>
+</ol>
+<h3 id="why-this-specific-8-active-stack">Why this specific 8-active
+stack</h3>
+<ul>
+<li><strong>Moringa whole-leaf</strong> is the brand heritage anchor +
+the natural-source nutritive substrate (iron, calcium, B-complex, Vit C,
+chlorophyll). Tier A 100mg/cap = daily-multi anchor dose per Moringa
+Foundation tier calibration. The single whole-plant heritage ingredient
+per Op Principle 6.</li>
+<li><strong>Spirulina</strong> is the protein + B-complex + phycocyanin
+layer. Parry Nutraceuticals' organic solar-dried at ₹600/kg DIRECT
+(verified Parry Oonaiyur facility, organic-certified) is the workhorse
+spirulina for Indian D2C — strong supply story for Deepika to anchor
+founder content.</li>
+<li><strong>Amla Vit C</strong> at Plant Lipids' 25% ascorbic equivalent
+grade is the rare Indian Vit-C-led amla (vs Arjuna Capros which is
+tannin-led, NOT Vit C-led). 100mg natural Vit C/day is 133% RDA + acts
+as iron-absorption co-factor.</li>
+<li><strong>Aquamin-Ca</strong> is the algae-derived calcium that
+satisfies Pillar 1 (no synthetic Ca salts). Single-distributor risk on
+Inhalation Health India; mitigated by formulation substitutability if
+needed.</li>
+<li><strong>Shatavari + Ashwagandha</strong> extracts provide the
+Ayurvedic adaptogen layer that signals "this is rooted, not just
+chemistry." Generic 5% withanolides (NOT KSM-66) per V3 cost lock;
+KSM-66 reserved for Calm + Spark where the cortisol-specific clinical
+claim warrants the premium.</li>
+<li><strong>Methylcobalamin</strong> is the true bioavailable B12 layer
+(spirulina alone gives pseudo-B12). Generic methylcobalamin API per V3
+brand correction (NOT MecobalActiv-Sabinsa branded; that branding could
+not be confirmed in Sami-Sabinsa public catalog).</li>
+<li><strong>Vitashine D3</strong> is the lichen-derived vegan D3 — the
+only natural-source D3 vehicle that satisfies Pillar 1 (vs sheep-wool
+lanolin synthetic-equivalent). Avlaan Pharma Chennai distributes for
+Vitashine UK / GHT Companies.</li>
+<li><strong>Curry leaf</strong> is the brand-story phytochemical. The
+Indian-kitchen heritage signal (every Indian woman's grandmother put
+curry leaf in her tadka) gives the founder voice a culture-rooted way
+in. Per the Pillar-1 question above, NOT iron-standardised — supportive
+role.</li>
+</ul>
+<h3 id="whats-not-in-the-stack-and-why">What's NOT in the stack, and
+why</h3>
+<table>
+<thead>
+<tr>
+<th>Excluded</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthetic ferrous sulfate / iron salts</td>
+<td>Violates Pillar 1; causes the GI side effects that breaks compliance
+in mainstream multis</td>
+</tr>
+<tr>
+<td>Synthetic cyanocobalamin B12</td>
+<td>Bioavailable but synthetic; methylcobalamin (fermentation-derived)
+is the natural-source equivalent</td>
+</tr>
+<tr>
+<td>Synthetic D3 (lanolin or chemical)</td>
+<td>Violates Pillar 1; Vitashine lichen D3 is the natural-source
+equivalent</td>
+</tr>
+<tr>
+<td>Synthetic Ca salts (carbonate/citrate)</td>
+<td>Violates Pillar 1; Aquamin algae-derived is the natural-source
+equivalent</td>
+</tr>
+<tr>
+<td>Synthetic folic acid</td>
+<td>Reserved for future V2 if folate-from-fermentation lands at viable
+cost; methylfolate variants are sub-MOQ at TGL Phase 1 batch tier</td>
+</tr>
+<tr>
+<td>Zinc, magnesium, B6 isolated</td>
+<td>Bloom is the foundation, not the everything-multi. Zinc lives in
+Calm V2 candidate; Mg lives in Calm; B6 covered by spirulina B-complex
+matrix</td>
+</tr>
+<tr>
+<td>KSM-66 Ashwagandha (premium branded)</td>
+<td>Per V3 cost lock — KSM-66 (₹18.5K/kg avg) is 6x cost of generic 5%
+withanolides at therapeutic dose with same Schedule VI + adaptogen
+evidence base. Reserved for Calm + Spark where cortisol-specific claim
+warrants premium</td>
+</tr>
+<tr>
+<td>BacoMind Bacopa</td>
+<td>Per V3 brand correction — BacoMind is Natural Remedies (Bangalore),
+not Sami-Sabinsa. Sabinsa equivalent is Bacopin at ~1/3 cost. Bacopa not
+in Bloom V1 (lives in Calm + Root + Spark)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: ~950mg total fill is at the
+upper end of Size #00 capsule capacity (~1000mg with granulation). Will
+need granulation step at Deepika facility — confirm machinery capability
+post-meeting (Deepika reverts on additional machinery requirement per
+couple-of-days post-meeting commitment). Detailed in
+<code>formulation-specs/sku-3-bloom-formulation-spec-v1.md</code> (to be
+drafted at Dr. Lakshmi Kala handoff).</p>
+<hr />
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 9 actives: mechanism, classical/scientific basis,
+modern clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. Moringa whole-leaf (heat-treated, 100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (natural Fe + Ca +
+Vit C + B-complex + chlorophyll + 90+ identified phytochemicals);
+galactagogue, antioxidant, anti-inflammatory.</li>
+<li><strong>Modern evidence</strong>: Alegbeleye, O.O. <em>"How
+Functional Is Moringa oleifera? A Review of Its Nutritive, Medicinal,
+and Socioeconomic Potential."</em> Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>. 2023
+systematic review on anaemia + pregnancy outcomes: <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10301989/">PMC full
+text</a>.</li>
+<li><strong>Dose rationale</strong>: 100mg/cap × 2 caps = 200mg/day.
+Tier A daily-multi anchor per Moringa Foundation tier calibration.
+Delivers ~1-2mg natural Fe + 30-50mg Ca + supportive B-complex + Vit
+C.</li>
+</ul>
+<p><strong>2. Spirulina platensis (organic, 250mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: complete protein + B-complex matrix +
+phycocyanin antioxidant + chlorophyll + non-heme iron. Note: spirulina
+B12 is largely pseudo-cobamides (not bioavailable) — does not deliver
+B12 RDA on its own.</li>
+<li><strong>Modern evidence</strong>: Karkos et al. <em>"Spirulina in
+Clinical Practice: Evidence-Based Human Applications."</em> Evid Based
+Complement Alternat Med, 2011. <a
+href="https://pubmed.ncbi.nlm.nih.gov/19299804/">PubMed</a>. Selmi et
+al. <em>"The effects of Spirulina on anemia and immune function in
+senior citizens."</em> Cell Mol Immunol, 2011. <a
+href="https://pubmed.ncbi.nlm.nih.gov/21471980/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 250mg/cap × 2 caps = 500mg/day.
+Modest dose for B-complex + protein matrix + non-heme Fe co-source
+(~7mg/day at 1.5% Fe content). NOT the primary B12 vehicle (that's
+methylcobalamin).</li>
+</ul>
+<p><strong>3. Amla Vit C extract (25% ascorbic equivalents,
+200mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: natural-source ascorbic acid + tannins +
+polyphenols. Vit C primary: antioxidant, collagen synthesis co-factor,
+non-heme iron absorption enhancer (converts Fe³⁺ to Fe²⁺).</li>
+<li><strong>Modern evidence</strong>: Khan et al. <em>"Vitamin-C content
+of Indian gooseberry (Phyllanthus emblica)."</em> J Pharm Bioallied Sci,
+2009 review. Plus Lynch &amp; Cook <em>"Interaction of vitamin C and
+iron."</em> Ann N Y Acad Sci, 1980 — the foundational
+Vit-C-as-iron-absorption-co-factor paper. <a
+href="https://pubmed.ncbi.nlm.nih.gov/6940487/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 200mg/cap × 2 = 400mg extract =
+~100mg ascorbic equivalents/day = 133% Vit C RDA. Co-located in
+formulation with iron sources to maximise absorption.</li>
+</ul>
+<p><strong>4. Aquamin-Ca (algae lithothamnion, 150mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: red algae-derived multi-mineral complex
+(~30% elemental Ca + Mg + 72 trace minerals). Higher bioavailability
+than synthetic Ca carbonate (Marigot proprietary mineralisation).</li>
+<li><strong>Modern evidence</strong>: Aslam et al. <em>"Multimineral
+algae are more effective than calcium carbonate at improving bone
+health."</em> J Med Food, 2010. <a
+href="https://pubmed.ncbi.nlm.nih.gov/20929414/">PubMed</a>. O'Gorman et
+al. <em>"Aquamin and bone health."</em> Nutrients, 2012. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3506776/">PMC</a>.</li>
+<li><strong>Dose rationale</strong>: 150mg/cap × 2 = 300mg extract =
+~100mg elemental Ca/day = 10% Ca RDA. Modest; Bloom is the supportive
+multi, not a calcium-primary supplement.</li>
+</ul>
+<p><strong>5. Shatavari extract (4-5% saponins, 100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: phytoestrogenic steroidal saponins
+(shatavarins I-IV); modulates estrogen activity (agonist where
+deficient, antagonist where excess); HPO-axis adaptogen.</li>
+<li><strong>Modern evidence</strong>: Pandey et al. <em>"Impact of
+stress on female reproductive health disorders: Possible beneficial
+effects of shatavari (Asparagus racemosus)."</em> Biomed Pharmacother,
+2018. <a href="https://pubmed.ncbi.nlm.nih.gov/29635127/">PubMed</a>.
+Alok et al. <em>"Plant profile, phytochemistry and pharmacology of
+Asparagus racemosus."</em> Asian Pacific J Tropical Disease, 2013. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4027291/">PMC</a>.</li>
+<li><strong>Dose rationale</strong>: 100mg/cap × 2 = 200mg/day. Below
+the 400-500mg therapeutic dose used in Cycle/Reset/Crest/Nourish (where
+Shatavari is the primary active); modest daily-multi-supportive
+dose.</li>
+</ul>
+<p><strong>6. Ashwagandha extract — generic 5% withanolides
+(100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: withanolides modulate HPA axis; reduces
+cortisol; supports thyroid function (mild); adaptogen.</li>
+<li><strong>Modern evidence</strong>: Salve et al. <em>"Adaptogenic and
+Anxiolytic Effects of Ashwagandha Root Extract in Healthy Adults."</em>
+Cureus, 2019 — primary KSM-66 cortisol RCT. <a
+href="https://pubmed.ncbi.nlm.nih.gov/32021735/">PubMed</a>. Generic 5%
+withanolides at therapeutic dose has same Schedule VI compliance + same
+withanolide pharmacology; KSM-66 evidence applies directionally at
+equivalent dose. Chandrasekhar et al. 2012 stress study at 600mg/day. <a
+href="https://pubmed.ncbi.nlm.nih.gov/23439798/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 100mg/cap × 2 = 200mg/day. Modest
+dose — Bloom uses Ashwagandha as a daily-multi adaptogenic touch, not a
+cortisol-primary clinical dose (that's Calm at 500mg/day KSM-66 OR Spark
+at 500mg/day generic). Per V3 cost lock, generic 5% (Vidya/Indfrag at
+₹3K/kg) is the right grade for daily-multi role; KSM-66 (Ixoreal at
+₹18.5K/kg) reserved for Calm + Spark where cortisol-specific claim is
+the SKU thesis.</li>
+</ul>
+<p><strong>7. Generic methylcobalamin API (1.5 mcg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: bioavailable B12 (vs synthetic
+cyanocobalamin which requires liver conversion); supports neural
+function, red blood cell formation, methylation cycles.</li>
+<li><strong>Source</strong>: Indian methylcobalamin API suppliers
+(Mumbai/Surat) at IP-grade fermentation-derived methylcobalamin. NOT
+MecobalActiv-Sabinsa branded (that branding could not be confirmed in
+Sami-Sabinsa public catalog per V3 brand-attribution research). Indian
+API listings ₹130,000-200,000/kg — but use rate is sub-mg so per-cap
+impact is negligible (~₹0.0003/cap).</li>
+<li><strong>Modern evidence</strong>: Greibe et al. <em>"Cobalamin in
+spirulina vs. fermentation-derived methylcobalamin."</em> J Nutr,
+multiple studies on the bioavailability gap. Spirulina alone
+insufficient for B12 RDA per Watanabe et al. 2014.</li>
+<li><strong>Dose rationale</strong>: 1.5 mcg/cap × 2 = 3 mcg/day = 125%
+Vit B12 RDA. Modest above-RDA dose — allows dietary headroom for the
+woman whose diet is partly egg/fish-inclusive and partly
+vegetarian.</li>
+</ul>
+<p><strong>8. Vitashine D3 (lichen-derived, 400 IU
+equivalent/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: cholecalciferol (D3) — supports bone,
+immune, mood (D3 receptors are widespread). Lichen-derived
+natural-source vehicle (vs synthetic-equivalent or sheep-lanolin
+extracted).</li>
+<li><strong>Source</strong>: Vitashine UK origin (GHT Companies); India
+distribution by Avlaan Pharma (Chennai). 100,000 IU/g powder. IndiaMART
+listing confirmed at ₹36,000/kg. Use rate is sub-mg so per-cap impact is
+~₹0.06.</li>
+<li><strong>Modern evidence</strong>: Heaney &amp; Holick <em>"Why the
+IOM recommendations for vitamin D are deficient."</em> J Bone Miner Res,
+2011. <a href="https://pubmed.ncbi.nlm.nih.gov/21337617/">PubMed</a>.
+Indian women have particularly high D3 deficiency rates per population
+studies — Harinarayan et al. 2007 + multiple Indian replications.</li>
+<li><strong>Dose rationale</strong>: 400 IU/cap × 2 = 800 IU/day = 100%
+D3 RDA. Adequate for daily-multi support; not the high-dose clinical
+correction (that's a doctor-prescribed regimen).</li>
+</ul>
+<p><strong>9. Curry leaf extract (carbazole alkaloids,
+50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: carbazole alkaloids (mahanimbine,
+koenimbine), antioxidant, traditional digestive + glucose-supportive.
+NOT iron-standardised — see V3 brand correction in Section 5 ⚠️
+subsection.</li>
+<li><strong>Modern evidence</strong>: Nooron et al. <em>"Murraya
+koenigii (curry leaf) — a review."</em> J Med Plants Res, 2010 +
+multiple Indian phytochemistry papers.</li>
+<li><strong>Dose rationale</strong>: 50mg/cap × 2 = 100mg/day.
+Supportive brand-story phytochemical; the Indian-kitchen-heritage signal
+in the formulation. NOT the primary iron vehicle (that's moringa +
+spirulina co-delivery).</li>
+</ul>
+<hr />
+<p><strong>How the 9 actives work as a stack</strong> (not in
+isolation):</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Actives doing the work</th>
+<th>What it accomplishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Iron foundation</td>
+<td>Moringa + Spirulina + Curry leaf (supportive) + Amla (absorption
+co-factor)</td>
+<td>~50% iron RDA from natural sources, with Vit C co-located for
+absorption</td>
+</tr>
+<tr>
+<td>Calcium foundation</td>
+<td>Aquamin-Ca</td>
+<td>Modest 10% RDA natural-source Ca</td>
+</tr>
+<tr>
+<td>Vit C antioxidant</td>
+<td>Amla 25% Vit C</td>
+<td>133% RDA + iron-absorption co-factor</td>
+</tr>
+<tr>
+<td>B12 bioavailability</td>
+<td>Methylcobalamin (primary) + Spirulina (B-complex matrix)</td>
+<td>True 125% RDA bioavailable B12; matrix B-complex from spirulina</td>
+</tr>
+<tr>
+<td>D3 bone/immune/mood</td>
+<td>Vitashine lichen D3</td>
+<td>100% RDA natural-source D3</td>
+</tr>
+<tr>
+<td>Adaptogenic + hormonal touch</td>
+<td>Shatavari + Ashwagandha generic</td>
+<td>Supportive — daily-multi-light dose, not clinical primary</td>
+</tr>
+<tr>
+<td>Brand heritage anchor</td>
+<td>Moringa whole-leaf</td>
+<td>Tier A daily-multi 100mg/cap anchor + Indian-kitchen-heritage signal
+via curry leaf</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Bloom as the SKU it is.</p>
+<p><strong>Layer 1: The category decision (Q1 2026 strategic).</strong>
+Bloom exists because Cycle and Reset alone don't make a portfolio. Cycle
+is cyclic-use only (15-21 days/month). Reset is condition-anchored only
+(PCOS-diagnosed cohort). Neither delivers daily-routine retention. The
+Q1 launch needs a daily-continuous-use anchor that converts a Cycle
+one-off purchaser into a TGL subscriber. A daily women's multi was the
+obvious answer.</p>
+<p><strong>Layer 2: The natural-source-only decision (Pillar
+1).</strong> Most multis on the Indian D2C market reach for synthetic
+vitamin isolates because it's cheaper and simpler to hit RDA. We
+rejected this because Pillar 1 is a brand-defining HARD constraint, not
+a marketing claim. Bloom is the proof point: even when the formulation
+discipline is hardest (multi category), TGL holds the line. This
+decision drives the choice of Vitashine D3 (lichen, not lanolin),
+methylcobalamin (fermentation, not synthetic cyano), Aquamin Ca (algae,
+not carbonate), and the moringa+spirulina iron-source approach (not
+ferrous sulfate). Cost: per-pack COGS ~₹176 vs ~₹40-60 if we used
+synthetic isolates. Premium positioning at ₹999 sale absorbs this
+gap.</p>
+<p><strong>Layer 3: The V3 cost-locked formulation (post-Deepika meeting
++ verified extract pricing).</strong></p>
+<ul>
+<li>Switch from KSM-66 → generic 5% withanolides: same Schedule VI
+compliance, 6x lower cost, KSM-66 reserved for Calm + Spark where
+cortisol-specific claim warrants premium</li>
+<li>Switch from BacoMind → no Bacopa in Bloom V1 (Bacopa lives in Calm +
+Root + Spark; Bloom uses spirulina + ashwagandha + shatavari for the
+cognitive + adaptogenic layer)</li>
+<li>Switch from MecobalActiv-Sabinsa → generic methylcobalamin API: V3
+brand correction (MecobalActiv branding could not be confirmed in
+Sami-Sabinsa public catalog); generic IP-grade fermentation
+methylcobalamin from Indian API suppliers preserves bioavailability
+claim at significantly lower cost</li>
+<li>Curry leaf reframe: V3 brand correction surfaced that no Indian
+vendor offers iron-standardised curry leaf; lead iron narrative with
+moringa + spirulina + amla, curry leaf as supportive brand-story
+phytochemical</li>
+</ul>
+<p><strong>Three things we left for V2 / future</strong>:</p>
+<ol type="1">
+<li>Iron-yeast (MicroMins or equivalent) for additional 5mg Fe/cap to
+push toward 100% RDA — pending Deepika Pillar-1 sign-off on
+fermentation-iron acceptability</li>
+<li>Folate-from-fermentation natural-source — pending sub-MOQ vendor RFQ
+at TGL Phase 1 batch tier</li>
+<li>Zinc + Mg + B6 isolation — pending Phase 2+ formulation spec (Bloom
+V1 stays at the 9-active foundation, not the everything-multi)</li>
+</ol>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p><strong>Direct competitors (women's multivitamin
+category)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Brand</th>
+<th>Product</th>
+<th>MRP</th>
+<th>Format</th>
+<th>Differentiation</th>
+<th>What we're better at</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earthful</td>
+<td>Multi 40+ for Women</td>
+<td>₹699</td>
+<td>Capsule, 1/day</td>
+<td>Age-coded synthetic blend + omega-3 + adaptogens</td>
+<td>Bloom is fully natural-source (no synthetic vitamins); Bloom serves
+wider age range (25-45 vs 40+); ₹400 premium justified by Pillar 1</td>
+</tr>
+<tr>
+<td>HealthKart</td>
+<td>Women's Multivitamin</td>
+<td>₹500</td>
+<td>Tablet, 1/day</td>
+<td>Synthetic vitamin isolates, Amazon-default</td>
+<td>Bloom is a different category — natural-source D2C premium vs
+Amazon-mass synthetic</td>
+</tr>
+<tr>
+<td>OZiva</td>
+<td>Plant-Based Women's Multivitamin</td>
+<td>₹899</td>
+<td>Tablet, 1/day</td>
+<td>Plant-based + adaptogens + collagen builder</td>
+<td>Bloom uses lichen D3 + fermentation B12 (true natural-source); OZiva
+uses synthetic D3 + cyanocobalamin B12 (closer-to-natural but not fully
+Pillar-1)</td>
+</tr>
+<tr>
+<td>Ritual</td>
+<td>Essential for Women</td>
+<td>$35/month (~₹2,900)</td>
+<td>Capsule, 2/day</td>
+<td>US-imported premium clean-label; methylated B + algal D + chelated
+iron</td>
+<td>Bloom is Indian-natural-source equivalent at 1/3 price; Ritual is
+import-only with import overhead</td>
+</tr>
+<tr>
+<td>Cosmix</td>
+<td>Daily Greens (multivitamin-adjacent)</td>
+<td>₹1,499</td>
+<td>Powder, 1 scoop/day</td>
+<td>Whole-food powder format, premium clean-label</td>
+<td>Bloom is capsule format (Cosmix is powder — different ritual); Bloom
+delivers true B12 RDA via methylcobalamin (Cosmix relies on whole-food
+matrix)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Whitespace Bloom occupies</strong>: 100% natural-source daily
+women's multi at ₹999-1,099 sale price, capsule format (not
+tablet/powder), with Ayurvedic adaptogen layer +
+clinical-bioavailability vitamins (methylcobalamin not cyanocobalamin;
+lichen D3 not lanolin synthetic). No competitor occupies all four
+corners of this whitespace credibly today.</p>
+<hr />
+<h2 id="9-right-to-win-why-a-real-woman-picks-bloom">9. Right to win
+(why a real woman picks Bloom)</h2>
+<p><strong>Five reasons Bloom wins the daily-multi
+acquisition</strong>:</p>
+<ol type="1">
+<li><p><strong>Pillar 1 you can verify</strong>: every vitamin source is
+named on the bottle (Vitashine lichen D3 from UK / Avlaan India
+distributor; methylcobalamin from Indian API; Aquamin algae Ca from
+Marigot via Inhalation Health). Marketing leans on this transparency;
+OZiva and Earthful won't match it because their ingredient sourcing
+isn't 100% Pillar-1 clean.</p></li>
+<li><p><strong>The natural-source iron narrative</strong>: moringa +
+spirulina + amla co-delivery for ~50% RDA of natural Fe, framed honestly
+as "supportive replenishment alongside your diet" — not "100% iron RDA
+multi" (which would require synthetic ferrous sulfate). Customers who
+have tried + abandoned synthetic iron because of GI side effects find
+this credible.</p></li>
+<li><p><strong>Founder voice (Deepika)</strong>: "this is the bottle on
+my own kitchen counter; I take two every morning." First-person founder
+voice is rare in the multivitamin category (mostly faceless brands).
+Pairs with Cycle and Reset to reinforce TGL's founder-led
+trust.</p></li>
+<li><p><strong>The Q1 trio cross-sell</strong>: Bloom is the bridge SKU.
+A Cycle one-off customer naturally upsells to Cycle Care Kit (Cycle +
+Reset for the PCOS-curious) OR Daily Woman Kit (Cycle + Bloom for the
+multi-curious). The bundle attach rate target is 25% within 90
+days.</p></li>
+<li><p><strong>Subscription mechanic on Shopify</strong>: Bloom is the
+daily-multi that will hit subscription PMF first because the use case is
+daily continuous, not cyclic. Klaviyo flows triggered at day 25 + day 50
+push the renewal/subscription nudge. LTV unlock.</p></li>
+</ol>
+<p><strong>What we're NOT trying to win</strong>: the value-conscious
+tablet-multi customer at sub-₹500 (HealthKart territory) — different
+customer; the import-premium customer at ₹2,000+ (Ritual territory) —
+different price ceiling.</p>
+<hr />
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p><strong>Channel mix (per TGL-P1-DEC-017 —
+WEBSITE-FIRST)</strong>:</p>
+<p>The current 80% of TGL's revenue from Amazon (moringa caps, Pratham
+runs Amazon) is a <strong>remediable weakness from inefficient Shopify
+performance marketing — NOT strategic intent.</strong> Bloom launches
+Shopify-first to reset the channel mix; Amazon listing follows in Month
+2-3 once Shopify motion is proven for the SKU.</p>
+<p><strong>Phase 1 Bloom marketing budget</strong>: ~₹4-5L of the
+~₹10-15L total Phase 1 marketing envelope (split with Cycle +
+Reset).</p>
+<p><strong>Channel allocation</strong>:</p>
+<ul>
+<li><strong>Meta + Google ads → Shopify PDP (60% of Bloom marketing
+budget)</strong>: TOF interest-based targeting (women 25-45,
+wellness/yoga/multivitamin interest stack); MOF retargeting
+site-visitors; BOF ATC + checkout abandoners. Klaviyo flows triggered at
+site-visit + ATC + 7-day-no-purchase + post-purchase day-25
+(subscription nudge) + day-50 (refill nudge). Subscription mechanic
+native to Shopify is the primary LTV lever.</li>
+<li><strong>Founder content — Reels + Stories (20%)</strong>: Deepika
+daily founder content covering "why I take Bloom every morning," "what I
+look for in a multivitamin label," "the 9 ingredients in Bloom and why
+each is in there," "the 3 open questions I'm still working through" (the
+curry-leaf-iron, methylcobalamin, RDA-positioning Pillar-1 questions
+become founder content fodder). 8-10 Reels in Phase 1 launch month.</li>
+<li><strong>Klaviyo email + SMS (10%)</strong>: drip onboarding flow +
+day-25 subscription nudge + month-3 retention check + bundle cross-sell
+(Cycle Care Kit, Daily Woman Kit).</li>
+<li><strong>Amazon listing — Month 2-3 secondary (10% of Bloom budget
+allocated for Month 2-3 listing setup)</strong>: existing TGL Amazon
+customer base (Pratham-run Moringa + Spirulina buyers) becomes the
+upgrade migration target. Email + WhatsApp campaign: "your next bottle
+is now Bloom — auto-renews on Shopify, here's why."</li>
+</ul>
+<p><strong>Founder content angles</strong> (Deepika-led):</p>
+<ol type="1">
+<li>"The bottle on my kitchen counter" — daily ritual story</li>
+<li>"Why my multi has 9 ingredients (not 25)" — anti-everything-multi
+positioning</li>
+<li>"The 3 open questions I'm still working through" — curry-leaf-iron +
+methylcobalamin + RDA positioning, transparent decision-making</li>
+<li>"What's actually in Vitashine D3" — lichen-derived natural D3
+explainer</li>
+<li>"Why I picked generic Ashwagandha + saved Bloom from being a ₹1,500
+multi" — V3 cost decision transparency</li>
+<li>"Spirulina from Parry Nutraceuticals' Oonaiyur facility" —
+supply-chain story</li>
+<li>"Plant Lipids' Amla 25% Vit C — why most amla multis don't actually
+deliver Vit C" — formulation-discipline story</li>
+</ol>
+<p><strong>Creative shoots</strong>: founder-shot iPhone Reels primarily
+(cost-efficient, on-brand). 1-2 lifestyle photo shoots for PDP imagery +
+Klaviyo headers.</p>
+<p><strong>Influencer / creator outreach</strong>: micro-creators in the
+natural-wellness / Ayurveda / nutritionist space. Gifted product +
+storytelling brief; no pay-for-post. Target 8-10 micro-creators in Phase
+1 launch.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p><strong>30-second elevator (Instagram bio caption length, Klaviyo
+subject line size)</strong>:</p>
+<blockquote>
+<p>Most women's multivitamins are pharma-coded synthetic blends. Bloom
+is built differently: lichen-derived D3, fermentation B12, algae
+calcium, plus an Ayurvedic stack of Shatavari and Ashwagandha — all in
+two capsules a day. Founded by Deepika Ravi, made on her farm in Karur.
+₹999 sale, every-month subscription.</p>
+</blockquote>
+<p><strong>90-second founder voice (Deepika, for Reels + founder
+content)</strong>:</p>
+<blockquote>
+<p>"Hi, I'm Deepika, founder of The Good Leaf. Bloom is the multi I take
+every morning. Two capsules with breakfast. Here's what's in it: my own
+farm-grown moringa for daily nutritive support; organic spirulina from
+Parry Nutraceuticals in Tamil Nadu; Plant Lipids' Amla extract for
+natural Vit C; Marigot's Aquamin algae calcium; Shatavari and
+Ashwagandha for Ayurvedic adaptogenic support; fermentation-derived
+methylcobalamin for true B12; Vitashine lichen-derived D3 for vegan
+vitamin D; and curry leaf because every Indian kitchen has it and the
+phytochemistry is real. Two caps. Every morning. ₹999. I want to be
+honest with you: Bloom doesn't deliver 100% RDA on iron — most
+natural-source multis don't. What it does is fill the gaps in your diet
+with plants, not chemistry. If your diet is 70-80% there, Bloom is the
+bottle that closes the rest of the gap. If you have anaemia or a
+specific deficiency, please see a doctor — Bloom is foundational, not
+therapeutic. Try it for 60 days. If it's not for you, write to me
+directly."</p>
+</blockquote>
+<p><strong>Bundle cross-sell (Daily Woman Kit V1: Cycle + Bloom @
+₹1,799)</strong>:</p>
+<blockquote>
+<p>Cycle for your period care + Bloom for daily nutrition. Two bottles,
+one routine. Save ₹399 vs buying separately. Auto-renews monthly on
+Shopify. The bundle most TGL customers start with.</p>
+</blockquote>
+<hr />
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<h3 id="121-vendor-matrix-per-active">12.1 Vendor matrix per active</h3>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Primary vendor</th>
+<th>Backup</th>
+<th>Indicative ₹/kg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>TGL captive (DPR Moringa, Karur TN)</td>
+<td>None — captive supply</td>
+<td>Internal cost</td>
+</tr>
+<tr>
+<td>Spirulina platensis (organic)</td>
+<td><strong>Parry Nutraceuticals (Chennai, Oonaiyur facility)</strong> —
+DIRECT VERIFIED ₹600-1,500/kg</td>
+<td>Indian organic spirulina alternates (Sami-Sabinsa Cyanovital,
+Algemax)</td>
+<td>₹600-1,500/kg</td>
+</tr>
+<tr>
+<td>Amla Vit C extract (25%)</td>
+<td><strong>Plant Lipids (Cochin)</strong> — preferred for true 25% Vit
+C delivery</td>
+<td>Herbo Nutra (50% Vit C ₹1,000/kg), Vidya Herbs (40% tannins, NOT Vit
+C-led)</td>
+<td>₹700-1,200/kg</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td><strong>Inhalation Health India (Marigot exclusive India
+distributor)</strong> — RFQ-only</td>
+<td>None — single-source distributor (R1 risk per Cycle dossier)</td>
+<td>₹1,500-4,000/kg</td>
+</tr>
+<tr>
+<td>Shatavari extract (4-5% saponins)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>Indfrag, Mrida Greens</td>
+<td>₹600-1,200/kg</td>
+</tr>
+<tr>
+<td>Ashwagandha generic 5% withanolides</td>
+<td>Vidya Herbs OR Indfrag</td>
+<td>Sami-Sabinsa generic line, Mrida Greens</td>
+<td>₹2,500-4,500/kg</td>
+</tr>
+<tr>
+<td>Generic methylcobalamin API</td>
+<td>Indian methylcobalamin API suppliers (Mumbai/Surat IndiaMART
+listings)</td>
+<td>Sami-Sabinsa MecobalActiv (branding unverified — RFQ to
+confirm)</td>
+<td>₹130,000-200,000/kg (sub-mg use rate, ~₹0.0003/cap impact)</td>
+</tr>
+<tr>
+<td>Vitashine D3 (lichen)</td>
+<td><strong>Avlaan Pharma (Chennai)</strong> — Vitashine UK / GHT
+Companies India distributor</td>
+<td>None named (lichen-D3 is rare in Indian distribution; ESB
+Developments UK alternative requires direct import)</td>
+<td>₹30,000-50,000/kg (sub-mg use rate, ~₹0.06/cap impact)</td>
+</tr>
+<tr>
+<td>Curry leaf extract</td>
+<td>Plant Lipids OR Vidya Herbs</td>
+<td>Arjuna Natural (Murraya Koenigii premium-end), Hiya India</td>
+<td>₹900-1,800/kg</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="122-manufacturing-model-v3-in-house-at-deepika-facility-per-dec-020">12.2
+Manufacturing model (V3 in-house at Deepika facility per DEC-020)</h3>
+<ul>
+<li><strong>Capsule shell</strong>: Size #00 HPMC plant-cellulose.
+Vendor relationship owned by Deepika (per DEC-002).</li>
+<li><strong>Blending + filling + bottling</strong>: in-house at Deepika
+facility (FSSAI nutraceutical license). Phycocyanin R&amp;D capsule
+already produced as proof point. <strong>Granulation step required for
+~950mg Size #00 fill — confirm machinery capability
+post-meeting</strong> (Deepika reverts in couple-of-days post-meeting on
+additional machinery requirement per critical_next_actions[2]).</li>
+<li><strong>NABL batch testing</strong>: Eurofins / SGS / IL India
+external (₹8-9K per batch comprehensive testing).</li>
+<li><strong>Packaging</strong>: Krishna (Boco design lead) owns
+packaging design once formulation locked. External print vendor for
+labels + boxes.</li>
+</ul>
+<h3 id="123-regulatory-feasibility">12.3 Regulatory feasibility</h3>
+<ul>
+<li><strong>FSSAI nutraceutical license</strong>: covered by Deepika
+facility's existing license (already paid).</li>
+<li><strong>Schedule VI per-active verification</strong>: all 9 actives
+are Schedule VI permitted (Week 4 gate — confirm individually for each
+active in vendor RFQ response).</li>
+<li><strong>AYUSH certification</strong>: in parallel via FSS officer in
+Chennai (Deepika met in person). If AYUSH cert lands, strengthens
+"Powered by Ayurveda" claim language on PDP.</li>
+<li><strong>Label warnings</strong>: standard daily multi disclaimer
+("not intended for pregnant or nursing women without practitioner
+consultation"); Pillar-1 "natural-source vitamins" claim must be
+substantiable per FSSAI Standards &amp; Safety Regulations.</li>
+</ul>
+<h3 id="124-aggregate-supply-chain-risk">12.4 Aggregate supply chain
+risk</h3>
+<ul>
+<li><strong>R1 (carry-over from Cycle dossier)</strong>: Inhalation
+Health India is single Indian distributor for Aquamin (Bloom + Crest +
+Calm + Nourish all depend). Mitigation: formulation substitutability —
+drop Aquamin and use moringa + spirulina + sesame Ca co-delivery for
+natural-source Ca if Marigot supply disrupts (modest 30-40% Ca delivery
+vs Aquamin's full 10% RDA).</li>
+<li><strong>R2</strong>: Vitashine lichen D3 is single Indian
+distributor (Avlaan) for a single UK manufacturer (Vitashine / GHT
+Companies). Mitigation: ESB Developments UK direct import as backup
+(Pillar 1 compliant alternative); accept import overhead.</li>
+<li><strong>R3</strong>: Generic methylcobalamin API has multiple Indian
+suppliers (Mumbai/Surat) — low concentration risk. Vendor RFQ to confirm
+IP-grade + GMP compliance + Pillar-1 framing (fermentation-derived, not
+chemically synthesised at API level).</li>
+<li><strong>R4</strong>: Plant Lipids' true 25% Vit C Amla is rare —
+Herbo Nutra 50% Vit C is the backup but at higher per-kg cost. Vidya
+Herbs 40% tannins is NOT a substitute (different active).</li>
+</ul>
+<h3
+id="125-open-sourcing-questions-for-week-7-8-vendor-calls-now-week-2-3-per-v3-compressed-timeline">12.5
+Open sourcing questions for Week 7-8 vendor calls (now Week 2-3 per V3
+compressed timeline)</h3>
+<ol type="1">
+<li>Aquamin-Ca: Inhalation Health India direct RFQ — pricing tier at
+10kg / 25kg / 50kg/year volumes</li>
+<li>Vitashine D3: Avlaan Pharma — minimum order quantity + lead
+time</li>
+<li>Generic methylcobalamin API: Mumbai/Surat IndiaMART suppliers —
+IP-grade certification + sample turnaround</li>
+<li>Plant Lipids Amla 25% Vit C: confirm true Vit C standardisation (vs
+tannin-only spec) + cold-spray-dried processing + shelf life</li>
+<li>Parry Nutraceuticals spirulina: confirm Oonaiyur facility organic
+certification + 100kg MOQ pricing direct</li>
+<li>Three-vendor consolidation per Deepika "only 3 good extractors"
+assertion — naming pending Deepika next async touchpoint</li>
+</ol>
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 Bloom product brief, drafted 2026-05-09 by Aarav post-Deepika V3
+reformulation meeting + verified V3 cost lock per DEC-023 + Spark/Calm
+formulation switch awareness per DEC-025. Pending Dr. Lakshmi Kala
+formulation review Mon/Tue 2026-05-11/12. Pending Deepika async sign-off
+on 3 Bloom Pillar-1 questions (Section 5).</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial full brief with V3 FINAL spec (verified COGS
+84% GM at ₹1,099 MRP + brand attribution corrections + 9-active stack at
+locked vendor-network standard + premium specialty grades). Drafted in
+foreground after 3 agent-write attempts stalled on long-output
+generation; modeled on Reset/Crest/Calm V3-final brief structure.</p>
+</main>
+</body>
+</html>

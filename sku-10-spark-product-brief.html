@@ -1,0 +1,3297 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Spark (Ashwagandha+ Stress)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Spark (Ashwagandha+ Stress)</strong></div>
+
+<h1 id="sku-10-spark--ashwagandha-stress--stamina">SKU 10: Spark —
+Ashwagandha+ Stress + Stamina</h1>
+<p><strong>The Good Leaf (TGL) Multi-Ingredient Pivot — Tier C
+Extension</strong> <em>V3-final brief drafted 2026-05-09 by Aarav,
+post-Deepika V3 reformulation gate (TGL-P1-DEC-023/024/025) + verified
+V3 cost lock + brand attribution corrections + triple formulation switch
+documented.</em></p>
+<hr />
+<h2 id="status--revision-history">Status + Revision History</h2>
+<p><strong>V1 (2026-05-09)</strong>: Initial full brief, drafted by
+Aarav post-Deepika V3 reformulation gate. Locked V3 spec: Size #00 × 2
+caps/day, 60-cap pack, MRP ₹1,099 / Sale ₹999 / Sub ₹849 (price band
+UNCHANGED — accessible-premium positioning preserved through formulation
+switch, NOT through price uplift). COGS ~₹268/pack → 76% GM at MRP ✓.
+Composition reformulated as <strong>generic-equivalent
+triple-stack</strong> per V3 cost lock: (1) Ashwagandha generic 5%
+withanolides 250mg (Vidya Herbs OR Indfrag — SWITCHED FROM KSM-66
+Ixoreal), (2) Generic purified Shilajit resin 250mg ≥20% fulvic acid +
+NABL heavy-metal cleared (SWITCHED FROM PrimaVie Natreon), (3) Sabinsa
+Bacopin 150mg @ 50% bacosides (SWITCHED FROM BacoMind Natural Remedies),
+(4) Ashwagandha whole-root 100mg TGL captive Tier C heritage, (5)
+BioPerine 5mg Sami-Sabinsa, (6) Moringa 12.5mg TGL captive Tier C
+minimal. Strategic frame: <strong>Spark sells the FORMULATION +
+Ayurvedic stack story, NOT brand-name actives.</strong> Premium
+triple-stack at TGL accessible-premium price points was mathematically
+broken; generic-equivalent stack preserves formulation thesis at viable
+margin. Channel mix locked WEBSITE-FIRST per TGL-P1-DEC-017 — existing
+TGL Ashwagandha Amazon customers migrate to Spark on Shopify
+subscription. In-house manufacturing at Deepika's facility (NOT external
+CMO); capsule fill flexibility 400-470mg; powder-form only. Spark in
+Batch 3 of 12-month rollout. 12 sections following Cycle / Glide
+V3-final template.</p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Working name</strong>: <strong>Spark</strong>
+<em>(English-led, energy/vitality metaphor)</em>. Alternative:
+<strong>Bal</strong> <em>(Sanskrit, "bal" = strength)</em>.
+<strong>Final lock pending Phase 4 naming sprint</strong> — placeholder
+flag retained.</p>
+<p><strong>Elevator pitch (90 words)</strong>:</p>
+<p>Spark is The Good Leaf's stress + stamina capsule for adults 28-55
+who feel chronically depleted — wired-but-tired, foggy by 3 PM, sleep
+that doesn't restore. It pairs a clinical-dose Ashwagandha root extract
+with purified Himalayan Shilajit (energy substrate) and Brahmi
+(cognitive clarity), built on TGL's Moringa-rooted Ayurvedic foundation.
+Two capsules a day. The full triple-stack of cortisol modulation +
+cellular energy + mental clarity — the three things stressed adults need
+together but currently buy as three separate single-ingredient SKUs from
+three different brands. One capsule. Lab-verified. Deepika's Ayurveda
+lineage.</p>
+<p><strong>Brand thesis tag</strong>: <em>"Built on Moringa. Powered by
+Ayurveda."</em> — Spark is the Tier C extension where Ashwagandha +
+Shilajit + Brahmi are heroes; Moringa carries the brand-continuity
+heritage signature at minimal dose.</p>
+<hr />
+<h2 id="2-why-were-building-it-tier-c-extension-story">2. Why We're
+Building It (Tier C Extension Story)</h2>
+<h3 id="21-the-tier-c-strategic-frame">2.1 The Tier C strategic
+frame</h3>
+<p>Spark is a <strong>Tier C line extension</strong> — TGL already sells
+single-ingredient Ashwagandha Capsules to ~10-15K customers (largely on
+Amazon). Spark upgrades that existing buyer cohort into a
+<strong>comprehensive multi-active stress + stamina formulation</strong>
+without forcing them out of the brand. This is the same Tier C playbook
+Glide (SKU 9) runs for Turmeric and Pulse (SKU 8) runs for Triphala:
+take the existing single-ingredient hero, build a multi-active around
+it, position as the upgrade.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Role</th>
+<th>TGL examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tier A</strong></td>
+<td>Women's hormonal continuum core SKUs (PMS, PCOS, Menopause,
+Fertility, Hormonal Balance)</td>
+<td>Cycle, Bloom, Menopause, Reset, Hormonal Balance</td>
+</tr>
+<tr>
+<td><strong>Tier B</strong></td>
+<td>Cross-sell anchors that bundle with Tier A</td>
+<td>Calm (sleep), Glow (skin)</td>
+</tr>
+<tr>
+<td><strong>Tier C</strong></td>
+<td>Line extensions of existing single-ingredient TGL heroes —
+multi-active upgrades</td>
+<td>Pulse (Triphala+ Gut), Glide (Turmeric+ Joint), <strong>Spark
+(Ashwagandha+ Stress)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-why-this-is-a-tier-c-call-not-tier-a">2.2 Why this is a Tier
+C call, not Tier A</h3>
+<p>Spark is a <strong>customer-base portability play</strong> + the
+<strong>most genuinely unisex SKU in the portfolio</strong> — not a
+women's-hormonal-continuum core SKU. Three reasons it's Tier C:</p>
+<ol type="1">
+<li><strong>Customer-base portability</strong>: ~10-15K existing TGL
+Ashwagandha buyers in repeat cohort. Spark is the direct upgrade path.
+Tier C SKUs prioritise existing-customer LTV expansion over new-customer
+acquisition.</li>
+<li><strong>Unisex use case</strong>: Spark is the cleanest unisex SKU
+in the catalog (55% female / 45% male). The Tier A continuum is
+women's-hormonal-led. Spark opens the men's extension door per Pillar 3
+("women-led with men extensions where supply chain reuses") without TGL
+forcing into a primary men's-health position.</li>
+<li><strong>Cross-sell engine for Tier A</strong>: Cycle (PMS) + Bloom
+(PCOS) + Reset (Menopause) customers all suffer chronic stress — Spark
+is the "and your stress" attach. Bundle architecture per portfolio
+strategy doc.</li>
+</ol>
+<h3 id="23-why-now-batch-3-of-the-12-month-rollout">2.3 Why now (Batch 3
+of the 12-month rollout)</h3>
+<p>Per Phase 1 sequencing locked in TGL-P1-DEC-017, Batch 3 launches the
+Tier C duo (Spark + Glide) after Tier A women's hormonal core (Cycle /
+Bloom / Reset in Batch 1) and Tier B cross-sell anchors (Calm in Batch
+2) have matured. Sequencing logic: Tier C extensions need the brand's
+premium-multi-active credibility established first by Tier A, then the
+cross-sell motion proven by Tier B, before they can sell the upgrade
+story to existing single-ingredient buyers. Launching Spark Batch 1
+would have left it standing alone as "another Ashwagandha capsule";
+Batch 3 lets it stand on TGL's full multi-active brand equity.</p>
+<h3
+id="24-why-this-is-the-right-tier-c-sku-to-build-vs-another-tier-c-extension">2.4
+Why this is the right Tier C SKU to build (vs another Tier C
+extension)</h3>
+<p>Three TGL existing single-ingredient heroes are candidates for Tier C
+extension: Triphala (Pulse), Turmeric (Glide), Ashwagandha (Spark).
+Spark is the highest-leverage of the three because:</p>
+<ul>
+<li><strong>Largest existing buyer cohort</strong>: TGL Ashwagandha
+buyers ≈10-15K vs Triphala buyers ≈5-7K vs Turmeric buyers ≈3-5K.
+Largest migration pool.</li>
+<li><strong>Largest cross-sell surface</strong>: stress is a co-symptom
+of every Tier A women's-hormonal SKU; PMS, PCOS, perimenopause all carry
+stress + fatigue burden. Joint pain (Glide) and gut issues (Pulse) have
+narrower cross-sell.</li>
+<li><strong>Largest unisex revenue ceiling</strong>: stress is the most
+cleanly unisex concern; Glide and Pulse skew female (joint pain
+peri-menopausal, gut issues women-prevalent). Spark unlocks the men's
+secondary segment most cleanly.</li>
+<li><strong>Strongest evidence base</strong>: Ashwagandha has 24+
+published RCTs, Shilajit has growing clinical literature, Bacopa has
+cognition RCTs going back 20 years. Triphala and Turmeric have weaker /
+more contested evidence in their target indications.</li>
+</ul>
+<h3 id="25-existing-single-ingredient-sku-sunset-decision">2.5 Existing
+single-ingredient SKU sunset decision</h3>
+<p>Per portfolio strategy doc, the existing single-ingredient TGL
+Ashwagandha Capsules SKU is <strong>retained as entry tier</strong>, NOT
+sunset. Two-tier strategy:</p>
+<ul>
+<li><strong>Single-ingredient TGL Ashwagandha Capsules</strong> — entry
+tier at ~₹499-699, plays in the mass-Ayurvedic-D2C buyer's
+first-purchase consideration set</li>
+<li><strong>Spark</strong> — premium multi-active tier at ₹999 (sale),
+is the upgrade for the customer who has tried single-ingredient and
+wants the full stack</li>
+</ul>
+<p>Same dual-tier strategy as Triphala/Pulse and Turmeric/Glide.
+Cannibalisation risk is real but lower than a sunset (full loss of
+entry-tier acquisition channel). Reassess at Month 6 post-launch based
+on cohort migration data.</p>
+<hr />
+<h2 id="3-customer">3. Customer</h2>
+<h3 id="31-primary-persona--chronic-stress-urban-professional-28-55">3.1
+Primary persona — chronic-stress urban professional 28-55</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Age band</strong></td>
+<td>28-55, peaking at 32-45</td>
+</tr>
+<tr>
+<td><strong>Gender skew</strong></td>
+<td>55% female / 45% male — most genuinely unisex SKU in the
+portfolio</td>
+</tr>
+<tr>
+<td><strong>Income</strong></td>
+<td>₹10-30 LPA household; comfortable with ₹800-1,200 monthly supplement
+spend</td>
+</tr>
+<tr>
+<td><strong>Geography</strong></td>
+<td>Tier 1 + Tier 2 metros — Bangalore, Mumbai, Delhi, Hyderabad, Pune,
+Chennai. Urban high-stress occupations.</td>
+</tr>
+<tr>
+<td><strong>Occupations</strong></td>
+<td>Corporate professionals (consulting, BFSI, tech), startup founders,
+healthcare workers (doctors, residents, nurses), teachers, lawyers,
+sales leaders, designers, parents-of-young-children with full-time
+jobs</td>
+</tr>
+<tr>
+<td><strong>Lifestyle markers</strong></td>
+<td>50+ hour work week. Screen-bound 8-10 hrs/day. Irregular sleep (6-7
+hrs, often broken at 3-4 AM by cortisol spike). Caffeine-dependent (3+
+cups/day). Exercise irregular. Weekend recovery cycle that doesn't fully
+recover. Eats out 4-6 times/week. Skips lunch when busy.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-symptom-cluster--what-the-customer-feels">3.2 Symptom cluster
+— what the customer feels</h3>
+<p>The customer presents with <strong>dysregulated cortisol + sleep +
+cognition + energy</strong> as a single complex, not as separate
+complaints:</p>
+<ul>
+<li><strong>Persistent low-grade fatigue</strong> — "I'm tired even
+after 8 hours of sleep"</li>
+<li><strong>Brain fog by 3-4 PM</strong> — "I lose focus by
+mid-afternoon, can't get through the second half of the day without
+coffee"</li>
+<li><strong>Sleep onset delay</strong> — lying in bed 30-60 minutes
+before sleeping, mind racing</li>
+<li><strong>Sleep maintenance issues</strong> — 3-4 AM wakeup with
+cortisol spike, hard to get back to sleep</li>
+<li><strong>Wired-but-tired</strong> — exhausted at end of day but can't
+relax / unwind</li>
+<li><strong>Decreased exercise tolerance</strong> — workouts feel
+harder, recovery takes longer</li>
+<li><strong>Hair thinning</strong> (women, stress-mediated telogen
+effluvium) — increased shedding noticed in last 6-12 months</li>
+<li><strong>Reduced libido</strong> — both genders, stress-mediated</li>
+<li><strong>Irritability</strong> — short fuse with family /
+colleagues</li>
+<li><strong>Decreased motivation</strong> — "I used to enjoy
+[hobby/exercise/social]; now it feels like effort"</li>
+<li><strong>Dependence on stimulants</strong> — coffee, energy drinks,
+sometimes nicotine</li>
+</ul>
+<h3 id="33-existing-supplement-behavior">3.3 Existing supplement
+behavior</h3>
+<p>Spark's customer is supplement-experienced, not supplement-naive:</p>
+<ul>
+<li><strong>Has tried Ashwagandha</strong> — Patanjali / Himalaya /
+Kapiva / single-ingredient TGL. Felt mild calming effect, not
+transformative.</li>
+<li><strong>Has tried Shilajit</strong> — Patanjali / Kapiva / Dabur
+resin or capsule form. Bitter taste (resin), inconsistent dosing,
+doesn't trust the source (multiple media reports of fake Shilajit).</li>
+<li><strong>Has tried multivitamins</strong> — gives short-lived energy
+uplift but doesn't address cortisol-stress root cause.</li>
+<li><strong>May have tried Western nootropics</strong> — Setu
+Mind:Focus, OZiva multivitamins. Feels too synthetic /
+pharma-coded.</li>
+<li><strong>Is open to a "next-level" stack</strong> — has reached the
+limits of single-ingredient solutions and is searching for a more
+comprehensive answer.</li>
+</ul>
+<h3 id="34-trust-drivers-what-makes-them-buy">3.4 Trust drivers (what
+makes them buy)</h3>
+<ul>
+<li><strong>Standardisation disclosure</strong>: % withanolides for
+Ashwagandha, % fulvic acid for Shilajit, % bacosides for Bacopa —
+published on label and website</li>
+<li><strong>Heavy-metal lab CoA per batch</strong> — published on
+website (especially for Shilajit, where adulteration is endemic)</li>
+<li><strong>Ayurvedic credentialing</strong> — Deepika's clinical
+practice + Ayurveda lineage, NOT a marketing-led D2C brand</li>
+<li><strong>Multi-active stack story</strong> — "one capsule for the
+three things I'm currently buying separately"</li>
+<li><strong>Founder-led content</strong> — Reels and longer-form video
+where Deepika walks through each ingredient and the formulation
+logic</li>
+<li><strong>Existing TGL Ashwagandha trust transfer</strong> — for the
+migration cohort, "you already trust our Ashwagandha; here's the
+upgrade"</li>
+</ul>
+<h3 id="35-migration-cohort-the-specific-tier-c-wedge">3.5 Migration
+cohort (THE specific Tier C wedge)</h3>
+<p>~10-15K existing TGL Ashwagandha customers (largely on Amazon,
+repeat-purchase cohort identified in Section 10's channel data). This
+cohort:</p>
+<ul>
+<li>Already trusts the TGL brand on Ashwagandha quality</li>
+<li>Has 6-18 months of buying behaviour with single-ingredient</li>
+<li>Is Spark's lowest-CAC acquisition pool</li>
+<li>Migrates to Spark via: (a) PDP cross-link from existing Ashwagandha
+SKU page, (b) email campaign at next subscription renewal, (c) bundle
+promo "Ashwagandha-Upgrade Kit" (Spark + existing Moringa Capsules), (d)
+explicit upgrade messaging in founder Reel</li>
+</ul>
+<h3 id="36-anti-personas-not-for">3.6 Anti-personas (NOT for)</h3>
+<ul>
+<li><strong>Pregnant or breastfeeding women</strong> — Ashwagandha
+contraindicated in pregnancy (mild abortifacient potential per
+traditional Ayurvedic texts; modern safety data limited)</li>
+<li><strong>Diagnosed thyroid disorders on thyroid medication</strong> —
+Ashwagandha can stimulate thyroid hormone production (T3/T4), risk of
+over-replacement in hypothyroid on synthetic thyroxine, risk of
+worsening hyperthyroid</li>
+<li><strong>Patients on sedatives, benzodiazepines,
+alcohol-dependent</strong> — additive sedation risk with
+Ashwagandha</li>
+<li><strong>Auto-immune disease patients on immunosuppressants</strong>
+— Ashwagandha is mildly immune-modulating (clinician consult
+recommended)</li>
+<li><strong>Severe iron-deficiency anemia</strong> — Shilajit has
+natural iron content; not generally a problem but lab-monitor
+recommended</li>
+<li><strong>Children under 18</strong> — adult-only product</li>
+<li><strong>Acute clinical depression / psychiatric medication</strong>
+— Spark is not a treatment for mental illness; refer to
+psychiatrist</li>
+</ul>
+<h3 id="37-secondary--tertiary-personas">3.7 Secondary + tertiary
+personas</h3>
+<ul>
+<li><strong>Secondary</strong>: Active women 28-42 in chronic stress +
+perimenopausal hormonal shifts (overlap with Cycle PMS / Bloom PCOS /
+Reset menopause cohort). Cross-sell from women's hormonal
+continuum.</li>
+<li><strong>Tertiary</strong>: Men 30-50 in high-pressure roles
+(founders, sales leaders, healthcare, lawyers) wanting a "stress +
+stamina" lift without going full-pharma (modafinil / SSRIs /
+testosterone replacement). The Pillar 3 men-extension market.</li>
+</ul>
+<hr />
+<h2 id="4-what-it-does-3-6-month-lived-experience">4. What It Does (3-6
+Month Lived Experience)</h2>
+<p>Spark is positioned around <strong>adaptogenic recalibration</strong>
+— the customer should NOT expect overnight stimulation (that would
+suggest a synthetic mechanism). Spark's effect builds over 4-12 weeks as
+the HPA axis recalibrates and cellular energy substrates rebuild.</p>
+<h3 id="41-week-1-2-subtle-calm--sleep-onset">4.1 Week 1-2: subtle calm
++ sleep onset</h3>
+<ul>
+<li><strong>Sleep onset latency reduces</strong> by 10-15 minutes —
+customer notices they fall asleep faster</li>
+<li><strong>Mid-afternoon energy dip is less severe</strong> — the 3 PM
+crash is dampened, not eliminated</li>
+<li><strong>Subjective sense of calm</strong> — less reactive to small
+stressors (email volume, traffic, kids)</li>
+<li><strong>NO immediate "energy boost"</strong> — this is intentional
+and is the Pillar 1 differentiator vs caffeine-loaded "energy"
+supplements</li>
+</ul>
+<h3 id="42-week-3-6-cortisol-pattern-shifts">4.2 Week 3-6: cortisol
+pattern shifts</h3>
+<ul>
+<li><strong>Sleep maintenance improves</strong> — fewer 3-4 AM wakeups,
+more continuous sleep</li>
+<li><strong>Morning energy improves</strong> — wakes feeling more rested
+even at the same sleep duration</li>
+<li><strong>Work focus improves</strong> — Brahmi (Bacopa) cognition
+effect kicks in; second-half-of-day mental clarity returns</li>
+<li><strong>Exercise tolerance improves</strong> — Shilajit
+cellular-energy effect; workouts feel less depleting, recovery
+faster</li>
+<li><strong>Stress reactivity dampens</strong> — same stressors, smaller
+emotional response</li>
+</ul>
+<h3 id="43-week-7-12-full-adaptogenic-effect">4.3 Week 7-12: full
+adaptogenic effect</h3>
+<ul>
+<li><strong>Perceived Stress Scale (PSS) reduction</strong> — if
+customer self-tracked, would expect 30-40% PSS reduction (literature
+benchmark from Chandrasekhar 2012: 44% reduction with KSM-66)</li>
+<li><strong>Cortisol AM/PM rhythm normalises</strong> — measurable on
+saliva cortisol panel (rare in customer practice)</li>
+<li><strong>Hair shedding reduces</strong> (women) — telogen effluvium
+recovery, 2-3 month delayed effect of stress-resolution</li>
+<li><strong>Libido recovery</strong> (both genders) — secondary effect
+of cortisol normalisation</li>
+<li><strong>Sustainable energy</strong> — no caffeine-style spike-crash;
+flat energy curve through the day</li>
+</ul>
+<h3 id="44-week-13-26-maintenance--compounding">4.4 Week 13-26:
+maintenance + compounding</h3>
+<ul>
+<li><strong>Stable cortisol resilience</strong> — customer reports "I
+just don't feel as overwhelmed by everything anymore"</li>
+<li><strong>Sleep quality stable at improved baseline</strong> — 7-8 hrs
+continuous sleep most nights</li>
+<li><strong>Subjective wellbeing improvement</strong> — Multidimensional
+Fatigue Inventory (MFI) improvement</li>
+<li><strong>Stack synergy compounds with TGL bundles</strong> —
+customers on Cycle (PMS) + Spark report compounded hormonal-stress
+relief; Calm (sleep) + Spark covers full 24-hour stress + sleep
+cycle</li>
+</ul>
+<h3 id="45-what-spark-does-not-do-managing-customer-expectations">4.5
+What Spark does NOT do (managing customer expectations)</h3>
+<ul>
+<li><strong>Does NOT cure anxiety, depression, chronic fatigue
+syndrome</strong> — these are diagnosed conditions requiring clinical
+care</li>
+<li><strong>Does NOT replace SSRIs / benzodiazepines / thyroid
+medication</strong> — Spark is supportive, not substitutive</li>
+<li><strong>Does NOT produce immediate "energy boost"</strong> — that
+would be a stimulant mechanism, which Spark is not</li>
+<li><strong>Does NOT increase testosterone in men beyond physiologic
+range</strong> — Shilajit dose at 250mg/day is below the Pandit 2016
+testosterone-effect dose (500mg/day); Spark does not make T-claim on
+label</li>
+<li><strong>Does NOT work for everyone</strong> — adaptogen response is
+variable; ~70% of users in clinical trials see meaningful PSS reduction,
+~30% are non-responders. Customer should reassess at Week 8.</li>
+</ul>
+<hr />
+<h2 id="5-composition--formulation-logic-v3-locked">5. Composition +
+Formulation Logic (V3 LOCKED)</h2>
+<h3 id="51-the-v3-spec--generic-equivalent-triple-stack">5.1 The V3 spec
+— generic-equivalent triple-stack</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Source / brand</th>
+<th>Dose / cap</th>
+<th>Daily dose (2 caps)</th>
+<th>% of total active fill</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Ashwagandha extract (5% withanolides)</strong></td>
+<td><strong>Vidya Herbs OR Indfrag (generic)</strong></td>
+<td>125mg</td>
+<td>250mg</td>
+<td>~37%</td>
+<td>HPA axis modulation; cortisol reduction; adaptogenic; mild
+GABAergic</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Purified Himalayan Shilajit resin</strong></td>
+<td><strong>Generic Indian-source ≥20% fulvic acid + NABL heavy-metal
+cleared</strong></td>
+<td>125mg</td>
+<td>250mg</td>
+<td>~37%</td>
+<td>Mitochondrial bioenergetics (CoQ10-supporting); fulvic acid mineral
+chelation; <em>rasayana</em>; fatigue reduction</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Bacopin (50% bacosides)</strong></td>
+<td><strong>Sami-Sabinsa (branded Bacopin)</strong></td>
+<td>75mg</td>
+<td>150mg</td>
+<td>~22%</td>
+<td>Bacosides modulate dendritic arborization; cholinergic +
+serotonergic effects; cognitive function + memory</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Ashwagandha whole-root powder</strong></td>
+<td><strong>TGL captive (Karnataka / Tamil Nadu)</strong></td>
+<td>50mg</td>
+<td>100mg</td>
+<td>~15%</td>
+<td>Tier C heritage signature — TGL captive sourcing on the named hero
+ingredient. NOT extract; full-spectrum whole-root for traditional
+Ayurvedic profile.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>BioPerine (95% piperine)</strong></td>
+<td><strong>Sami-Sabinsa (branded BioPerine)</strong></td>
+<td>2.5mg</td>
+<td>5mg</td>
+<td>~0.7%</td>
+<td>Bioavailability enhancer for withanolides + bacosides + fulvic acid
+(well-documented for curcumin; extends directionally to other phenolic
+actives)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Moringa leaf powder</strong></td>
+<td><strong>TGL captive (DPR Moringa, Karnataka)</strong></td>
+<td>6.25mg</td>
+<td>12.5mg</td>
+<td>~1.9%</td>
+<td>Brand thesis heritage signature — "Built on Moringa. Powered by
+Ayurveda." Tier C minimal dose per Moringa Foundation principle.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total active fill / cap</strong></td>
+<td></td>
+<td><strong>~384mg</strong></td>
+<td><strong>~767mg</strong></td>
+<td>100%</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule shell</strong>: Vegan plant cellulose (HPMC) — Size
+#00 (matches Cycle / Bloom / Calm V3 standard). <strong>Total fill
+weight</strong>: ~410-450mg with flow agents (silicon dioxide, magnesium
+stearate at minimum levels). Comfortable in Size #00 capsule envelope.
+<strong>Pack architecture</strong>: 60 capsules = 30-day supply at 2
+caps/day (1 morning + 1 mid-afternoon to avoid evening Shilajit
+impacting sleep onset). <strong>Format</strong>: Powder-form only
+(Deepika V3 facility constraint — no granulation / tableting).
+<strong>Manufacturing</strong>: In-house at Deepika's facility (NOT
+external CMO) — TGL-P1-DEC-024 in-house mfg lock.</p>
+<h3 id="52-v3-cost-lock--gm-math">5.2 V3 cost lock + GM math</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Vendor cost (₹/kg)</th>
+<th>mg/cap</th>
+<th>mg/pack (60 caps)</th>
+<th>Cost/pack (₹)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ashwagandha generic 5% withanolides 125mg</td>
+<td>₹2,500-3,500/kg (Vidya Herbs / Indfrag)</td>
+<td>125</td>
+<td>7,500</td>
+<td>₹19-26</td>
+</tr>
+<tr>
+<td>Generic purified Shilajit ≥20% fulvic acid 125mg</td>
+<td>₹3,000-8,000/kg (Indian-source NABL-cleared)</td>
+<td>125</td>
+<td>7,500</td>
+<td>₹23-60</td>
+</tr>
+<tr>
+<td>Sabinsa Bacopin 50% bacosides 75mg</td>
+<td>₹6,000/kg (Sami-Sabinsa branded)</td>
+<td>75</td>
+<td>4,500</td>
+<td>₹27</td>
+</tr>
+<tr>
+<td>Ashwagandha whole-root powder 50mg</td>
+<td>₹400-800/kg (TGL captive)</td>
+<td>50</td>
+<td>3,000</td>
+<td>₹1.2-2.4</td>
+</tr>
+<tr>
+<td>BioPerine 95% piperine 2.5mg</td>
+<td>₹35,000/kg (Sami-Sabinsa branded)</td>
+<td>2.5</td>
+<td>150</td>
+<td>₹5.3</td>
+</tr>
+<tr>
+<td>Moringa leaf powder 6.25mg</td>
+<td>₹600-1,200/kg (TGL captive DPR)</td>
+<td>6.25</td>
+<td>375</td>
+<td>₹0.2-0.5</td>
+</tr>
+<tr>
+<td><strong>Subtotal actives</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>₹76-121</strong></td>
+</tr>
+<tr>
+<td>HPMC capsule shell × 60</td>
+<td>₹0.30-0.50 ea</td>
+<td></td>
+<td>60 caps</td>
+<td>₹18-30</td>
+</tr>
+<tr>
+<td>Flow agents (silicon dioxide, mag stearate)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>₹3-5</td>
+</tr>
+<tr>
+<td>Bottle + label + insert + foil seal</td>
+<td></td>
+<td></td>
+<td></td>
+<td>₹35-45</td>
+</tr>
+<tr>
+<td>Carton + shipper allocation</td>
+<td></td>
+<td></td>
+<td></td>
+<td>₹8-12</td>
+</tr>
+<tr>
+<td>Manufacturing labour + overhead (in-house Deepika facility)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>₹40-55</td>
+</tr>
+<tr>
+<td><strong>Total estimated COGS</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>₹180-268</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mid-range COGS estimate: ~₹224/pack. Conservative high-end:
+~₹268/pack.</strong></p>
+<p><strong>Margin profile</strong> (using conservative ₹268 COGS):</p>
+<ul>
+<li>At MRP ₹1,099: GM = (1099 - 268) / 1099 = <strong>75.6%</strong>
+✓</li>
+<li>At Sale ₹999: GM = (999 - 268) / 999 = <strong>73.2%</strong> ✓</li>
+<li>At Subscribe ₹849: GM = (849 - 268) / 849 = <strong>68.4%</strong>
+✓</li>
+</ul>
+<p><strong>Margin profile</strong> (using mid-range ₹224 COGS):</p>
+<ul>
+<li>At MRP ₹1,099: GM = (1099 - 224) / 1099 =
+<strong>79.6%</strong></li>
+<li>At Sale ₹999: GM = (999 - 224) / 999 = <strong>77.6%</strong></li>
+<li>At Subscribe ₹849: GM = (849 - 224) / 849 =
+<strong>73.6%</strong></li>
+</ul>
+<p><strong>All three price points clear 65% GM minimum at conservative
+COGS. Subscription price clears 68%+ GM at conservative COGS.</strong>
+V3 spec is margin-viable. ✓</p>
+<h3 id="53-the-triple-formulation-switch--full-explanation-critical">5.3
+The triple formulation switch — full explanation (CRITICAL)</h3>
+<p>V3's reformulation per TGL-P1-DEC-025 made <strong>three ingredient
+switches</strong> vs the V1 dossier (Section 4 of
+<code>dossiers/10-spark-ashwagandha-stress.md</code>). Each switch
+swapped a brand-name premium ingredient for a generic-equivalent at
+materially lower cost, while preserving (a) the standardisation spec,
+(b) the formulation thesis, (c) the clinical evidence directional
+applicability. The strategic principle: <strong>Spark sells the
+FORMULATION + Ayurvedic stack story, NOT the brand-name
+actives.</strong></p>
+<h4
+id="switch-1-ksm-66-ixoreal--ashwagandha-generic-5-withanolides-vidya-herbs--indfrag">Switch
+1: KSM-66 Ixoreal → Ashwagandha generic 5% withanolides (Vidya Herbs /
+Indfrag)</h4>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>V1 dossier (KSM-66 Ixoreal)</th>
+<th>V3 locked (Vidya Herbs / Indfrag generic)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Standardisation</strong></td>
+<td>5%+ withanolides (KSM-66 spec)</td>
+<td>5% withanolides (HPLC-verified, identical spec)</td>
+</tr>
+<tr>
+<td><strong>Extraction</strong></td>
+<td>Hydroalcoholic, root-only</td>
+<td>Hydroalcoholic, root-only (specs identical)</td>
+</tr>
+<tr>
+<td><strong>Vendor cost</strong></td>
+<td>₹18,500/kg (Ixoreal Hyderabad branded)</td>
+<td>₹2,500-3,500/kg (Vidya Herbs Bangalore OR Indfrag Cochin
+generic)</td>
+</tr>
+<tr>
+<td><strong>Cost per pack at 250mg/day × 60-day pack
+equivalent</strong></td>
+<td>₹140</td>
+<td>₹19-26</td>
+</tr>
+<tr>
+<td><strong>Cost delta</strong></td>
+<td>—</td>
+<td><strong>₹114-121 saved per pack</strong> — single largest V3 cost
+reduction in Spark</td>
+</tr>
+<tr>
+<td><strong>Schedule VI compliance</strong></td>
+<td>✓ Listed</td>
+<td>✓ Listed (same regulatory basis)</td>
+</tr>
+<tr>
+<td><strong>Brand recognition asset</strong></td>
+<td>Strong — KSM-66 is the most globally-recognised Ashwagandha brand,
+24+ RCTs published using KSM-66 specifically</td>
+<td>None — generic ingredient with no brand recognition</td>
+</tr>
+<tr>
+<td><strong>Clinical evidence applicability</strong></td>
+<td>Direct (RCTs ARE on KSM-66)</td>
+<td>Directional — Chandrasekhar 2012 RCT used KSM-66 at 600mg/day; Salve
+2019 used Withania somnifera root extract more generically. The
+cortisol-modulating + adaptogenic effect is a Withania somnifera root +
+withanolides effect, not a KSM-66-proprietary effect. Standardised 5%
+withanolides at therapeutic dose (250mg/day Spark + bioavailability
+boost from BioPerine) preserves the directional clinical case.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why the switch is right for Spark</strong>: KSM-66 brand
+recognition is real but commands a 5-7x cost premium. At Spark's
+accessible-premium price band (MRP ₹1,099 / Sale ₹999), the math doesn't
+work — KSM-66 alone would consume ~₹140 of the COGS budget, leaving
+insufficient room for the OTHER actives in the multi-active stack. The
+Spark thesis is "the multi-active stack of Ashwagandha + Shilajit +
+Bacopa", not "the KSM-66 Ashwagandha capsule." Switching to generic 5%
+withanolides preserves the Ashwagandha clinical case (the active
+mechanism is the withanolides, not the brand wrapper) and unlocks the
+budget for the Shilajit + Bacopin actives that make Spark a stack vs a
+single-actor SKU. Customer-facing label reads: "Ashwagandha root
+extract, 250mg per day, standardised to 5% withanolides (12.5mg
+withanolides per day)." Pillar 4 transparency on solvent extraction
+method on website Ingredient Library page.</p>
+<h4
+id="switch-2-primavie-natreon--generic-purified-shilajit-resin-indian-source-20-fulvic-acid--nabl-heavy-metal-cleared">Switch
+2: PrimaVie Natreon → Generic purified Shilajit resin (Indian-source
+≥20% fulvic acid + NABL heavy-metal cleared)</h4>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>V1 dossier (PrimaVie Natreon)</th>
+<th>V3 locked (Generic Indian-source Shilajit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Standardisation</strong></td>
+<td>≥40% fulvic acid + ≥10% humic acid (PrimaVie patented spec, plus
+DBP-protein standardisation)</td>
+<td>≥20% fulvic acid (HPLC or UV-spectrophotometric) — V3 spec relaxed
+to match generic Indian Shilajit ceiling but still well above commodity
+Shilajit floor (&lt;10% fulvic acid)</td>
+</tr>
+<tr>
+<td><strong>Heavy-metal testing</strong></td>
+<td>NABL-cleared per batch</td>
+<td>NABL-cleared per batch (NON-NEGOTIABLE — same gate as V1, no
+relaxation)</td>
+</tr>
+<tr>
+<td><strong>Source origin</strong></td>
+<td>Himalayan + lab-cleared</td>
+<td>Himalayan + NABL-cleared (Indian-source verified, anti-adulteration
+tested)</td>
+</tr>
+<tr>
+<td><strong>Vendor cost</strong></td>
+<td>₹42,500/kg (Natreon Inc branded — note: PrimaVie is Natreon Inc
+patented, NOT Sami-Sabinsa as the V1 dossier mistakenly implied)</td>
+<td>₹3,000-8,000/kg (generic Indian Shilajit specialist suppliers —
+Upakarma B2B, Dabur B2B, Amsar Pvt Ltd, Ishan Pharma)</td>
+</tr>
+<tr>
+<td><strong>Cost per pack at 250mg/day × 60-day pack</strong></td>
+<td>₹319</td>
+<td>₹23-60</td>
+</tr>
+<tr>
+<td><strong>Cost delta</strong></td>
+<td>—</td>
+<td><strong>₹259-296 saved per pack</strong> — second-largest V3 cost
+reduction</td>
+</tr>
+<tr>
+<td><strong>Schedule VI compliance</strong></td>
+<td>✓ Listed under FSS Nutraceuticals 2022</td>
+<td>✓ Listed under FSS Nutraceuticals 2022 (same regulatory basis)</td>
+</tr>
+<tr>
+<td><strong>Brand attribution correction</strong></td>
+<td>V1 dossier called PrimaVie a "premium tier branded" without
+identifying ownership; V3 corrects: <strong>PrimaVie is patented by
+Natreon Inc, NOT Sami-Sabinsa.</strong> This matters because
+Sami-Sabinsa is Spark's branded supplier for BioPerine + Bacopin
+(Switches 3 + non-switch 5 below); PrimaVie was an unrelated Natreon
+premium product.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clinical evidence applicability</strong></td>
+<td>Direct (PrimaVie RCTs use the PrimaVie standardised extract
+specifically)</td>
+<td>Directional — Pandit 2016 (testosterone in healthy men) and Keller
+2019 (energy + strength) used purified Shilajit standardised to fulvic
+acid + DBP. Generic purified Shilajit at ≥20% fulvic acid is at the
+lower end of the standardisation range used in those RCTs but is the
+dominant commercial spec for Indian D2C Shilajit (Patanjali, Dabur,
+Kapiva all sell purified Shilajit at this spec range). The energy +
+adaptogenic effect IS the fulvic acid effect; preserving the fulvic acid
+spec preserves the clinical case directionally.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why the switch is right for Spark</strong>: PrimaVie's
+premium positioning is built on its DBP-protein standardisation (a
+Natreon patented spec), which adds clinical evidence depth but commands
+a 5-15x cost premium over generic purified Shilajit. At Spark's price
+band, PrimaVie alone would consume ~₹319 of COGS — single-handedly
+breaking the ₹999 sale-price economics. Generic purified Shilajit at
+≥20% fulvic acid + NABL heavy-metal cleared preserves the Pillar 4
+transparency story (we publish per-batch lab CoA for fulvic acid % +
+heavy metals on the website) while unlocking the budget for the rest of
+the stack. Critically, the Shilajit purification + heavy-metal testing
+gate is preserved — V3 does NOT compromise on the safety-critical aspect
+of Shilajit sourcing (heavy metals, adulteration testing). What V3
+compromises on is the Natreon brand wrapper, which is invisible to the
+customer and not a marketing asset. The customer-facing story is
+"purified Himalayan Shilajit from a verified Indian source, ≥20% fulvic
+acid, lab-tested for heavy metals per batch, with the CoA published on
+the product page." That is a stronger story than any Indian D2C
+competitor publishes.</p>
+<h4
+id="switch-3-bacomind-natural-remedies--sabinsa-bacopin-50-bacosides">Switch
+3: BacoMind Natural Remedies → Sabinsa Bacopin (50% bacosides)</h4>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>V1 dossier (BacoMind Natural Remedies)</th>
+<th>V3 locked (Sabinsa Bacopin)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Standardisation</strong></td>
+<td>45% total bacosides + multi-bacoside fingerprint (BacoMind patented
+spec)</td>
+<td>50% bacosides (Sabinsa Bacopin spec — 50% bacosides equivalent at
+lower cost)</td>
+</tr>
+<tr>
+<td><strong>Vendor cost</strong></td>
+<td>₹22,500/kg (Natural Remedies Bangalore branded)</td>
+<td>₹6,000/kg (Sami-Sabinsa branded — Bacopin is Sabinsa's 50% bacoside
+Bacopa extract, fundamentally a parallel premium-grade product to
+BacoMind at ~1/3 the cost)</td>
+</tr>
+<tr>
+<td><strong>Cost per pack at 150mg/day × 60-day pack</strong></td>
+<td>₹202</td>
+<td>₹27</td>
+</tr>
+<tr>
+<td><strong>Cost delta</strong></td>
+<td>—</td>
+<td><strong>₹175 saved per pack</strong> — third V3 cost reduction</td>
+</tr>
+<tr>
+<td><strong>Schedule VI compliance</strong></td>
+<td>✓ Listed</td>
+<td>✓ Listed (same regulatory basis)</td>
+</tr>
+<tr>
+<td><strong>Brand attribution correction</strong></td>
+<td>V1 dossier mistakenly implied BacoMind was Sami-Sabinsa branded; V3
+corrects: <strong>BacoMind is patented by Natural Remedies Bangalore,
+NOT Sami-Sabinsa. Bacopin is Sami-Sabinsa's 50% bacoside Bacopa
+product.</strong> This matters because Spark's V3 stack now uses three
+Sabinsa-branded actives (Bacopin + BioPerine + a candidate alternative
+for ashwagandha if generic supply faltered), giving us supply-chain
+consolidation advantages with a single branded vendor.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clinical evidence applicability</strong></td>
+<td>Direct (BacoMind RCTs use BacoMind specifically —
+most-clinically-cited Bacopa product globally with multi-bacoside
+fingerprint)</td>
+<td>Directional but strong — Calabrese 2008 RCT used standardised Bacopa
+monnieri extract at ~55% bacosides equivalent, 300mg/day for 12 weeks
+improved cognitive function in older adults. Stough 2001 + Roodenrys
+2002 used Bacopa standardised to 40-55% bacosides. The Bacopa cognition
+effect IS the bacoside effect; Bacopin at 50% bacosides delivers an
+equivalent bacoside dose at our 150mg/day Spark dose (75mg
+bacosides/day, ~50% of the Calabrese clinical dose, acceptable in the
+synergy stack).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why the switch is right for Spark</strong>: BacoMind is the
+single most-clinically-cited Bacopa product globally with the
+multi-bacoside fingerprint that distinguishes "real" Bacopa cognition
+from cheaper extracts that under-deliver bacosides A&amp;B specifically.
+At Spark's dose (150mg/day), BacoMind would consume ~₹202 of COGS for a
+synergy ingredient (not the primary active). Sabinsa Bacopin at 50%
+bacosides delivers the bacoside dose at ~1/8 the cost. The clinical case
+for Bacopa cognition is built on bacoside dose, not on the
+multi-bacoside fingerprint specifically — Bacopin at 50% bacosides
+preserves the bacoside dose and the cognition mechanism. Customer-facing
+label reads: "Bacopin (Bacopa monnieri extract), 150mg per day,
+standardised to 50% bacosides (75mg bacosides per day)." Pillar 4
+transparency on extraction method on website.</p>
+<h4 id="cumulative-v3-cost-switch-impact">Cumulative V3 cost-switch
+impact</h4>
+<table>
+<thead>
+<tr>
+<th>Switch</th>
+<th>Per-pack saving (mid-range)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KSM-66 Ixoreal → Vidya/Indfrag generic 5% withanolides</td>
+<td>₹114-121</td>
+</tr>
+<tr>
+<td>PrimaVie Natreon → Generic purified Shilajit ≥20% fulvic acid</td>
+<td>₹259-296</td>
+</tr>
+<tr>
+<td>BacoMind → Sabinsa Bacopin</td>
+<td>₹175</td>
+</tr>
+<tr>
+<td><strong>Total per-pack savings</strong></td>
+<td><strong>₹548-592</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Without V3 switches</strong>: COGS would have been
+~₹816-860/pack at premium-stack spec. At MRP ₹1,099, GM would have been
+**~22%** — mathematically broken at TGL's accessible-premium price band.
+Two paths existed: (a) raise price to ₹1,899-2,099 to preserve
+premium-brand stack at viable GM (would have broken the
+accessible-premium positioning + lost the existing TGL Ashwagandha buyer
+migration), or (b) switch to generic-equivalent stack at the same price
+point (preserves positioning + migration economics + multi-active
+formulation thesis). V3 chose path (b) per TGL-P1-DEC-025.</p>
+<h3 id="54-what-v3-did-not-change">5.4 What V3 did NOT change</h3>
+<ul>
+<li><strong>Strategic positioning</strong>: accessible-premium
+multi-active stress + stamina capsule</li>
+<li><strong>Price band</strong>: MRP ₹1,099 / Sale ₹999 / Sub ₹849 —
+UNCHANGED</li>
+<li><strong>Pack architecture</strong>: 60-cap pack, 2 caps/day, 30-day
+supply</li>
+<li><strong>Capsule format</strong>: Size #00 vegan HPMC</li>
+<li><strong>Manufacturing</strong>: In-house at Deepika facility per
+TGL-P1-DEC-024</li>
+<li><strong>Powder-form only</strong> — no granulation / tableting</li>
+<li><strong>Tier C role</strong>: line extension of existing
+single-ingredient TGL Ashwagandha SKU</li>
+<li><strong>Channel mix</strong>: Website-first per TGL-P1-DEC-017</li>
+<li><strong>Heavy-metal testing gate on Shilajit</strong>:
+NON-NEGOTIABLE NABL per-batch testing preserved</li>
+</ul>
+<h3 id="55-synergy-logic-across-the-stack">5.5 Synergy logic across the
+stack</h3>
+<ul>
+<li><strong>Ashwagandha + Shilajit</strong> = Ayurvedic <em>medha
+rasayana</em> (cognitive + adaptogenic rejuvenator) classical pairing.
+Shilajit's fulvic acid is theorised to enhance bioavailability of
+Ashwagandha withanolides by mineral-chelation pathways (less-evidenced
+than curcumin+piperine but Ayurvedic-traditional).</li>
+<li><strong>Ashwagandha + Bacopin</strong> = classical Ayurvedic
+combination — Ashwagandha quiets the cortisol stress response while
+Bacopin sharpens cognition. Together they address "tired but wired" +
+"brain fog" simultaneously, the dual-symptom complaint of chronic-stress
+sufferers.</li>
+<li><strong>Shilajit + Bacopin</strong> = energy substrate
+(mitochondrial CoQ10-supporting) + cognitive function (cholinergic +
+serotonergic) — covers the sub-symptom cluster of "depleted +
+foggy."</li>
+<li><strong>Whole-root Ashwagandha 100mg</strong> = adds Tier C heritage
+signature with full-spectrum traditional Ayurvedic profile (whole-root
+has minor alkaloids beyond the 5% withanolides extract — traditionally
+valued in Ayurvedic compendia). At 100mg/day, sub-therapeutic on its own
+but additive to the extract dose.</li>
+<li><strong>BioPerine 5mg</strong> = bioavailability enhancer.
+Well-documented for curcumin (2,000% bioavailability boost in Shoba
+1998); extends directionally to other phenolic + alkaloid actives. Adds
+~₹5 COGS for a measurable bioavailability uplift across the stack.</li>
+<li><strong>Moringa 12.5mg</strong> = sub-therapeutic at 25mg/day, brand
+thesis heritage signature only. Carries the "Built on Moringa. Powered
+by Ayurveda." through-line into the Tier C extension where Ashwagandha +
+Shilajit + Bacopa are heroes.</li>
+</ul>
+<h3 id="56-pillar-1-extraction-discipline-preserved">5.6 Pillar 1
+extraction discipline preserved</h3>
+<p>All extracts must be CO2 / hydroalcoholic. No hexane /
+acetone-extracted ingredients. Solvent-residue testing (GC-MS) mandatory
+per batch. Same Pillar 1 line as Cycle / Bloom / Calm / Glide. V3's
+vendor switches do NOT compromise extraction methodology — generic Vidya
+Herbs / Indfrag / Sabinsa all use hydroalcoholic / CO2 methods on the
+relevant SKUs.</p>
+<hr />
+<h2 id="6-theoretical-justification-pubmedpmc-citations-per-active">6.
+Theoretical Justification (PubMed/PMC Citations Per Active)</h2>
+<p>Each active's clinical evidence base is summarised below with
+PubMed/PMC URLs. Critical caveat for V3 reformulation: the RCTs cited
+below were largely run on branded ingredients (KSM-66 / Shoden /
+PrimaVie / BacoMind), but the <strong>mechanism of action</strong> is a
+property of the standardised compound (withanolides / fulvic acid /
+bacosides), not a property of the brand wrapper. V3's generic-equivalent
+actives at preserved standardisation specs deliver the same compounds at
+therapeutic doses. The clinical evidence applies
+<strong>directionally</strong> to V3's Spark formulation.</p>
+<h3 id="61-ashwagandha-withania-somnifera--primary-adaptogen">6.1
+Ashwagandha (Withania somnifera) — primary adaptogen</h3>
+<p><strong>Mechanism</strong>: HPA axis modulation. Withanolides
+downregulate cortisol secretion via hypothalamic-pituitary-adrenal axis
+re-equilibration. Mild GABAergic effect (some withanolides are
+GABA-receptor positive allosteric modulators). Adaptogenic class —
+non-specific stress-resistance enhancer.</p>
+<p><strong>Key clinical evidence</strong> (RCTs done on KSM-66
+specifically; mechanism applies to V3's generic 5% withanolide extract
+directionally):</p>
+<table>
+<thead>
+<tr>
+<th>Citation</th>
+<th>Design</th>
+<th>Findings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chandrasekhar K., Kapoor J., Anishetty S., 2012</strong> —
+<em>Indian J Psychol Med</em> 34(3):255-262</td>
+<td>RCT, double-blind, placebo-controlled. n=64. KSM-66 600mg/day × 60
+days.</td>
+<td>Perceived Stress Scale (PSS) reduced 44% vs placebo 5.5%. Serum
+cortisol reduced 27.9% vs placebo 7.9%. Both p&lt;0.0001. URL: <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3573577/">PMC3573577</a></td>
+</tr>
+<tr>
+<td><strong>Salve J., Pate S., Debnath K., Langade D., 2019</strong> —
+<em>Cureus</em> 11(12):e6466</td>
+<td>RCT, double-blind, placebo-controlled. n=60. KSM-66 250mg/day vs
+600mg/day vs placebo × 60 days.</td>
+<td>Both 250mg and 600mg arms showed significant PSS + serum cortisol
+reduction vs placebo. Lower-dose arm (250mg) showed clinically
+meaningful effect — supports Spark's 250mg/day dose. URL: <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6979308/">PMC6979308</a></td>
+</tr>
+<tr>
+<td><strong>Lopresti A.L. et al., 2019</strong> — <em>Medicine</em>
+98(37):e17186</td>
+<td>RCT, Shoden-grade Ashwagandha 240mg/day × 60 days.</td>
+<td>Reduced perceived stress. Improved sleep quality. Cortisol
+reduction. URL: <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6750292/">PMC6750292</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Directional applicability to Spark V3</strong>: Salve 2019
+specifically validated the lower-dose arm at 250mg/day KSM-66 — Spark's
+V3 dose is 250mg/day generic 5% withanolides + 100mg whole-root. The
+withanolide dose (12.5mg/day from extract + ~0.5mg from whole-root) is
+in the therapeutic range for the Salve 2019 lower-dose effect. BioPerine
+bioavailability uplift further supports the directional case.</p>
+<h3 id="62-shilajit-purified-himalayan-resin--energy-substrate">6.2
+Shilajit (purified Himalayan resin) — energy substrate</h3>
+<p><strong>Mechanism</strong>: Mitochondrial bioenergetics — fulvic acid
+acts as electron carrier in the mitochondrial electron transport chain
+(CoQ10-supporting effect). Mineral chelation — fulvic acid chelates
+trace minerals (Mg, Zn, Fe, Cu) and improves cellular bioavailability.
+<em>Rasayana</em> (rejuvenation) Ayurvedic class.
+Hypothalamic-pituitary-gonadal axis modulation (testosterone effect
+documented at higher doses in men).</p>
+<p><strong>Key clinical evidence</strong> (RCTs done on PrimaVie
+purified Shilajit; mechanism applies to V3's generic purified Shilajit
+at preserved fulvic acid + heavy-metal-cleared spec directionally):</p>
+<table>
+<thead>
+<tr>
+<th>Citation</th>
+<th>Design</th>
+<th>Findings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pandit S., Biswas S., Jana U., De R.K., Mukhopadhyay S.C.,
+Biswas T.K., 2016</strong> — <em>Andrologia</em> 48(5):570-575</td>
+<td>RCT, double-blind, placebo-controlled. n=75 healthy men. PrimaVie
+purified Shilajit 250mg twice daily (500mg/day) × 90 days.</td>
+<td>Significant increase in total testosterone + free testosterone +
+DHEA-S vs placebo. URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/26395129/">PMID 26395129</a></td>
+</tr>
+<tr>
+<td><strong>Keller J.L. et al., 2019</strong> — <em>J Int Soc Sports
+Nutr</em> 16:3</td>
+<td>RCT, double-blind, placebo-controlled. n=63. PrimaVie purified
+Shilajit 250mg/day vs 500mg/day vs placebo × 8 weeks. Resistance
+training intervention.</td>
+<td>Higher-dose arm showed maintained muscle strength after fatiguing
+protocol; placebo declined. Suggests cellular-energy + recovery effect.
+URL: <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6337092/">PMC6337092</a></td>
+</tr>
+<tr>
+<td><strong>Surapaneni D.K. et al., 2012</strong> — <em>J Med Food</em>
+15(8)</td>
+<td>Animal model (rats), chronic fatigue syndrome paradigm.</td>
+<td>Shilajit reduced behavioural symptoms of CFS via HPA axis +
+mitochondrial bioenergetic modulation. URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/22651127/">PMID 22651127</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Directional applicability to Spark V3</strong>: Spark's
+Shilajit dose is 250mg/day, matching the lower-dose arm in Pandit 2016 +
+Keller 2019 (both used PrimaVie at 250mg/day OR 500mg/day). The energy +
+adaptogenic effect IS the fulvic acid effect; V3's generic purified
+Shilajit at ≥20% fulvic acid delivers ~50mg fulvic acid/day, in the dose
+range used in those RCTs (PrimaVie at 50%+ fulvic acid would deliver
+125-250mg fulvic acid/day; generic at 20%+ delivers 50-125mg/day — lower
+end of therapeutic range, supplemented by Spark's overall multi-active
+synergy stack). Spark does NOT make a testosterone claim on label — the
+Pandit 2016 testosterone effect is referenced as supportive evidence for
+the Pillar 3 men-extension secondary cohort messaging without making a
+specific T-claim that would trigger drug-class regulatory oversight.</p>
+<h3 id="63-bacopa-monnieri-bacopin-50-bacosides--cognitive-clarity">6.3
+Bacopa monnieri (Bacopin 50% bacosides) — cognitive clarity</h3>
+<p><strong>Mechanism</strong>: Bacosides A&amp;B modulate dendritic
+arborisation in the hippocampus (long-term potentiation effect on
+memory). Cholinergic enhancement (acetylcholinesterase inhibition).
+Serotonergic modulation. Anxiolytic effect in some trials.</p>
+<p><strong>Key clinical evidence</strong> (RCTs done on BacoMind /
+Bacopa standardised extracts at 40-55% bacosides; mechanism applies to
+V3's Bacopin at 50% bacosides directionally — same compound class at
+same standardisation):</p>
+<table>
+<thead>
+<tr>
+<th>Citation</th>
+<th>Design</th>
+<th>Findings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stough C. et al., 2001</strong> —
+<em>Psychopharmacology</em> 156(4):481-484</td>
+<td>RCT, double-blind, placebo-controlled. n=46 healthy adults. Bacopa
+300mg/day × 12 weeks.</td>
+<td>Improved working memory + information processing speed + verbal
+learning. URL: <a href="https://pubmed.ncbi.nlm.nih.gov/11498727/">PMID
+11498727</a></td>
+</tr>
+<tr>
+<td><strong>Roodenrys S. et al., 2002</strong> —
+<em>Neuropsychopharmacology</em> 27(2):279-281</td>
+<td>RCT, double-blind, placebo-controlled. n=76 healthy adults. Bacopa
+300mg/day × 12 weeks.</td>
+<td>Improved verbal learning + memory consolidation. URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/12093601/">PMID 12093601</a></td>
+</tr>
+<tr>
+<td><strong>Calabrese C. et al., 2008</strong> — <em>J Altern Complement
+Med</em> 14(6):707-713</td>
+<td>RCT, double-blind, placebo-controlled. n=54 older adults (65+).
+Bacopa 300mg/day × 12 weeks.</td>
+<td>Improved cognitive function + reduced anxiety + reduced depression.
+URL: <a href="https://pubmed.ncbi.nlm.nih.gov/18611150/">PMID
+18611150</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Directional applicability to Spark V3</strong>: Spark's
+Bacopin dose is 150mg/day at 50% bacosides = 75mg bacosides/day. This is
+approximately 50% of the Calabrese 2008 / Stough 2001 / Roodenrys 2002
+clinical dose (150mg bacosides/day at 50% standardisation = 300mg
+extract dose). At Spark's synergy-stack role (cognitive clarity
+counterweight to Ashwagandha's calming effect), this dose is acceptable.
+Future v2 may upgrade to 300mg Bacopin/day if V1 customer feedback shows
+cognitive-clarity effect below expectations.</p>
+<h3 id="64-bioperine-95-piperine--bioavailability-enhancer">6.4
+BioPerine (95% piperine) — bioavailability enhancer</h3>
+<p><strong>Mechanism</strong>: Piperine inhibits hepatic glucuronidation
+pathways (UGT enzyme inhibition), extending half-life of co-administered
+compounds. Documented 2,000% curcumin bioavailability uplift (Shoba
+1998). Extends directionally to phenolic actives + alkaloids.</p>
+<p><strong>Key citation</strong>: Shoba G. et al., 1998 — <em>Planta
+Medica</em> 64(4):353-356. URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/9619120/">PMID 9619120</a>.</p>
+<p><strong>Directional applicability to Spark V3</strong>: BioPerine
+5mg/day is the standard bioavailability-enhancer dose used across the
+supplement industry. Theoretical bioavailability uplift on withanolides
++ bacosides + fulvic acid (directional from curcumin literature; not
+specifically validated for each active).</p>
+<h3 id="65-whole-root-ashwagandha--moringa-heritage-signatures">6.5
+Whole-root Ashwagandha + Moringa heritage signatures</h3>
+<p>These are sub-therapeutic doses included for brand thesis (Moringa) +
+Ayurvedic traditional-profile (whole-root Ashwagandha). Not primary
+actives. No clinical evidence cited as primary support — additive to the
+extract dose only.</p>
+<hr />
+<h2
+id="7-decision-narrative--why-generic-equivalent-stack-is-the-right-call">7.
+Decision Narrative — Why Generic-Equivalent Stack Is the Right Call</h2>
+<h3 id="71-the-premium-stack-path-was-mathematically-broken">7.1 The
+premium-stack path was mathematically broken</h3>
+<p>Per Section 5.3's cumulative cost analysis: V1 dossier specs (KSM-66
+Ixoreal + PrimaVie Natreon + BacoMind Natural Remedies) would have
+produced a COGS of ~₹816-860/pack. At Spark's accessible-premium price
+band (MRP ₹1,099 / Sale ₹999 / Sub ₹849), GM at MRP would have been ~22%
+— single-digit GM at sub price. Mathematically broken.</p>
+<h3 id="72-the-two-paths-considered">7.2 The two paths considered</h3>
+<p><strong>Path A: Raise price to preserve premium-stack</strong></p>
+<ul>
+<li>Move price band to MRP ₹1,899-2,099 / Sale ₹1,699-1,899 / Sub
+₹1,449-1,599</li>
+<li>COGS ~₹816-860 → GM ~52-55% at sale ✓</li>
+<li>Trade-offs:
+<ul>
+<li><strong>Loses accessible-premium positioning</strong> — TGL's brand
+promise to the Tier A women's hormonal customer is "premium quality at
+accessible price." Doubling Spark's price breaks the brand pricing
+logic.</li>
+<li><strong>Loses TGL Ashwagandha migration economics</strong> —
+existing Ashwagandha buyers at ₹499-699 cannot be asked to pay ₹1,899
+for an upgrade. The migration cohort (~10-15K, the entire Tier C wedge)
+would not convert.</li>
+<li><strong>Loses competitive position</strong> — Spark would become the
+most expensive multi-active stress capsule in the Indian D2C market,
+beating Setu's ₹899 and Cosmix's ₹999 and HealthKart's ₹599. Premium
+pricing without a premium-tier brand acquired moat.</li>
+<li><strong>Brand-name actives are invisible to customer</strong> —
+KSM-66 + PrimaVie + BacoMind are wholesale-supplier brands. No customer
+searches "Spark with KSM-66" or "Spark with PrimaVie." The premium spec
+is invisible to the buyer's purchase decision.</li>
+</ul></li>
+</ul>
+<p><strong>Path B: Switch to generic-equivalent stack at preserved price
+band (V3 LOCKED)</strong></p>
+<ul>
+<li>Hold MRP ₹1,099 / Sale ₹999 / Sub ₹849</li>
+<li>COGS ~₹224-268 → GM ~73-79% at sale ✓ (per Section 5.2)</li>
+<li>Trade-offs:
+<ul>
+<li><strong>Loses brand-name actives credibility</strong> — "Contains
+KSM-66®" and "Contains PrimaVie®" cannot appear on label</li>
+<li><strong>Loses direct-RCT applicability</strong> — clinical evidence
+applies directionally vs directly (per Section 6 caveats)</li>
+<li>Preserves: accessible-premium positioning, migration economics,
+competitive position, multi-active formulation thesis, Pillar 1
+extraction discipline, Pillar 4 transparency story, Schedule VI
+compliance, in-house manufacturing economics</li>
+</ul></li>
+</ul>
+<h3 id="73-why-path-b-is-the-right-call">7.3 Why Path B is the right
+call</h3>
+<p>Three reasons V3 chose Path B per TGL-P1-DEC-025:</p>
+<p><strong>1. Spark sells the FORMULATION, not the brand-name
+actives.</strong> The customer-facing story is: "Ashwagandha + Shilajit
++ Bacopa — the full triple-stack of cortisol modulation + cellular
+energy + mental clarity, in one capsule, twice a day." That story works
+equally well with generic 5% withanolides Ashwagandha + ≥20% fulvic acid
+Shilajit + 50% bacosides Bacopin as it does with KSM-66 + PrimaVie +
+BacoMind. The customer reads the standardisation + dose +
+Ayurvedic-stack-logic on the label, not the wholesale-supplier brand.
+Pillar 4 transparency on standardisation specs + lab CoA per batch is
+the trust mechanism, not branded ingredient logos.</p>
+<p><strong>2. The migration economics are non-negotiable.</strong>
+Spark's Tier C wedge IS the existing TGL Ashwagandha buyer migration.
+~10-15K customers at ₹499-699 current price. The upgrade story works at
+₹999 sale (a ~₹400 uplift, justifiable for a multi-active vs
+single-ingredient). The upgrade story does NOT work at ₹1,699-1,899 sale
+(a ~₹1,200 uplift, breaks willingness-to-pay). Path A loses the entire
+Tier C wedge.</p>
+<p><strong>3. The Ayurvedic-evidence base is
+generic-actives-applicable.</strong> Withanolides + fulvic acid +
+bacosides are mechanism-defined compound classes, not brand-defined. The
+Ashwagandha cortisol effect is a withanolides effect. The Shilajit
+energy effect is a fulvic acid effect. The Bacopa cognition effect is a
+bacosides effect. Section 6's directional applicability case is real and
+defensible. Pillar 4 transparency lets us publish per-batch
+standardisation data so the customer sees the actual compound dose
+(12.5mg withanolides/day, 50mg fulvic acid/day, 75mg bacosides/day), not
+just the extract weight. The standardisation spec IS the
+substantiation.</p>
+<h3 id="74-risk-acknowledgment">7.4 Risk acknowledgment</h3>
+<p>V3's path carries real risks:</p>
+<ul>
+<li><strong>Vendor quality variance is HIGHER on generic
+actives</strong> — Vidya Herbs / Indfrag / generic Indian Shilajit
+suppliers do not have the QC stringency of Ixoreal / Natreon / Natural
+Remedies. Mitigation: per-batch HPLC testing on every active (not just
+supplier CoA), NABL-third-party testing on Shilajit specifically, Pillar
+1 GC-MS solvent-residue testing.</li>
+<li><strong>Marketing cannot lean on branded-actives
+credibility</strong> — competitor positioning with "Contains KSM-66" is
+harder to neutralise. Mitigation: lean on Pillar 4 transparency
+(per-batch lab CoA published on website), founder-led Reels content
+explaining standardisation specs, multi-active stack story (which
+competitors with single-actor SKUs cannot tell).</li>
+<li><strong>Future v2 upgrade path may need to add branded actives
+back</strong> — if V1 customer feedback shows demand for "premium" tier,
+v2 may bifurcate Spark into Spark (generic stack at ₹999) + Spark
+Premium (branded stack at ₹1,899) — two-tier strategy mirror of
+Patanjali / KSM-66 single-ingredient market structure.</li>
+</ul>
+<h3 id="75-decision-lineage">7.5 Decision lineage</h3>
+<ul>
+<li>TGL-P1-DEC-023 (Deepika V3 reformulation gate, 2026-05-08): mandate
+to reformulate Spark for V3 cost lock + in-house manufacturability +
+powder-form-only</li>
+<li>TGL-P1-DEC-024 (in-house mfg lock, 2026-05-08): all Phase 1 SKUs
+manufactured at Deepika's facility (NOT external CMO)</li>
+<li>TGL-P1-DEC-025 (formulation switch principle, 2026-05-09): when
+premium branded actives break price-band economics, switch to
+generic-equivalent at preserved standardisation spec + price band —
+applies to Calm + Spark in V3</li>
+</ul>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive Landscape</h2>
+<h3 id="81-direct-competitors--multi-active-stress-capsules">8.1 Direct
+competitors — multi-active stress capsules</h3>
+<table>
+<thead>
+<tr>
+<th>Competitor</th>
+<th>Format</th>
+<th>Composition</th>
+<th>Price (sale)</th>
+<th>Subscribe</th>
+<th>TGL Spark advantage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cosmix Stress</strong></td>
+<td>Capsule, 60-cap</td>
+<td>Ashwagandha + Brahmi + Shankhpushpi + Jatamansi (multi-active
+Ayurvedic blend)</td>
+<td>₹999</td>
+<td>₹849</td>
+<td>Direct competitor at exact same price band. Spark advantage:
+Shilajit addition (energy substrate vs Cosmix's brain-only stack),
+per-batch lab CoA published, Deepika clinical practice founder story vs
+Cosmix's marketing-led D2C tone.</td>
+</tr>
+<tr>
+<td><strong>Setu Mind:Focus</strong></td>
+<td>Capsule, 30-cap</td>
+<td>L-Theanine + Bacopa + Rhodiola + B-vitamins (synthetic) + green
+tea</td>
+<td>₹899</td>
+<td>₹809</td>
+<td>Pillar 1 — Spark is plant-only, no synthetic L-Theanine / B-vitamins
+/ Rhodiola (imported). Setu is nootropic-stack (cognition focus); Spark
+is full stress + stamina + cognition stack.</td>
+</tr>
+<tr>
+<td><strong>HealthKart Ashwagandha</strong></td>
+<td>Capsule, 60-cap</td>
+<td>Ashwagandha root extract (single-ingredient, generic
+standardisation)</td>
+<td>₹599</td>
+<td>n/a (no sub)</td>
+<td>Different tier — HealthKart is single-actor mass-market value
+capsule, Spark is multi-active premium D2C. Different customer.</td>
+</tr>
+<tr>
+<td><strong>Mihiral KSM-66 Ashwagandha</strong></td>
+<td>Capsule, 60-cap</td>
+<td>KSM-66 Ashwagandha 300mg + BioPerine</td>
+<td>₹1,500</td>
+<td>n/a</td>
+<td>Different tier — Mihiral is single-actor premium-branded ($KSM-66
+wrap) at higher price. Spark is multi-active at lower price. The $5K
+consumer's premium spend goes to Mihiral; the ₹1K consumer's spend goes
+to Spark.</td>
+</tr>
+<tr>
+<td><strong>OZiva Daily Ashwagandha + Shilajit</strong></td>
+<td>Capsule, 60-cap</td>
+<td>Ashwagandha (standard) + Shilajit</td>
+<td>₹699-899</td>
+<td>₹629-809</td>
+<td>Direct competitor in two-active spec. Spark advantage: Bacopin
+addition (cognitive layer), KSM-66-equivalent + ≥20% fulvic acid
+Shilajit standardisation disclosure (OZiva does not publish), per-batch
+lab CoA, Deepika clinical practice founder story.</td>
+</tr>
+<tr>
+<td><strong>Cureveda Stress Cure / Reload</strong></td>
+<td>Capsule, 60-cap</td>
+<td>Multi-Ayurvedic adaptogen blend</td>
+<td>₹599-799</td>
+<td>n/a</td>
+<td>Direct competitor in multi-active class. Spark advantage:
+standardisation disclosure (Cureveda does not publish), per-batch lab
+CoA, Pillar 4 transparency, Deepika founder story.</td>
+</tr>
+<tr>
+<td><strong>Kapiva Shilajit Gold Resin</strong></td>
+<td>Resin paste</td>
+<td>Shilajit + saffron + ashwagandha</td>
+<td>₹1,299-1,799</td>
+<td>n/a</td>
+<td>Format difference — Kapiva is resin paste (bitter, hard to dose, not
+portable). Spark is capsule (Pillar 1 single-format). Lower price than
+Kapiva. Multi-active stack with cognitive layer (Bacopin) Kapiva
+lacks.</td>
+</tr>
+<tr>
+<td><strong>Patanjali Divya Ashwagandha</strong></td>
+<td>Tablet/capsule</td>
+<td>Single-ingredient Ashwagandha root powder (commodity)</td>
+<td>₹150-300</td>
+<td>n/a</td>
+<td>Different tier — mass-market commodity vs premium D2C. Different
+customer entirely. Spark cannot compete at ₹315 retail and shouldn't
+try.</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="82-migration-cohort-competitor--tgls-own-existing-single-ingredient-ashwagandha-capsules">8.2
+Migration cohort competitor — TGL's own existing single-ingredient
+Ashwagandha Capsules</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Existing TGL Ashwagandha Capsules</th>
+<th>Spark (V3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Format</strong></td>
+<td>Single-ingredient capsule</td>
+<td>Multi-active capsule</td>
+</tr>
+<tr>
+<td><strong>Composition</strong></td>
+<td>Ashwagandha root extract (standardisation TBC, likely 5%
+withanolides)</td>
+<td>Ashwagandha 5% withanolides + Shilajit + Bacopin + whole-root +
+BioPerine + Moringa</td>
+</tr>
+<tr>
+<td><strong>Price</strong></td>
+<td>~₹499-699</td>
+<td>MRP ₹1,099 / Sale ₹999 / Sub ₹849</td>
+</tr>
+<tr>
+<td><strong>Channel</strong></td>
+<td>Largely Amazon</td>
+<td>Shopify-first per TGL-P1-DEC-017</td>
+</tr>
+<tr>
+<td><strong>Migration story</strong></td>
+<td>Entry tier, repeat customer's first TGL product</td>
+<td>Upgrade tier, multi-active stack for the customer who has tried
+single-ingredient and wants more</td>
+</tr>
+</tbody>
+</table>
+<h3 id="83-three-defensible-differentiators-for-spark-vs-the-field">8.3
+Three defensible differentiators for Spark vs the field</h3>
+<p><strong>1. Multi-active triple-stack at accessible-premium
+price</strong> — Spark is the only capsule in the ₹999 sale-price band
+that combines Ashwagandha + Shilajit + Bacopin in clinical-equivalent
+doses. Cosmix has the multi-active model but no Shilajit. OZiva has
+Ashwagandha + Shilajit but no Bacopin. Single-actor competitors (Mihiral
+KSM-66, HealthKart Ashwagandha, Patanjali) miss the multi-active thesis
+entirely. Setu has the multi-active model but goes synthetic /
+Western-nootropic, missing the Ayurvedic-rooted positioning. Spark owns
+the "Ayurvedic triple-stack at accessible price" position uniquely.</p>
+<p><strong>2. Per-batch lab CoA on standardisation + heavy metals
+(Pillar 4 transparency)</strong> — Spark publishes per-batch HPLC
+results for withanolides %, fulvic acid %, bacosides % AND per-batch
+NABL heavy-metal testing for Shilajit specifically. No D2C competitor in
+the Ashwagandha-stress space publishes per-batch lab data at this depth.
+Builds defensible trust moat especially on Shilajit (the
+most-adulterated Ayurvedic ingredient in the market).</p>
+<p><strong>3. Deepika clinical practice founder story</strong> — TGL is
+founded and led by Deepika, an Ayurvedic clinical practitioner with deep
+formulation expertise. Founder-led Reels content explains the
+formulation logic ingredient by ingredient. Cosmix / OZiva / Cureveda /
+Setu / Wellbeing are marketing-led D2C brands without a
+clinical-practice founder. The trust differential is real for the
+chronic-stress customer who has tried multiple brands and wants someone
+who actually understands the formulation, not just the marketing.</p>
+<hr />
+<h2 id="9-right-to-win">9. Right to Win</h2>
+<h3 id="91-the-five-reasons-spark-wins">9.1 The five reasons Spark
+wins</h3>
+<p><strong>1. Multi-active formulation thesis at accessible-premium
+price</strong> — owns a position in the market that no single competitor
+cleanly holds. Cosmix is closest but lacks Shilajit; OZiva has the
+actives but not the formulation depth; Setu goes synthetic; Mihiral is
+single-actor at higher price; Patanjali is mass-market. Spark is the
+only capsule that triangulates Ayurvedic-rooted + multi-active +
+accessible-premium + clinical-credentialled.</p>
+<p><strong>2. Existing TGL Ashwagandha buyer migration
+economics</strong> — ~10-15K customers in the migration pool with ~₹400
+willingness-to-pay uplift. Lowest-CAC acquisition pool in the portfolio.
+Tier C extension SKUs that have access to a captive single-ingredient
+migration cohort outperform Tier C extensions launched cold (Pulse from
+Triphala migration, Glide from Turmeric migration both have similar
+dynamics but smaller pools).</p>
+<p><strong>3. Pillar 4 transparency moat on Shilajit</strong> — Shilajit
+is the most-adulterated Ayurvedic ingredient in the Indian market.
+Multiple media reports (Times of India, Mint, Economic Times) on
+counterfeit Shilajit eroding consumer trust. Per-batch NABL heavy-metal
+testing + per-batch fulvic acid % disclosure is a defensible trust moat
+that requires sustained operational investment (not a one-time marketing
+claim). Competitors can announce intent-to-publish but operationalising
+per-batch testing across 2,000+ packs/month is an ongoing cost
+commitment that smaller-scale competitors will struggle to maintain.</p>
+<p><strong>4. Deepika clinical-practice founder story</strong> —
+Ayurvedic clinical credentialling is rare in the modern D2C supplement
+space. Founder-led Reels content + PDP video explanations + 1:1 customer
+Q&amp;A on Instagram DMs (light-touch, not medical-advice) build an
+emotional trust differential vs marketing-led D2C brands. Customers in
+the chronic-stress segment are highly evidence-seeking and trust the
+clinician voice over the influencer voice.</p>
+<p><strong>5. Cross-sell stack with Tier A women's hormonal
+continuum</strong> — Spark bundles with Cycle (PMS) + Bloom (PCOS) +
+Reset (Menopause) for the women's-hormonal customer who also has chronic
+stress (which is most of them). Bundle architecture: Daily Woman +
+Stress Kit (Hormonal Balance + Spark, ₹1,899 vs ₹2,098 standalone).
+Spark's existence makes the Tier A SKUs more valuable by enabling
+natural cross-sell — a portfolio-level moat that single-SKU competitors
+cannot replicate.</p>
+<h3 id="92-where-spark-is-at-risk-of-losing">9.2 Where Spark is at risk
+of losing</h3>
+<ul>
+<li><strong>vs Cosmix Stress at ₹999</strong> — direct competitor at
+exact same price. Differentiation is multi-active depth (Spark adds
+Shilajit) + lab CoA transparency + founder story. Cosmix has stronger
+D2C marketing presence + 18-month head-start on category awareness.
+Spark's win: better formulation + Pillar 4 + TGL brand trust
+transfer.</li>
+<li><strong>vs OZiva Daily Ashwagandha + Shilajit at ₹699-899</strong> —
+under-prices Spark by ₹100-300. Spark must justify the price premium
+through (a) Bacopin cognitive layer, (b) standardisation disclosure
+(OZiva doesn't publish), (c) lab CoA transparency, (d) Deepika founder
+story.</li>
+<li><strong>vs Mihiral KSM-66 at ₹1,500</strong> — over-prices Spark by
+~₹500 but trades on KSM-66 brand recognition. Spark must justify the
+price discount as multi-active value vs single-actor premium.</li>
+<li><strong>vs Patanjali Divya Ashwagandha at ₹315</strong> — different
+consumer tier; Spark cannot win on price. Strategic answer: do not
+compete; serve a different customer (premium D2C buyer who pays for
+multi-active + lab transparency + founder story).</li>
+</ul>
+<h3 id="93-failure-mode-risks">9.3 Failure-mode risks</h3>
+<ul>
+<li><strong>Shilajit batch-quality fail</strong> — adulterated supply
+slipping through QC would be brand-destroying. Mitigation: per-batch
+NABL third-party testing (not just supplier CoA), Upakarma B2B + Dabur
+B2B + Amsar Pvt Ltd as multi-vendor backup, Ishan Pharma as
+smaller-scale Uttarakhand source-direct option for vendor
+diversification.</li>
+<li><strong>Generic actives standardisation drift</strong> — Vidya Herbs
+/ Indfrag may have batch-to-batch withanolides % variation. Mitigation:
+per-batch HPLC testing on incoming material, reject batches below 5%
+withanolides spec, multi-vendor sourcing for spec consistency.</li>
+<li><strong>Cannibalisation of existing TGL Ashwagandha SKU</strong> —
+Spark may eat into single-ingredient SKU revenue. Mitigation: dual-tier
+strategy with retained entry-tier single-ingredient SKU; reassess at
+Month 6 based on cohort migration data; entry tier serves first-time
+buyer acquisition that Spark's premium tier cannot.</li>
+<li><strong>Customer expects Mihiral / KSM-66 brand-actives
+credibility</strong> — V3's switch loses access to "Contains KSM-66®"
+credibility. Mitigation: lean on standardisation spec disclosure ("250mg
+Ashwagandha, 5% withanolides, 12.5mg withanolides per day") + per-batch
+HPLC published + founder explanation that "the active mechanism is the
+withanolides, not the brand wrapper."</li>
+</ul>
+<hr />
+<h2 id="10-marketing--website-first-channel-mix-tgl-p1-dec-017">10.
+Marketing — Website-First Channel Mix (TGL-P1-DEC-017)</h2>
+<h3 id="101-the-channel-mix-decision">10.1 The channel-mix decision</h3>
+<p>Per TGL-P1-DEC-017 (locked 2026-05-08), Spark launches
+<strong>Shopify-first</strong> as the primary acquisition channel, with
+Amazon as secondary in Month 2-3. This is a deliberate inversion of
+TGL's historical Amazon-led channel mix. Three reasons:</p>
+<p><strong>1. Existing TGL Ashwagandha customers on Amazon → Spark
+Shopify migration captures upgrade in subscription.</strong> The
+migration cohort (~10-15K) currently buys single-ingredient Ashwagandha
+on Amazon at ₹499-699 with no subscription. Migrating them to Spark on
+Shopify subscription locks in: (a) recurring revenue (Sub ₹849 × 12
+months = ₹10,188 LTV vs Amazon one-off purchase), (b) direct customer
+relationship (email + WhatsApp + Klaviyo nurture), (c) upgrade path to
+bundles (Daily Woman + Stress Kit), (d) brand loyalty (out of Amazon's
+price-comparison ecosystem).</p>
+<p><strong>2. Multi-active premium SKUs perform better on owned channel
+than marketplace.</strong> Amazon listings reduce to price-comparison +
+star-rating; the Spark differentiators (Pillar 4 lab CoA transparency,
+Deepika founder story, multi-active formulation logic) require
+longer-form content that Amazon PDP format does not support well.
+Shopify PDP supports the founder Reel embed + lab CoA download +
+ingredient-by-ingredient explainer + Q&amp;A from Deepika that drive
+Spark's purchase decision.</p>
+<p><strong>3. TGL's brand-build sequencing requires Shopify-led Tier C
+extensions.</strong> Per Phase 1 sequencing (TGL-P1-DEC-018), Tier A
+women's hormonal SKUs (Cycle / Bloom / Reset) launched Shopify-first to
+establish the brand premium positioning. Spark as Tier C extension
+cannot break the sequencing and launch Amazon-first; Amazon launch would
+re-anchor Spark as a mass-market value capsule rather than the
+multi-active premium upgrade. Amazon is the secondary channel for Spark,
+opened in Month 2-3 once Shopify-led demand has established the price +
+position anchoring.</p>
+<h3 id="102-acquisition-channels">10.2 Acquisition channels</h3>
+<p><strong>Meta Ads (Facebook + Instagram) → Shopify PDP</strong> —
+primary paid acquisition.</p>
+<ul>
+<li><strong>Targeting</strong>: Custom audiences (existing TGL
+Ashwagandha buyers from Shopify CDP + Amazon order matchback),
+lookalikes (1-3% LAL on top-tier Cycle / Bloom / Calm purchasers),
+interest-based (Ayurveda + supplements + chronic stress + meditation +
+sleep + corporate wellness + working professionals 28-55 metro
+India)</li>
+<li><strong>Creative formats</strong>: Founder Reels (Deepika walking
+through ingredient logic), customer testimonial Reels at Week 4 + Week
+12 (sleep / cortisol / energy outcomes), lab CoA reveal carousel
+(per-batch transparency story), bundle promo videos (Daily Woman +
+Stress Kit, Stress + Sleep Kit)</li>
+<li><strong>Budget</strong> (Phase 1 launch): ₹1.5L/month for first 3
+months, ramp to ₹3L/month at Month 4-6 once category awareness
+builds</li>
+<li><strong>CAC target</strong>: ₹400-600 (vs ₹600-900 industry
+benchmark for premium D2C supplements) — leveraging the lower-CAC
+migration cohort via custom-audience targeting</li>
+<li><strong>Campaign structure</strong>: 1 TOF (all formats — Reels +
+Static + Carousel + Stories — single TOF per Varalife model), 1 MOF
+retargeting (PDP visitors + add-to-cart abandons), 1 BOF (subscription
+conversion + bundle upsell)</li>
+</ul>
+<p><strong>Google Ads (Search + Performance Max) → Shopify PDP</strong>
+— secondary paid acquisition.</p>
+<ul>
+<li><strong>Targeting</strong>: Search keywords ("ashwagandha capsules
+online", "stress capsules Ayurvedic", "shilajit capsules pure", "best
+multivitamin for stress India", "TGL ashwagandha review"), Performance
+Max with brand-aware exclusion</li>
+<li><strong>Creative</strong>: Search ad copy emphasising "multi-active"
++ "lab-tested Shilajit" + "Deepika's Ayurveda" — distinct from Meta's
+emotional / lifestyle creative</li>
+<li><strong>Budget</strong> (Phase 1): ₹50K/month, primarily defensive
+(TGL brand keywords + competitor terms — "Cosmix Stress", "OZiva
+Ashwagandha Shilajit") + a small upper-funnel layer on generic
+search</li>
+<li><strong>CAC target</strong>: ₹500-800 (Google Search baseline higher
+CAC than Meta but higher intent)</li>
+</ul>
+<p><strong>Founder Reels (Instagram + YouTube Shorts) — organic</strong>
+— primary brand-building channel.</p>
+<ul>
+<li><strong>Cadence</strong>: 2-3 Spark-specific Reels per week for
+first 8 weeks post-launch; 1 per week thereafter</li>
+<li><strong>Themes</strong>: (a) "Why I added Shilajit to Spark"
+(Deepika walks through Ayurvedic <em>rasayana</em> logic), (b) "What 5%
+withanolides actually means" (standardisation explainer), (c) "How to
+read a lab CoA" (Pillar 4 transparency education), (d) "Spark vs my old
+Ashwagandha" (migration story for existing TGL Ashwagandha customers),
+(e) Customer at Week 4 + Week 12 testimonial Reels (subject-specific
+outcomes), (f) "What Spark does NOT do" (managing expectations, building
+trust)</li>
+<li><strong>Investment</strong>: Founder time ~3 hrs/week; production
+cost ₹15-25K/Reel for high-quality script + edit + B-roll;
+~₹60-100K/month all-in</li>
+<li><strong>Distribution amplification</strong>: Boost top-performing
+organic Reels through Meta Ads at ₹5-10K boost per high-performer</li>
+</ul>
+<p><strong>Klaviyo email + SMS flows</strong> — primary owned-channel
+monetisation.</p>
+<ul>
+<li><strong>Welcome flow</strong> (4 emails over 14 days): brand
+introduction, Spark formulation deep-dive, Deepika clinical practice
+story, first-purchase 10% off code</li>
+<li><strong>Browse abandonment flow</strong> (3 emails over 7 days):
+product reminder, lab CoA proof point, customer testimonial</li>
+<li><strong>Cart abandonment flow</strong> (3 emails over 5 days): cart
+reminder, free shipping threshold reminder, urgency / scarcity
+messaging</li>
+<li><strong>Existing TGL Ashwagandha buyer migration flow</strong> (5
+emails over 30 days): "Your Ashwagandha is good. Here's the upgrade."
+segment-specific sequencing</li>
+<li><strong>Subscription nurture flow</strong> (monthly): Week 4
+check-in ("How are you feeling?"), Week 8 ("Time for a refill"), Week 12
+("12-week milestone — what's changed?")</li>
+<li><strong>Post-purchase educational flow</strong> (4 emails over 60
+days): how to take Spark, what to expect Week 1-12, when to assess
+effect, FAQ</li>
+<li><strong>Win-back flow</strong> (3 emails over 30 days for churned
+subscribers): "We miss you", subscription pause vs cancel option,
+exclusive bundle offer</li>
+</ul>
+<p><strong>Subscription as primary revenue driver</strong> — Spark's
+economics depend on subscription LTV.</p>
+<ul>
+<li><strong>Subscribe-and-save tier</strong>: ₹849/month (15% off ₹999
+sale)</li>
+<li><strong>Sub conversion target</strong>: 35-40% of first-time buyers
+convert to subscription (industry benchmark for Ayurvedic D2C
+supplements is 25-30%; Spark targets above-benchmark via 12-week
+effect-build narrative that maps naturally to subscription model)</li>
+<li><strong>Sub retention target</strong>: 60-65% retention at Month 6,
+45-50% at Month 12 (LTV ₹6,500-8,500 per subscription customer)</li>
+<li><strong>Anti-churn tactics</strong>: Subscription pause option (vs
+cancel), monthly Deepika check-in email, quarterly bundle upgrade offer,
+6-month milestone discount</li>
+</ul>
+<p><strong>Amazon (Month 2-3 secondary)</strong> — secondary channel,
+NOT primary.</p>
+<ul>
+<li><strong>Listing strategy</strong>: Spark Amazon listing matches
+Shopify PDP structure (lab CoA download, founder Reel embed via A+
+Content, ingredient-by-ingredient explainer)</li>
+<li><strong>Pricing</strong>: Hold MRP ₹1,099 / Sale ₹999 — same as
+Shopify (no Amazon discount race)</li>
+<li><strong>Subscription</strong>: Use Amazon Subscribe &amp; Save where
+available</li>
+<li><strong>Volume target</strong>: Month 2-3 ramp to ~30% of Spark unit
+volume; Month 6 plateau at ~40%; Shopify remains primary at ~60%</li>
+<li><strong>Why secondary</strong>: Amazon's price-comparison ecosystem
++ lack of subscription nurture infrastructure + lack of long-form
+content surface make it structurally weaker for Spark's premium
+multi-active positioning</li>
+</ul>
+<h3 id="103-pdp-architecture-shopify-primary">10.3 PDP architecture
+(Shopify primary)</h3>
+<p><strong>Above-the-fold</strong>: Hero product image (Spark bottle on
+natural background), price + sub price + bundle options, "Add to Cart" +
+"Subscribe and Save 15%" toggle, social proof (review count + average
+star rating), "What's inside" ingredient reveal hero shot</p>
+<p><strong>Founder section</strong>: Deepika 60-second video on
+formulation logic, Deepika photo + clinical practice credential bio,
+link to "Why I built Spark" longer-form blog post</p>
+<p><strong>Formulation transparency section</strong>: Per-active table
+(ingredient + dose + standardisation + role), per-batch lab CoA download
+(HPLC withanolides + fulvic acid + bacosides; NABL heavy metals on
+Shilajit), Pillar 1 extraction methodology explainer (CO2 /
+hydroalcoholic only)</p>
+<p><strong>Customer outcomes section</strong>: Week-by-week expected
+lived experience (Section 4 of this brief, distilled), customer
+testimonial reels at Week 4 + Week 12</p>
+<p><strong>FAQ section</strong>: 12-15 questions covering safety
+(pregnancy, thyroid, drug interactions), efficacy (when to expect
+effect, what if I don't feel anything), formulation (why generic vs
+branded, why these specific ingredients), subscription (how to pause,
+how to cancel)</p>
+<p><strong>Bundle cross-sell section</strong>: Daily Woman + Stress Kit
+(Hormonal Balance + Spark), Stress + Sleep Kit (Calm + Spark), Active
+Adult Kit (Glide + Spark), Ashwagandha Upgrade Kit (Moringa Capsules +
+Spark)</p>
+<p><strong>Trust footer</strong>: AYUSH license number, FSSAI license
+number, GMP certification, Pillar 4 transparency commitment, lab partner
+names</p>
+<h3 id="104-phase-1-launch-budget-allocation">10.4 Phase 1 launch budget
+allocation</h3>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Month 1</th>
+<th>Month 2-3</th>
+<th>Month 4-6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta Ads</td>
+<td>₹1.5L</td>
+<td>₹2L</td>
+<td>₹3L</td>
+</tr>
+<tr>
+<td>Google Ads</td>
+<td>₹50K</td>
+<td>₹50K</td>
+<td>₹75K</td>
+</tr>
+<tr>
+<td>Founder Reel production</td>
+<td>₹80K</td>
+<td>₹80K</td>
+<td>₹60K</td>
+</tr>
+<tr>
+<td>Klaviyo + SMS infrastructure</td>
+<td>₹15K (one-time setup) + ₹10K/month</td>
+<td>₹10K/month</td>
+<td>₹10K/month</td>
+</tr>
+<tr>
+<td>Influencer partnerships (micro, Ayurveda + wellness niche)</td>
+<td>₹0</td>
+<td>₹50K</td>
+<td>₹1L</td>
+</tr>
+<tr>
+<td>PR (selective — Vogue Wellness, Mint Lounge, Femina)</td>
+<td>₹0</td>
+<td>₹50K (one-time push)</td>
+<td>₹0</td>
+</tr>
+<tr>
+<td><strong>Monthly total</strong></td>
+<td><strong>~₹2.55L</strong></td>
+<td><strong>~₹3.4L</strong></td>
+<td><strong>~₹4.45L</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="105-why-zero-amazon-first-language">10.5 Why zero "Amazon-first"
+language</h3>
+<p>Per TGL-P1-DEC-017, marketing copy + creative + sales script +
+customer-facing content does NOT lead with "available on Amazon."
+Spark's brand story is built on Shopify (brand-owned channel +
+subscription + founder relationship + lab transparency). Amazon is
+operationalised as secondary distribution but not marketed as primary.
+Migration messaging to existing TGL Ashwagandha Amazon customers
+explicitly drives them to Shopify ("Upgrade to Spark on theGoodLeaf.com
+— get subscription + bundle savings + direct customer support") rather
+than to Amazon.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-voice">11. Sales Pitch (Customer
+Voice)</h2>
+<h3
+id="111-the-30-second-elevator-pitch--for-meta-reel-hook--pdp-hero">11.1
+The 30-second elevator pitch — for Meta Reel hook + PDP hero</h3>
+<blockquote>
+<p>"If you've tried Ashwagandha and felt only mildly calmer — Spark is
+the upgrade. Ashwagandha for cortisol, Shilajit for energy, Bacopa for
+clarity. The full triple-stack of what stressed adults actually need, in
+one capsule, twice a day. Lab-tested per batch, designed by Ayurvedic
+clinical practitioner Deepika. The Good Leaf."</p>
+</blockquote>
+<h3
+id="112-the-90-second-customer-story--for-founder-reel--pdp-video">11.2
+The 90-second customer story — for Founder Reel + PDP video</h3>
+<blockquote>
+<p>"Most of you know our Ashwagandha. You've taken it for stress, and
+it's worked — you've felt calmer, slept a little better. But maybe
+you've also wondered: why am I still tired in the afternoon? Why is my
+brain still foggy by 3 PM? Why does coffee still feel necessary?</p>
+<p>Here's what I learned in clinic: chronic stress isn't just a cortisol
+problem. It's a cortisol-plus-energy-plus-cognition problem. Your stress
+hormone is dysregulated. Your cellular energy is depleted. Your mental
+clarity has dropped. Solving one without the others gives you partial
+relief.</p>
+<p>Spark is the multi-active answer. Ashwagandha for the cortisol part.
+Purified Himalayan Shilajit for the cellular energy part. Bacopin —
+that's premium Bacopa monnieri at 50% bacosides — for the mental clarity
+part. Plus our captive whole-root Ashwagandha and Moringa heritage
+signature.</p>
+<p>Two capsules a day. Lab CoA published per batch on the website. Made
+in our facility. Designed by me, in my Ayurvedic clinical practice.</p>
+<p>If you're already on our Ashwagandha — Spark is your upgrade. If
+you're new — Spark is the full-stack adaptogen capsule for adults who
+are tired of being tired. The Good Leaf. theGoodLeaf.com."</p>
+</blockquote>
+<h3
+id="113-the-migration-message--for-existing-tgl-ashwagandha-customer-email">11.3
+The migration message — for existing TGL Ashwagandha customer email</h3>
+<blockquote>
+<p>Subject: Your Ashwagandha is good. Here's what's better.</p>
+<p>Hi [first name],</p>
+<p>You've trusted us with your Ashwagandha for [X months]. Thank
+you.</p>
+<p>Here's something I've been working on: a multi-active capsule that
+takes the same Ashwagandha you trust and adds two ingredients that work
+alongside it.</p>
+<p><strong>Spark</strong> is what comes next.</p>
+<p><strong>What's in it</strong>:</p>
+<ul>
+<li>Ashwagandha root extract — same standardisation as your current TGL
+Ashwagandha, plus 100mg whole-root for the traditional Ayurvedic
+profile</li>
+<li>Purified Himalayan Shilajit — the rasayana your stress + stamina
+actually needs, lab-tested for fulvic acid and heavy metals per
+batch</li>
+<li>Bacopin — premium Bacopa monnieri at 50% bacosides, for the mental
+clarity part of your stress that Ashwagandha alone doesn't fully
+cover</li>
+</ul>
+<p><strong>The upgrade math</strong>: One Spark capsule does what two of
+your current capsules can't. The cortisol part + the cellular energy
+part + the cognition part. The full triple-stack.</p>
+<p><strong>Pricing</strong>: ₹999 sale (₹849 on subscription). For your
+first Spark order, use code UPGRADE10 for ₹100 off — that brings your
+first month to ₹749 on subscription.</p>
+<p>[Try Spark]</p>
+<p>Any questions, just reply to this email — I read everything.</p>
+<p>Deepika The Good Leaf</p>
+</blockquote>
+<h3 id="114-the-bundle-cross-sell-pitch--for-tier-a-customer-email">11.4
+The bundle cross-sell pitch — for Tier A customer email</h3>
+<blockquote>
+<p>Subject: Stress is part of your hormonal story</p>
+<p>Hi [first name],</p>
+<p>You've been on [Cycle / Bloom / Reset] for [X months]. The hormonal
+piece is working.</p>
+<p>One thing I see in clinic constantly: women on hormonal protocols
+also have chronic stress. The cortisol piece is part of the hormonal
+story — high stress hormones disrupt menstrual rhythm, worsen PCOS
+symptoms, slow menopause transition recovery.</p>
+<p><strong>Spark</strong> is the cortisol-plus-energy-plus-cognition
+capsule that pairs with your hormonal protocol.</p>
+<p><strong>The bundle</strong>: [Cycle / Bloom / Reset] + Spark for
+₹1,899 (vs ₹2,098 standalone). Save ₹200/month. Locked in your
+subscription.</p>
+<p>[Add Spark to your subscription]</p>
+<p>Deepika</p>
+</blockquote>
+<hr />
+<h2
+id="12-sourcing--vendor-matrix--v3-in-house-manufacturing--regulatory">12.
+Sourcing — Vendor Matrix + V3 In-House Manufacturing + Regulatory</h2>
+<h3 id="121-active-ingredient-vendor-matrix-v3-locked">12.1 Active
+ingredient vendor matrix (V3 LOCKED)</h3>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Primary vendor</th>
+<th>Backup vendor 1</th>
+<th>Backup vendor 2</th>
+<th>Cost (₹/kg)</th>
+<th>Standardisation spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ashwagandha extract 5% withanolides</strong></td>
+<td>Vidya Herbs (Bangalore)</td>
+<td>Indfrag (Cochin)</td>
+<td>Sami-Sabinsa standard ashwagandha (Hyderabad)</td>
+<td>₹2,500-3,500</td>
+<td>5% withanolides HPLC, hydroalcoholic root-only, AYUSH GMP</td>
+</tr>
+<tr>
+<td><strong>Purified Himalayan Shilajit ≥20% fulvic acid</strong></td>
+<td>Upakarma Ayurveda B2B (Himachal)</td>
+<td>Dabur B2B (sourcing facility)</td>
+<td>Amsar Pvt Ltd (Indore) OR Ishan Pharma (Uttarakhand
+source-direct)</td>
+<td>₹3,000-8,000</td>
+<td>≥20% fulvic acid, NABL heavy-metal cleared per batch, FT-IR
+fingerprint authenticity</td>
+</tr>
+<tr>
+<td><strong>Bacopin (Bacopa monnieri) 50% bacosides</strong></td>
+<td>Sami-Sabinsa (Hyderabad)</td>
+<td>Arjuna Natural BaCognize Premium (Kerala)</td>
+<td>Sami-Sabinsa standard Bacopin (cost-aligned alternate spec
+tier)</td>
+<td>₹6,000</td>
+<td>50% bacosides HPLC, hydroalcoholic, AYUSH GMP</td>
+</tr>
+<tr>
+<td><strong>Ashwagandha whole-root powder</strong></td>
+<td>TGL captive supply (Karnataka / Tamil Nadu)</td>
+<td>Konark Herbals</td>
+<td>Local farmer-cooperative (Madhya Pradesh)</td>
+<td>₹400-800</td>
+<td>Pillar 4 traceable; AYUSH GMP; powder mesh size standard</td>
+</tr>
+<tr>
+<td><strong>BioPerine 95% piperine</strong></td>
+<td>Sami-Sabinsa (Hyderabad)</td>
+<td>Sabinsa US sub-supplier (if domestic shortage)</td>
+<td>n/a (BioPerine is Sabinsa-proprietary)</td>
+<td>₹35,000</td>
+<td>95% piperine, BioPerine trademarked spec</td>
+</tr>
+<tr>
+<td><strong>Moringa leaf powder</strong></td>
+<td>DPR Moringa (Deepika captive vertical, Karnataka)</td>
+<td>TGL secondary captive supply (Tamil Nadu)</td>
+<td>n/a (captive)</td>
+<td>₹600-1,200</td>
+<td>Pillar 4 traceable; AYUSH GMP; leaf powder mesh size standard</td>
+</tr>
+<tr>
+<td><strong>Capsule shell (HPMC Size #00)</strong></td>
+<td>ACG Capsules (Mumbai)</td>
+<td>Sunrise Nutraceuticals (Hyderabad)</td>
+<td>Capsugel/Lonza (international fallback)</td>
+<td>₹0.30-0.50 ea</td>
+<td>Vegan plant cellulose, AYUSH GMP, no animal-derived ingredients</td>
+</tr>
+<tr>
+<td><strong>Flow agents (silicon dioxide, mag stearate)</strong></td>
+<td>Standard pharmaceutical grade suppliers</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>bulk commodity</td>
+<td>Pharma grade, food-safe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="122-brand-attribution-corrections-critical--v3-cleanup">12.2
+Brand attribution corrections (CRITICAL — V3 cleanup)</h3>
+<p><strong>V1 dossier had three brand-attribution errors that V3
+corrected</strong>:</p>
+<ol type="1">
+<li><p><strong>PrimaVie</strong> — V1 dossier called PrimaVie a "premium
+tier branded" Shilajit without identifying ownership. V3 correction:
+<strong>PrimaVie is patented by Natreon Inc, NOT Sami-Sabinsa.</strong>
+Natreon is an independent ingredient-tech company with HQ in New Jersey,
+USA, sourcing Indian Shilajit and applying its DBP-protein
+standardisation patent. This matters for V3 because Spark's V3 stack
+consolidates branded suppliers around Sami-Sabinsa (Bacopin +
+BioPerine), giving us supply-chain consolidation advantages. PrimaVie
+was an unrelated Natreon premium product, not a Sami-Sabinsa
+SKU.</p></li>
+<li><p><strong>BacoMind</strong> — V1 dossier mistakenly implied
+BacoMind was Sami-Sabinsa branded. V3 correction: <strong>BacoMind is
+patented by Natural Remedies Bangalore, NOT Sami-Sabinsa. Bacopin is
+Sami-Sabinsa's 50% bacoside Bacopa product.</strong> This matters
+because V3's switch (BacoMind → Bacopin) is from Natural Remedies to
+Sami-Sabinsa — a vendor consolidation move that the V1 dossier
+missed.</p></li>
+<li><p><strong>KSM-66</strong> — V1 dossier correctly identified Ixoreal
+Biomed as KSM-66's owner. V3 preserves this attribution (no correction
+needed). V3's switch (KSM-66 → Vidya Herbs / Indfrag generic) is from
+Ixoreal to a generic Indian Ashwagandha specialist, not a vendor
+consolidation move.</p></li>
+</ol>
+<h3 id="123-v3-in-house-manufacturing-tgl-p1-dec-024">12.3 V3 in-house
+manufacturing (TGL-P1-DEC-024)</h3>
+<p>Per TGL-P1-DEC-024 (locked 2026-05-08), all Phase 1 SKUs are
+manufactured at <strong>Deepika's facility (in-house)</strong>, NOT at
+an external CMO. Implications for Spark:</p>
+<ul>
+<li><strong>Capsule fill flexibility</strong>: Deepika facility supports
+400-470mg fill weight in Size #00 capsule. Spark's V3 fill (~410-450mg
+total with flow agents) is comfortably within range.</li>
+<li><strong>Powder-form only</strong>: Deepika facility is
+powder-blending + capsule-filling equipped, NOT granulation / tableting.
+Spark's V3 spec is powder-form only — compatible.</li>
+<li><strong>Batch size</strong>: Deepika facility supports 5,000-15,000
+unit batches comfortably; 20,000-30,000 unit batches require operational
+planning (longer shift schedule, weekend runs). Spark's MOQ first batch
+is ~10,000 units (per Phase 1 sequencing) — comfortably within Deepika
+facility capacity.</li>
+<li><strong>QC integration</strong>: In-house manufacturing enables
+real-time QC integration — incoming raw material HPLC testing,
+in-process blend uniformity testing, finished-product HPLC + heavy-metal
+testing all run at Deepika facility. Eliminates external CMO QC handoff
+lag.</li>
+<li><strong>AYUSH GMP certification</strong>: Deepika facility holds
+AYUSH GMP cert; ongoing renewal in parallel with Phase 1 launch per
+TGL-P1-DEC-021 AYUSH cert parallel pathway.</li>
+<li><strong>Cost advantage</strong>: In-house manufacturing eliminates
+CMO margin (~₹40-80/pack typical CMO markup). V3 cost analysis assumes
+in-house ₹40-55/pack manufacturing labour + overhead, vs ₹80-130/pack at
+external CMO. ~₹40-75/pack savings flowing into V3's ~73-79% GM.</li>
+</ul>
+<h3 id="124-regulatory-pathway">12.4 Regulatory pathway</h3>
+<p><strong>FSSAI Schedule VI compliance</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Ingredient</th>
+<th>Schedule VI status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ashwagandha (Withania somnifera)</td>
+<td>✓ Listed</td>
+<td>Standard, cleared</td>
+</tr>
+<tr>
+<td>Shilajit</td>
+<td>✓ Listed under FSS Nutraceuticals 2022</td>
+<td>Spark's 250mg/day dose well below FSSAI guidance ceiling of
+250-500mg/day for purified Shilajit. Heavy-metal-specific testing
+requirements per FSSAI.</td>
+</tr>
+<tr>
+<td>Bacopa monnieri (Brahmi)</td>
+<td>✓ Listed</td>
+<td>Standard, cleared</td>
+</tr>
+<tr>
+<td>Piperine (BioPerine)</td>
+<td>✓ Listed</td>
+<td>Standard, cleared</td>
+</tr>
+<tr>
+<td>Moringa oleifera</td>
+<td>✓ Listed</td>
+<td>Standard, cleared</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Standardisation labelling per FSS Nutraceuticals
+2022</strong>:</p>
+<ul>
+<li>"Ashwagandha root extract, 250mg per day, standardised to 5%
+withanolides (12.5mg withanolides per day)"</li>
+<li>"Purified Himalayan Shilajit resin, 250mg per day, standardised to
+≥20% fulvic acid (≥50mg fulvic acid per day)"</li>
+<li>"Bacopin (Bacopa monnieri extract), 150mg per day, standardised to
+50% bacosides (75mg bacosides per day)"</li>
+<li>"Ashwagandha whole-root powder, 100mg per day"</li>
+<li>"BioPerine (95% piperine), 5mg per day"</li>
+<li>"Moringa leaf powder, 12.5mg per day"</li>
+<li>Solvent extraction methodology disclosed on website Ingredient
+Library page (Pillar 4 transparency)</li>
+</ul>
+<p><strong>Mandatory label warnings</strong>:</p>
+<ul>
+<li><em>"Not recommended for pregnant or breastfeeding women. Consult
+your physician."</em></li>
+<li><em>"If you have a thyroid disorder or are on thyroid medication,
+consult your physician before use."</em></li>
+<li><em>"Consult your physician if you are on prescription medication,
+especially sedatives, immunosuppressants, or thyroid
+medication."</em></li>
+<li><em>"For adults 18+ only."</em></li>
+<li><em>"Store below 25°C in a dry place. Keep out of reach of
+children."</em></li>
+</ul>
+<p><strong>Heavy-metal testing on Shilajit (NON-NEGOTIABLE per
+batch)</strong>:</p>
+<ul>
+<li>Pb ≤2 ppm, Hg ≤1 ppm, As ≤2 ppm, Cd ≤0.5 ppm in Shilajit raw
+material AND finished product</li>
+<li>NABL-accredited third-party lab testing per batch (NOT just supplier
+CoA)</li>
+<li>Adulteration testing per batch: synthetic fulvic acid (lignite
+coal), peat extracts, ozokerite (mineral wax), bitumen / asphalt
+fractions, rock-salt blends — each has detectable signature on FT-IR /
+NMR fingerprint vs reference Himalayan Shilajit</li>
+</ul>
+<p><strong>AYUSH parallel certification (TGL-P1-DEC-021)</strong>:</p>
+<ul>
+<li>AYUSH proprietary medicine license in parallel with Phase 1
+launch</li>
+<li>Spark's V3 formulation is FSSAI-compliant on launch (Schedule VI
+nutraceutical pathway); AYUSH parallel cert opens the additional
+regulatory positioning of "Ayurvedic proprietary medicine" for marketing
+flexibility post-launch</li>
+</ul>
+<p><strong>Dr. Lakshmi Kala formulation gate
+(TGL-P1-DEC-022)</strong>:</p>
+<ul>
+<li>Spark V3 spec subject to formal Dr. Lakshmi Kala (Deepika's clinical
+advisor) review gate before production lock</li>
+<li>Review covers: classical Ayurvedic compendium-compliance of the
+multi-active stack (medha rasayana logic), dose appropriateness per
+Ayurvedic dosing tradition, anti-persona contraindication completeness,
+<em>vata-pitta-kapha</em> dosha balance of the stack</li>
+<li>Gate clearance expected Phase 3 (formulation finalisation
+phase)</li>
+</ul>
+<p><strong>KSM-66 trademark reminder</strong>: Spark V3 does NOT use the
+KSM-66 ingredient. Spark V3 label MUST NOT use the KSM-66® trademark.
+Label uses generic descriptor: "Ashwagandha root extract (5%
+withanolides)."</p>
+<h3 id="125-quality-control-gates-per-batch">12.5 Quality control gates
+per batch</h3>
+<ol type="1">
+<li><strong>Raw material HPLC</strong> — incoming Ashwagandha extract
+(withanolides %), incoming Bacopin (bacosides %), incoming Shilajit
+(fulvic acid %) — reject if below spec</li>
+<li><strong>Raw material heavy metals</strong> — Shilajit per-batch NABL
+testing (Pb, Hg, As, Cd) — reject if above ceiling</li>
+<li><strong>Raw material microbial</strong> — total plate count, E.
+coli, Salmonella, aflatoxin (especially relevant for Shilajit + Bacopa
+wetland-source) — reject if above ceiling</li>
+<li><strong>Raw material solvent residue</strong> — GC-MS testing for
+hexane, methanol residues — Pillar 1 zero-tolerance</li>
+<li><strong>In-process blend uniformity</strong> — sampling 10 caps from
+blend, HPLC for active dose uniformity ±5% — re-blend if outside
+spec</li>
+<li><strong>In-process capsule weight</strong> — automated weight check
+on capsule-filling line — reject capsules outside ±5% target weight</li>
+<li><strong>Finished product HPLC</strong> — withanolides + fulvic acid
++ bacosides per finished pack — confirm within label spec</li>
+<li><strong>Finished product microbial + heavy metals</strong> — final
+compliance check vs Schedule VI spec</li>
+<li><strong>Stability testing</strong> — accelerated stability (40°C/75%
+RH × 6 months) on first 3 batches to confirm 24-month shelf life</li>
+<li><strong>CoA archival</strong> — per-batch CoA archived in QC system
++ published on Shopify PDP per batch (Pillar 4 transparency)</li>
+</ol>
+<h3 id="126-cost-volatility-risk-monitoring">12.6 Cost-volatility risk
+monitoring</h3>
+<p>Three actives have meaningful cost-volatility risk that requires
+ongoing monitoring:</p>
+<ul>
+<li><strong>Shilajit ₹3,000-8,000/kg range</strong> — 2.7x range driven
+by Himalayan source seasonality + adulteration premium. Mitigation:
+multi-vendor sourcing (Upakarma + Dabur + Amsar + Ishan), 6-month
+forward purchase contracts at fixed price where vendors agree,
+alternate-vendor onboarding during low-cost windows.</li>
+<li><strong>Bacopin ₹6,000/kg</strong> — single-vendor (Sami-Sabinsa)
+with limited backup. Mitigation: Arjuna Natural BaCognize Premium
+pre-qualification as backup; Sami-Sabinsa long-term supply
+agreement.</li>
+<li><strong>Ashwagandha extract ₹2,500-3,500/kg</strong> — relatively
+stable but subject to monsoon-driven sourcing variation. Mitigation:
+dual-vendor (Vidya Herbs + Indfrag) for spec consistency.</li>
+</ul>
+<hr />
+<h2 id="sources-cited">Sources Cited</h2>
+<ul>
+<li>Chandrasekhar K., Kapoor J., Anishetty S., 2012. <em>A prospective,
+randomized double-blind, placebo-controlled study of safety and efficacy
+of a high-concentration full-spectrum extract of ashwagandha root in
+reducing stress and anxiety in adults</em>. Indian Journal of
+Psychological Medicine 34(3):255-262. URL: <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3573577/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3573577/</a></li>
+<li>Salve J., Pate S., Debnath K., Langade D., 2019. <em>Adaptogenic and
+Anxiolytic Effects of Ashwagandha Root Extract in Healthy Adults: A
+Double-blind, Randomized, Placebo-controlled Clinical Study</em>. Cureus
+11(12):e6466. URL: <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6979308/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6979308/</a></li>
+<li>Lopresti A.L. et al., 2019. <em>An investigation into the
+stress-relieving and pharmacological actions of an ashwagandha (Withania
+somnifera) extract: A randomized, double-blind, placebo-controlled
+study</em>. Medicine 98(37):e17186. URL: <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6750292/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6750292/</a></li>
+<li>Pandit S., Biswas S., Jana U., De R.K., Mukhopadhyay S.C., Biswas
+T.K., 2016. <em>Clinical evaluation of purified Shilajit on testosterone
+levels in healthy volunteers</em>. Andrologia 48(5):570-575. URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/26395129/">https://pubmed.ncbi.nlm.nih.gov/26395129/</a></li>
+<li>Keller J.L. et al., 2019. <em>The effects of Shilajit
+supplementation on fatigue-induced decreases in muscular strength and
+serum hydroxyproline levels</em>. Journal of the International Society
+of Sports Nutrition 16:3. URL: <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6337092/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6337092/</a></li>
+<li>Surapaneni D.K. et al., 2012. <em>Shilajit attenuates behavioral
+symptoms of chronic fatigue syndrome by modulating the
+hypothalamic-pituitary-adrenal axis and mitochondrial bioenergetics in
+rats</em>. Journal of Medicinal Food 15(8). URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/22651127/">https://pubmed.ncbi.nlm.nih.gov/22651127/</a></li>
+<li>Stough C. et al., 2001. <em>The chronic effects of an extract of
+Bacopa monniera (Brahmi) on cognitive function in healthy human
+subjects</em>. Psychopharmacology 156(4):481-484. URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/11498727/">https://pubmed.ncbi.nlm.nih.gov/11498727/</a></li>
+<li>Roodenrys S. et al., 2002. <em>Chronic effects of Brahmi (Bacopa
+monnieri) on human memory</em>. Neuropsychopharmacology 27(2):279-281.
+URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/12093601/">https://pubmed.ncbi.nlm.nih.gov/12093601/</a></li>
+<li>Calabrese C. et al., 2008. <em>Effects of a standardized Bacopa
+monnieri extract on cognitive performance, anxiety, and depression in
+the elderly: a randomized, double-blind, placebo-controlled trial</em>.
+Journal of Alternative and Complementary Medicine 14(6):707-713. URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/18611150/">https://pubmed.ncbi.nlm.nih.gov/18611150/</a></li>
+<li>Shoba G. et al., 1998. <em>Influence of piperine on the
+pharmacokinetics of curcumin in animals and human volunteers</em>.
+Planta Medica 64(4):353-356. URL: <a
+href="https://pubmed.ncbi.nlm.nih.gov/9619120/">https://pubmed.ncbi.nlm.nih.gov/9619120/</a></li>
+<li>FSS (Health Supplements, Nutraceuticals, Food for Special Dietary
+Use, Food for Special Medical Purpose, Functional Food and Novel Food)
+Regulations 2022.</li>
+<li>AYUSH Ministry guidelines on Shilajit purification and quality
+standards.</li>
+<li>TGL-P1-DEC-017 (Channel mix lock — website-first per TGL-P1
+governance).</li>
+<li>TGL-P1-DEC-018 (Phase 1 sequencing lock — Tier A → Tier B → Tier C
+batch ordering).</li>
+<li>TGL-P1-DEC-021 (AYUSH parallel certification pathway).</li>
+<li>TGL-P1-DEC-022 (Dr. Lakshmi Kala formulation gate requirement).</li>
+<li>TGL-P1-DEC-023 (Deepika V3 reformulation gate — full Phase 1 SKU
+set).</li>
+<li>TGL-P1-DEC-024 (In-house manufacturing lock — Deepika facility, no
+external CMO).</li>
+<li>TGL-P1-DEC-025 (Formulation switch principle — generic-equivalent at
+preserved spec when premium branded actives break price-band economics;
+applies to Calm + Spark in V3).</li>
+</ul>
+<hr />
+<p><strong>End of Brief — SKU 10 Spark V1 (2026-05-09).</strong> Ready
+for Dr. Lakshmi Kala formulation gate review (TGL-P1-DEC-022) + Deepika
+facility production-spec sign-off. Phase 1 Batch 3 launch sequencing
+locked.</p>
+</main>
+</body>
+</html>
