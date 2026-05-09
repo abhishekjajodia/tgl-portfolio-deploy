@@ -1,0 +1,2864 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Reset (PCOS)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Reset (PCOS)</strong></div>
+
+<blockquote>
+<p><strong>Mirrored in the master doc</strong>: This Reset brief is also
+embedded in <a
+href="tgl-product-portfolio.md"><code>tgl-product-portfolio.md</code></a>,
+the consolidated single-doc view of all 10 SKUs + Plan Moving Forward.
+The master doc is canonical for navigation. This standalone is retained
+for focused single-product viewing.</p>
+</blockquote>
+<h1 id="reset-working-name-product-brief">Reset (working name): Product
+Brief</h1>
+<p><strong>The Good Leaf (TGL)</strong> Phase 1 Q1 launch SKU. PCOS /
+hormonal dysregulation care. <em>Drafted 2026-05-09 by Aarav. Status: V1
+with Sections 1-12 locked. This brief is the team-readable narrative
+layer for Deepika, Unnati, and Boco. Pair with
+<code>dossiers/02-reset-pcos.md</code> (V3 theory + clinical detail) and
+the formulation-spec (to be drafted at Dr. Lakshmi Kala handoff post
+2026-05-11/12 connect).</em></p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Reset (working name; final lock pending TM
+clearance per TGL-P1-DEC-007 + naming sprint round 2 with Deepika).</p>
+<p><strong>Elevator pitch (3 sentences, repeatable by anyone on the
+team):</strong></p>
+<blockquote>
+<p>Reset is TGL's PCOS and hormonal-dysregulation SKU, designed for the
+22-40 year old Indian woman diagnosed with PCOS, PCOD, or "borderline
+PCOS" who is searching for a credible Ayurveda-rooted alternative to
+Metformin and OCPs. Three plant-cellulose capsules a day, split across
+morning, lunch, and dinner with meals, deliver 1000mg of clinical-dose
+Methi (vendor-network standard 4-5% saponins) for insulin sensitivity,
+400mg Shatavari for cycle regularity, 300mg Curcumin C3 Complex
+(Sami-Sabinsa) for the inflammatory side of PCOS, plus Manjistha,
+Bhringraj, BioPerine, and TGL's farm-grown moringa heritage thread to
+support cycle regularity, weight management, and acne over a 3-6 cycle
+arc. It's the second-highest-LTV SKU in the portfolio and the natural Q1
+partner to Cycle: where Cycle is acquisition for the wider PMS audience,
+Reset is conversion for the diagnosed-PCOS subset that has done the
+research.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-reset-motivation">2. Why we're building
+Reset (motivation)</h2>
+<p>Four reasons, in priority order:</p>
+<p><strong>1. The second-longest LTV SKU in the portfolio.</strong> PCOS
+is a multi-year wellness journey. Daily continuous use across a 12-24
+month minimum arc once a customer commits. 90-day repeat estimate at
+70%, the highest in the portfolio (above even Crest). Once a PCOS
+customer trusts a supplement and feels the cycle-regularity signal at
+month 2-3, switching cost is high and consumption is steady. Cycle is
+acquisition; Bloom is daily-routine retention; Reset is the
+conversion-of-a-known-condition SKU and the LTV machine for the
+diagnosed-PCOS cohort.</p>
+<p><strong>2. The largest single concern category in women's
+wellness.</strong> PCOS prevalence in Indian women of reproductive age
+sits at 10-22% per recent epidemiological literature — the largest
+single clinical-concern category in the women's-wellness market. The
+Customer Reviews Repository signals this category is the strongest
+existing latent demand within TGL's customer base — repeated mentions of
+"doctor confirmed no PCOS after 6 months" using TGL's existing
+single-ingredient moringa. The demand is there; we need to give it the
+right formulation.</p>
+<p><strong>3. The Q1 trio bundle unlock.</strong> Phase 1's Q1 launch is
+now Cycle + Bloom + Reset (three SKUs, expanded from the original
+two-SKU plan per DEC-012). Three SKUs unlock three bundles vs one in the
+two-SKU plan: Cycle Care Kit (Cycle + Reset), Daily Woman Kit (Cycle +
+Bloom), and the PCOS-anchor cross-sell pattern. AOV +40% expected at 25%
+bundle attach rate. Reset is the SKU that turns the Q1 launch from "two
+products" into "a portfolio."</p>
+<p><strong>4. The competitive whitespace at ₹1,299.</strong> Gynoveda
+PCOS 3X sits at ₹1,800-2,400/month (pharma-tier, doctor-coded multi-cap
+kit). Earthful HerSupport sits at ₹589 (PCOS-extension, lighter
+formulation). OZiva HerBalance for PCOS sits at ₹999
+(synthetic-Inositol-led extract stack). <strong>Whitespace at ₹1,299
+with deep Ayurvedic + clinical-dose Methi + branded curcumin (C3
+Complex) stack</strong> — accessibly-priced credible PCOS-specific
+Ayurveda that the PCOS-savvy customer who has read Reddit r/PCOS and
+watched the Instagram PCOS-coach accounts will recognise as
+substantively different.</p>
+<p><strong>Why now (Q1, alongside Cycle and Bloom)</strong>: Reset
+shares its target customer with Cycle (the 22-34 PMS cohort overlaps the
+22-40 PCOS cohort by ~70%) and shares its daily-cap rhythm with Bloom
+(both daily-continuous-use, both subscription-anchor). Q1 launch lets
+the three SKUs co-fund creator outreach, share Klaviyo flow
+infrastructure, and seed the cross-sell flywheel from day one. Reset is
+too high-LTV to defer to Phase 2.</p>
+<p><strong>Single-sentence motivation</strong>: Reset is the
+second-highest-LTV anchor and the PCOS-conversion SKU that turns TGL
+from a generic women's-hormonal brand into a credibly-clinical PCOS-care
+brand at the ₹1,299 sale tier — the comprehensive single-bottle
+Ayurvedic + branded-curcumin stack that doesn't exist credibly between
+Earthful's lighter formulation and Gynoveda's pharma-coded multi-cap
+kit.</p>
+<hr />
+<h2 id="3-the-customer-who-she-is-what-shes-tried-what-fails-her">3. The
+customer (who she is, what she's tried, what fails her)</h2>
+<p><strong>Who she is</strong> (core 26-34, edge 22-40):</p>
+<p>She's an Indian woman in her late 20s or early 30s, urban Tier 1-2
+(Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune; expanding via
+WhatsApp-cluster word-of-mouth into Tier 2 and Tier 3 metros), household
+income ₹6-30L/year, English-Hindi (or English-Tamil/Telugu) bilingual.
+She is a working professional, a teaching or healthcare worker, a
+small-business owner, or in some cases a graduate student. She has been
+diagnosed by a gynaecologist or endocrinologist with PCOS, PCOD, or
+"borderline PCOS" / "lean PCOS" / "hormonal imbalance" — often via a
+hormonal panel + ultrasound that her doctor read back to her in two
+sentences.</p>
+<p>She is a <strong>searcher</strong>. She has spent 6-24 months
+researching PCOS independently. She reads Reddit r/PCOS, follows
+Instagram PCOS-coach accounts, watches YouTube doctors. She has read
+scientific abstracts. She knows about insulin resistance, AMH, the
+LH/FSH ratio, why "lose 5 kg" is hard advice when your insulin
+resistance fights you on it. She is the most informed customer in TGL's
+catalog, and she will scrutinise the ingredient list.</p>
+<p><strong>What's happening to her body</strong> (the medical
+context):</p>
+<p>Her cycles are irregular — sometimes 35 days, sometimes 60, sometimes
+she skips a month. Weight gains around her abdomen and stays. Acne
+reappeared in her late 20s after years of clear skin. Hair fall is
+creeping up; some hirsutism on her chin and upper lip is becoming hard
+to ignore. Her energy is lower than she remembers; her sleep is good
+some nights and broken others. She may have been told her AMH is high,
+her LH:FSH ratio is inverted, her insulin is rising. Her doctor offered
+Metformin and a birth-control pill. She has likely declined or hesitated
+on both: Metformin's GI side effects scare her; the birth-control pill
+feels like a band-aid that masks the symptoms while her body changes
+underneath.</p>
+<p>She is in the <strong>decision phase</strong> — the 1-3 month window
+after diagnosis where she is hesitant on prescription medication, trying
+lifestyle changes (low-carb, intermittent fasting, more walking), and
+looking at supplements. This is the acquisition window for Reset.</p>
+<p><strong>What she's tried, and why each fails her</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What she tries</th>
+<th>Why it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metformin prescription</td>
+<td>GI side effects (nausea, diarrhoea); dependency anxiety; "I don't
+want to take this for life"</td>
+</tr>
+<tr>
+<td>Birth-control pill</td>
+<td>Symptom-masking; weight-gain side effect; "this is not solving
+anything"</td>
+</tr>
+<tr>
+<td>Myo-Inositol mono-supplements (Ovasitol, Inofolic, Inositol4U)</td>
+<td>Works for 60-70% of women but mono-supplement boredom;
+₹1,800-2,500/month price; some report stomach upset; imported feel</td>
+</tr>
+<tr>
+<td>Diet-only (low-carb, IF, keto)</td>
+<td>Sustained behaviour change is hard; PCOS-driven insulin resistance
+fights weight loss; she falls off the wagon</td>
+</tr>
+<tr>
+<td>Existing TGL Moringa</td>
+<td>She already buys it, gets some benefit (energy, regularity hint) but
+knows single-ingredient is not enough for a PCOS-grade intervention</td>
+</tr>
+<tr>
+<td>Gynoveda PCOS 3X</td>
+<td>Too expensive at ₹1,800-2,400/month; feels too clinical with the
+cycle-day numbered packaging; the multi-cap kit is friction; didn't
+stick past month 2</td>
+</tr>
+<tr>
+<td>OZiva HerBalance for PCOS</td>
+<td>Synthetic Myo-Inositol + lighter Ayurvedic layer; she wanted the
+natural-source story; the Inositol-led framing felt narrow</td>
+</tr>
+<tr>
+<td>Earthful HerSupport</td>
+<td>Too generic — feels like a women's-wellness multi badged as PCOS;
+she wanted PCOS-specific clinical depth</td>
+</tr>
+<tr>
+<td>Ayurvedic clinic prescriptions (Patanjali Strivardhak, Trim Tea,
+classical decoctions)</td>
+<td>Heritage but mass-coded; preparation friction; aesthetic mismatch
+with her urban-millennial register</td>
+</tr>
+<tr>
+<td>Diet apps + endocrinologist + dietitian programs</td>
+<td>Expensive in time and money; results plateaued; she wants the
+supplement-stack layer those programs were missing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The gap Reset fills</strong>: a comprehensive single-bottle
+Ayurveda-rooted PCOS stack at the premium-but-accessible ₹1,299 sale
+tier. One bottle, three caps a day with meals, full PCOS picture
+(insulin sensitivity + cycle regularity + inflammatory pathway +
+cyclical acne + cortisol stress overlay), with clinical-dose Methi
+(vendor-network standard 4-5% saponins delivering 40-50mg saponins/day
+at 1000mg extract — matches the saponin range of PCOS clinical trials),
+branded Curcumin C3 Complex (Sami-Sabinsa, 95-97% curcuminoids) at the
+300mg/day clinical anti-inflammatory dose, with BioPerine for the 2000%
+bioavailability lift, and the moringa heritage thread that ties Reset
+into TGL's broader Built on Moringa, Powered by Ayurveda story. She gets
+the stack she has been trying to build for herself, in one bottle, at
+half the Gynoveda price.</p>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-3-6-months">4.
+What the product does (the lived experience over 3-6 months)</h2>
+<p><strong>Reset is a long-arc product, and we say so directly.</strong>
+PCOS is a 6-month minimum journey; cycle changes show up at month 2-3;
+the full picture lands at month 6+. The single most important
+customer-education message for Reset is <em>"PCOS is a 6-month journey.
+Most women see their first cycle change in month 2-3. Stick with
+it."</em> Drop-off at Month 1-2 is the #1 retention risk; honest
+expectation-setting at the front of the journey is what protects the LTV
+math.</p>
+<p>Here is what she actually experiences across a 6-month arc on 3
+caps/day, split with meals:</p>
+<p><strong>Month 1: the adjustment window.</strong></p>
+<p>Minimal perceived change. Her body is calibrating to the Methi +
+Shatavari + Curcumin stack. The split-meal dosing (one cap morning, one
+cap lunch, one cap dinner) becomes a routine she has to build; the Methi
+can be slightly bitter on first taste through the cap shell. This is the
+highest drop-off risk for any PCOS supplement category. Marketing job in
+Month 1 is not to sell efficacy; it's to sell patience. Deepika's
+content arc in launch month centers on <em>"PCOS doesn't get fixed in 30
+days. Your cycle takes 60-90 days to respond. Reset is built for the
+long arc."</em></p>
+<p><strong>Months 2-3: the first cycle signal.</strong></p>
+<p>A meaningful proportion of consistent users start to notice:</p>
+<ul>
+<li>Cycle landing closer to a 28-32 day rhythm (vs the 35-60 day
+variability of pre-supplement baseline)</li>
+<li>Energy steadier through the day (the Curcumin anti-inflammatory
+layer + Shatavari adaptogenic action)</li>
+<li>Acne-flare frequency reducing (the Manjistha + Curcumin pair working
+on the inflammatory pathway)</li>
+<li>Cravings reducing slightly, particularly the post-meal sugar-crash
+crash (the Methi insulin-sensitivity layer)</li>
+</ul>
+<p>The user pattern at this stage: she finishes Pack 2, recognises the
+cycle is starting to hold a rhythm, and decides "let me see if Pack 3
+confirms it." This is the trial-to-loyal conversion moment.
+<strong>Subscription retention math says: if she finishes Pack 2 and
+reorders Pack 3, she is typically a 12-24 month customer.</strong></p>
+<p><strong>Months 3-6: the full effect lands.</strong></p>
+<p>Cycle regularization meaningful (50-70% of consistent users per the
+Inositol + Methi + Shatavari literature; lower-bounded for our
+supportive-stack dose architecture). Weight stabilization or modest
+reduction in some users (Methi + Curcumin metabolic action). Acne fades
+for a substantial subset (the inflammatory-pathway hypothesis playing
+out). Hirsutism is the slowest marker — improvement, if it shows, lands
+at month 6+. Energy and sleep improvements compound.</p>
+<p><strong>6-12+ months: maintenance and stabilization.</strong></p>
+<p>Sustained cycle regularity. Some users start to consider conception
+with the cycle predictability they've earned. Acne and weight markers
+stable. She has settled into Reset as a daily ritual; subscription is on
+autopilot. She introduces friends in her PCOS circle to it.</p>
+<p><strong>What we're NOT promising</strong> (so customers and Deepika
+both stay credible):</p>
+<table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cures PCOS</td>
+<td>PCOS is a chronic condition; we support, we don't cure</td>
+</tr>
+<tr>
+<td>Replaces Metformin or OCPs</td>
+<td>Her gynaec / endocrinologist is the prescriber; we sit alongside her
+plan, not against it</td>
+</tr>
+<tr>
+<td>Restores ovulation</td>
+<td>Specific medical claim; not permitted, and too brand-fragile to
+make</td>
+</tr>
+<tr>
+<td>Cycle regularization in 30 days</td>
+<td>Wrong expectation; the cycle takes 60-90 days minimum to respond;
+review wall</td>
+</tr>
+<tr>
+<td>Weight loss</td>
+<td>We support metabolic health; we are not a weight-loss SKU; lifestyle
++ diet does the primary work</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest customer message</strong> Deepika repeats across
+content: <em>"PCOS is a 6-month journey, not a 30-day fix. Reset works
+alongside your gynaecologist's plan, not against it. Three caps a day
+with meals. Give it three cycles before you judge it. Built on Moringa.
+Powered by Ayurveda."</em></p>
+<hr />
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Seven actives in the cap, organised as one moringa whole-leaf
+heritage base + six standardised extracts.</strong> This is TGL's
+extract-first formulation philosophy in action (per
+<code>02-brand-dna.md</code> Operational Principle 6, locked 2026-05-09
+as TGL-P1-DEC-011) plus the Moringa Foundation principle (Tier A
+heritage signature dose 25mg/cap × 3 caps = 75mg/day total).</p>
+<p><strong>Format: Size #0 capsule × 3 caps/day daily (split morning +
+lunch + dinner with meals); 90-cap pack (30-day supply).</strong> Per
+DEC-014, the 3-cap path is locked: split-meal dosing improves
+insulin-sensitivity blood-level consistency (the Methi saponins act on
+postprandial glucose response, so spreading across meals delivers
+steadier insulin-modulation than a single morning dose). Size #0 (vs
+Size #00) chosen because the extract-led architecture fits comfortably
+at ~496mg/cap in Size #0; the 3-cap protocol preserves therapeutic Methi
+dose (1000mg/day) without forcing a Size #00 oversized cap.</p>
+<p><strong>Locked pricing (V3, UNCHANGED from Q1
+sequencing)</strong>:</p>
+<ul>
+<li><strong>MRP ₹1,499 / Sale ₹1,299 / Subscription ₹1,099</strong></li>
+<li>COGS ~₹273/pack at Deepika's confirmed in-house economics (V3 cost
+lock)</li>
+<li><strong>Gross margin at MRP: 81.8% — comfortably above the 75%
+premium-D2C floor</strong></li>
+<li>GM at sale ₹1,299: 79.0%. GM at sub ₹1,099: 75.2%.</li>
+</ul>
+<p><strong>The 7-active stack</strong> (each named with form +
+standardisation marker + concentration + primary vendor — DEC-016
+verified all-vendor-network standard concentrations):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (~496mg fill, 3 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Methi (fenugreek)</strong></td>
+<td>Standardised extract, <strong>4-5% saponins (HPLC)</strong> —
+generic vendor-network standard, NOT Furocyst 40% specialty</td>
+<td><strong>Vidya Herbs OR Sami-Sabinsa</strong></td>
+<td>333 mg</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Shatavari</strong></td>
+<td>Standardised extract, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>133 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Curcumin C3 Complex</strong></td>
+<td><strong>Sami-Sabinsa C3 Complex branded</strong>, 95-97%
+curcuminoids</td>
+<td>Sami-Sabinsa</td>
+<td>100 mg</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Manjistha</strong></td>
+<td>Standardised 8:1 from whole-root, ~10% anthraquinones</td>
+<td>Akay Group OR Vidya Herbs</td>
+<td>25 mg</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Bhringraj</strong></td>
+<td>Standardised 8:1 from whole-leaf</td>
+<td>Akay Group OR Plant Lipids</td>
+<td>25 mg</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Pippali piperine (BioPerine)</strong></td>
+<td><strong>Sami-Sabinsa BioPerine branded</strong>, 95% piperine</td>
+<td>Sami-Sabinsa</td>
+<td>5 mg</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Moringa</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa)</td>
+<td>TGL captive</td>
+<td>25 mg</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~496 mg / cap</strong> (Size #0 ✓)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DEC-016 compliance check (2026-05-09)</strong>: All 6
+non-moringa actives are vendor-network standard concentrations.
+<strong>Methi is locked to generic 4-5% saponins, NOT Furocyst 40%
+(Indus Biotech specialty branded ingredient referenced in earlier
+dossiers).</strong> Furocyst is the higher-saponin specialty extract but
+it's a single-supplier branded product, not a vendor-network commodity.
+Phase 1 launch uses generic 4-5% saponins (commodity grade across
+multiple vendors) at 1000mg/day to deliver clinical saponin dose,
+matching DEC-016 vetted-vendor-only intent. Furocyst can land in V2
+Reset if Indus Biotech relationship + MOQ economics work later.
+<strong>D-Inositol</strong> remains a future V2 candidate if a clean
+Indian-source distributor surfaces; V1 launch ships without Inositol
+because the natural-source supply chain in India is not yet mature
+enough for vendor-network discipline.</p>
+<p><strong>Three-cap split-meal rationale (DEC-014, locked
+2026-05-09)</strong>: The Methi saponins act primarily on postprandial
+glucose response and insulin sensitization. A single morning dose
+creates a 12-hour gap before the next active window; split across three
+meals (morning, lunch, dinner) keeps insulin-modulating actives at
+therapeutic blood levels through the day's three highest-glucose-load
+events. The Curcumin anti-inflammatory layer also benefits from split
+dosing (curcumin has a short plasma half-life even with BioPerine
+bioavailability boost). Reset is the only Tier A SKU on a 3-cap
+protocol, accepted as a UX trade-off to preserve therapeutic dose
+consistency. We frame the split-meal dosing as a feature in customer
+education ("with meals, three times a day, like a real PCOS protocol"),
+not as a friction.</p>
+<p><strong>On-pack and PDP labelling shows the whole-plant equivalence
+and active doses transparently</strong> (example: "Methi 1000mg per 3
+caps — clinical PCOS therapeutic range") so the customer sees
+clinical-dose efficacy delivered via standardised pharma-grade
+consistency.</p>
+<p><strong>Daily intake at 3 caps/day</strong> (every day with
+meals):</p>
+<ul>
+<li>Methi extract (Vidya Herbs / Sami-Sabinsa): 1000mg (delivers
+~40-50mg saponins/day, matches PCOS clinical-trial saponin dose
+range)</li>
+<li>Shatavari extract (Sami-Sabinsa / Vidya Herbs): 400mg (delivers
+~16-20mg saponins/day, classical Stree-rasayana therapeutic range for
+cycle-regulation context)</li>
+<li>Curcumin C3 Complex (Sami-Sabinsa): 300mg (delivers ~290mg
+curcuminoids/day at 95-97% standardisation — clinical anti-inflammatory
+dose range per Aggarwal lab evidence base; with BioPerine 2000%
+bioavailability boost)</li>
+<li>Manjistha 8:1 extract (Akay / Vidya Herbs): 75mg (delivers ~600mg
+whole-root equivalent — supportive Pitta-pacification + cyclical
+acne)</li>
+<li>Bhringraj 8:1 extract (Akay / Plant Lipids): 75mg (delivers ~600mg
+whole-leaf equivalent — supportive cortisol/stress overlay)</li>
+<li>BioPerine (Sami-Sabinsa): 15mg piperine/day (Shoba 1998 standard
+cross-SKU bioavailability dose)</li>
+<li>Moringa whole-leaf (TGL captive): 75mg (Tier A heritage signature
+dose, locked per Moringa Foundation principle)</li>
+<li><strong>Total daily extract + heritage intake: ~1,940mg actual mass;
+insulin-sensitivity + cycle-regularity + anti-inflammatory + acne +
+adaptogen stack</strong></li>
+</ul>
+<p><strong>V3 cost lock — pack economics (DEC-023, locked
+2026-05-09)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>₹/pack</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Methi extract (Vidya Herbs / Sami-Sabinsa, 4-5% saponins, 30g/pack
+at ~₹2.5K/kg)</td>
+<td>~₹75</td>
+<td>Largest line item; vendor-network standard</td>
+</tr>
+<tr>
+<td>Shatavari extract (Sami-Sabinsa / Vidya, ~₹3K/kg, 12g/pack)</td>
+<td>~₹36</td>
+<td>Vendor-network standard 4-5% saponins</td>
+</tr>
+<tr>
+<td>Curcumin C3 Complex (Sami-Sabinsa, ~₹8-10K/kg, 9g/pack)</td>
+<td>~₹81</td>
+<td>Branded specialty curcumin — Aggarwal-lab evidence base</td>
+</tr>
+<tr>
+<td>Manjistha 8:1 extract (Akay / Vidya Herbs, ~₹2-3K/kg,
+2.25g/pack)</td>
+<td>~₹6</td>
+<td>Standard 8:1 spec</td>
+</tr>
+<tr>
+<td>Bhringraj 8:1 extract (Akay / Plant Lipids, ~₹2-3K/kg,
+2.25g/pack)</td>
+<td>~₹6</td>
+<td>Standard 8:1 spec</td>
+</tr>
+<tr>
+<td>BioPerine (Sami-Sabinsa, ~₹40K/kg, 0.45g/pack)</td>
+<td>~₹18</td>
+<td>Branded piperine — clinically-validated standard</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf (TGL captive, 2.25g/pack)</td>
+<td>~₹2</td>
+<td>DPR captive supply, near-zero marginal</td>
+</tr>
+<tr>
+<td>HPMC capsule shells (90 caps)</td>
+<td>~₹36</td>
+<td>Deepika vendor relationship per DEC-002; 1.5x the 60-cap Cycle/Bloom
+shell load</td>
+</tr>
+<tr>
+<td>HDPE amber bottle + label + monocarton</td>
+<td>~₹16</td>
+<td>Pragati Pack stack</td>
+</tr>
+<tr>
+<td>In-house manufacturing (encapsulation + bottling + QC)</td>
+<td>~₹12</td>
+<td>Deepika facility per V3 (vs ~₹55 external CMO for 90-cap pack);
+slightly higher than 60-cap due to higher capsule throughput</td>
+</tr>
+<tr>
+<td><strong>Total COGS</strong></td>
+<td><strong>~₹273</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at MRP ₹1,499</strong></td>
+<td><strong>81.8%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at sale ₹1,299</strong></td>
+<td><strong>79.0%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at sub ₹1,099</strong></td>
+<td><strong>75.2%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why GM is solid but not portfolio-leading</strong>: the
+90-cap pack carries 50% more capsule shells than the 60-cap Cycle /
+Bloom packs, and the C3 Complex + BioPerine specialty-branded
+ingredients carry premium per-mg cost vs commodity extracts. Reset hits
+the 75% premium-D2C floor at every price tier (MRP, sale, subscription)
+but does not match Crest's 89% GM-at-MRP. The trade-off is intentional —
+Reset's clinical credibility depends on the C3 Complex + BioPerine spec
+story, and the 3-cap protocol is non-negotiable per DEC-014 for
+therapeutic dose preservation.</p>
+<p><strong>Why this specific 7-active stack</strong>:</p>
+<ul>
+<li><strong>Methi (vendor-network 4-5% saponins, NOT Furocyst)</strong>:
+strongest single-active evidence base for PCOS insulin sensitization.
+Trigonelline + 4-hydroxyisoleucine + galactomannan fiber improve GLUT-4
+translocation, reduce postprandial glucose spikes, modulate lipid
+profile. Clinical-trial saponin doses run ~40-100mg/day; our 1000mg
+extract at 4-5% delivers 40-50mg saponins/day — at the lower-clinical
+floor and within the saponin range of the Swaroop 2015 PCOS-specific
+RCT. We deliberately use generic vendor-network spec (DEC-016) rather
+than the Furocyst 40% specialty single-supplier branded ingredient — the
+saponin dose math works at vendor-network commodity grade, and the
+multi-vendor sourcing reduces concentration risk.</li>
+<li><strong>Shatavari (4-5% saponins)</strong>: classical Ayurvedic
+Stree-rasayana for cycle regularity. Phytoestrogenic steroidal saponins
+(shatavarins I-IV) bind weakly to estrogen receptors; partial
+estrogen-modulating action supports HPO axis function and the LH/FSH
+ratio normalization relevant to PCOS. Cross-portfolio carrier across
+Cycle, Reset, Bloom, Crest, Nourish.</li>
+<li><strong>Curcumin C3 Complex (Sami-Sabinsa, 95-97%
+curcuminoids)</strong>: addresses the inflammatory pathway in PCOS that
+the insulin-sensitivity-only frame misses. PCOS has a documented chronic
+low-grade inflammatory component; curcumin at 300mg/day clinical dose
+modulates NF-kB and the inflammatory cascade. C3 Complex is the
+Aggarwal-lab gold-standard branded curcumin with the deepest published
+evidence base. With BioPerine, plasma availability lifts ~2000% (Shoba
+1998), making the 300mg dose effectively therapeutic.</li>
+<li><strong>Manjistha (~10% anthraquinones, 8:1)</strong>: classical
+Pitta-pacification + cyclical acne. PCOS-acne is the visible burden the
+customer wants to address; Manjistha addresses the inflammatory + dosha
+layer where Curcumin handles the systemic inflammation. Sub-clinical
+primary, supportive role.</li>
+<li><strong>Bhringraj (8:1 from whole-leaf)</strong>: secondary
+cortisol/stress overlay. Strong classical adaptogenic basis; supports
+the PCOS-stress overlay where chronic cortisol elevation perpetuates the
+insulin-resistance loop.</li>
+<li><strong>BioPerine (95% piperine)</strong>: cross-SKU bioavailability
+standard. The Shoba 1998 evidence base for curcumin specifically (2000%
+absorption boost) is the primary reason BioPerine is in the cap —
+without it the 300mg curcumin dose is sub-therapeutic.</li>
+<li><strong>Moringa whole-leaf</strong>: brand heritage thread (the
+"Built on Moringa" anchor) + nutritive support. Iron + B-complex + Vit C
+are all sub-clinical contributions that PCOS customers (often
+vegetarian, often borderline-anaemic) benefit from at background dose.
+The ONE whole-plant ingredient in the cap, per Operational Principle
+6.</li>
+</ul>
+<p><strong>What's NOT in the stack, and why</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Excluded active</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-Inositol (natural-source carob or rice-phytate-derived)</td>
+<td>The strongest single-active evidence base for PCOS, but the Indian
+natural-source supply chain is not yet mature enough for vendor-network
+discipline (Lonza Carobsure is imported and high-MOQ; Indian
+alternatives like TSI Group rice-phytate are emerging but newer).
+DEC-016 vendor-network-only sourcing constraint defers Inositol to V2
+once a clean Indian-source distributor surfaces. The Methi + Shatavari +
+Curcumin + BioPerine stack delivers a credible PCOS intervention without
+Inositol; V2 with Inositol added would be a Reset 2.0 product
+upgrade.</td>
+</tr>
+<tr>
+<td>Cinnamon verum (Ceylon, 50-500mg)</td>
+<td>Strong clinical evidence for PCOS glycemic control (Kort 2014 RCT),
+but adds another insulin-axis active when Methi + curcumin already pull
+on the metabolic axis. Cap fill space and 3-cap protocol discipline
+preferred. Future Reset V2 candidate.</td>
+</tr>
+<tr>
+<td>Aloe vera concentrate (50mg, 200x inner-leaf)</td>
+<td>Classical <em>Kumari</em> in Ayurvedic gynaecology; supportive
+insulin + inflammatory action. Deferred from V1 to keep the active count
+at 7 and the Manjistha + Curcumin pair carrying the inflammatory side.
+Future V2 candidate.</td>
+</tr>
+<tr>
+<td>Ashoka, Lodhra</td>
+<td>Acute uterine-tonic context lives in Cycle. Reset's cycle-regularity
+story rides on Shatavari + Methi + the systemic insulin-sensitivity
+intervention; Ashoka would be redundant.</td>
+</tr>
+<tr>
+<td>Ashwagandha KSM-66</td>
+<td>Stress + cortisol primary lives in Calm and Spark. Bhringraj at
+sub-clinical in Reset carries the supportive cortisol layer; full KSM-66
+dose would dilute the PCOS-specific stack focus.</td>
+</tr>
+<tr>
+<td>Berberine</td>
+<td>Evidence-strong for PCOS insulin resistance, but Berberine is a
+controversial nutraceutical-pharma boundary ingredient with FSSAI
+Schedule VI status uncertainty + hepatotoxicity flag at chronic dose. We
+default to safer Methi + Curcumin route for V1 launch.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: 496 mg total fill in Size #0
+(capacity ~700-1000 mg practical capacity). <strong>Comfortable fit, no
+granulation step required.</strong> Standard manufacturing across most
+Indian capsule CMOs / in-house at Deepika's facility per V3 plan-level
+changes. Full execution spec to be drafted at vendor-formulator handoff
+(Dr. Lakshmi Kala, post 2026-05-11/12 connect).</p>
+<hr />
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 7 actives: mechanism, classical basis, modern
+clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. Methi (Trigonella foenum-graecum) extract (4-5% saponins,
+333mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: Trigonelline + 4-hydroxyisoleucine +
+furostanol saponins + galactomannan fiber. Insulin-sensitizing via
+multiple pathways: improves GLUT-4 translocation in skeletal muscle,
+reduces postprandial glucose spike, modulates lipid profile (HDL up, LDL
+down), supports ovarian function indirectly via insulin-axis
+improvement.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> classifies Methi as <em>Vrishya</em> + metabolic herb.
+Strong food-medicine continuum in Indian dietary practice (methi is in
+dal, in parathas, in pickle).</li>
+<li><strong>Modern clinical evidence</strong>: Sreelatha S et al.
+<em>"Antioxidant activity of Trigonella foenum-graecum using various in
+vitro and ex vivo models."</em> Phytotherapy Research, 2009;
+23(2):139-145. <a
+href="https://pubmed.ncbi.nlm.nih.gov/19101933/">PubMed</a>. Plus Bawadi
+HA et al. <em>"Inhibition of Caco-2 colon, MCF-7 and Hs578T breast, and
+DU 145 prostatic cancer cell proliferation by water-soluble black bean
+condensed tannins."</em> Phytomedicine, 2009. Critically, Swaroop A et
+al. <em>"Efficacy of a novel fenugreek seed extract (Trigonella
+foenum-graecum, Furocyst) in polycystic ovary syndrome (PCOS)."</em>
+International Journal of Medical Sciences, 2015; 12(10):825-831. <a
+href="https://pubmed.ncbi.nlm.nih.gov/26516310/">PubMed</a> — Methi
+extract at ~1g/day showed PCOS-specific cycle regularity + ovarian-cyst
+regression at 90 days.</li>
+<li><strong>Dose rationale</strong>: 333mg/cap × 3 caps = 1000mg daily
+extract. At 4-5% saponins, delivers 40-50mg saponins/day — at the
+lower-clinical floor of the Swaroop 2015 PCOS RCT saponin dose range.
+Generic vendor-network 4-5% spec (NOT Furocyst's specialty 40% spec) per
+DEC-016; saponin dose math works at commodity grade.</li>
+</ul>
+<p><strong>2. Shatavari (Asparagus racemosus) extract (4-5% saponins,
+133mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: phytoestrogenic steroidal saponins
+(shatavarins I-IV) bind weakly to estrogen receptors. In PCOS context,
+supports HPO axis modulation, particularly relevant for FSH/LH ratio
+normalization (PCOS shows elevated LH:FSH ratio). Adaptogenic action on
+the HPO axis.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a>. Primary <em>Stree-rasayana</em>; explicit reference for
+cycle-regulation in classical women's-wellness texts.</li>
+<li><strong>Modern clinical evidence</strong>: Pawar VA et al. —
+Phytotherapy Research, 2012, small clinical study showing Shatavari
+supplementation supports cycle regularity in oligomenorrhea (irregular
+periods, a core PCOS feature). Plus Alok S et al. <em>"Plant profile,
+phytochemistry and pharmacology of Asparagus racemosus."</em> APJTD,
+2013; 3(3):242-251. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4027291/">PMC</a>.</li>
+<li><strong>Dose rationale</strong>: 133mg/cap × 3 caps = 400mg daily
+extract. Delivers 16-20mg shatavarins/day, classical therapeutic range
+for cycle-regulation context in PCOS.</li>
+</ul>
+<p><strong>3. Curcumin C3 Complex (Sami-Sabinsa branded, 95-97%
+curcuminoids, 100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: curcumin (the principal curcuminoid in
+turmeric) is a polyphenol with strong NF-kB modulation,
+anti-inflammatory cascade interruption, and antioxidant action. PCOS has
+a documented chronic low-grade inflammatory component (elevated CRP,
+oxidative stress markers); curcumin addresses that inflammatory axis
+directly.</li>
+<li><strong>Classical basis</strong>: Turmeric is foundational in
+Ayurvedic anti-inflammatory protocols (<em>Haridra</em>); the curcumin
+extract is the modern-isolated active.</li>
+<li><strong>Modern clinical evidence</strong>: Aggarwal BB et al. —
+extensive published lab and clinical evidence base on curcumin
+anti-inflammatory action; the C3 Complex specifically has been the
+subject of multiple RCTs across inflammatory conditions. Sohrab G et al.
+<em>"Effects of curcumin supplementation on metabolic profiles in
+patients with polycystic ovary syndrome."</em> Phytotherapy Research,
+2021. <a href="https://pubmed.ncbi.nlm.nih.gov/33368688/">PubMed</a> —
+curcumin at ~500mg/day showed PCOS-specific improvements in fasting
+glucose, HOMA-IR, total cholesterol over 12 weeks.</li>
+<li><strong>Dose rationale</strong>: 100mg/cap × 3 caps = 300mg C3
+Complex daily = ~290mg curcuminoids/day at 95-97% standardisation. With
+BioPerine 15mg/day for 2000% bioavailability boost (Shoba 1998),
+effective absorbed dose is in the clinical-therapeutic range.</li>
+</ul>
+<p><strong>4. Manjistha (Rubia cordifolia) extract (~10% anthraquinones,
+8:1, 25mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: anthraquinones + iridoid glycosides +
+phytoestrogen-like compounds. Pitta-pacification (Ayurvedic dosha
+framework) maps to anti-inflammatory + skin-clarity action. Direct
+relevance to PCOS-acne (cyclical hormonal acne is the most visible PCOS
+symptom for many customers).</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a> — <em>Manjishtha</em> as Pitta-pacifying + Rakta-shodhaka
+(blood-purifying); strong classical basis for acne and cyclical skin
+disorders.</li>
+<li><strong>Modern clinical evidence</strong>: Mishra AP et al.
+<em>"Therapeutic uses, pharmacology and phytochemistry of Rubia
+cordifolia."</em> International Journal of Pharmacy and Pharmaceutical
+Sciences, 2013. Limited modern RCT data specifically for PCOS-acne;
+mechanism-driven inclusion + classical evidence.</li>
+<li><strong>Dose rationale</strong>: 25mg/cap × 3 caps = 75mg 8:1
+extract = ~600mg whole-root equivalent daily. Sub-clinical primary,
+supportive role for PCOS-acne and Pitta layer.</li>
+</ul>
+<p><strong>5. Bhringraj (Eclipta alba) extract (8:1 from whole-leaf,
+25mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: wedelolactone + flavonoids + alkaloids.
+Classical adaptogen + hepato-protective; in PCOS context, supports the
+cortisol/stress overlay where chronic stress perpetuates insulin
+resistance. Also supports hair-fall (a common PCOS symptom) but Root SKU
+is the primary hair-fall product.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+— <em>Bhringaraja</em> as Rasayana + hepato-protective +
+hair-tonic.</li>
+<li><strong>Modern clinical evidence</strong>: Wagner H et al. —
+established phytochemistry literature on Eclipta alba alkaloid +
+flavonoid activity. Limited PCOS-specific RCT data; mechanism-driven +
+classical inclusion.</li>
+<li><strong>Dose rationale</strong>: 25mg/cap × 3 caps = 75mg 8:1
+extract = ~600mg whole-leaf equivalent daily. Sub-clinical primary,
+supportive role for cortisol layer.</li>
+</ul>
+<p><strong>6. BioPerine (Sami-Sabinsa branded piperine, 95%,
+5mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: piperine inhibits hepatic
+glucuronidation and intestinal P-glycoprotein efflux, dramatically
+increasing systemic absorption of co-administered actives — particularly
+curcumin (2000% bioavailability lift per Shoba 1998).</li>
+<li><strong>Modern clinical evidence</strong>: Shoba G et al.
+<em>"Influence of piperine on the pharmacokinetics of curcumin in
+animals and human volunteers."</em> Planta Medica, 1998; 64(4):353-356.
+<a href="https://pubmed.ncbi.nlm.nih.gov/9619120/">PubMed</a>.
+Foundational paper for BioPerine + curcumin co-administration.</li>
+<li><strong>Dose rationale</strong>: 5mg/cap × 3 caps = 15mg
+piperine/day. Cross-SKU standard bioavailability dose; primary purpose
+in Reset is curcumin absorption boost.</li>
+</ul>
+<p><strong>7. Moringa (Moringa oleifera) whole-leaf powder
+(heat-treated, TGL captive supply, 25mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (iron, calcium,
+vitamin C, B-complex, antioxidants, chlorophyll). Not a primary
+PCOS-symptom active; supports overall nutritional baseline + brand
+heritage thread.</li>
+<li><strong>Folk + modern basis</strong>: established nutraceutical
+literature on moringa as iron + folate + B-complex source. PCOS
+customers are often vegetarian and often borderline-anaemic; the moringa
+background nutritive contribution is a relevant supportive layer.</li>
+<li><strong>Modern evidence</strong>: Alegbeleye OO. <em>"How Functional
+Is Moringa oleifera? A Review of Its Nutritive, Medicinal, and
+Socioeconomic Potential."</em> Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 25mg/cap × 3 caps = 75mg daily
+total. Tier A heritage signature dose ceiling per Moringa Foundation
+principle (calibrated against Deepika's stacking-overload concern when
+summed across Reset + Cycle + Crest + Bloom in a heavy stack).</li>
+<li><strong>Brand role</strong>: heritage signature carrying the
+cross-portfolio narrative.</li>
+</ul>
+<hr />
+<p><strong>Evidence-strength summary</strong> (so the team knows where
+we are confident vs cautious):</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Traditional basis</th>
+<th>Modern clinical evidence</th>
+<th>Overall strength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Methi extract (4-5% saponins)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>
+(Vrishya)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/19101933/">Sreelatha
+2009</a> + <a href="https://pubmed.ncbi.nlm.nih.gov/26516310/">Swaroop
+2015 PCOS RCT</a></td>
+<td>Modern-strong (PCOS-specific)</td>
+</tr>
+<tr>
+<td>Shatavari</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Stree-rasayana)</td>
+<td>Pawar 2012 + <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4027291/">Alok 2013
+review</a></td>
+<td>Moderate-strong</td>
+</tr>
+<tr>
+<td>Curcumin C3 Complex</td>
+<td>Ayurvedic Haridra</td>
+<td>Aggarwal-lab evidence base + <a
+href="https://pubmed.ncbi.nlm.nih.gov/33368688/">Sohrab 2021 PCOS
+RCT</a></td>
+<td>Modern-strong (with PCOS-specific data)</td>
+</tr>
+<tr>
+<td>Manjistha</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Pitta + Rakta-shodhaka)</td>
+<td>Mishra 2013 review</td>
+<td>Traditional-strong, modern-moderate</td>
+</tr>
+<tr>
+<td>Bhringraj</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Rasayana + hepato-protective)</td>
+<td>Wagner phytochemistry literature</td>
+<td>Traditional-strong, modern-moderate</td>
+</tr>
+<tr>
+<td>BioPerine</td>
+<td>n/a (Western standardised piperine)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/9619120/">Shoba 1998
+foundational paper</a></td>
+<td>Modern-strong (bioavailability)</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>Folk + modern nutraceutical</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29284305/">Alegbeleye
+2018</a></td>
+<td>Modern-strong (nutritive)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Reset as the SKU it is.</p>
+<p><strong>Layer 1: Why Reset as Phase 1 Q1 (not Phase 2)</strong></p>
+<p>We evaluated all 10 SKUs across volume, profitability, TGL-fit, and
+founder authenticity. Reset scored highest on profitability (longest LTV
+after Crest) and category-volume (PCOS is the largest single concern
+category in women's wellness) and high on Phase 1 launchability:</p>
+<ul>
+<li><strong>Warm cohort overlap with Cycle.</strong> TGL's existing
+28-38 customer base overlaps the 22-40 Reset cohort by ~70%. Cycle
+acquires the wider PMS audience; Reset converts the diagnosed-PCOS
+subset that Cycle's content surfaces.</li>
+<li><strong>Bundle architecture unlock.</strong> Phase 1 as Cycle +
+Bloom + Reset (DEC-012 expansion from 2-SKU to 3-SKU plan) unlocks three
+bundles vs one in the original plan. Reset is the third leg that makes
+the Q1 launch a portfolio.</li>
+<li><strong>Latent demand validated.</strong> The Customer Reviews
+Repository signals the strongest existing demand within TGL's customer
+base — repeated mentions of "doctor confirmed no PCOS after 6 months"
+using TGL's existing single-ingredient moringa. Reset gives the existing
+base the formulation depth they're already manufacturing
+themselves.</li>
+</ul>
+<p>So Reset was sequenced to Phase 1 Q1, making it the
+second-highest-profile launch alongside Cycle and Bloom.</p>
+<p><strong>Layer 2: Why this 7-active stack (and not
+another)</strong></p>
+<p>PCOS-care formulation has roughly 12-15 cited natural-source
+candidates. We considered each and selected 7:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Methi (vendor-network 4-5% saponins)</td>
+<td>INCLUDED</td>
+<td>Strongest single-active PCOS-specific RCT evidence (Swaroop 2015).
+Vendor-network commodity grade per DEC-016; Furocyst specialty
+deferred.</td>
+</tr>
+<tr>
+<td>Shatavari</td>
+<td>INCLUDED</td>
+<td>Primary Ayurvedic Stree-rasayana for cycle regularity;
+cross-portfolio carrier.</td>
+</tr>
+<tr>
+<td>Curcumin C3 Complex (Sami-Sabinsa)</td>
+<td>INCLUDED</td>
+<td>PCOS inflammatory pathway is a documented but under-addressed axis;
+C3 Complex is the Aggarwal-lab gold-standard branded curcumin.</td>
+</tr>
+<tr>
+<td>Manjistha 8:1</td>
+<td>INCLUDED</td>
+<td>Cyclical PCOS-acne is a visible burden; Pitta + Rakta-shodhaka
+classical basis. Sub-clinical primary.</td>
+</tr>
+<tr>
+<td>Bhringraj 8:1</td>
+<td>INCLUDED</td>
+<td>Cortisol/stress overlay layer; supportive adaptogen. Sub-clinical
+primary.</td>
+</tr>
+<tr>
+<td>BioPerine</td>
+<td>INCLUDED</td>
+<td>Without it, the 300mg curcumin dose is sub-therapeutic. Cross-SKU
+bioavailability standard.</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf</td>
+<td>INCLUDED (heritage base)</td>
+<td>Brand thesis anchor + nutritive support. The ONE whole-plant per
+SKU.</td>
+</tr>
+<tr>
+<td>D-Inositol (natural-source)</td>
+<td>EXCLUDED (V1 brief)</td>
+<td>Strongest single-active PCOS evidence base, but Indian
+natural-source supply chain not yet mature for vendor-network
+discipline. V2 candidate.</td>
+</tr>
+<tr>
+<td>Cinnamon verum (Ceylon)</td>
+<td>EXCLUDED</td>
+<td>PCOS glycemic-control evidence (Kort 2014) but redundant when Methi
++ Curcumin already pull on metabolic axis. Cap fill space + 3-cap
+protocol discipline. V2 candidate.</td>
+</tr>
+<tr>
+<td>Aloe vera concentrate</td>
+<td>EXCLUDED</td>
+<td>Classical Kumari basis; deferred to keep active count at 7. V2
+candidate.</td>
+</tr>
+<tr>
+<td>Berberine</td>
+<td>EXCLUDED</td>
+<td>Strong PCOS evidence but FSSAI Schedule VI uncertainty +
+chronic-dose hepatotoxicity flag. Default safer Methi + Curcumin
+route.</td>
+</tr>
+<tr>
+<td>Ashoka, Lodhra</td>
+<td>EXCLUDED</td>
+<td>Acute uterine-tonic context lives in Cycle; Reset's cycle-regularity
+story rides on Shatavari + Methi + insulin-sensitivity
+intervention.</td>
+</tr>
+<tr>
+<td>Ashwagandha KSM-66</td>
+<td>EXCLUDED</td>
+<td>Stress + cortisol primary lives in Calm and Spark; Bhringraj at
+sub-clinical carries supportive cortisol layer in Reset.</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio approach forces discipline: each active in one SKU's
+primary role; minimal duplication across SKUs.</p>
+<p><strong>Layer 3: Why this specific dose architecture (and not
+another)</strong></p>
+<p>Every dose was triangulated across three constraints:</p>
+<ol type="1">
+<li><strong>Clinical / classical therapeutic range</strong> (what RCTs
+or Bhavaprakasha actually use)</li>
+<li><strong>Capsule fill feasibility</strong> (Size #0 = ~700-1000mg
+practical fill at our 496mg fill, very comfortable)</li>
+<li><strong>3-cap-per-day split-meal protocol</strong> (DEC-014 lock —
+preserves therapeutic Methi dose without forcing oversized Size #00
+cap)</li>
+</ol>
+<p>That triangulation forced the 3-cap path: Methi 1000mg/day clinical
+PCOS dose cannot fit in a 2-cap protocol at Size #0; the alternative
+would have been a Size #00 × 2-cap protocol with granulation, which
+compromises the split-meal blood-level consistency the Methi saponins
+benefit from. The 3-cap protocol is the explicit trade-off — accepted as
+a UX cost for therapeutic dose preservation and split-meal
+pharmacokinetic fit.</p>
+<p><strong>Trade-offs we accepted, openly stated:</strong></p>
+<ul>
+<li><strong>3-cap protocol vs 2-cap UX target.</strong> Reset is one of
+two Tier A SKUs (alongside Nourish in Tier B) that fails the 2-cap UX
+target per DEC-014. We accept the higher pill burden because the
+PCOS-savvy customer is more dose-fluent than the average wellness
+customer; she will read "1000mg Methi clinical dose" and respect the
+protocol.</li>
+<li><strong>Generic 4-5% Methi saponins, not Furocyst 40%
+specialty.</strong> DEC-016 vendor-network discipline. Furocyst would
+give us a stronger marketing claim (40% saponin spec sounds more
+credible than 4-5%) but at the cost of single-supplier concentration
+risk + higher COGS. Saponin dose math works at commodity grade.</li>
+<li><strong>No D-Inositol in V1.</strong> The strongest single-active
+PCOS evidence base sits outside our Phase 1 launch because the
+natural-source Indian supply chain isn't mature. We counter the
+missing-Inositol perception with the strong Methi + Curcumin + Shatavari
+triangle; V2 ships Inositol when supply matures.</li>
+<li><strong>Manjistha and Bhringraj at sub-clinical doses.</strong> 25mg
+each is below the 50-100mg standalone clinical doses for
+Pitta-pacification and adaptogenic action. We use them as supportive
+layers; the Curcumin handles primary inflammatory action and the Methi
+handles primary insulin axis.</li>
+<li><strong>Per-active mg numbers look small on label</strong>
+(Manjistha 25mg/cap reads weak). Mitigated by labelling clinical context
+("Manjistha 75mg/day — supportive cyclical-acne support") and 8:1
+standardisation marker (75mg of 8:1 = 600mg whole-root equivalent).</li>
+</ul>
+<p><strong>The decision trail in one sentence</strong>: Reset is the
+comprehensive PCOS SKU Indian women have been asking for at the ₹1,299
+sale single-bottle premium-but-accessible tier; the 7-active stack pairs
+the strongest PCOS-specific Ayurvedic + Methi insulin-sensitivity
+intervention (Methi + Shatavari at clinical doses) with the
+under-addressed inflammatory axis (Curcumin C3 Complex + BioPerine at
+clinical anti-inflammatory dose), supportive Pitta + cortisol layers
+(Manjistha + Bhringraj), and the moringa heritage thread, on a 3-cap
+split-meal protocol that the PCOS-savvy customer will recognise as a
+real protocol rather than a simplified pill.</p>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p>Reset plays in the Indian D2C PCOS-care category — a small, growing
+space where the existing options bracket the price tiers but leave a gap
+in the middle.</p>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>Price (sale)</th>
+<th>Format</th>
+<th>Positioning</th>
+<th>Active focus</th>
+<th>Per-day cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Reset (TGL)</strong></td>
+<td>₹1,299</td>
+<td>Capsule, 3/day split-meal</td>
+<td><strong>Comprehensive premium-accessible Ayurveda + clinical-dose
+Methi + branded curcumin</strong></td>
+<td>Methi 1000mg + Shatavari + Curcumin C3 + BioPerine + Manjistha +
+Bhringraj + moringa</td>
+<td>~₹43/day</td>
+</tr>
+<tr>
+<td><strong>Gynoveda PCOS 3X (Myrha / Vamha)</strong></td>
+<td>₹1,800-2,400</td>
+<td>Multi-cap kit</td>
+<td>Pharma-coded clinical, doctor-coded, gynaec-consult bundled</td>
+<td>Multi-herb classical Ayurvedic kit (Ashoka, Lodhra, Manjistha,
+Triphala, Shilajit, bhasmas)</td>
+<td>~₹60-80/day</td>
+</tr>
+<tr>
+<td><strong>OZiva HerBalance for PCOS</strong></td>
+<td>₹999</td>
+<td>Capsule</td>
+<td>Synthetic-Inositol-led extract stack, urban-millennial-coded</td>
+<td>Myo-Inositol 1000mg + DCI 25mg (synthetic) + Shatavari + Ashwagandha
++ Methi</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td><strong>Earthful HerSupport</strong></td>
+<td>₹589</td>
+<td>Capsule</td>
+<td>PCOS-anchored entry-tier, lighter formulation</td>
+<td>Shatavari + Ashoka + multi-herb light stack</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td><strong>Be Bodywise PCOS Inositol Superfood</strong></td>
+<td>₹1,199</td>
+<td>Powder sachet</td>
+<td>Telehealth-coded clinical-dose Inositol single-actor</td>
+<td>Myo-Inositol 2000mg + DCI 50mg (synthetic) + NAC + Berberine +
+folate + D3 + chromium</td>
+<td>~₹40/day</td>
+</tr>
+<tr>
+<td><strong>Cosmix Hormones In Harmony</strong></td>
+<td>₹999</td>
+<td>Powder</td>
+<td>Format-gimmick, taste-driven</td>
+<td>Multi-extract powder</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td><strong>Cureveda Hormonal Balance</strong></td>
+<td>₹699</td>
+<td>Capsule</td>
+<td>General-hormonal, lighter PCOS spec</td>
+<td>Multi-herb light stack</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Patanjali Strivardhak / Trim Tea</strong></td>
+<td>₹150-300</td>
+<td>Tablet/Powder</td>
+<td>Mass-Ayurveda, dated packaging</td>
+<td>Generic classical</td>
+<td>~₹5-10/day</td>
+</tr>
+<tr>
+<td><strong>Ovasitol / Inofolic / Inositol4U (imported
+mono-Inositol)</strong></td>
+<td>₹1,500-2,500/month</td>
+<td>Powder/capsule</td>
+<td>Western pharma-coded mono-supplement</td>
+<td>MI + DCI 40:1</td>
+<td>~₹50-80/day</td>
+</tr>
+<tr>
+<td><strong>Kapiva PCOS</strong> (juice/tablet)</td>
+<td>₹600-800</td>
+<td>Juice/tablet</td>
+<td>Heritage-juice format</td>
+<td>Ayurvedic herbs</td>
+<td>~₹20-27/day</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The single-sentence competitive position</strong>: Reset is
+the only Indian D2C SKU that is <strong>comprehensive premium-accessible
+single-bottle PCOS-specific Ayurveda</strong> (not pharma-tier multi-cap
+kit, not single-Inositol mono-supplement, not lighter
+generic-women's-hormonal blend) at the ₹1,299 sale tier, pairs
+<strong>clinical-dose Methi (1000mg/day with vendor-network 4-5%
+saponins delivering 40-50mg saponins/day) with branded Curcumin C3
+Complex + BioPerine at clinical anti-inflammatory dose</strong> (300mg
+curcuminoids/day with 2000% bioavailability boost), classical Ayurvedic
+Stree-rasayana + Pitta-pacification + cortisol layers, and a
+<strong>moringa heritage thread</strong> in every cap — at 81.8% GM at
+MRP, the premium-accessible pricing is COGS-earned not optical.</p>
+<hr />
+<h2 id="9-right-to-win-why-a-real-woman-picks-reset">9. Right to win
+(why a real woman picks Reset)</h2>
+<p>Five reasons she chooses Reset when she's looking at the shelf.</p>
+<p><strong>1. One bottle, full PCOS picture.</strong> She doesn't want a
+multi-cap kit (Gynoveda) and she doesn't want a single-Inositol
+mono-supplement (Ovasitol, Be Bodywise). She wants one bottle she can
+put on her counter that addresses insulin sensitivity, cycle regularity,
+the inflammatory pathway, the cyclical acne, and the cortisol stress
+overlay together. Reset is that bottle.</p>
+<p><strong>2. Clinical-dose Methi + branded Curcumin where competitors
+are lighter.</strong> Earthful HerSupport's PCOS spec is
+generic-multi-herb light. Cureveda Hormonal Balance is general-hormonal.
+OZiva HerBalance leads with Inositol but the Ayurvedic layer is thin.
+Reset gives the PCOS-savvy customer the clinical-dose Methi (1000mg/day
+matches the saponin dose range of PCOS clinical trials) + branded
+Curcumin C3 Complex (Aggarwal-lab gold-standard, with BioPerine 2000%
+bioavailability lift) that her competitors don't deliver at her price
+point.</p>
+<p><strong>3. Half the Gynoveda price without losing the PCOS-specific
+story.</strong> Gynoveda PCOS 3X at ₹1,800-2,400/month with the
+multi-cap kit + cycle-day numbered packaging is intimidating. Reset at
+₹1,299 sale with one bottle and a 3-cap-with-meals routine is the
+credible Ayurvedic alternative that doesn't require a clinic-grade
+commitment.</p>
+<p><strong>4. The natural-source Ayurvedic + branded-clinical-extract
+combination.</strong> OZiva uses synthetic Myo-Inositol; Reset doesn't
+have Inositol in V1 but counters with the 7-active Ayurvedic +
+branded-extract stack. The PCOS customer who has tried OZiva and felt it
+was thin will recognise the depth in Reset's spec sheet — Sami-Sabinsa
+C3 Complex, Sami-Sabinsa BioPerine, vendor-network standard Methi at
+clinical dose. The brand-name vendors on the label are verifiable global
+ingredients she can Google.</p>
+<p><strong>5. A founder she can see and a protocol that respects her
+intelligence.</strong> Deepika's content arc treats the customer as the
+informed researcher she is. The 3-cap split-meal protocol is framed as
+"a real PCOS protocol, like your gynaec would design," not as a
+friction. The honest "give it 3 cycles before you judge it" timeline
+matches what she has read on Reddit r/PCOS.</p>
+<p><strong>Two things that do not show up in the matrix but matter in
+real life:</strong></p>
+<ul>
+<li><strong>The "I tried OZiva and it felt thin" cultural
+bridge.</strong> The customer who has been through Inositol-only
+mono-supplements (Ovasitol, OZiva HerBalance) and felt they didn't
+address the full PCOS picture is Reset's primary acquisition target.
+Reset is the credible "next product to try" once she's done with the
+Inositol mono-tier.</li>
+<li><strong>The label tells the same story Deepika tells in her
+Reels.</strong> No marketing-only descriptors. Standardisation
+percentages on the label (4-5% Methi saponins, 95-97% C3 Complex
+curcuminoids, 95% BioPerine piperine) match what Deepika quotes in
+content. The Sami-Sabinsa C3 Complex and BioPerine brand names on the
+label are verifiable global ingredients she can Google.
+Internal-external consistency builds trust in a segment that scrutinises
+ingredient lists.</li>
+</ul>
+<p><strong>The single-sentence right to win</strong>: Reset wins because
+it's the one bottle that addresses the full PCOS picture, delivers
+clinical-dose Methi + branded Curcumin where competitors are thin, comes
+in at half the Gynoveda price without losing PCOS-specific depth, pairs
+vendor-network Ayurvedic + branded clinical extracts in a way
+Inositol-mono competitors cannot match, and respects the PCOS-savvy
+customer with a real 3-cap split-meal protocol from a founder genuinely
+in the women's-wellness space.</p>
+<hr />
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p><strong>Channel mix is website-first / Shopify-led, NOT
+Amazon-first</strong> (per TGL-P1-DEC-017, locked 2026-05-09). Today's
+80% Amazon revenue concentration on TGL's existing moringa SKUs is a
+remediable weakness from inefficient website performance marketing — not
+strategic intent. Reset's launch motion is built explicitly to fix the
+website under-performance: Meta + Google ads → Shopify PDP, founder
+Reels/Stories for organic, Klaviyo email/SMS for retention, native
+Shopify subscription mechanic. Amazon is added as a <strong>secondary
+channel in Month 2-3 post-launch</strong> after the website motion is
+proven.</p>
+<p>The new launch motion is the fix to the current Amazon
+over-dependence: better PMM, multi-active SKU AOV unlock that softens
+the website shipping-cost problem, stronger PDP-to-checkout conversion,
+retention-funded LTV vs Amazon's single-purchase dynamic. Reset is the
+SKU where the LTV math matters most — at ₹1,299 sale with subscription
+cadence at ₹1,099 over a 12-24 month customer life, every retained
+subscription generates ~₹13,000-26,000 LTV vs Amazon's single-purchase
+dynamic.</p>
+<p><strong>Channel mix at launch (Q1, alongside Cycle +
+Bloom)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta (Instagram + Facebook) → Shopify PDP</td>
+<td>Primary acquisition</td>
+<td>~50%</td>
+</tr>
+<tr>
+<td>Google Search + SEO → Shopify PDP</td>
+<td>Branded + non-branded PCOS search ("PCOS supplement India," "natural
+PCOS treatment")</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Founder Reels + Stories (organic + boosted)</td>
+<td>Trust + content engine</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Creator partnerships (PCOS-coach Instagram accounts, women-health
+micro-influencers)</td>
+<td>Cohort-matched activation</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Klaviyo email + SMS (existing TGL list + Cycle / Bloom
+cross-sell)</td>
+<td>Warm cohort capture + cross-sell</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Amazon (secondary, Month 2-3+)</td>
+<td>Channel diversification once website motion proven</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pricing locked (V3, UNCHANGED from Q1 sequencing)</strong>:
+₹1,499 MRP / ₹1,299 sale / ₹1,099 sub. Premium-accessible price-point of
+the Tier A women's hormonal continuum (sits between Cycle ₹899 sale and
+Crest ₹1,599 sale).</p>
+<p><strong>Geography priority</strong>: Tier 1 metros (Mumbai,
+Bangalore, Delhi, Chennai, Hyderabad, Pune) where the diagnosed-PCOS
+cohort with disposable income concentrates. Strong overlap with Cycle's
+PMS cohort geography; Bangalore + Mumbai + Delhi are the highest-density
+PCOS-research-active metros per Reddit r/PCOS subreddit
+user-distribution data.</p>
+<p><strong>Deepika's content cadence</strong>: ~1 founder Reel per week
+through launch month. Pre-launch covers "why I'm building Reset," "what
+PCOS actually is and what supplements do," "the Methi + Curcumin
+clinical evidence," "the 3-cycle arc — give it time," "why we don't have
+Inositol in V1 and what we have instead." Launch month rotates: founder
+use, customer Q&amp;A, ingredient story, expectation-setting, "PCOS
+journey" testimonial format.</p>
+<p><strong>Asset list (Boco produces, pre-launch)</strong>: Reset PDP,
+brand kit refinement (carrying Cycle's Q1 design language with PCOS-tier
+visual treatment to differentiate from the wider women's-hormonal SKUs),
+5 ad creative templates, Klaviyo email flows for launch + onboarding +
+3-month retention + cross-sell, Ingredient Library entry. Live by launch
+-2 weeks.</p>
+<p><strong>Owner split</strong>: Deepika owns founder content (~6-8
+hrs/week launch month). Unnati owns Meta channel ops + creator outreach
++ email execution (~12-15 hrs/week launch month). Boco (Meera, Kavya,
+Aarav) owns asset production, front-loaded in launch -8 to -2 weeks.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p>Three pitches scaled to the conversation length.</p>
+<p><strong>5-second elevator</strong> (chance encounters, quick brand
+mentions):</p>
+<blockquote>
+<p>"Reset is our PCOS supplement. Three capsules a day with meals.
+Clinical-dose Methi, branded Curcumin, Ayurvedic herbs, our farm-grown
+moringa. Built on Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<p><strong>30-second customer pitch</strong> (the version most people
+will hear, in Deepika's voice):</p>
+<blockquote>
+<p>"PCOS doesn't get fixed with a single ingredient. Reset is TGL's PCOS
+protocol: clinical-dose Methi for insulin sensitivity, Shatavari for
+cycle regularity, Curcumin C3 Complex with BioPerine for the
+inflammatory side of PCOS, Manjistha for cyclical acne, Bhringraj for
+the cortisol overlay, and our farm-grown moringa as the heritage thread.
+Three caps a day with meals — morning, lunch, dinner. Give it three
+cycles before you judge it. Built to work alongside your gynaecologist's
+plan, not against it."</p>
+</blockquote>
+<p><strong>60-second partner pitch</strong> (creator partnerships,
+retail conversations, in Unnati's or Deepika's voice):</p>
+<blockquote>
+<p>"Reset is The Good Leaf's comprehensive PCOS SKU, designed for women
+22-40 with diagnosed PCOS, PCOD, or borderline PCOS who have done the
+research and want a credible Ayurveda-rooted alternative to Metformin
+and OCPs. Seven actives at clinical or supportive doses: Methi at 1000mg
+per day (4-5% saponins delivering 40-50mg saponins/day, matches the
+Swaroop 2015 PCOS RCT range), Shatavari at 400mg per day (classical
+Stree-rasayana for cycle regularity), Curcumin C3 Complex at 300mg per
+day with BioPerine 15mg (Aggarwal-lab gold-standard curcumin at clinical
+anti-inflammatory dose with 2000% bioavailability boost), Manjistha and
+Bhringraj at sub-clinical supportive doses for Pitta and cortisol
+layers, and farm-grown moringa as the heritage signature. Three capsules
+a day split with meals, ₹1,299 sale, around ₹43 per day, designed for a
+6-month-plus arc with subscription cadence at ₹1,099. We're at half the
+Gynoveda PCOS 3X price without losing PCOS-specific depth — competitors
+are pharma-tier multi-cap kits, lighter generic women's-hormonal blends,
+or single-Inositol mono-supplements. The 3-cap split-meal protocol is
+built for the PCOS-savvy customer who reads ingredient lists and
+respects a real protocol. Founder Deepika is building this for the women
+in her network living through it."</p>
+</blockquote>
+<p><strong>The honest message Deepika repeats across organic
+content</strong> (the recurring tagline pattern):</p>
+<blockquote>
+<p>"PCOS is a 6-month journey, not a 30-day fix. Reset is daily
+natural-source support that works alongside your gynaecologist's plan.
+Three caps a day with meals. Give it three cycles to judge it. Built on
+Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<hr />
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<p>The "can we actually build this" layer. How we judge vendor quality,
+per-active vendor candidates, packaging, capsule shell, manufacturing,
+QC, capsule fill, regulatory, aggregate risk.</p>
+<h3 id="121-how-we-judge-vendor-quality-the-compliance-framework">12.1
+How we judge vendor quality (the compliance framework)</h3>
+<p>Same 3-tier framework as Cycle
+(<code>sku-1-cycle-product-brief.md</code> Section 12.1). Tier 1
+mandatory: FSSAI Central + GMP + per-batch CoA + NABL-accredited lab
+inputs + HPLC/HPTLC standardisation + Pillar 1 extraction method (water
+/ hydroalcoholic / CO2 / supercritical, no synthetic-residue solvents).
+Tier 2 strongly preferred: ISO 22000 + HACCP + ISO 9001 + USDA Organic +
+multi-batch reproducibility + 24-month stability + public CoA
+transparency + audit-readiness. Tier 3 application-specific:
+cultivated-origin certification for Bhringraj + DNA barcoding for
+Manjistha (commodity supply has Rubia species substitution risk) +
+verified branded-ingredient chain-of-custody for C3 Complex and
+BioPerine (Sami-Sabinsa direct or authorised distributor only).</p>
+<h3 id="122-per-active-vendor-matrix">12.2 Per-active vendor matrix</h3>
+<p><strong>Methi extract — vendor-network 4-5% saponins (NOT Furocyst
+specialty)</strong> per DEC-016:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vidya Herbs</strong></td>
+<td>Bangalore</td>
+<td>4-5% saponins, hydroalcoholic extraction</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 priority</strong> per DEC-016. Solvent-free claim
+verified.</td>
+</tr>
+<tr>
+<td><strong>Sami-Sabinsa</strong></td>
+<td>Bangalore</td>
+<td>4-5% saponins</td>
+<td>5-25kg</td>
+<td>Tier-1 priority alternate.</td>
+</tr>
+<tr>
+<td><strong>Akay Spices</strong></td>
+<td>Cochin, Kerala</td>
+<td>Methi extract</td>
+<td>TBD</td>
+<td>Backup; multi-active capability.</td>
+</tr>
+<tr>
+<td>Indus Biotech (Furocyst)</td>
+<td>Hyderabad</td>
+<td>40% saponins specialty</td>
+<td>TBD</td>
+<td><strong>NOT used in V1</strong> (DEC-016). Future V2 candidate if
+Indus Biotech relationship + MOQ economics work.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Shatavari extract</strong> — same vendor matrix as Cycle
+(Sami-Sabinsa Asparoot primary; Vidya Herbs / Arjuna Natural / Indfrag
+backup).</p>
+<p><strong>Curcumin C3 Complex — Sami-Sabinsa branded</strong>
+(single-source by design; the C3 Complex IP is Sami-Sabinsa
+proprietary):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa C3 Complex</strong></td>
+<td>Bangalore</td>
+<td>95-97% curcuminoids (curcumin + DMC + BDMC), HPLC-standardised,
+branded</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 mandatory</strong>; the C3 Complex IP is the
+gold-standard branded curcumin. Authorised distributor channel.</td>
+</tr>
+<tr>
+<td>Generic 95% curcumin (commodity)</td>
+<td>Various</td>
+<td>95% curcuminoids generic</td>
+<td>TBD</td>
+<td><strong>NOT used in V1</strong>. ~2-3x cost-lever margin path for
+future cost optimization if needed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Manjistha 8:1 extract</strong> (~10% anthraquinones):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Akay Group</strong></td>
+<td>Cochin, Kerala</td>
+<td>8:1 from whole-root, ~10% anthraquinones</td>
+<td>5-25kg</td>
+<td>Tier-1 priority.</td>
+</tr>
+<tr>
+<td><strong>Vidya Herbs</strong></td>
+<td>Bangalore</td>
+<td>8:1 standardised</td>
+<td>5-25kg</td>
+<td>Backup.</td>
+</tr>
+<tr>
+<td>Plant Lipids</td>
+<td>Cochin, Kerala</td>
+<td>Manjistha extract</td>
+<td>TBD</td>
+<td>Backup; multi-active capability.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bhringraj 8:1 extract</strong> (from whole-leaf):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Akay Group</strong></td>
+<td>Cochin, Kerala</td>
+<td>8:1 from whole-leaf</td>
+<td>5-25kg</td>
+<td>Tier-1 priority.</td>
+</tr>
+<tr>
+<td><strong>Plant Lipids</strong></td>
+<td>Cochin, Kerala</td>
+<td>8:1 standardised</td>
+<td>5-25kg</td>
+<td>Backup.</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa</td>
+<td>Bangalore</td>
+<td>Bhringraj extract</td>
+<td>TBD</td>
+<td>Backup.</td>
+</tr>
+<tr>
+<td>Vidya Herbs</td>
+<td>Bangalore</td>
+<td>Bhringraj extract</td>
+<td>TBD</td>
+<td>Backup.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BioPerine — Sami-Sabinsa branded</strong> (single-source by
+design; the BioPerine IP is Sami-Sabinsa proprietary):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa BioPerine</strong></td>
+<td>Bangalore</td>
+<td>95% piperine, branded</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 mandatory</strong>; the BioPerine IP is the
+foundational Shoba-1998-evidence-base branded piperine. Cross-SKU
+standard.</td>
+</tr>
+<tr>
+<td>Generic 95% piperine (commodity)</td>
+<td>Various</td>
+<td>95% piperine generic</td>
+<td>TBD</td>
+<td>NOT used in V1. Future cost-lever option.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Moringa whole-leaf</strong> — TGL captive supply (DPR
+Moringa, heat-treated). Same as Cycle.</p>
+<h3 id="123-consolidated-vendor-contact-directory">12.3 Consolidated
+vendor contact directory</h3>
+<p>Same primary contact set as Cycle (Sami-Sabinsa, Vidya Herbs, Akay
+Group, Plant Lipids, Indfrag) — Reset's Sami-Sabinsa relationship is
+particularly central given C3 Complex + BioPerine + Shatavari +
+Bhringraj backup all flow through Sami-Sabinsa. Akay Group is the
+secondary anchor for Manjistha + Bhringraj primary. Vidya Herbs is the
+Methi primary. Full directory in
+<code>sku-1-cycle-product-brief.md</code> Section 12.3.</p>
+<h3 id="124-packaging-capsule-shell-bottle-manufacturing">12.4
+Packaging, capsule shell, bottle, manufacturing</h3>
+<p>Same packaging vendor stack as Cycle (Pragati Pack India for label +
+monocarton; HPMC capsule shells via Deepika's vendor relationship per
+TGL-P1-DEC-002; HDPE amber bottle from Karur-area Deepika source).
+90-cap pack (vs Cycle's 60-cap) requires 1.5x the capsule shell load —
+bottle size goes up correspondingly (90-cap HDPE amber slightly larger
+fill volume, same vendor).</p>
+<p>Manufacturing per V3 plan-level changes (master MD Part 0):
+<strong>in-house at Deepika's facility</strong> (FSSAI nutraceutical
+license; phycocyanin R&amp;D capsule already produced) rather than
+external CMO. Capsule fill at 496 mg in Size #0 is well within in-house
+capability. The in-house route is the single biggest GM lever in the
+cost model — it saves ~₹40/pack vs external Greenfield CMO and is the
+reason Reset hits 81.8% GM at MRP despite the 90-cap pack carrying 50%
+more shells than the 60-cap SKUs.</p>
+<h3 id="125-quality-control-protocol">12.5 Quality control protocol</h3>
+<p>Same QC framework as Cycle. Per-batch HPLC saponin assay for Methi
+and Shatavari (verify 4-5% spec consistency batch-to-batch); per-batch
+curcuminoid assay for C3 Complex (verify 95-97% spec); per-batch
+piperine assay for BioPerine; per-batch DNA barcoding for Manjistha
+(commodity Rubia supply has species substitution risk — Rubia tinctorum
+vs Rubia cordifolia confusion); per-batch heavy-metal panel for all
+non-branded actives; chain-of-custody verification for branded
+ingredients (C3 Complex, BioPerine — Sami-Sabinsa direct invoice + CoA
+mandatory). Stability testing at Month 3/6/12/24 for the multi-extract
+matrix.</p>
+<h3 id="126-capsule-fill-feasibility">12.6 Capsule fill feasibility</h3>
+<p>496 mg total fill in Size #0 capsule (capacity ~700-1000 mg standard
+density). <strong>Comfortable fit, no granulation step
+required.</strong> Headroom available if vendor-formulator (Dr. Lakshmi
+Kala) recommends adding D-Inositol (250mg, V2 candidate) or Cinnamon
+verum (50-100mg, V2 candidate) at trial-fill review — though current
+Size #0 fit at 496mg comfortably accommodates a 200-250mg addition
+without forcing Size #00 escalation.</p>
+<h3 id="127-regulatory-feasibility">12.7 Regulatory feasibility</h3>
+<p>All 7 actives FSSAI-permitted under Schedule VI of the Health
+Supplements Regulations 2022. Methi permitted as common spice +
+nutraceutical (Annexure A). Curcumin permitted as common spice extract
+(Annexure A; Sami-Sabinsa C3 Complex is FSSAI-registered branded
+ingredient). BioPerine permitted as common spice extract (Annexure A;
+Sami-Sabinsa BioPerine is FSSAI-registered branded ingredient).
+Manjistha and Bhringraj permitted (Annexure B). Shatavari permitted
+(Annexure B). Moringa permitted.</p>
+<p><strong>Permitted claim language</strong>: "supports women's hormonal
+wellness," "supports healthy menstrual cycle," "helps maintain hormonal
+balance," "supports healthy glucose metabolism," "traditionally used in
+Ayurveda for women's reproductive wellness," "with clinical-dose Methi
+and branded Curcumin C3 Complex," "for women managing PCOS" (consumer
+use-case language), "Built on Moringa. Powered by Ayurveda."</p>
+<p><strong>NOT permitted</strong>: "treats PCOS / PCOD," "cures hormonal
+imbalance," "reverses insulin resistance," "replaces Metformin / OCPs,"
+"restores ovulation."</p>
+<p><strong>Subtle but critical</strong>: TGL must NOT use "PCOS" or
+"PCOD" in product claims, taglines, or label copy as
+medical-condition-cure language. <strong>Permitted</strong>: "for women
+managing PCOS" (consumer use-case language), "supports women's hormonal
+wellness." Pack art can reference "for hormonal balance" but not "PCOS
+treatment."</p>
+<p><strong>Mandatory label compliance</strong>:</p>
+<ul>
+<li>"NOT FOR MEDICINAL USE"</li>
+<li>"CONSULT YOUR PHYSICIAN BEFORE USE IF PREGNANT, BREASTFEEDING, ON
+MEDICATION (ESPECIALLY FOR DIABETES, THYROID, OR HORMONAL
+CONDITIONS)"</li>
+<li>"NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE"</li>
+<li>FSSAI license prominent</li>
+<li>Veg symbol, manufacturer/marketer details</li>
+<li>Per-dose actives table with saponin / curcuminoid / piperine
+standardisation percentages</li>
+</ul>
+<p><strong>Pregnancy / breastfeeding contraindication</strong>: Reset
+stack contains Manjistha (avoid in early pregnancy per classical
+caution) and Curcumin (high-dose curcumin is uterotonic at therapeutic
+levels) — explicit pregnancy contraindication on label.</p>
+<p><strong>Drug interactions to flag</strong>:</p>
+<ul>
+<li><strong>Diabetes medications (Metformin, sulfonylureas,
+insulin)</strong>: Methi has hypoglycemic effects; combining with
+hypoglycemic medication can cause additive blood-glucose lowering.
+Mandatory physician-consult flag.</li>
+<li><strong>Hormonal medications (OCPs, HRT, fertility drugs)</strong>:
+Shatavari phytoestrogen action; physician consult mandatory.</li>
+<li><strong>Anticoagulants (warfarin, aspirin)</strong>: Curcumin mild
+antiplatelet effect at high dose; physician consult flag.</li>
+<li><strong>CYP450 substrate medications</strong>: BioPerine (piperine)
+inhibits hepatic CYP450 enzymes; can affect plasma levels of
+co-administered medications (particularly relevant for
+chronic-medication users). Physician consult mandatory.</li>
+</ul>
+<p>AYUSH cert in parallel per V3 plan-level changes (FSS Chennai officer
+route).</p>
+<h3 id="128-aggregate-supply-chain-risk-and-mitigation">12.8 Aggregate
+supply chain risk and mitigation</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Severity</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sami-Sabinsa relationship concentration (C3 Complex + BioPerine +
+Shatavari backup all single-source)</td>
+<td>Medium-High</td>
+<td>Deep relationship investment; authorised-distributor channel
+verification; long-term supply agreement at TGL Q1 batch tier</td>
+</tr>
+<tr>
+<td>Methi saponin spec drift (vendor commodity 4-5% has natural
+variance)</td>
+<td>Medium</td>
+<td>Per-batch HPLC saponin assay; reject batches outside 3.5-6%
+range</td>
+</tr>
+<tr>
+<td>Manjistha species substitution risk (Rubia tinctorum vs Rubia
+cordifolia)</td>
+<td>Medium</td>
+<td>Per-batch DNA barcoding; cultivated-origin certification preferred
+over wild-collected</td>
+</tr>
+<tr>
+<td>Curcumin storage stability (light + humidity-sensitive)</td>
+<td>Low-medium</td>
+<td>24-month stability testing pre-launch; appropriate packaging (HDPE
+amber bottle, desiccant)</td>
+</tr>
+<tr>
+<td>Moringa supply continuity (single-source DPR)</td>
+<td>Low (captive)</td>
+<td>TGL existing flow; backup CMO Andhra/TN identified</td>
+</tr>
+<tr>
+<td>90-cap pack capsule shell volume vs Deepika vendor MOQ</td>
+<td>Low</td>
+<td>Pack size pre-confirmed at vendor sizing; first-batch demand
+supports MOQ economics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="129-open-sourcing-questions-for-phase-1-vendor-calls">12.9 Open
+sourcing questions for Phase 1 vendor calls</h3>
+<ol type="1">
+<li><strong>Sami-Sabinsa C3 Complex pricing + MOQ at TGL Q1 batch
+tier.</strong> Authorised distributor channel terms; ~₹8-10K/kg landed
+range; lock at ₹9K/kg mid for COGS planning.</li>
+<li><strong>Sami-Sabinsa BioPerine pricing + MOQ at TGL Q1 batch
+tier.</strong> Same authorised distributor channel; ~₹40K/kg landed
+range.</li>
+<li><strong>Vidya Herbs Methi 4-5% saponin spec consistency.</strong>
+Multi-batch sample test; verify 4-5% range stable batch-to-batch.</li>
+<li><strong>Akay Group Manjistha cultivated-origin
+certification.</strong> Cultivated (West Bengal / Karnataka) preferred
+over wild-collected; verify per vendor.</li>
+<li><strong>In-house capsule fill validation at 496 mg Size #0 +
+multi-active blend (6 extracts + heritage moringa).</strong> Trial-fill
+at Deepika's facility pre-launch.</li>
+<li><strong>V3 cost lock confirmation.</strong> Confirm C3 Complex +
+BioPerine + Methi per-mg costs at Q1 vendor terms; the ~₹273/pack COGS +
+81.8% GM at MRP is the locked planning baseline (DEC-023). Variance
+&gt;10% triggers reformulation lever (C3 Complex dose right-size to
+75mg/cap).</li>
+</ol>
+<hr />
+<h2 id="13-effort-capital-and-execution-action-plan">13. Effort,
+capital, and execution action plan</h2>
+<p><em>Pending. Phase 1 (Q1) launch critical path mapped to owner +
+spend bucket, shared with Cycle and Bloom. The "who does what, when,
+with how much money" layer. Bridges this brief to the program management
+spec (<code>10-phase-1-program-management.md</code>) once the Q1 trio
+launch sequencing is locked.</em></p>
+<h2 id="14-technical-appendix">14. Technical appendix</h2>
+<p><em>Pending. References V3 dossier
+(<code>dossiers/02-reset-pcos.md</code>), formulation spec (to be
+drafted at Dr. Lakshmi Kala handoff), governance doc 10
+(<code>10-phase-1-program-management.md</code>), brand DNA
+(<code>02-brand-dna.md</code>).</em></p>
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 with Sections 1-12 locked 2026-05-09 by Aarav, V3 cost lock
+applied. Sections 13-14 pending. On full lock, brief is shareable with
+Deepika + Unnati for input + alignment.</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial full brief, drafted by Aarav post-Deepika V3
+reformulation + verified V3 cost lock per DEC-023.</p>
+<ul>
+<li><strong>DEC-014 (3-cap split-meal protocol)</strong>: Reset locked
+to Size #0 × 3 caps/day daily, split morning + lunch + dinner with
+meals. Preserves therapeutic Methi dose (1000mg/day) without forcing
+Size #00 oversized cap; split-meal dosing improves insulin-sensitivity
+blood-level consistency.</li>
+<li><strong>DEC-016 (vendor-network standard concentrations)</strong>:
+Methi locked to generic 4-5% saponins (Vidya Herbs / Sami-Sabinsa), NOT
+Furocyst 40% specialty (Indus Biotech single-supplier branded). Saponin
+dose math works at vendor-network commodity grade. Furocyst deferred to
+V2.</li>
+<li><strong>DEC-023 (V3 cost lock)</strong>: COGS ~₹273/pack at in-house
+manufacturing; 81.8% GM at MRP ₹1,499. Pricing UNCHANGED at ₹1,499 /
+₹1,299 / ₹1,099 — premium-accessible Tier A women's hormonal
+continuum.</li>
+<li><strong>D-Inositol deferred to V2</strong>: strongest single-active
+PCOS evidence base, but Indian natural-source supply chain not yet
+mature for vendor-network discipline. V2 candidate when Lonza Carobsure
+/ TSI Group / Indian-source carob supply matures.</li>
+<li><strong>Channel mix</strong>: WEBSITE-FIRST / Shopify-led per
+TGL-P1-DEC-017 (Section 10). Amazon Month 2-3 secondary.</li>
+<li><strong>Manufacturing</strong>: in-house at Deepika's FSSAI-licensed
+facility per V3 plan-level (NOT external CMO). The ~₹40/pack saving vs
+Greenfield CMO is the single biggest GM lever in the model.</li>
+</ul>
+</main>
+</body>
+</html>

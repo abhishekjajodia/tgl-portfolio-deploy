@@ -1,0 +1,3144 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Nourish (Lactation)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Nourish (Lactation)</strong></div>
+
+<blockquote>
+<p><strong>Mirrored in the master doc</strong>: This Nourish brief is
+also embedded in <a
+href="tgl-product-portfolio.md"><code>tgl-product-portfolio.md</code></a>,
+the consolidated single-doc view of all 10 SKUs + Plan Moving Forward.
+The master doc is canonical for navigation. This standalone is retained
+for focused single-product viewing.</p>
+</blockquote>
+<h1 id="nourish-working-name-product-brief">Nourish (working name):
+Product Brief</h1>
+<p><strong>The Good Leaf (TGL)</strong> Phase 2 Q3 launch SKU. Lactation
+/ Postpartum support. <em>Drafted 2026-05-09 by Aarav. Status: V1 with
+Sections 1-12 locked. This brief is the team-readable narrative layer
+for Deepika, Unnati, Boco, and Dr. Lakshmi Kala. Pair with
+<code>dossiers/07-nourish-lactation.md</code> (V3 theory + clinical
+detail) and the V3 verified cost lock in
+<code>00-tgl-cost-model.md</code>.</em></p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Nourish (working name; final lock pending TM
+clearance per TGL-P1-DEC-007 and the naming sprint round 2 with
+Deepika). All 10 SKU names in the portfolio currently sit as
+placeholders pending Deepika's naming sprint per the V3 plan-level
+changes.</p>
+<p><strong>Elevator pitch (3 sentences, repeatable by anyone on the
+team):</strong></p>
+<blockquote>
+<p>Nourish is TGL's lactation and postpartum-recovery capsule, designed
+for new mothers in the 0-6 month postpartum window who need real
+galactagogue support, replenishment of the iron and calcium that
+lactation drains, and the nutritive depth that traditional Ayurvedic
+Stree-rasayana formulations have provided for centuries. Three
+plant-cellulose Size #0 capsules a day, split across morning, lunch, and
+evening with meals, deliver Shatavari at high-end therapeutic
+galactagogue dose plus Methi, Aquamin-Ca, our farm-grown moringa at the
+Tier B galactagogue exception dose (400mg/day total), and supportive
+curry-leaf phytochemicals. It is the only credible accessible-premium
+lactation capsule in India today that combines a comprehensive Ayurvedic
+galactagogue stack with natural-source minerals, in a format that
+respects the most demanding nutrient-export job a woman's body will ever
+do.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-nourish-motivation">2. Why we're building
+Nourish (motivation)</h2>
+<p>Five reasons, in priority order:</p>
+<p><strong>1. The strongest customer-voice signal in TGL's existing
+review base, after period-care.</strong> The dominant secondary theme in
+TGL's Reviews Repository, after "period regulation," is mothers who say
+"I started moringa for milk supply." TGL's existing single-ingredient
+moringa SKU is already being repurposed for lactation by women who found
+their way there through word-of-mouth or grandmother's wisdom. Nourish
+takes that latent demand and gives it the formulation it deserves:
+moringa stays as the heritage galactagogue (at the documented exception
+dose for this specific use case), Shatavari does the primary classical
+galactagogue work, Methi adds the cross-cultural galactagogue layer,
+Aquamin-Ca handles the postpartum calcium drain, and curry-leaf carries
+supportive phytochemicals. The mother who today buys two SKUs (TGL
+Moringa for supply + a separate calcium tablet for bone density) gets
+one comprehensive product instead.</p>
+<p><strong>2. Genuine category whitespace at ₹1,099-1,199 sale.</strong>
+The Indian lactation supplement market is dominated by either
+food-format products (Mother's Recipe Mom &amp; World Lactation Cookies
+at ₹599, Lakshmi Janani Lactation Tea at ₹299-499) or thin Ayurvedic
+capsule competitors (SARVA Mother's Bliss at ₹599, Nuvoxa Lactation
+Booster at ₹699) or pharma-tier single-ingredient products (Pediasure
+Mom at ₹1,500). The accessible-premium tier (₹1,000-1,300) for a
+comprehensive lactation + postpartum-recovery capsule is genuinely
+empty. Earthly, Cosmix, Be Bodywise, OZiva, Mihiral all skip the
+lactation segment entirely. Nourish slots into a category-defining
+position.</p>
+<p><strong>3. Highest-emotional-engagement segment in the
+portfolio.</strong> New mothers buy supplements with conviction when
+they perceive a milk-supply or postpartum-recovery benefit. The Reviews
+Repository signal is strong: multiple "milk supply increased" mentions
+in TGL's existing customer base around moringa. The 0-6 month postpartum
+window is the period of highest physiological demand and highest
+receptivity to nutritional support. Conversion costs are higher
+(skeptical mother filtering through her ingredient list more carefully
+than any other persona), but conversion durability is also the highest
+in the portfolio: a mother who finds Nourish works for her stays on it
+for 6-12 months and recommends it to every other mother in her WhatsApp
+group.</p>
+<p><strong>4. Strong subscription PMF anchored to a 3-6 month
+physiological cycle.</strong> Lactation has a defined biological window:
+typically 0-12 months postpartum, with the highest-need stretch at 0-6
+months. Subscription messaging maps cleanly to this rhythm: a 3-month
+subscription covers the establishment phase, a 6-month subscription
+covers the full primary lactation window. Repurchase isn't a marketing
+fight; it's a biological inevitability while the mother is
+breastfeeding. This makes Nourish one of the cleanest subscription
+mechanics in the portfolio after Cycle.</p>
+<p><strong>5. Founder authenticity is highest here.</strong> Deepika is
+the founder voice for this category per TGL-P1-DEC-004; motherhood
+status is non-blocking for content authenticity. Her natural register
+(English-Tamil and English-Hindi mix) lands hardest with the South
+Indian and metro lactating mother who reads BabyChakra and
+MyLittleMoppet content, sits in WhatsApp mom-groups, and trusts
+mother-in-law / aunt's traditional recipes (Shatavari kalpa, methi
+laddu, ajwain water). Ayurvedic credibility is HIGHER for this persona
+than any other TGL persona. Deepika talking about Shatavari, methi, and
+moringa in the postpartum context is a content arc she can sustain
+organically over the launch month and beyond.</p>
+<p><strong>Why Phase 2 Q3 launch (not Q1)</strong>: high regulatory load
++ emotional-stakes content production take time. We launch Nourish AFTER
+the brand has earned trust through Cycle + Bloom + Reset (Q1 Phase 1
+hormonal continuum), so the founder voice is already established and the
+operational infrastructure is mature. The Q3 sequencing also allows Dr.
+Lakshmi Kala (formulation expert, per the V3 plan-level changes) to
+validate the lactation-specific dose architecture and the
+regulatory-counsel review of claim language to land before vendor
+outreach.</p>
+<p><strong>Single-sentence motivation</strong>: Nourish is the SKU TGL's
+existing mothers were already reaching for when they bought moringa "for
+milk supply," sitting in the price band where no comprehensive Ayurvedic
+lactation capsule exists today, designed to be the
+highest-emotional-engagement subscription play in the portfolio.</p>
+<hr />
+<h2 id="3-the-customer-who-she-is-what-shes-tried-what-fails-her">3. The
+customer (who she is, what she's tried, what fails her)</h2>
+<p><strong>Who she is</strong> (core 27-37, edge 25-40):</p>
+<p>She's an urban Indian woman, primarily Tier 1 metro (Bangalore,
+Hyderabad, Chennai, Mumbai, Pune, Delhi NCR), with secondary strength in
+Tier 2 South Indian cities (Coimbatore, Madurai, Kochi, Vizag), monthly
+household income ₹80K+, multilingual (English-Tamil, English-Hindi,
+English-Telugu mix). She's a first-time mother (the dominant subset;
+second-time mothers tend to be more confident on supply and skip
+supplements) or a second-time mother who is more health-conscious about
+postpartum body recovery beyond just milk supply. She's 0-12 months
+postpartum, breastfeeding (exclusive or mixed feeding), educated,
+recently on maternity leave or working-from-home with the baby. She has
+consulted: pediatrician (for baby), gynaecologist (for self), often a
+lactation consultant (Cloudnine Hospital network, La Leche League), and
+online communities (BabyChakra, MyLittleMoppet, mommyapp). She trusts
+founder voice, traditional recipes from mother-in-law / own mother /
+aunt, and is hyper-discerning about ingredient lists when buying for
+self while breastfeeding because "what I take, baby gets."</p>
+<p><strong>Geographic launch concentration matters.</strong> TGL's
+strongest existing footprint is in Tamil Nadu, with secondary strength
+across Karnataka, Andhra Pradesh, and Telangana. Phase 2 launch indexes
+on this region first: heavier Meta targeting weighting toward South
+Indian metros, founder content with English-Tamil and English-Telugu
+language layering, regional creator partnerships with mom-influencers
+and lactation consultants from the Cloudnine and Apollo Cradle hospital
+networks, packaging copy that doesn't alienate non-Hindi-first
+audiences. The brand expands outward (Mumbai, Delhi, full national metro
+coverage) once the South Indian + first-tier metro mother cohort is
+solid. This isn't a permanent regional cap; it's a launch-sequence
+choice that uses the existing trust footprint.</p>
+<p><strong>What's happening to her body</strong> (the medical
+context):</p>
+<p>Postpartum is the most demanding nutrient-export job her body will
+ever do. The clinical realities:</p>
+<ul>
+<li><strong>Iron deficiency</strong>: postpartum is the highest-risk
+window for anemia in women's lifespan due to delivery blood loss +
+ongoing lactation iron drain. ICMR estimates 60%+ of postpartum Indian
+women are iron-deficient. Sub-clinical anemia exacerbates fatigue, hair
+fall, and (per emerging research) milk-supply concerns.</li>
+<li><strong>Calcium drain</strong>: ~200mg Ca/day is excreted in
+breastmilk; calcium reserves drop ~3-5% during lactation if dietary
+intake is inadequate. The mother's bone-mineral density takes a hit that
+takes 6-12 months to recover post-weaning.</li>
+<li><strong>Lactational amenorrhea</strong>: 6-12 month average;
+estrogen-suppressed state has unique nutrient demands different from her
+cycling years.</li>
+<li><strong>Postpartum thyroiditis</strong>: ~5-10% of postpartum women
+experience subclinical hypothyroidism in the 0-12 month window, with
+hair fall, fatigue, and low milk supply as downstream effects.</li>
+<li><strong>Postpartum depression / mood</strong>: ~10-15% of postpartum
+Indian women report PPD symptoms; the adaptogenic herbs in classical
+Stree-rasayana formulations have long been used as supportive (not
+treatment).</li>
+</ul>
+<p>The use case is real and clinical, not marketing-fabricated. Nourish
+addresses a genuine nutritional and physiological deficit, not a
+manufactured one.</p>
+<p><strong>What she's tried, and why each fails her</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What she tries</th>
+<th>Why it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Methi laddu / Shatavari kalpa from mother-in-law</td>
+<td>Effective traditionally but unmeasured dose, sticky kitchen-counter
+prep, hard to sustain</td>
+</tr>
+<tr>
+<td>Single-ingredient fenugreek tablets</td>
+<td>Doesn't address iron, calcium, or comprehensive postpartum recovery;
+one-dimensional</td>
+</tr>
+<tr>
+<td>TGL Moringa (existing single-ingredient SKU)</td>
+<td>Works partially as galactagogue + nutritive but doesn't have
+Shatavari (the classical primary lactation tonic) or Methi at
+therapeutic dose</td>
+</tr>
+<tr>
+<td>Pediasure Mom / Horlicks Mama</td>
+<td>Pharma-coded synthetic blend, taste-driven powder format, daily-prep
+friction, not Ayurvedic-anchored</td>
+</tr>
+<tr>
+<td>Pediatrician's "supply is fine, eat more" reassurance</td>
+<td>Ignores the mother's actual nutritional drain + postpartum recovery
+needs</td>
+</tr>
+<tr>
+<td>Calcium tablets (Shelcal, CCM)</td>
+<td>Single-active synthetic-source pharma, doesn't speak to her
+Ayurvedic + clean-label sensibility</td>
+</tr>
+<tr>
+<td>Iron tablets (Fefol, Livogen)</td>
+<td>GI side effects (constipation already a postpartum concern);
+pharma-coded; doesn't address comprehensive recovery</td>
+</tr>
+<tr>
+<td>SARVA Mother's Bliss (closest direct competitor)</td>
+<td>Pure-galactagogue capsule, no iron, no calcium, no
+Ashwagandha-equivalent adaptogen; mother still needs to buy 2 other
+supplements</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The 6-month postpartum journey</strong> (where the pain
+peaks, where Nourish fits):</p>
+<table>
+<thead>
+<tr>
+<th>Postpartum phase</th>
+<th>Window</th>
+<th>What she experiences</th>
+<th>Where Nourish fits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Establishment</td>
+<td>Weeks 1-3</td>
+<td>Learning to breastfeed, milk supply not yet stable, postpartum
+bleeding tapering</td>
+<td>Start Nourish at Week 2-3 once OB clears; 3 caps/day with meals</td>
+</tr>
+<tr>
+<td>Consolidation</td>
+<td>Weeks 4-12</td>
+<td>Milk supply concerns peak (perceived undersupply, baby fussiness
+interpreted as hunger), fatigue + postpartum hair fall onset,
+iron-deficiency symptoms emerge</td>
+<td>Continue 3 caps/day; Shatavari + Methi galactagogue layer +
+iron-supportive moringa working at full effect</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>Months 4-6</td>
+<td>Milk supply established, baby on a feeding rhythm, mother's iron +
+calcium reserves replenishing slowly</td>
+<td>Continue 3 caps/day; postpartum body recovery deepens</td>
+</tr>
+<tr>
+<td>Step-down</td>
+<td>Months 6-12</td>
+<td>Solid food introduction, breastfeeding tapers but continues, mother
+resuming non-pregnancy routines</td>
+<td>Continue 2-3 caps/day depending on breastfeeding intensity;
+subscription cadence adjusts</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The gap Nourish fills</strong>: a single capsule format that
+combines the classical Ayurvedic galactagogue stack (Shatavari + Methi +
+moringa at galactagogue dose) with the postpartum mineral support
+(Aquamin-Ca natural-source calcium, moringa-and-methi-and-curry-leaf
+supportive iron) and the supportive phytochemical layer, in three Size
+#0 capsules a day she can take with her meals. Not a pharma-tier
+single-active iron tablet. Not a powder she has to mix. Not a kashayam
+she would skip. Not a single-galactagogue cookie that misses the mineral
+and recovery story. Three caps a day, every day, for the lactation
+window.</p>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-3-6-months">4.
+What the product does (the lived experience over 3-6 months)</h2>
+<p><strong>Nourish is supportive nutrition during the most demanding
+nutrient-export job her body will ever do.</strong> It is not a
+milk-supply rescue for clinical lactation insufficiency (those mothers
+need lactation consultants + medical evaluation, not a supplement). It
+is not a postpartum-depression treatment (that needs clinical care). It
+is not a substitute for diet, sleep, hydration, or
+breastfeeding-on-demand. What it is, honestly: a comprehensive
+nutritional and Ayurvedic galactagogue support stack that compounds over
+weeks and months in ways that matter to a mother who is already doing
+everything else right.</p>
+<p>Here's what she actually experiences if she takes 3 caps/day with
+meals for 6 months:</p>
+<p><strong>Days 1-7 (the nutritional repletion window):</strong></p>
+<p>For mothers with baseline iron deficiency (the dominant subset of
+postpartum Indian women), Days 1-7 may bring early relief from
+iron-deficiency fatigue: slightly more energy, less of the "I can't keep
+my eyes open at 3pm" exhaustion. This is not Nourish-specific; it's
+iron-baseline support kicking in. The galactagogue layer (Shatavari +
+Methi + moringa) hasn't yet had time to compound. Marketing should not
+over-promise Day 1-7 milk-supply changes.</p>
+<p><strong>Weeks 1-3 (the galactagogue layer emerges):</strong></p>
+<p>Shatavari at 500mg/day total + Methi 200mg/day + moringa 400mg/day
+galactagogue dose start to compound. Many mothers report "fuller-feeling
+breasts" between feeds, "baby seems satisfied longer between feeds," or
+simply "I feel like supply is more settled." This is the period where
+the galactagogue effect crosses the perceptibility threshold for mothers
+who had genuine perceived undersupply. For mothers whose supply was
+already adequate, Nourish maintains supply during what would otherwise
+be a natural mid-lactation dip.</p>
+<p><strong>Weeks 4-8 (cumulative postpartum recovery):</strong></p>
+<p>Iron + calcium + galactagogue + supportive phytochemical layer
+compounds. Postpartum hair shedding stabilises (it doesn't reverse —
+that takes longer — but the worst of the hair-fall window starts to
+settle). Bone-mineral support from Aquamin-Ca starts the slow process of
+replenishment. Mood + energy stabilise as cumulative nutritional
+repletion catches up to lactation drain. The mother starts to feel "more
+like herself" again, not at pre-pregnancy baseline but on the recovery
+curve.</p>
+<p><strong>3+ months (sustained postpartum recovery):</strong></p>
+<p>Iron + calcium reserves replenishing at a rate that her body's
+demands can match. Sustained milk supply through the
+establishment-to-consolidation transition. Mood + energy on a stable
+upward trajectory. Some mothers at this stage transition to a smaller
+dose (2 caps/day instead of 3) once breastfeeding intensity tapers;
+others stay on full 3 caps/day for the consistency.</p>
+<p><strong>6+ months (the maintenance window):</strong></p>
+<p>For mothers continuing to breastfeed past 6 months (the dominant
+subset for educated, urban, lactation-committed mothers), Nourish stays
+in the routine as the postpartum-recovery + lactation-maintenance
+capsule. Subscription cadence adjusts based on dose. For mothers weaning
+around 6-9 months, Nourish steps down naturally as breastfeeding
+intensity decreases.</p>
+<p><strong>What we're NOT promising</strong> (so customers and Deepika
+both stay credible):</p>
+<table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Increases milk supply" / "milk supply guarantee"</td>
+<td>Borderline drug-claim language under FSSAI; also dishonest for
+clinical insufficiency cases</td>
+</tr>
+<tr>
+<td>"Cures lactation insufficiency" / "treats low milk supply"</td>
+<td>Disease-coded claims violate Schedule VI; also untrue</td>
+</tr>
+<tr>
+<td>"Galactagogue" as label term</td>
+<td>FSSAI-sensitive (sometimes interpreted as therapeutic-category
+trigger); use "supports lactation" instead</td>
+</tr>
+<tr>
+<td>Replacement for lactation consultant or pediatrician</td>
+<td>Clinical concerns need clinical care; Nourish complements, doesn't
+replace</td>
+</tr>
+<tr>
+<td>"Safe for baby"</td>
+<td>Implies medical clearance we don't have authority to give</td>
+</tr>
+<tr>
+<td>Effect inside 3-7 days on supply</td>
+<td>Galactagogue effect compounds over weeks; over-promising Day 7
+results creates the review wall</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest customer message</strong> Deepika repeats across
+content: <em>"Built on Moringa. Powered by Ayurveda. Three caps a day
+with meals during your lactation window. Shatavari, methi, moringa — the
+herbs your mother and grandmother knew, plus the iron and calcium your
+postpartum body needs. Real plants, real nutrition, real time to
+work."</em></p>
+<hr />
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Five actives in the cap, organised as one moringa whole-leaf
+heritage base (at the Tier B galactagogue exception dose) + four
+standardised extracts and natural-source minerals.</strong> This is
+TGL's extract-first formulation philosophy in action (per
+<code>02-brand-dna.md</code> Operational Principle 6, locked 2026-05-09
+as TGL-P1-DEC-011), with the documented Tier B exception for moringa per
+the Moringa Foundation principle.</p>
+<p><strong>Format: Size #0 capsule × 3 caps/day daily</strong> (split
+morning + lunch + evening with meals per DEC-014). The 3-caps-per-day
+path is locked because: (a) postpartum users tolerate splitting doses
+across meals well (they're already taking everything with food to manage
+GI and iron-absorption), (b) split-meal galactagogue dosing improves
+blood-level consistency for the Shatavari + Methi saponins, and (c)
+preserving therapeutic doses takes priority over capsule-size
+minimisation per DEC-014. Plus the moringa galactagogue dose (400mg/day)
+and the Aquamin-Ca dose physically require either 3 Size #0 caps or 2
+Size #00 caps with granulation; the 3 Size #0 path is the cleaner
+manufacturing route.</p>
+<p><strong>The 5-active stack</strong> (each named with form +
+standardisation marker + concentration + primary vendor — DEC-016
+verified all-vendor-network all-standard-grade, V3 verified per
+DEC-023):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (~500mg fill, 3 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Shatavari</strong></td>
+<td>Standardised extract, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>167 mg</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Methi (fenugreek)</strong></td>
+<td>Standardised extract, 4-5% saponins (generic vendor-standard)</td>
+<td>Vidya Herbs OR Sami-Sabinsa</td>
+<td>67 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Aquamin-Ca</strong></td>
+<td>Algae lithothamnion calcium (Marigot)</td>
+<td>via Inhalation Health India</td>
+<td>100 mg (~33 mg elemental Ca)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Moringa</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa)</td>
+<td>TGL captive</td>
+<td>133 mg</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Curry leaf</strong></td>
+<td>Standardised carbazole alkaloids (NOT iron-standardised — see
+notes)</td>
+<td>Plant Lipids OR Vidya Herbs</td>
+<td>33 mg</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~500 mg / cap</strong> (Size #0 ✓)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DEC-016 + DEC-023 compliance check (2026-05-09)</strong>: All
+4 extracts + minerals are vendor-network standard concentrations (no
+specialty / hyper-premium / single-supplier branded ingredients
+required). V3 verified COGS is ~₹168/pack (90 caps), delivering 86%
+gross margin at MRP ₹1,199 — excellent margin profile, driven by all
+standard extracts + captive moringa.</p>
+<p><strong>On-pack and PDP labelling shows the whole-plant
+equivalence</strong> (example: "Shatavari extract 167mg, equivalent to
+1,500mg whole-root traditional dose") so the customer sees
+classical-dose efficacy delivered via standardised pharma-grade
+consistency.</p>
+<p><strong>Daily intake at 3 caps/day</strong> during her lactation
+window:</p>
+<ul>
+<li>Shatavari extract: 500mg/day (high-end therapeutic Stree-rasayana
+galactagogue dose; matches Sharma 2010 + Patel 2014 clinical lactation
+trial range of 200-500mg)</li>
+<li>Methi extract: 200mg/day (delivers 8-10mg saponins, supportive
+galactagogue layer; well below the 500mg+ dose where neonatal effects
+become a concern per Methi safety note)</li>
+<li>Aquamin-Ca: 300mg extract = ~100mg elemental Ca (10% RDA lactating
+women, supportive replenishment for the ~200mg/day breastmilk Ca
+export)</li>
+<li>Moringa whole-leaf: 400mg/day (Tier B galactagogue exception dose
+per Moringa Foundation principle, supports both galactagogue effect per
+Estrella 2000 and natural-source Fe/Ca/B-complex nutritive)</li>
+<li>Curry leaf extract: 100mg/day (supportive phytochemicals +
+brand-story heritage)</li>
+<li><strong>Total daily extract + heritage intake: ~1,500mg actual mass;
+~3,000-4,000mg whole-plant-equivalent classical-dose</strong></li>
+</ul>
+<p><strong>Rough nutrient density roll-up</strong> (what the body gets,
+beyond the bioactive headlines):</p>
+<ul>
+<li><strong>Iron</strong>: from moringa 400mg + methi + curry leaf,
+delivers ~3-5mg natural-source iron/day (~17-28% lactating women's RDA
+of 18mg). Supportive replenishment for postpartum iron drain;
+<strong>NOT a replacement for postpartum iron prescription if mother is
+clinically anaemic</strong>. Frame to customer as "natural-source iron
+support" not "100% iron RDA postpartum supplement."</li>
+<li><strong>Calcium</strong>: ~100mg elemental Ca from Aquamin-Ca +
+supportive trace from moringa = ~110-130mg natural-source calcium
+(~10-12% RDA lactating women of 1,000mg). Supportive replenishment for
+breastmilk calcium export, complementary to dietary intake.</li>
+<li><strong>B-complex, vitamin C, folate, antioxidants</strong>:
+nutritive support from moringa whole-leaf phytocomplex.</li>
+<li><strong>Bioactive markers</strong> (the things doing the actual
+galactagogue work):
+<ul>
+<li>Shatavarins (saponins): ~20-25mg/day, prolactin support + classical
+Stree-rasayana effect</li>
+<li>Methi saponins (trigonelline + diosgenin precursors): ~8-10mg/day,
+supportive cross-cultural galactagogue</li>
+<li>Moringa whole-leaf phytocomplex: galactagogue effect at 400mg/day
+per Estrella 2000 + nutritive support</li>
+<li>Curry leaf carbazole alkaloids: supportive phytochemical layer +
+brand-story heritage</li>
+</ul></li>
+</ul>
+<p><strong>Why this specific 5-active stack</strong>:</p>
+<ul>
+<li><strong>Shatavari extract</strong>: gold-standard primary classical
+galactagogue (<em>Stree-rasayana</em>). Cannot build a credible
+Ayurvedic lactation SKU without it. The 4-5% saponin standardisation is
+industry norm (no premium for higher %). 500mg/day at this
+standardisation is the high-end therapeutic dose per Sharma 2010 and
+Patel 2014 RCTs.</li>
+<li><strong>Methi extract</strong>: well-studied cross-cultural
+galactagogue (Turkyilmaz 2011 fenugreek-tea study + global
+breastfeeding-medicine literature). Conservative dose (200mg/day) keeps
+us well below the threshold where neonatal effects become a concern
+(typically reported at 500-1000mg+ daily) while still delivering
+supportive saponin load. The Shatavari + Methi pair is the classical
+Ayurvedic + cross-cultural galactagogue dyad.</li>
+<li><strong>Aquamin-Ca</strong>: natural-source plant-derived (algae
+lithothamnion) calcium. Aligns with TGL's natural-source-only Pillar 1
+(no synthetic Ca carbonate / citrate / phosphate). Supportive postpartum
+bone-mineral support without synthetic-mineral baggage. Same Aquamin-Ca
+used in Bloom and Crest, building TGL's natural-source-mineral story
+across the portfolio.</li>
+<li><strong>Moringa whole-leaf at 400mg/day galactagogue dose</strong>:
+documented exception to Tier B 50mg heritage signature rule per the
+Moringa Foundation principle, justified by Estrella 2000 clinical
+evidence that moringa supplementation increased milk volume in mothers
+of preterm infants. Also delivers supportive natural-source iron,
+calcium, B-complex, and vitamin A for postpartum nutritive support. The
+ONE whole-plant ingredient in the cap, per Operational Principle 6.</li>
+<li><strong>Curry leaf extract</strong>: brand-story phytochemical
+layer. Per the curry-leaf iron reframe (locked across Bloom + Root +
+Nourish in DEC-016 — see "Active library notes" below), curry leaf
+carries supportive carbazole alkaloids and brand-heritage signal, not a
+standardised iron source.</li>
+</ul>
+<p><strong>Why the 3-cap Size #0 path</strong> (per DEC-014):</p>
+<p>Two alternatives were considered and rejected:</p>
+<ol type="1">
+<li><strong>Size #00 × 2 caps/day with granulation.</strong>
+Mathematically possible (2 × ~750mg fill = 1,500mg), but physically a
+Size #00 capsule is a stretch for postpartum mothers who are also
+swallowing iron tablets, prenatal-leftover multivitamins, or thyroid
+medication; compliance friction is real. Granulation also adds a
+manufacturing step that increases COGS without proportionate
+benefit.</li>
+<li><strong>Size #0 × 2 caps/day with reduced doses.</strong> Would
+force either Shatavari to 333mg/day (dropping below the high-end
+therapeutic galactagogue dose), or moringa to 250mg/day (below the
+documented 400mg/day galactagogue exception dose), or dropping
+Aquamin-Ca entirely. None of these is acceptable; the stack's value is
+the comprehensive postpartum + lactation support, not picking one
+dimension over another.</li>
+</ol>
+<p>The 3-cap Size #0 path with split-meal dosing (1 morning + 1 lunch +
+1 evening with food) is the right trade: preserves therapeutic doses,
+gives the mother a manageable swallow size (Size #0 is comfortable for
+daily users), aligns with her existing meal-time supplement routine, and
+improves galactagogue blood-level consistency.</p>
+<p><strong>What's NOT in the stack, and why</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Excluded active</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ashwagandha (KSM-66 or generic)</td>
+<td>Lactation safety is supported at moderate doses (Sengupta 2018) but
+precautionary principle applies for postpartum: errs on conservative.
+Mood + adaptogenic support comes from nutritive recovery + Shatavari +
+moringa; KSM-66 lives in Calm + Spark where it's the hero. <strong>Open
+question for Dr. Lakshmi Kala</strong>: does the Phase 2 Q3
+lactation-context clinical literature now support a conservative
+100mg/day Ashwagandha addition? Default V1: omit.</td>
+</tr>
+<tr>
+<td>Goat's rue (Galega officinalis), Blessed thistle (Cnicus
+benedictus)</td>
+<td>Classical Western lactation herbs; not Indian, not Pillar 2-aligned;
+skip.</td>
+</tr>
+<tr>
+<td>Domperidone or any prescription-class galactagogue</td>
+<td>Drug, not supplement; deliberately excluded.</td>
+</tr>
+<tr>
+<td>Probiotic strain</td>
+<td>Postpartum gut + infant microbiome support is a real area but
+operationally complex (cold-chain, delayed-release encapsulation).
+Probiotic angle goes to Pulse (V2) where it's the focus.</td>
+</tr>
+<tr>
+<td>Iron salt (synthetic Fe sulfate / fumarate)</td>
+<td>Would violate Pillar 1 (natural-source only) and create the GI side
+effects (constipation) that postpartum mothers actively avoid. Iron
+support comes from natural-source moringa + methi + curry leaf, framed
+honestly as supportive (not full RDA).</td>
+</tr>
+<tr>
+<td>Synthetic vitamin D3</td>
+<td>Lichen-derived Vitashine D3 is Pillar 1-compliant but reserved for
+Bloom. Nourish stays focused on the galactagogue + mineral + nutritive
+arc.</td>
+</tr>
+<tr>
+<td>Amla (Vitamin C iron co-factor)</td>
+<td><strong>Open question for Dr. Lakshmi Kala</strong>: would adding
+30-50mg amla extract enhance natural-source iron absorption from the
+moringa + methi + curry-leaf load? Cost adder is minimal. Capsule fill
+weight needs to stay within Size #0. Default V1: omit; revisit at
+trial-fill.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: 500mg total fill in Size #0
+capsule (capacity ~410-500mg with capsule fill flexibility 400-470mg
+seasonally per Deepika V3 meeting). At the upper end of standard Size #0
+capacity. May require granulation step at vendor-formulator validation;
+Dr. Lakshmi Kala validates at trial-fill. Fallback: switch to Size #00 ×
+2 caps with granulation OR reduce curry leaf to 25mg/cap to bring fill
+to ~492mg.</p>
+<hr />
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 5 actives: mechanism, classical basis, modern
+clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. Shatavari extract (4-5% saponins, 167mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: phytoestrogenic steroidal saponins
+(shatavarins I-IV) modulate prolactin secretion via dopamine antagonism
+at the pituitary, supporting milk synthesis. Adaptogenic action on the
+hypothalamic-pituitary-ovarian (HPO) axis aids postpartum hormonal
+recalibration.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a>. Primary <em>Stree-rasayana</em> (women's tonic) and the
+most-cited Ayurvedic galactagogue (<em>Stanya-vardhaka</em>).
+Foundational ingredient in classical lactation formulations.</li>
+<li><strong>Modern clinical evidence</strong>: Sharma S. et al.
+<em>"Randomized controlled trial of Asparagus racemosus (Shatavari) as a
+lactogogue in lactational inadequacy."</em> Indian Pediatrics, 1996.
+Plus Patel L., Kanole P. <em>"Asparagus racemosus (Shatavari) in
+lactational inadequacy: a clinical study."</em> Indian J Pharmacol,
+2014. Both showed shatavari-standardized extracts improved both milk
+supply AND prolactin levels in lactating mothers. Meta-context: Pandey
+A.K. et al. <em>"Impact of stress on female reproductive health
+disorders: Possible beneficial effects of shatavari (Asparagus
+racemosus)."</em> Biomed Pharmacother, 2018; 103:46-49. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29635127/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 167mg/cap × 3 caps = 500mg/day
+extract. Delivers ~20-25mg shatavarins/day, in the high-end therapeutic
+galactagogue range (clinical lactation trials use 200-500mg standardised
+extract daily).</li>
+</ul>
+<p><strong>2. Methi (fenugreek) extract (4-5% saponins,
+67mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: trigonelline + diosgenin precursors +
+steroidal saponins. Galactagogue mechanism not fully elucidated but
+hypothesised as phytoestrogenic + direct mammary-tissue modulation.
+Conservative dose well below the threshold (500-1000mg+) at which
+neonatal maple-syrup-urine-like odor or GI symptoms have been
+reported.</li>
+<li><strong>Classical basis</strong>: Cross-cultural galactagogue. In
+Ayurveda, methi (<em>Methika</em>) is documented in <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+as a postpartum tonic (methi laddu is the everyday-kitchen Indian
+postpartum food). In Mediterranean and Middle Eastern traditions,
+fenugreek tea + seed preparations are traditional postpartum.</li>
+<li><strong>Modern clinical evidence</strong>: Turkyilmaz C. et al.
+<em>"The effect of galactagogue herbal tea on breast milk production and
+short-term catch-up of birth weight in the first week of life."</em> J
+Altern Complement Med, 2011; 17(2):139-142. <a
+href="https://pubmed.ncbi.nlm.nih.gov/21261516/">PubMed</a>. Showed
+fenugreek tea (~600mg/day equivalent) increased milk volume in healthy
+lactating women in the first week postpartum. Multiple corroborating
+studies in global breastfeeding-medicine literature.</li>
+<li><strong>Dose rationale</strong>: 67mg/cap × 3 caps = 200mg/day
+extract. Delivers ~8-10mg saponins/day, supportive galactagogue layer
+paired with the primary Shatavari dose. Conservative dose maintains
+regulatory + safety clarity (well below the 500mg+ threshold where
+neonatal effects become a concern). Trade-off accepted: we lose some
+galactagogue efficacy at this conservative dose but gain a defensible
+safety profile and clean Schedule VI compliance for the lactation
+context.</li>
+</ul>
+<p><strong>3. Aquamin-Ca (algae lithothamnion calcium,
+100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: natural-source plant-derived calcium
+from red algae (<em>Lithothamnion calcareum</em>, Marigot-sourced).
+Multi-mineral matrix delivers bioavailable calcium plus 70+ trace
+minerals. Calcium contributes to maintenance of normal bones, teeth,
+muscle function, and neurotransmission.</li>
+<li><strong>Classical basis</strong>: Aquamin-Ca is a modern
+natural-source mineral product, not a classical Ayurvedic active. Used
+in Nourish + Bloom + Crest as TGL's natural-source calcium delivery
+vehicle.</li>
+<li><strong>Modern evidence</strong>: Felice V.D. et al. <em>"A natural
+multi-mineral formula reduces inflammation in chondrocytes."</em> Magnes
+Res, 2018. Plus established calcium-and-bone literature for
+lactation-specific calcium support. FSSAI-recognised structure-function
+claim for calcium: "contributes to maintenance of normal bones."</li>
+<li><strong>Dose rationale</strong>: 100mg/cap × 3 caps = 300mg extract
+= ~100mg elemental Ca/day. Supportive 10% RDA for lactating women
+(1,000mg/day RDA), complementary to dietary intake. Not a full-RDA
+replacement; framed honestly as supportive postpartum calcium.</li>
+</ul>
+<p><strong>4. Moringa whole-leaf powder (heat-treated, TGL captive
+supply, 133mg/cap — Tier B galactagogue exception)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (iron, calcium,
+vitamin A, B-complex, vitamin C, antioxidants, chlorophyll) PLUS
+clinically-documented galactagogue effect at 400mg+/day. Multi-pathway
+support: nutritional repletion + direct galactagogue action.</li>
+<li><strong>Classical basis</strong>: established Ayurvedic +
+folk-traditional galactagogue. Moringa leaf preparations (<em>Murungai
+keerai</em> in Tamil tradition, <em>Sahjan</em> in Hindi tradition) are
+everyday postpartum kitchen foods across Indian regions.</li>
+<li><strong>Modern evidence</strong>: Estrella M.C.P. et al. <em>"A
+double-blind, randomised controlled trial on the use of malunggay
+(Moringa oleifera) for augmentation of the volume of breastmilk among
+non-nursing mothers of preterm infants."</em> Philippine Journal of
+Pediatrics, 2000; 49(1):3-6. Documented galactagogue effect at moringa
+supplementation doses comparable to our 400mg/day. Plus systematic
+review: <em>"The Impact of Moringa oleifera Supplementation on Anemia
+and other Variables during Pregnancy and Breastfeeding: A Narrative
+Review."</em> <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10301989/">PMC full
+text</a>. And Alegbeleye O.O. <em>"How Functional Is Moringa oleifera? A
+Review of Its Nutritive, Medicinal, and Socioeconomic Potential."</em>
+Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 133mg/cap × 3 caps = 400mg/day.
+Documented Tier B exception to the 50mg heritage signature rule per
+Moringa Foundation principle, justified by clinical galactagogue
+evidence at this dose. Substantive enough to deliver galactagogue +
+nutritive effect; calibrated to avoid stacking-overload when taken
+alongside other moringa-bearing TGL SKUs (mother on Nourish + Bloom
+should not be over-dosed on moringa).</li>
+<li><strong>Brand role</strong>: heritage signature carrying the "every
+cap a piece of our farms" cross-portfolio narrative. Works in dual mode
+as galactagogue + nutritive + brand thread.</li>
+</ul>
+<p><strong>5. Curry leaf extract (standardised carbazole alkaloids, NOT
+iron-standardised, 33mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: carbazole alkaloids (mahanimbine,
+koenimbine, mahanine) + supportive phytochemicals. Traditional
+Indian-kitchen-heritage active. NOT a standardised iron source — see
+notes below.</li>
+<li><strong>Classical basis</strong>: <em>Karivempu</em> /
+<em>Kadipatta</em> in Tamil and Hindi cuisines. Daily-kitchen heritage
+active in South Indian postpartum nutrition (curry leaves added to
+<em>kanji</em>, <em>upma</em>, <em>rasam</em> during the postpartum
+confinement period).</li>
+<li><strong>Modern evidence</strong>: Plant Lipids and Vidya Herbs sell
+curry leaf extracts standardised for carbazole alkaloids (with
+associated antioxidant and gut-supportive activity). NO Indian vendor as
+of mid-2026 offers a standardised "X% Fe from Murraya koenigii" branded
+ingredient. The iron narrative (often associated with curry leaf in
+folk-nutrition discourse) is reframed in Nourish: lead the iron story
+with moringa + methi + supportive phytocomplex; use curry leaf for
+brand-story phytochemicals + heritage signal, not as a standardised iron
+source.</li>
+<li><strong>Dose rationale</strong>: 33mg/cap × 3 caps = 100mg/day.
+Supportive phytochemical + heritage layer. No therapeutic claim
+attached.</li>
+</ul>
+<p><strong>Curry-leaf iron reframe (locked V2 across Bloom + Root +
+Nourish in DEC-016)</strong>: Round-2 vendor research confirmed no
+Indian vendor offers a standardised iron-from-curry-leaf product.
+Recommended V1 launch posture (per DEC-016): lead iron narrative with
+moringa + methi + supportive phytocomplex (true natural-source iron
+carriers); use curry leaf for brand-story phytochemicals (~33mg/cap).
+Honest, Pillar-1 unambiguous. Net iron delivery from Nourish: ~3-5mg
+natural Fe/day — supportive postpartum iron support, NOT a replacement
+for postpartum-iron prescription if mother is anaemic. <strong>Open V2
+path</strong>: a fermentation-derived iron-yeast (e.g., MicroMins) could
+deliver ~5mg additional Fe/cap if Dr. Lakshmi Kala rules
+fermentation-iron Pillar-1 compliant. Pushes Nourish toward 100% RDA
+iron territory; defer to V2 review.</p>
+<hr />
+<p><strong>How the 5 actives work as a layered stack</strong> (not in
+isolation):</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Actives doing the work</th>
+<th>What it accomplishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary classical galactagogue</td>
+<td>Shatavari (500mg/day)</td>
+<td>Prolactin support, classical Stree-rasayana, foundational
+milk-synthesis modulator</td>
+</tr>
+<tr>
+<td>Cross-cultural galactagogue support</td>
+<td>Methi (200mg/day, conservative)</td>
+<td>Saponin support layer at safe lactation dose</td>
+</tr>
+<tr>
+<td>Moringa galactagogue + nutritive</td>
+<td>Moringa (400mg/day Tier B exception)</td>
+<td>Direct galactagogue per Estrella 2000 + natural-source iron + Ca +
+B-complex + vitamin A nutritive</td>
+</tr>
+<tr>
+<td>Postpartum mineral support</td>
+<td>Aquamin-Ca + moringa-and-methi-supportive Fe</td>
+<td>Natural-source calcium for breastmilk Ca export; supportive iron for
+postpartum drain</td>
+</tr>
+<tr>
+<td>Heritage + brand thread</td>
+<td>Moringa + curry leaf</td>
+<td>"Built on Moringa" anchor + South Indian kitchen-heritage
+continuity</td>
+</tr>
+</tbody>
+</table>
+<p>Each active addresses a specific facet of the lactation +
+postpartum-recovery problem. The full stack's synergy is the value; no
+single active alone matches it (which is why every credible Indian
+lactation Ayurveda formulation pairs Shatavari + Methi + supportive
+minerals).</p>
+<p><strong>The "give it 3-4 weeks" claim is biologically honest, not
+marketing patience theatre.</strong></p>
+<p>Modern clinical evidence on Ayurvedic galactagogues consistently
+shows perceptible effect at 2-4 weeks of consistent daily dosing.
+Shatavarins take cycles to compound at the prolactin-modulation level.
+Methi + moringa galactagogue effects build with consistent daily
+presence in the lactation cycle. When Deepika tells customers "give it
+3-4 weeks before you decide on milk supply changes," that is the actual
+biology speaking, not marketing patience.</p>
+<p><strong>Evidence-strength summary</strong> (so the team knows where
+we are confident vs cautious):</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Traditional basis</th>
+<th>Modern clinical evidence</th>
+<th>Overall strength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shatavari</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(primary Stree-rasayana)</td>
+<td>Sharma 1996 + Patel 2014 lactation RCTs + <a
+href="https://pubmed.ncbi.nlm.nih.gov/29635127/">Pandey 2018
+review</a></td>
+<td>Moderate-strong</td>
+</tr>
+<tr>
+<td>Methi</td>
+<td>Cross-cultural traditional galactagogue + <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+postpartum tonic</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/21261516/">Turkyilmaz 2011
+fenugreek-tea RCT</a> + global lactation literature</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>Modern natural-source mineral (no classical)</td>
+<td>Felice 2018 + established Ca-and-bone literature + FSSAI-recognised
+structure-function claim</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>Folk + Ayurvedic galactagogue tradition</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29284305/">Estrella 2000
+RCT</a> + <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10301989/">2023 anemia
+&amp; pregnancy review</a></td>
+<td>Modern-strong</td>
+</tr>
+<tr>
+<td>Curry leaf</td>
+<td>Daily-kitchen heritage active (Tamil + Hindi traditions)</td>
+<td>Pharmacology literature on carbazole alkaloids; not
+lactation-specific</td>
+<td>Traditional-strong, modern-emerging</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Nourish as the SKU it is.</p>
+<p><strong>Layer 1: Why Nourish as Phase 2 Q3 launch (not Q1, not Phase
+4)</strong></p>
+<p>We evaluated all 10 SKUs across four cross-validating dimensions: (1)
+Volume potential, (2) Profitability, (3) TGL-fit (existing customer
+voice + pillar alignment), (4) Founder authenticity. Nourish scored high
+on TGL-fit (existing customer voice for moringa-as-galactagogue) and
+very high on founder authenticity (Deepika's voice fits the postpartum +
+lactation segment naturally), but the regulatory load + emotional-stakes
+content production push it out of Q1.</p>
+<p>Four reasons it sits in Q3 (Phase 2):</p>
+<ul>
+<li><strong>Highest regulatory load in the Tier B lineup.</strong>
+Galactagogue claim language is FSSAI-sensitive; pregnancy-vs-lactation
+distinction needs careful label work; Methi is a known FDA-cautionary
+ingredient in some international contexts; the FSSAI Centre of
+Excellence query on iron-source naming needs to be filed and resolved
+before launch. Q3 timing allows regulatory counsel review (Vidhi Centre
+for Legal Policy or specialty FSSAI consultant) to land cleanly.</li>
+<li><strong>Highest founder-content emotional load.</strong> Deepika's
+content arc for Nourish — the postpartum mother voice — is the most
+personally exposed of the 10 SKUs. Q3 timing allows the brand voice and
+trust to compound through the Q1 Cycle + Bloom + Reset launch
+first.</li>
+<li><strong>Operational maturity gate.</strong> The Aquamin-Ca supplier
+(Inhalation Health India sole Indian agent) is a single-source vendor;
+we want our supplier-relationship + procurement cadence stable before
+adding a second SKU dependent on this supply chain (Bloom in Q1 is the
+first; Nourish in Q3 is the second; Crest in Q4 is the third).</li>
+<li><strong>Customer-cohort overlap with Q1 launches creates natural
+cross-sell timing.</strong> A mother on Cycle (PMS) in Q1 who then
+becomes pregnant and goes through delivery is naturally on Nourish in
+Q3-Q4. Bundle architecture (New Mom Kit: Nourish + Root for postpartum
+hair) compounds at Q3 timing once both are live.</li>
+</ul>
+<p><strong>Layer 2: Why this 5-active stack (and not
+another)</strong></p>
+<p>The classical Indian Ayurvedic gynaecology library has roughly 15
+cited galactagogue herbs. Modern lactation Ayurvedic blends typically
+pick 4-6 of them. We considered 10 candidates and selected 5:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shatavari</td>
+<td>INCLUDED</td>
+<td>Primary classical galactagogue (<em>Stree-rasayana</em> +
+<em>Stanya-vardhaka</em>). Single most-evidence-backed lactation
+Ayurvedic active. Non-negotiable.</td>
+</tr>
+<tr>
+<td>Methi</td>
+<td>INCLUDED (conservative dose)</td>
+<td>Cross-cultural galactagogue with strongest global lactation
+evidence. Conservative dose preserves safety margin for breastfeeding
+context.</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>INCLUDED</td>
+<td>Natural-source calcium addresses postpartum bone-mineral drain. The
+mother-recovery layer (not just lactation) that distinguishes Nourish
+from pure-galactagogue competitors (SARVA, Nuvoxa).</td>
+</tr>
+<tr>
+<td>Moringa (galactagogue exception dose)</td>
+<td>INCLUDED (heritage base + galactagogue)</td>
+<td>Brand heritage thread + clinically-documented galactagogue at
+400mg/day per Estrella 2000. The ONE whole-plant ingredient in the
+cap.</td>
+</tr>
+<tr>
+<td>Curry leaf</td>
+<td>INCLUDED</td>
+<td>Brand-story phytochemical layer + South Indian kitchen-heritage
+continuity. NOT load-bearing for therapeutic claims.</td>
+</tr>
+<tr>
+<td>Ashwagandha (KSM-66 or generic)</td>
+<td>EXCLUDED V1 (open Q for Dr. Lakshmi Kala)</td>
+<td>Lactation safety supported at moderate doses (Sengupta 2018) but
+precautionary principle errs conservative for postpartum V1. Mood +
+adaptogenic support comes from Shatavari + nutritive recovery.</td>
+</tr>
+<tr>
+<td>Goat's rue, Blessed thistle</td>
+<td>EXCLUDED</td>
+<td>Western traditional; not Indian; not Pillar 2 aligned.</td>
+</tr>
+<tr>
+<td>Domperidone</td>
+<td>EXCLUDED</td>
+<td>Drug, not supplement; deliberately excluded.</td>
+</tr>
+<tr>
+<td>Probiotic strain</td>
+<td>EXCLUDED</td>
+<td>Operationally complex (cold-chain, DR encapsulation). Goes to Pulse
+where it's the focus.</td>
+</tr>
+<tr>
+<td>Iron salt</td>
+<td>EXCLUDED</td>
+<td>Pillar 1 violation + GI side effects. Iron support comes from
+natural-source moringa + methi + curry leaf.</td>
+</tr>
+<tr>
+<td>Synthetic vitamin D3</td>
+<td>EXCLUDED</td>
+<td>Lichen-derived Vitashine D3 reserved for Bloom; Nourish stays
+focused.</td>
+</tr>
+<tr>
+<td>Amla (Vit C iron co-factor)</td>
+<td>EXCLUDED V1 (open Q for Dr. Lakshmi Kala)</td>
+<td>May add at 30-50mg if vendor-formulator validates capsule fill room
+and iron-absorption benefit at trial-fill.</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio approach forces discipline: every active is in exactly
+one SKU's "primary" role. Shatavari's primary role is hormonal
+modulation (it appears in Cycle + Bloom + Crest at lower doses) but its
+galactagogue role is uniquely Nourish's. Moringa's heritage signature is
+portfolio-wide but the galactagogue exception dose is Nourish-only.</p>
+<p><strong>Layer 3: Why this specific dose architecture (and not
+another)</strong></p>
+<p>Every dose was triangulated across four constraints:</p>
+<ol type="1">
+<li><strong>Classical therapeutic galactagogue range</strong> (Shatavari
+200-500mg/day clinical; Methi 100-1000mg/day with safety inflection at
+500mg+; moringa 400mg/day per Estrella 2000)</li>
+<li><strong>Postpartum safety margin</strong> (Methi conservative;
+Ashwagandha excluded; iron natural-source-only)</li>
+<li><strong>Capsule fill feasibility + UX</strong> (Size #0 × 3 caps/day
+per DEC-014 vs Size #00 × 2 with granulation)</li>
+<li><strong>COGS + margin</strong> (V3 verified ~₹168/pack delivers 86%
+GM at MRP ₹1,199 — excellent profile)</li>
+</ol>
+<p>That triangulation forced the 3-cap Size #0 path locked per DEC-014.
+With 4 standardised extracts/minerals + 1 whole-leaf moringa base at
+galactagogue dose, we deliver classical-equivalent + clinical-equivalent
+doses while staying inside the 500mg fill × 3 caps/day envelope and
+respecting the lactation-context safety profile.</p>
+<p><strong>Trade-offs we accepted, openly stated:</strong></p>
+<ul>
+<li><strong>3 caps/day is more than the 2 caps/day high-priority UX
+target.</strong> Mitigated by split-meal dosing (1 morning + 1 lunch + 1
+evening with food), which postpartum mothers tolerate well and which
+improves galactagogue absorption. Per DEC-014, therapeutic-dose
+preservation &gt; capsule-count minimisation.</li>
+<li><strong>Methi conservative dose may under-deliver galactagogue
+efficacy for some mothers.</strong> Mitigated by the Shatavari + moringa
+galactagogue layers carrying the primary load. Open question for Dr.
+Lakshmi Kala on whether to revisit Methi dose at 6-month
+customer-feedback review.</li>
+<li><strong>Iron is supportive (~3-5mg/day natural Fe), not full RDA
+(18mg/day).</strong> Mitigated by honest customer message:
+"natural-source iron support, complement with prescribed iron if your
+doctor recommends." Anaemic mothers get directed to clinical iron
+supplementation, not Nourish-as-iron-replacement.</li>
+<li><strong>Calcium is supportive (~100mg/day, 10% RDA).</strong>
+Mitigated by similar honest framing; complementary to dietary intake,
+not replacement.</li>
+<li><strong>Lodhra-style or Vitex-style hormonal modulation
+excluded</strong> because postpartum hormonal context is different from
+cycling-women context; HPO-axis modulation is handled by Shatavari at
+the postpartum-appropriate level, not by adding cycling-women hormonal
+modulators.</li>
+</ul>
+<p><strong>The decision trail in one sentence</strong>: Nourish is the
+SKU TGL's existing mothers were already buying moringa for, designed as
+the comprehensive Ayurvedic + natural-source-mineral postpartum +
+lactation capsule that respects both the therapeutic-dose biology and
+the postpartum safety profile, in a 3-cap split-meal format that fits
+the meal-time supplement routine new mothers already have.</p>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p>Nourish plays in the accessible-premium D2C Ayurvedic lactation +
+postpartum-recovery category. The competitive set is thin (genuine
+whitespace), which is part of the strategic case.</p>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>Price (sale)</th>
+<th>Format</th>
+<th>Positioning</th>
+<th>Active focus</th>
+<th>Per-day cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nourish (TGL)</strong></td>
+<td>₹1,099</td>
+<td>Capsule, 3/day with meals</td>
+<td><strong>Comprehensive Ayurvedic lactation + postpartum
+recovery</strong>, accessible-premium, founder-led, moringa heritage
+galactagogue exception</td>
+<td>4 standardised extracts/minerals + moringa whole-leaf galactagogue
+base</td>
+<td>~₹37/day</td>
+</tr>
+<tr>
+<td>HealthyMomma Galactagogue</td>
+<td>₹999</td>
+<td>Capsule, 2/day</td>
+<td>Lactation-anchored, narrower formulation</td>
+<td>Methi + Shatavari + moringa</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td>Earthly Lactation</td>
+<td>₹699</td>
+<td>Capsule, 2/day</td>
+<td>Entry-tier lactation</td>
+<td>Methi + Shatavari + carminatives</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td>Pediasure Mom</td>
+<td>₹1,500 (powder pack)</td>
+<td>Powder, 2 servings/day</td>
+<td>Pharma-tier maternal nutrition</td>
+<td>Synthetic multivitamin + protein blend, NOT Ayurvedic</td>
+<td>~₹50/day</td>
+</tr>
+<tr>
+<td>SARVA Mother's Bliss</td>
+<td>₹599</td>
+<td>Capsule, 2/day</td>
+<td>Pure-galactagogue Ayurvedic</td>
+<td>Shatavari + Methi + moringa + fennel + ajwain + turmeric</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td>Mother's Recipe Mom &amp; World Lactation Cookies</td>
+<td>₹599</td>
+<td>Cookie / bites</td>
+<td>Food-format lactation snack</td>
+<td>Methi + oats + nuts + jaggery (food-form)</td>
+<td>~₹50/day</td>
+</tr>
+<tr>
+<td>Lakshmi Janani Lactation Tea</td>
+<td>₹399</td>
+<td>Tea</td>
+<td>Tea-format lactation</td>
+<td>Shatavari + Methi + ajwain (tea blend)</td>
+<td>~₹13/day</td>
+</tr>
+<tr>
+<td>Mass-tier (Himalaya Galactin syrup, Patanjali)</td>
+<td>₹120-150</td>
+<td>Syrup or tablet</td>
+<td>Mass-Ayurveda, low-trust signal</td>
+<td>Generic Ayurvedic galactagogue blend</td>
+<td>~₹4-5/day</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The single-sentence competitive position</strong>: Nourish is
+the only Indian D2C SKU at the accessible-premium tier (₹1,099 sale)
+that combines a comprehensive Ayurvedic galactagogue stack (Shatavari at
+high-end therapeutic dose + Methi + moringa galactagogue exception dose)
+with natural-source postpartum mineral support (Aquamin-Ca calcium +
+supportive natural Fe), in a capsule format with 3-cap split-meal
+dosing, founder-led, and built on captive-supply moringa heritage.
+Closest direct peer (SARVA Mother's Bliss at ₹599) is a
+pure-galactagogue capsule with no minerals, no Ashwagandha-equivalent,
+and no Aquamin-Ca natural-source story; Nourish's 50-83% MRP premium is
+defensible by the comprehensive-formulation depth.</p>
+<p>Earthly, Cosmix, OZiva, Mihiral, Be Bodywise have NO lactation SKU as
+of mid-2026. The whitespace at the comprehensive premium-Ayurvedic
+capsule tier is genuine.</p>
+<p><strong>Cookie/tea formats (Mom &amp; World, Lakshmi Janani) are
+complementary not competing.</strong> The lactating mother often buys
+both: a cookie for snack-time + a capsule for measured daily nutritional
+recovery. Nourish doesn't compete with cookies on convenience or with
+tea on ritual; it competes on dose-precision, comprehensive recovery,
+and capsule discipline.</p>
+<p><strong>Mass-market syrup (Himalaya Galactin at ₹120) is a different
+customer.</strong> Mother who buys at chemist for ₹120 trusts the
+Himalaya brand and the price; she is not the comprehensive-Ayurvedic
+premium-capsule customer. Cannot compete with Himalaya at retail and
+shouldn't try.</p>
+<hr />
+<h2 id="9-right-to-win-why-a-real-mother-picks-nourish">9. Right to win
+(why a real mother picks Nourish)</h2>
+<p>Five reasons she chooses Nourish when she's looking at the shelf.</p>
+<p><strong>1. It speaks her actual postpartum reality.</strong> Not just
+lactation ("milk supply"), but the comprehensive postpartum recovery:
+iron drain, calcium loss, fatigue, hair fall stabilisation, mood +
+energy on the recovery curve. SARVA Mother's Bliss is pure-galactagogue;
+Pediasure Mom is pharma-coded synthetic; cookies are snack-format.
+Nourish addresses the whole picture in one product, in the language she
+actually uses ("I need to recover and I need to make milk").</p>
+<p><strong>2. It respects her time and her body.</strong> 3 caps a day
+with meals, split across morning + lunch + evening. No 4-6 cap pharma
+protocol, no powder she has to mix daily, no kashayam she would skip by
+Day 4. Her postpartum routine already includes meal-time supplements
+(the prenatal she finished, the iron prescription if she got one);
+Nourish slots into that routine instead of fighting it.</p>
+<p><strong>3. It tells her the truth about supply expectations.</strong>
+"Give it 3-4 weeks for galactagogue effect" is the message. Not "milk
+supply guaranteed in 5 days." Not "cures low milk supply." Real plants
+take time to compound at the prolactin level; the brand says so
+directly. By Week 3-4, mothers with perceived undersupply start to
+notice. By Month 2-3, postpartum-recovery layers compound. Honest
+expectation-setting builds the trust that compounds into a 6-12 month
+subscription relationship.</p>
+<p><strong>4. It's built on something she can see.</strong> Deepika's
+face is on the brand. Deepika's farm grew the moringa in every cap (the
+exception-dose galactagogue moringa). There is an ingredient list she
+can read, a sourcing story she can verify, a founder voice she trusts
+more than any mom-influencer's. The ingredient-list discipline is
+hyper-relevant to the postpartum mother, who is famously protective
+about what she puts in her body while breastfeeding ("what I take, baby
+gets").</p>
+<p><strong>5. The price feels right for what she gets.</strong> ₹1,099
+sale, ₹934 subscription, ~₹31 a day during her lactation window. Above
+SARVA (₹599) because Nourish carries 4 actives SARVA doesn't
+(Aquamin-Ca, the moringa galactagogue dose, the comprehensive recovery
+story). Below Pediasure Mom (₹1,500 powder) and the imported postnatal
+kits (₹2,000+) because Nourish is honest accessible-premium, not
+pharma-tier. Subscription at ₹934 is sustainable monthly spend for her
+demographic (₹80K+ household income).</p>
+<p><strong>Two things that do not show up in the matrix but matter in
+real life:</strong></p>
+<ul>
+<li><strong>Deepika speaks her register.</strong> English-Tamil and
+English-Hindi-Telugu natural mix. Most premium D2C wellness brands speak
+only English-first Mumbai-Bangalore-coded. The postpartum mother in
+Chennai or Hyderabad or Coimbatore hears Deepika and recognises an aunt
+or older cousin who happens to know about Ayurvedic herbs. That register
+difference is hard for any English-first urban brand to replicate from
+outside.</li>
+<li><strong>The ingredient label tells the same story Deepika tells in
+her Reels.</strong> No marketing-only "proprietary blend" hidden behind
+a label. The standardisation percentages on the label (Shatavari 4-5%
+saponins, moringa whole-leaf, Aquamin-Ca natural-source) match what
+Deepika quotes in her content. Internal-external consistency builds
+trust — especially for a mother who is reading the label more carefully
+than any other persona in the portfolio.</li>
+</ul>
+<p><strong>The single-sentence right to win</strong>: Nourish wins
+because it speaks the mother's whole postpartum reality (not just
+supply), fits her meal-time supplement routine, tells the truth about
+timeline, comes from a person she can see, and costs the right amount
+for the comprehensive recovery story it delivers.</p>
+<hr />
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p>Nourish's marketing playbook is detailed in the Phase 2 launch plan
+extension to <code>09-q1-launch-shortlist.md</code>. Headline shape
+only; this section gets a deeper rewrite at Phase 2 Week 8 when Q3 ad
+creative is in production and we have early audience-test signal.</p>
+<p><strong>Channel mix — WEBSITE-FIRST / Shopify-led playbook per
+TGL-P1-DEC-017</strong> (within Phase 2 Q3 budget allocation, ~₹12-18L
+for first 30-45 days post-launch):</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta (Instagram + Facebook) → Shopify PDP</td>
+<td>Primary acquisition</td>
+<td>~50%</td>
+</tr>
+<tr>
+<td>Founder Reels + Stories (organic + boosted)</td>
+<td>Trust + content engine</td>
+<td>~20%</td>
+</tr>
+<tr>
+<td>Klaviyo email + SMS retention</td>
+<td>Subscription + repurchase</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Mom-influencer + lactation-consultant referral angles</td>
+<td>Geographic + cultural reach</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Google Search + SEO</td>
+<td>Brand-search defense + lactation-supplement intent capture</td>
+<td>~5%</td>
+</tr>
+<tr>
+<td>Shopify subscription mechanic (3-month, 6-month)</td>
+<td>Subscription PMF capture</td>
+<td>~5%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Channel mix rationale</strong>: Postpartum 3-6 month
+physiological cycle = strong subscription PMF, which makes Shopify-led
+D2C the right channel architecture. Klaviyo flow design is critical
+(postpartum onboarding sequence + 3-month subscription pre-renewal
+nurture + lapsed-mother win-back). Mom-influencer + lactation-consultant
+referral angle is a high-conversion content layer specific to this
+category — partnering with 3-5 South Indian lactation consultants
+(Cloudnine network, La Leche League India chapters) gives Nourish
+credible third-party endorsement that competitors can't replicate
+organically.</p>
+<p><strong>Amazon Month 2-3 secondary</strong> per TGL-P1-DEC-017:
+Amazon listing goes live in Month 2-3 post-launch as secondary channel,
+AFTER Shopify subscription cohort is established. This protects the
+subscription motion (Amazon buyers are typically one-time purchasers;
+subscription mechanic lives on Shopify). The website-first sequencing
+converts the high-LTV subscription cohort first, then opens Amazon to
+capture the broader awareness-driven traffic.</p>
+<p><strong>Geography priority</strong>: Phase 2 weights ~50% of Meta
+budget toward Tamil Nadu, Karnataka, Andhra Pradesh, Telangana + Tier 1
+metros (Bangalore, Hyderabad, Chennai, Mumbai, Pune, Delhi NCR). Tier 2
+South Indian cities (Coimbatore, Madurai, Kochi, Vizag) at Month 2
+expansion.</p>
+<p><strong>Deepika's content cadence</strong>: ~1 founder Reel per week
+through Q3 launch month, plus 2-3 Stories per week. Pre-launch (Q3 Weeks
+1-3) covers "why I'm making Nourish," "the Shatavari story," "moringa
+for milk supply — what my mother and grandmother knew," "extracts vs
+powder for postpartum care," "give it 3-4 weeks." Launch month rotates:
+founder use, mom-customer Q&amp;A (recorded with consent), ingredient
+story, expectation-setting, lactation-consultant guest appearances.</p>
+<p><strong>Asset list (Boco produces, Phase 2 Q3 Weeks 1-4)</strong>:
+Nourish PDP, brand kit V0 packaging artwork, 5 ad creative templates,
+Klaviyo email + SMS flows for launch + onboarding + 3-month subscription
+pre-renewal + win-back, lactation-consultant partnership outreach kit,
+mom-influencer brief template, Ingredient Library v0 site section update
+for Nourish actives.</p>
+<p><strong>Owner split</strong>: Deepika owns founder content (~6-8
+hrs/week through launch month). Unnati owns Meta channel ops + creator
+outreach + Klaviyo email/SMS execution + lactation-consultant
+relationship layer (~12-15 hrs/week launch month). Boco (Meera, Kavya,
+Aarav) owns asset production, front-loaded Phase 2 Weeks 1-4, lighter
+maintenance after.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p>Three pitches scaled to the conversation length, plus the recurring
+tagline.</p>
+<p><strong>5-second elevator</strong> (chance encounters, quick brand
+mentions):</p>
+<blockquote>
+<p>"Nourish is our lactation and postpartum recovery capsule. Three caps
+a day with meals during your breastfeeding window. Built on moringa,
+powered by Ayurveda."</p>
+</blockquote>
+<p><strong>30-second customer pitch</strong> (the version most mothers
+will hear, in Deepika's voice):</p>
+<blockquote>
+<p>"You know how hard postpartum is — the milk supply worry, the
+fatigue, the hair fall, feeling like your body is running on empty? I
+built Nourish for exactly that. Three capsules a day with your meals:
+Shatavari at therapeutic dose for milk supply, methi as the supportive
+galactagogue layer, our farm-grown moringa at the dose that actually
+works for lactation, plant-source calcium from algae for the calcium
+your body is exporting in breastmilk, and supportive curry-leaf
+phytochemicals. Give it 3-4 weeks to see the supply effect, longer for
+the deeper recovery. Real plants, real nutrition, the way your mother
+and grandmother knew."</p>
+</blockquote>
+<p><strong>60-second partner pitch</strong> (creator partnerships,
+lactation-consultant conversations, in Unnati's or Deepika's voice):</p>
+<blockquote>
+<p>"Nourish is The Good Leaf's lactation and postpartum-recovery
+capsule, designed specifically for new mothers in the 0-6 month
+postpartum window. Five actives: Shatavari at high-end therapeutic
+galactagogue dose (4-5% saponins, 500mg/day total), Methi at
+conservative safety-profile dose (4-5% saponins, 200mg/day), our
+farm-grown moringa at the documented galactagogue exception dose
+(400mg/day, the same dose used in Estrella's classic Philippines
+milk-volume RCT), plant-source Aquamin-Ca calcium from Marigot's algae
+at 100mg elemental Ca/day for postpartum bone-mineral support, and
+standardised curry-leaf carbazole alkaloids for supportive
+phytochemicals. Three Size #0 capsules a day with meals, ₹1,099 sale,
+around ₹37 per day during her lactation window, 3-month or 6-month
+subscription cadence aligned to the physiological lactation cycle. We're
+the only accessible-premium Indian D2C lactation capsule that combines
+comprehensive galactagogue depth with natural-source mineral support;
+closest direct peer SARVA Mother's Bliss at ₹599 is pure-galactagogue
+with no minerals. Our existing TGL Moringa-for-lactation customer base
+is the warm launch cohort, and we partner with creators whose audiences
+match: lactation consultants, mom-influencers focused on evidence-based
+postpartum care, South Indian + Tier 1 metro mothers."</p>
+</blockquote>
+<p><strong>The honest message Deepika repeats across organic
+content</strong> (the recurring tagline pattern):</p>
+<blockquote>
+<p>"Built on Moringa. Powered by Ayurveda. Three caps a day with your
+meals. Shatavari, methi, moringa — the herbs your mother and grandmother
+knew, plus the iron and calcium your postpartum body needs. Real plants,
+real nutrition, real time to work. Give it 3-4 weeks for supply, longer
+for full recovery."</p>
+</blockquote>
+<hr />
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<p>The "can we actually build this" layer. Vendor matrix per active, V3
+in-house manufacturing note, packaging, capsule shell, regulatory,
+aggregate risk.</p>
+<h3 id="121-v3-in-house-manufacturing-context">12.1 V3 in-house
+manufacturing context</h3>
+<p>Per the V3 plan-level changes (Deepika meeting 2026-05-09):
+manufacturing happens <strong>in-house at Deepika's facility</strong>
+(FSSAI nutraceutical license active; phycocyanin R&amp;D capsule already
+produced as proof-of-capability), NOT at an external CMO. This changes
+the procurement model: TGL sources standardised extracts + minerals +
+capsule shells + bottles + labels, then encapsulates + bottles + labels
++ packs in-house at Deepika's facility. Capsule fill flexibility
+400-470mg seasonal per Deepika V3 meeting allows the 500mg Size #0 fill
+to flex slightly with seasonal moisture variation. Powder-form extracts
+only (no oils, no liquids in the capsule).</p>
+<p>This in-house model is operationally simpler than CMO orchestration
+but pushes responsibility for batch QC + stability + regulatory
+documentation to TGL's facility. Dr. Lakshmi Kala (formulation expert,
+joins upstream of vendor outreach Mon/Tue 2026-05-11/12) validates the
+in-house formulation + trial-fill before extract procurement scales.</p>
+<h3
+id="122-per-active-vendor-matrix-vendor-network-standard-concentrations-only-per-dec-016">12.2
+Per-active vendor matrix (vendor-network standard concentrations only,
+per DEC-016)</h3>
+<p><strong>Shatavari extract</strong> (4-5% saponins HPLC,
+water/hydroalcoholic)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing benchmark</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa (Asparoot)</strong></td>
+<td>Bangalore</td>
+<td>4-5% saponins HPLC</td>
+<td>5-25kg</td>
+<td>₹2,500-4,000/kg (V3 verified)</td>
+<td>FSSAI, GMP, ISO 9001/22000, USDA Organic</td>
+</tr>
+<tr>
+<td><strong>Vidya Herbs (backup primary)</strong></td>
+<td>Bangalore</td>
+<td>Standardised extract</td>
+<td>10-25kg</td>
+<td>₹600-1,200/kg (V3 verified, lower-cost backup)</td>
+<td>GMP, FSSAI, in-house R&amp;D</td>
+</tr>
+<tr>
+<td><strong>Arjuna Natural</strong></td>
+<td>Aluva, Kerala</td>
+<td>Standardised extract</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, FSSAI, multi-export grades</td>
+</tr>
+</tbody>
+</table>
+<p>Per the locked V3 spec: <strong>Sami-Sabinsa OR Vidya Herbs
+₹600-1,200/kg</strong> range — Vidya Herbs as the primary cost-anchor
+with Sami-Sabinsa as the premium-quality backup. The ₹600-1,200/kg range
+vs Sami-Sabinsa's ₹2,500-4,000/kg is the major cost lever in Nourish's
+COGS model — driving the V3 verified ~₹168/pack COGS and 86% GM at
+MRP.</p>
+<p><strong>Methi (fenugreek) extract</strong> (4-5% saponins, generic
+vendor-standard)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing benchmark</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vidya Herbs (primary)</strong></td>
+<td>Bangalore</td>
+<td>4-5% saponins HPLC</td>
+<td>10-25kg</td>
+<td>₹350-700/kg (V3 verified)</td>
+<td>GMP, FSSAI</td>
+</tr>
+<tr>
+<td><strong>Sami-Sabinsa (backup)</strong></td>
+<td>Bangalore</td>
+<td>4-5% saponins</td>
+<td>5-25kg</td>
+<td>₹350-700/kg upper end</td>
+<td>FSSAI, GMP, ISO 9001/22000</td>
+</tr>
+<tr>
+<td><strong>Akay Spices</strong></td>
+<td>Cochin, Kerala</td>
+<td>Methi seed extract</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, FSSAI, US/EU export grades</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methi locked to generic 4-5% saponins (Vidya Herbs /
+Sami-Sabinsa) per DEC-016</strong>, NOT specialty branded products like
+Sami-Sabinsa FenuMat. Generic 4-5% saponin extract is the commodity
+grade across multiple vendors at ₹350-700/kg, delivering ~10mg
+saponins/day at our 200mg/day dose, well within the conservative-safety
+lactation window.</p>
+<p><strong>Aquamin-Ca</strong> (algae lithothamnion calcium,
+Marigot)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing benchmark</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inhalation Health India (sole Indian agent)</strong></td>
+<td>India distributor for Marigot Ltd (Ireland)</td>
+<td>Aquamin-Ca standardised, ~33% elemental Ca</td>
+<td>10-25kg</td>
+<td>On inquiry; premium import</td>
+<td>FSSAI, GMP, USDA Organic at Marigot source</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Single-distributor concentration risk</strong> — Inhalation
+Health India is the sole Indian agent for Aquamin (used in Bloom + Crest
++ Nourish across the portfolio). Backup formulation if MOQ unworkable:
+substitute fermented-source plant calcium (Calcimax-style fermented
+mineral) but this requires Pillar 1 review. For now, Inhalation Health
+India relationship is the procurement gate.</p>
+<p><strong>Moringa whole-leaf</strong> (TGL captive supply)</p>
+<p>TGL captive farm vertical (DPR Moringa, heat-treated). No external
+vendor needed. Same supply chain as Cycle, Bloom, Reset, Crest, Root,
+Calm, Pulse, Glide, Spark. <strong>Featured ingredient</strong> in this
+SKU at the Tier B galactagogue exception dose (400mg/day) — get the
+highest-grade, freshest, most-recently-harvested batches for Nourish;
+this is the brand's flagship-active moment for the
+lactation-galactagogue use case.</p>
+<p><strong>Curry leaf extract</strong> (standardised carbazole
+alkaloids, NOT iron-standardised)</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Pricing benchmark</th>
+<th>Certs visible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plant Lipids (primary)</strong></td>
+<td>Cochin, Kerala</td>
+<td>Standardised carbazole alkaloids</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, ISO, exports</td>
+</tr>
+<tr>
+<td><strong>Vidya Herbs (backup)</strong></td>
+<td>Bangalore</td>
+<td>Curry leaf extract</td>
+<td>10-25kg</td>
+<td>On inquiry</td>
+<td>GMP, FSSAI</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Curry-leaf iron reframe (locked DEC-016)</strong>: no Indian
+vendor offers a standardised "X% Fe from Murraya koenigii" branded
+ingredient. We source curry leaf for carbazole alkaloids (supportive
+phytochemicals + brand-story heritage), NOT as a standardised iron
+source. Iron narrative leads with moringa + methi.</p>
+<h3 id="123-v3-verified-cost-lock-per-dec-023">12.3 V3 verified cost
+lock (per DEC-023)</h3>
+<p>Per the V3 verified cost lock per DEC-023 (2026-05-09):</p>
+<table>
+<thead>
+<tr>
+<th>Cost component</th>
+<th>Per-pack (90 caps) estimate</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shatavari extract (Vidya Herbs primary)</td>
+<td>~₹54</td>
+<td>500mg/day × 90 days × ~₹1,200/kg</td>
+</tr>
+<tr>
+<td>Methi extract (Vidya Herbs primary)</td>
+<td>~₹13</td>
+<td>200mg/day × 90 days × ~₹700/kg</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>~₹40</td>
+<td>300mg/day × 90 days at premium import rate</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf (TGL captive)</td>
+<td>~₹16</td>
+<td>400mg/day × 90 days at TGL captive rate</td>
+</tr>
+<tr>
+<td>Curry leaf extract</td>
+<td>~₹5</td>
+<td>100mg/day × 90 days</td>
+</tr>
+<tr>
+<td>Capsule shell HPMC Size #0</td>
+<td>~₹27</td>
+<td>270 caps (3/day × 90 days) × Deepika's vendor rate</td>
+</tr>
+<tr>
+<td>HDPE amber bottle (90-cap)</td>
+<td>~₹7</td>
+<td>Single-bottle 90-cap pack</td>
+</tr>
+<tr>
+<td>Outer label + monocarton</td>
+<td>~₹4</td>
+<td>Pragati Pack share-of-MOQ</td>
+</tr>
+<tr>
+<td>In-house encapsulation + bottling labour + overhead</td>
+<td>~₹2</td>
+<td>TGL facility in-house labour rate (much lower than CMO ₹50/pack
+benchmark)</td>
+</tr>
+<tr>
+<td><strong>Total V3 verified COGS</strong></td>
+<td><strong>~₹168/pack</strong></td>
+<td><strong>86% GM at MRP ₹1,199</strong></td>
+</tr>
+</tbody>
+</table>
+<p>V3 in-house manufacturing model unlocks the cost compression:
+₹168/pack vs the ₹140-180/pack range in the V1 dossier estimate, and the
+86% GM at MRP is excellent for the comprehensive-formulation premium
+category. At sale ₹1,099, GM = (1099-168)/1099 = 84.7%. At sub ₹934, GM
+= (934-168)/934 = 82.0%. All tiers comfortably above the 75% GM
+premium-D2C floor.</p>
+<h3 id="124-packaging-capsule-shell-bottle">12.4 Packaging, capsule
+shell, bottle</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Vendor</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Lead time</th>
+<th>₹/pack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HPMC capsule shells</td>
+<td><strong>Deepika owns this vendor relationship</strong> (per
+TGL-P1-DEC-002)</td>
+<td>Plant cellulose, Size #0, off-white</td>
+<td>TBD via Deepika</td>
+<td>TBD</td>
+<td>~₹27 (270 caps × ₹0.10 benchmark)</td>
+</tr>
+<tr>
+<td>HDPE amber bottle (90-cap)</td>
+<td>Likely Karur-area Deepika source</td>
+<td>90-cap amber, ~55mm diameter, with desiccant</td>
+<td>~5K MOQ</td>
+<td>2-3 weeks</td>
+<td>~₹7</td>
+</tr>
+<tr>
+<td>Outer label (50×155mm)</td>
+<td>Pragati Pack India, Hyderabad</td>
+<td>PP white sticker, allergen + pregnancy contraindication
+declarations</td>
+<td>8K (binding constraint)</td>
+<td>3-4 weeks</td>
+<td>~₹3</td>
+</tr>
+<tr>
+<td>Monocarton (53×53×108mm)</td>
+<td>Pragati Pack India, Hyderabad</td>
+<td>90-cap monocarton with 1-page postpartum nutrition primer
+insert</td>
+<td>8K (binding constraint)</td>
+<td>3-4 weeks</td>
+<td>~₹1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Packaging note</strong>: Pragati Pack 8K MOQ on label +
+monocarton is the binding constraint. Share MOQ across Phase 2 Q3 launch
+trio (Nourish + Root if co-launched; or Nourish alone at 8K
+commitment).</p>
+<p><strong>Bottle note</strong>: Amber HDPE mandatory because Aquamin-Ca
++ extracts are moisture-sensitive; desiccant included.</p>
+<p><strong>Insert note</strong>: 1-page postpartum nutrition primer +
+lactation-support guide + "consult your doctor / pediatrician /
+lactation consultant" advisory + allergen disclosure + pregnancy
+contraindication.</p>
+<h3 id="125-quality-control-protocol">12.5 Quality control protocol</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Active(s)</th>
+<th>Frequency</th>
+<th>Lab partner</th>
+<th>Cost per test</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Saponin assay (HPLC)</td>
+<td>Shatavari, Methi</td>
+<td>Vendor CoA + every 5th batch verify-sample</td>
+<td>Eurofins India / IL India / NABL-accredited</td>
+<td>₹3-5K per active per batch</td>
+<td>Per spec (4-5%)</td>
+</tr>
+<tr>
+<td>Heavy metal panel (Pb, Cd, Hg, As)</td>
+<td>All actives</td>
+<td>Every batch</td>
+<td>Eurofins / SGS / IL India NABL</td>
+<td>₹2-3K per batch</td>
+<td>Pb &lt;1ppm, Cd &lt;0.1ppm, Hg &lt;0.1ppm, As &lt;1ppm</td>
+</tr>
+<tr>
+<td>Microbial limits</td>
+<td>All actives + finished product</td>
+<td>Vendor CoA + every finished batch</td>
+<td>Same lab</td>
+<td>Bundled</td>
+<td>IP/AYUSH-PLIM limits</td>
+</tr>
+<tr>
+<td>Pesticide residue</td>
+<td>Shatavari (wild-collection risk), Methi</td>
+<td>Every batch</td>
+<td>Same lab</td>
+<td>₹3-5K per batch</td>
+<td>Per AYUSH norms</td>
+</tr>
+<tr>
+<td>Aflatoxin</td>
+<td>Methi (legume)</td>
+<td>Every batch</td>
+<td>Same lab</td>
+<td>Bundled</td>
+<td>&lt;30 ppb</td>
+</tr>
+<tr>
+<td>CFU / microbial purity</td>
+<td>Aquamin-Ca, moringa</td>
+<td>Vendor CoA + spot-check</td>
+<td>Same lab</td>
+<td>Bundled</td>
+<td>Per spec</td>
+</tr>
+<tr>
+<td>Stability testing</td>
+<td>Finished product</td>
+<td>Pre-launch baseline + Month 3 / 6 / 12 / 24 checkpoints</td>
+<td>Same lab</td>
+<td>~₹15-25K per checkpoint</td>
+<td>24-month shelf life claim substantiated</td>
+</tr>
+<tr>
+<td>Allergen verification</td>
+<td>Methi cross-contamination check</td>
+<td>Every batch</td>
+<td>Same lab</td>
+<td>Bundled</td>
+<td>No cross-contamination from non-declared allergens</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Per-batch testing budget</strong>: ~₹20K mid-estimate. At
+60K-pack steady-state batch, ~₹0.33/pack allocation. At 8K-pack pilot
+batch, ~₹2.50/pack allocation.</p>
+<h3 id="126-capsule-fill-feasibility">12.6 Capsule fill feasibility</h3>
+<p>500mg total fill in Size #0 capsule (capacity ~410-500mg standard
+density; capsule fill flexibility 400-470mg seasonal per Deepika V3
+meeting). <strong>Tight fit at upper end of Size #0 capacity.</strong>
+May require granulation step at trial-fill validation; Dr. Lakshmi Kala
+validates at trial-fill (Mon/Tue 2026-05-11/12 onward). Fallback
+paths:</p>
+<ol type="1">
+<li>Switch to Size #00 × 2 caps with granulation (~750mg fill each) —
+adds capsule-size friction</li>
+<li>Reduce curry leaf to 25mg/cap (drops total fill to ~492mg) —
+preferred fallback</li>
+<li>Reduce Methi to 50mg/cap (drops total to ~483mg) — last-resort,
+drops Methi daily to 150mg</li>
+</ol>
+<h3
+id="127-regulatory-feasibility--the-most-regulatorily-sensitive-tier-b-sku">12.7
+Regulatory feasibility — THE MOST REGULATORILY-SENSITIVE TIER B SKU</h3>
+<p>All 5 actives FSSAI-permitted under Schedule VI of the Health
+Supplements Regulations 2022:</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Schedule VI status</th>
+<th>Verification action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shatavari / Asparagus racemosus</td>
+<td>✅ Listed</td>
+<td>Ensure root-only (not adulterated with A. adscendens — common
+adulterant); HPLC fingerprinting at vendor</td>
+</tr>
+<tr>
+<td>Methi / Trigonella foenum-graecum</td>
+<td>✅ Listed</td>
+<td>Declare as legume allergen on label; safety-margin disclosure</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>✅ Calcium listed Schedule II mineral; algae-source qualifies as
+plant-source</td>
+<td>None — proceed</td>
+</tr>
+<tr>
+<td>Moringa oleifera</td>
+<td>✅ Listed</td>
+<td>None — proceed (TGL captive vertical)</td>
+</tr>
+<tr>
+<td>Curry leaf / Murraya koenigii</td>
+<td>✅ Listed (food herb)</td>
+<td>Curry-leaf-extract for carbazole alkaloids is straightforward;
+iron-extracted form would have required FSSAI Centre of Excellence
+query, but reframe per DEC-016 sidesteps this</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lactation-specific regulatory considerations
+(Nourish-specific, requires regulatory counsel review
+pre-launch)</strong>:</p>
+<ol type="1">
+<li><p><strong>No formal "lactation supplement" category in Indian FSSAI
+framework.</strong> Nourish falls under general health-supplement /
+nutraceutical category. Lactation positioning communicated via
+structure-function claims, not regulatory category badge.</p></li>
+<li><p><strong>Galactagogue claim language sensitivity</strong>:</p>
+<ul>
+<li><strong>Permitted</strong>: "supports lactation" / "helps maintain
+healthy milk supply" / "nutritional support for breastfeeding mothers" /
+"traditional postpartum nourishment" / "iron contributes to normal red
+blood cell formation" / "calcium contributes to maintenance of normal
+bones" / "helps mothers recover from the demands of lactation"</li>
+<li><strong>Avoid in label</strong>: "increases milk supply" /
+"galactagogue" / "lactation enhancer" / "treats low milk supply" /
+"cures lactation insufficiency" / "replaces formula" / "safe for
+baby"</li>
+<li><strong>Educational content can use</strong> "galactagogue" with
+substantiation; label cannot.</li>
+</ul></li>
+<li><p><strong>Pregnancy contraindication MUST be explicit</strong>:</p>
+<ul>
+<li>Several actives are TRADITIONALLY contraindicated in pregnancy
+(Shatavari technically, Methi high-dose, Ashwagandha if added)</li>
+<li><strong>Label must state</strong>: "Not for use during pregnancy.
+For use by lactating mothers in the postpartum period."</li>
+<li>Marketing copy must clearly distinguish pregnancy vs
+postpartum/lactation.</li>
+</ul></li>
+<li><p><strong>Allergen disclosure (mandatory)</strong>:</p>
+<ul>
+<li>Methi (fenugreek) is a legume; <strong>mandatory allergen
+declaration</strong> under FSSAI Packaging &amp; Labelling
+Regulations</li>
+<li>Algae-source minerals: disclose for transparency though not formally
+an FSSAI-mandated allergen</li>
+</ul></li>
+<li><p><strong>Pediatrician-consultation language
+(defensive)</strong>:</p>
+<ul>
+<li>Label includes: "Consult your healthcare provider, including your
+pediatrician, before use during lactation. Some ingredients may pass to
+breastmilk and affect infants in rare cases."</li>
+</ul></li>
+<li><p><strong>Specific active warnings</strong>:</p>
+<ul>
+<li>Methi rare reports of neonatal maple-syrup-urine-like odor + GI
+symptoms in infants of mothers consuming high-dose fenugreek
+(&gt;500mg/day). Our 200mg/day dose is well below threshold;
+precautionary label note included.</li>
+<li>Shatavari traditional Ayurveda holds lactation-safe at moderate
+doses; no specific warning beyond standard "consult provider."</li>
+</ul></li>
+<li><p><strong>Marketing imagery restrictions</strong>:</p>
+<ul>
+<li>Avoid imagery suggesting medical-grade clearance (no
+doctors-with-stethoscope, no hospital settings)</li>
+<li>Authentic mother imagery preferred (real customers, signed consent
+for usage)</li>
+<li><strong>Do not depict baby breastfeeding directly with the
+product</strong> — interpreted as endorsing direct infant exposure to
+the supplement</li>
+</ul></li>
+<li><p><strong>Customer service training</strong>:</p>
+<ul>
+<li>Customer support team trained NOT to give medical advice</li>
+<li>Standard response template for milk-supply queries: "Many mothers
+find Nourish supportive in their postpartum journey. If you have
+specific concerns about milk supply, please consult a lactation
+consultant or your doctor."</li>
+</ul></li>
+</ol>
+<p><strong>AYUSH cert in parallel</strong> per V3 plan-level changes:
+AYUSH certification path runs in parallel with FSSAI Schedule VI
+compliance. FSS Chennai officer is the contact. AYUSH certification adds
+Ayurvedic-traditional credibility on label + opens AYUSH retail /
+institutional distribution channels in time.</p>
+<p><strong>Recommended regulatory pre-launch checklist</strong>:</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />Regulatory counsel review of all
+label claims (pre-print) — Vidhi Centre for Legal Policy or specialty
+FSSAI consultant</label></li>
+<li><label><input type="checkbox" />Schedule VI compliance check on
+every ingredient</label></li>
+<li><label><input type="checkbox" />AYUSH certification application in
+parallel</label></li>
+<li><label><input type="checkbox" />Allergen disclosure
+approved</label></li>
+<li><label><input type="checkbox" />Pregnancy contraindication clearly
+stated</label></li>
+<li><label><input type="checkbox" />Pediatrician-consultation language
+reviewed</label></li>
+<li><label><input type="checkbox" />Customer service team trained on
+no-medical-advice protocols</label></li>
+<li><label><input type="checkbox" />Adverse-event reporting protocol
+documented (FSSAI requires for nutraceuticals)</label></li>
+<li><label><input type="checkbox" />Dr. Lakshmi Kala formulation gate
+clearance</label></li>
+</ul>
+<h3 id="128-aggregate-supply-chain-risk-and-mitigation">12.8 Aggregate
+supply chain risk and mitigation</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Severity</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aquamin-Ca single-distributor concentration (Inhalation Health
+India)</td>
+<td>Medium-High</td>
+<td>Secure 12-month forward purchase agreement at LOI; identify Marigot
+direct-import path as contingency; alternative fermented-source calcium
+pre-vetted with Dr. Lakshmi Kala</td>
+</tr>
+<tr>
+<td>Shatavari wild-collection vs cultivated</td>
+<td>Medium</td>
+<td>Specification insists on cultivated origin in PO; Vidya Herbs
+primary + Sami-Sabinsa backup</td>
+</tr>
+<tr>
+<td>Methi adulteration at commodity grade</td>
+<td>Low-Medium</td>
+<td>Saponin-standardised product (not generic methi powder); HPLC
+verification on every batch</td>
+</tr>
+<tr>
+<td>Moringa supply continuity (single-source DPR captive)</td>
+<td>Low</td>
+<td>TGL existing flow; backup Andhra/TN moringa identified for
+emergency</td>
+</tr>
+<tr>
+<td>Curry leaf supply continuity</td>
+<td>Low</td>
+<td>Plant Lipids primary + Vidya Herbs backup; multiple South Indian
+sources</td>
+</tr>
+<tr>
+<td>In-house manufacturing capacity ramp-up</td>
+<td>Medium</td>
+<td>Phase 2 Q3 batch sized to existing facility capacity; capacity
+expansion planned for Phase 3-4 if Nourish + Calm + others overlap</td>
+</tr>
+<tr>
+<td>Pragati Pack 8K packaging MOQ vs first-batch demand</td>
+<td>Low</td>
+<td>Share MOQ with Phase 2 co-launches OR commit 8K Nourish alone</td>
+</tr>
+<tr>
+<td>Regulatory delay (lactation-specific claims)</td>
+<td>Medium</td>
+<td>Engage regulatory counsel at Phase 2 Week 1; AYUSH parallel track;
+FSSAI Centre of Excellence query for any active-specific
+clarifications</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="129-open-sourcing-questions-for-dr-lakshmi-kala-formulation-gate">12.9
+Open sourcing questions for Dr. Lakshmi Kala (formulation gate)</h3>
+<ol type="1">
+<li><strong>Methi dose validation</strong>: 200mg/day
+saponins-standardized methi extract — sufficient galactagogue support,
+or under-dosing? Most clinical lactation studies use 500mg+ fenugreek.
+Conservative dose vs efficacy tradeoff — what's the formulator's
+perspective for the postpartum-safety-priority context?</li>
+<li><strong>Ashwagandha addition?</strong>: Conservative 100mg/day
+Ashwagandha (KSM-66 or generic 5% withanolides) for postpartum mood +
+adaptogenic support? Sengupta 2018 supports lactation safety at moderate
+doses; default V1 is omit; revisit with Dr. Lakshmi Kala.</li>
+<li><strong>Amla (Vit C iron co-factor) addition?</strong>: 30-50mg amla
+extract to enhance iron absorption from moringa + methi natural-source
+iron load? Capsule fill weight impact?</li>
+<li><strong>Capsule fill validation</strong>: 500mg total fill in Size
+#0 — granulation needed, or fits at standard density? Trial-fill
+validation.</li>
+<li><strong>Stability profile</strong>: Aquamin-Ca + extracts + moringa
++ curry-leaf in HPMC capsule + amber bottle — 24-month shelf life
+achievable, or step down to 18 months?</li>
+<li><strong>Vendor relationship validation</strong>: Dr. Lakshmi Kala's
+view on Vidya Herbs primary for Shatavari + Methi at the V3 verified
+cost lock — quality consistency at the ₹600-1,200/kg tier?</li>
+<li><strong>AYUSH certification path</strong>: Dr. Lakshmi Kala's
+experience with AYUSH parallel-track application — typical timeline +
+critical-path documentation?</li>
+</ol>
+<p>These are tracked for Dr. Lakshmi Kala formulation gate (Mon/Tue
+2026-05-11/12 onwards) and queue regulatory-counsel engagement to run
+parallel.</p>
+<h2 id="13-effort-capital-and-execution-action-plan">13. Effort,
+capital, and execution action plan</h2>
+<p><em>Pending. Phase 2 Q3 12-week critical path mapped to owner + spend
+bucket. The "who does what, when, with how much money" layer. Bridges
+this brief to the program management spec
+(<code>10-phase-1-program-management.md</code>) Phase 2
+extension.</em></p>
+<h2 id="14-technical-appendix">14. Technical appendix</h2>
+<p><em>Pending. References V3 theory dossier
+(<code>dossiers/07-nourish-lactation.md</code>), V3 verified cost lock
+(<code>00-tgl-cost-model.md</code>), governance doc 10
+(<code>10-phase-1-program-management.md</code>), brand DNA
+(<code>02-brand-dna.md</code>).</em></p>
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 work-in-progress. Sections 1-12 locked 2026-05-09 by Aarav.
+Sections 13-14 pending. On full lock, brief is shareable with Deepika +
+Unnati + Dr. Lakshmi Kala for input + alignment.</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial full brief, drafted by Aarav post-Deepika V3
+reformulation + verified V3 cost lock per DEC-023. Sections 1-12 locked.
+Format: Size #0 × 3 caps/day daily (split morning + lunch + evening with
+meals per DEC-014); 90-cap pack. MRP ₹1,199 / Sale ₹1,099 / Sub ₹934.
+COGS ~₹168/pack → 86% GM at MRP. Composition: Shatavari 167mg (4-5%
+saponins, Vidya Herbs primary OR Sami-Sabinsa, ₹600-1,200/kg) + Methi
+67mg (4-5% saponins generic, Vidya Herbs OR Sami-Sabinsa ₹350-700/kg) +
+Aquamin-Ca 100mg (algae lithothamnion via Inhalation Health India) +
+Moringa 133mg (TGL captive Tier B galactagogue exception 400mg/day
+total) + Curry leaf 33mg (NOT iron-standardised, Plant Lipids OR Vidya
+Herbs). Channel mix WEBSITE-FIRST / Shopify-led playbook per
+TGL-P1-DEC-017 (Meta + Google → Shopify PDP, founder Reels/Stories,
+Klaviyo email/SMS retention, Shopify subscription mechanic;
+mom-influencer + lactation-consultant referral angles; Amazon Month 2-3
+secondary). V3 in-house manufacturing context, Dr. Lakshmi Kala
+formulation gate, AYUSH cert in parallel, naming sprint round 2
+placeholder.</p>
+</main>
+</body>
+</html>

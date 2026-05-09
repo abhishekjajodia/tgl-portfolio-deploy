@@ -1,0 +1,2814 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Calm (Magnesium + Sleep)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Calm (Magnesium + Sleep)</strong></div>
+
+<blockquote>
+<p><strong>Mirrored in the master doc</strong>: This Calm brief is also
+embedded in <a
+href="tgl-product-portfolio.md"><code>tgl-product-portfolio.md</code></a>,
+the consolidated single-doc view of all 10 SKUs + Plan Moving Forward.
+The master doc is canonical for navigation. This standalone is retained
+for focused single-product viewing.</p>
+</blockquote>
+<h1 id="calm-working-name-product-brief">Calm (working name): Product
+Brief</h1>
+<p><strong>The Good Leaf (TGL)</strong> Phase 3 batch SKU. Magnesium +
+Ayurvedic adaptogen-sedative sleep capsule. <em>Drafted 2026-05-09 by
+Aarav. Status: V1 with Sections 1-12 locked, V3 formulation switch
+applied per DEC-025 (KSM-66 → generic 5% withanolides; BacoMind →
+Sabinsa Bacopin). This brief is the team-readable narrative layer for
+Deepika, Unnati, and Boco. Pair with
+<code>dossiers/06-calm-magnesium-sleep.md</code> (V3 theory + clinical
+detail) and the formulation-spec (to be drafted at vendor-formulator
+handoff per DEC-023).</em></p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Calm (working name; Sanskrit alternative
+"Shanti" considered. Final lock pending TM clearance per TGL-P1-DEC-007
++ naming sprint round 2 with Deepika).</p>
+<p><strong>Elevator pitch (3 sentences, repeatable by anyone on the
+team):</strong></p>
+<blockquote>
+<p>Calm is TGL's nighttime sleep-quality capsule, designed for the 28-55
+year old urban Indian adult who is tired, wired, and tracking their Oura
+sleep score with mounting frustration. Two plant-cellulose capsules,
+30-60 minutes before bed, deliver Aquamin-Mg algae magnesium (250mg
+elemental, via Inhalation Health India), generic-quality ashwagandha +
+Sabinsa Bacopin Bacopa cognitive-stress pair, and TGL's farm-grown
+moringa heritage thread to ease glutamate-driven hyperarousal, support
+GABA-driven calm, and help the nervous system find its real wind-down
+rhythm. No melatonin. No grogginess. Built on Moringa. Powered by
+Ayurveda.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-calm-motivation">2. Why we're building Calm
+(motivation)</h2>
+<p>Four reasons, in priority order:</p>
+<p><strong>1. The defensible whitespace bet in a fast-growing
+category.</strong> Magnesium-led sleep is the #2 Amazon Vitamins &amp;
+Supplements demand category; 4 of the top-14 Amazon V&amp;S SKUs are
+magnesium SKUs. Every meaningful competitor (Carbamide Forte, Setu
+Sleep:Sustain, Wellbeing Calm Melts, Pure Nutrition, HealthVit) uses
+synthetic magnesium glycinate (chemical chelate) or synthetic melatonin.
+The natural-source angle (Aquamin algae magnesium with published
+bioavailability comparable to Mg citrate) plus an Ayurvedic adaptogen +
+Bacopa cognitive-stress pair is unclaimed territory. Earthful Marine
+Magnesium uses Aquamin too, but as a single-actor powder format without
+the Ayurvedic stack depth — Calm differentiates on the comprehensive
+sleep-stack story plus the brand thesis.</p>
+<p><strong>2. The ad-funnel efficiency play.</strong> Sleep + stress is
+a low-CAC category — high search volume, broad targeting, low
+competitive bid pressure relative to hair, hormonal, or weight-loss. The
+Phase 3 launch of Calm is intended to bring CAC down on the overall
+portfolio after the Q1 trio (Cycle + Bloom + Reset) anchors the
+women's-hormonal-continuum spend. Sleep is unisex (60% women / 40% men
+cross-sell) and the broader targeting unlocks Meta-channel scale Calm
+cannot achieve as a women's-only SKU.</p>
+<p><strong>3. Cross-sell into the menopause arc.</strong> Perimenopause
++ menopause sleep disturbance is a textbook indication (40-60% increase
+in sleep complaints due to estrogen withdrawal + thermoregulation
+changes). Calm slots cleanly into the Crest Q4 menopause launch as a
+Daily Gut Kit / Reset Kit-style bundle. The migration logic: Cycle Q1
+buyer ages into Crest Q4 over years; Calm catches her at the
+perimenopause boundary (early 40s) before Crest Q4 owns the full
+menopause stack. Same captive supply chain (Aquamin, ashwagandha,
+moringa) reused across SKUs.</p>
+<p><strong>4. Founder-storytelling vehicle.</strong> Deepika's
+farm-visit Reels at DPR Moringa become heritage content (moringa is the
+brand thread, even though it's not the lead mineral active here). Sleep
+is also a category where the founder-personal story converts — "I was
+tracking my sleep score for two years before building Calm" is a real
+founder-narrative arc that Carbamide Forte and Setu cannot match.</p>
+<p><strong>Why now (Phase 3, not Phase 1)</strong>: Calm needs the Q1
+trio (Cycle + Bloom + Reset) to prove the website-led acquisition motion
+and seed the Klaviyo retention engine before adding a
+unisex-broader-targeting SKU. Phase 3 sequencing also lets Aquamin-Mg
+supplier relationship through Inhalation Health India mature alongside
+the existing Aquamin-Ca path on Bloom + Crest, so vendor-side ops are
+consolidated.</p>
+<p><strong>Single-sentence motivation</strong>: Calm is the
+natural-source plant-magnesium + Ayurvedic adaptogen sleep SKU India's
+synthetic-glycinate market doesn't have, designed to anchor TGL's
+nighttime-ritual category at the ₹899 sale band, bring portfolio CAC
+down via low-bid sleep targeting, and carry the moringa heritage thread
+into the unisex segment without forcing a brand-narrative claim the
+supply chain can't deliver.</p>
+<hr />
+<h2 id="3-the-customer-who-she-is-what-shes-tried-what-fails-her">3. The
+customer (who she is, what she's tried, what fails her)</h2>
+<p><strong>Who she is</strong> (core 28-55, dual gender skew 60% women /
+40% men):</p>
+<p>She's an urban Tier 1-2 knowledge-economy or service-sector
+professional, 28-50 (peaking 32-45), household income ₹70K+/month or
+equivalent, English-Hindi (or English-Tamil/Telugu) bilingual,
+screen-heavy 7-9 hour workdays, irregular meal timing, frequent travel
+disruption, possibly post-antibiotic in the past 12 months, possibly
+postpartum or perimenopausal. She self-identifies with one or more of:
+stress-driven insomnia, sleep onset &gt; 30 min, frequent night waking,
+restless legs, muscle cramps, anxiety-driven sleep disruption.</p>
+<p>She knows the term "magnesium glycinate" specifically — this is the
+ingredient-literate Huberman-podcast-listening
+Allahbadia-podcast-watching consumer. She uses fitness wearables (Mi
+Band, Apple Watch, Oura Ring, Fitbit). She tracks her sleep score and
+has a baseline mental model of "good night" vs "bad night." She values
+"no morning grogginess" — biggest objection to melatonin and
+pharma-class sleep aids — above almost everything else in this
+category.</p>
+<p>She's skeptical of dependency and habit-forming sleep aids. She has
+read enough wellness content to know melatonin is a hormone, not a
+supplement, and she's quietly worried about the long-tail effects of
+nightly synthetic-melatonin use. She wants something her body
+recognises.</p>
+<p>Female-specific note: at 40+, perimenopause + menopause is the
+dominant sleep-disturbance driver (estrogen withdrawal + hot flashes +
+night sweats). At 28-40, it's stress + screen + irregular schedule.
+Calm's positioning works across both sub-cohorts because the magnesium +
+adaptogen + Bacopa stack addresses both glutamate hyperarousal (the
+wired-but-tired pattern) and cortisol dysregulation (the perimenopause
+overlay).</p>
+<p>Male-specific note: 30-40% of Calm's audience is men, primarily
+co-purchasing households (the wife buys for both) plus the existing TGL
+ashwagandha-buying men cohort. The packaging design must read unisex —
+no overtly feminine cues that block 40% of the addressable audience.</p>
+<p><strong>What's happening in her body</strong> (the medical
+context):</p>
+<p>Magnesium deficiency: estimated 30-40% of Indian adult population per
+dietary intake studies (RDA 350-400mg/day; average Indian intake
+200-280mg/day per ICMR-NIN data). Magnesium is a cofactor for &gt;300
+enzymatic reactions including GABA synthesis, glutamate modulation, and
+muscle relaxation; chronic deficiency drives the wired-but-tired
+baseline pattern.</p>
+<p>Insomnia prevalence: ~33% of Indian adults report some insomnia
+symptoms; 10% chronic. Stress-related sleep disturbance is the dominant
+phenotype post-pandemic (urban India shows elevated chronic-stress
+markers; sleep is the dominant downstream complaint).</p>
+<p>Female-specific overlay (40+): perimenopause estrogen-receptor
+changes drive thermoregulation disruption (night sweats, hot flashes),
+which fragments sleep architecture. Cortisol dysregulation amplifies the
+wake-at-3-AM pattern. This is where Calm's adaptogen layer (ashwagandha
+cortisol modulation) earns its place above and beyond pure magnesium
+supplementation.</p>
+<p><strong>What she's tried, and why each fails her</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What she tries</th>
+<th>Why it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthetic melatonin (5mg or 10mg)</td>
+<td>Habit-formation worry; morning grogginess (the "melatonin
+hangover"); doesn't address underlying glutamate hyperarousal</td>
+</tr>
+<tr>
+<td>Carbamide Forte Magnesium Glycinate 2000mg</td>
+<td>Works, but lab-coded packaging, no narrative beyond the molecule;
+4-tablet daily compliance friction; synthetic chelate frame</td>
+</tr>
+<tr>
+<td>Setu Sleep:Sustain</td>
+<td>Premium dual-release tech, but synthetic melatonin lead-actor; same
+morning-grogginess concern; ₹999 MRP feels expensive monthly</td>
+</tr>
+<tr>
+<td>Wellbeing Calm Melts (effervescent)</td>
+<td>Format gimmick, synthetic actives; she dropped after Pack 1</td>
+</tr>
+<tr>
+<td>Earthful Marine Magnesium powder</td>
+<td>Right Aquamin source, but powder format friction (mixing nightly),
+single-actor (no Ayurvedic depth), no founder-narrative</td>
+</tr>
+<tr>
+<td>Earthful Zen Mode</td>
+<td>Closest natural-source Ayurvedic peer (ashwagandha + brahmi + tulsi
++ tagar) but no magnesium — she still needs Mg supplementation
+alongside</td>
+</tr>
+<tr>
+<td>Herbal teas (chamomile, valerian)</td>
+<td>Mild effect; works for occasional nights, not weekly chronic-stress
+use case</td>
+</tr>
+<tr>
+<td>White-noise / sleep tracking apps</td>
+<td>Behavioral support only; doesn't address the physiological
+deficiency</td>
+</tr>
+<tr>
+<td>Curd / kanji / warm milk with haldi</td>
+<td>Cultural ritual but inconsistent dose; she wants something
+measurable in a capsule</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The gap Calm fills</strong>: a comprehensive
+natural-source-magnesium + Ayurvedic-adaptogen-sedative single-SKU at
+the ₹899 sale tier. One bottle, full sleep stack, 2-cap-nightly daily
+continuous use, premium plant-cellulose capsule, founder face she can
+read about and trust. Combines the strongest natural-source magnesium
+evidence (Aquamin algae complex at clinical 250mg elemental Mg/day,
+comparable bioavailability to Mg citrate per Felice 2018) with the
+Ayurvedic adaptogen + cognitive-stress pair (generic 5% withanolides
+ashwagandha + Sabinsa Bacopin Bacopa) and the brand thesis "Built on
+Moringa. Powered by Ayurveda." All carrying the moringa heritage thread
+(Tier B 50mg/cap signature) that ties Calm into TGL's broader
+cross-portfolio narrative.</p>
+<p>The "no melatonin, no grogginess" position is a hard brand
+commitment, deliberately traded for slower onset (4-8 weeks for full
+effect vs melatonin's 30-min) in exchange for sustainable nightly use
+without dependency concern.</p>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-4-8-weeks">4.
+What the product does (the lived experience over 4-8 weeks)</h2>
+<p><strong>Calm is a 4-8 week product, not a same-night fix.</strong>
+Magnesium-driven muscle relaxation can feel immediate for Mg-deficient
+consumers (Night 1-3 noticeable for the 30-40% of Indian adults below
+RDA), but the deeper sleep-architecture and stress-axis recalibration
+compounds over weeks. Communicate this clearly to prevent return cycles
+from consumers expecting melatonin-style rapid onset.</p>
+<p>Here's what she actually experiences across a typical 8-week arc on 2
+caps/day, taken 30-60 minutes before bed:</p>
+<p><strong>Night 1-3: the magnesium signal.</strong></p>
+<p>For Mg-deficient consumers (30-40% of the audience), magnesium-driven
+muscle relaxation and reduced restlessness can be immediately
+perceptible — restless legs settle, the falling-asleep-into-the-pillow
+sensation feels easier. For Mg-replete consumers, minimal perceived
+change. Either way, Bacopin and ashwagandha are accumulating in the
+background; nothing dramatic to register yet.</p>
+<p>The marketing job in Week 1 is not to sell rapid efficacy; it's to
+sell the right expectation. Deepika's content arc in launch month
+centers on <em>"Calm is the slow, real wind-down. The first week is the
+body recognising the magnesium it's been missing. The deeper stress +
+sleep effect compounds over 4-8 weeks."</em></p>
+<p><strong>Week 1-2: the first GABA signal.</strong></p>
+<p>Sleep onset improvement starts to appear (ashwagandha + Tagar
+accumulating their cortisol + GABA-A effects). Mid-night wake-ups less
+frequent. The "racing mind at 11 PM" pattern starts to soften (Bacopin's
+stress-axis adaptogen role).</p>
+<p>The user pattern at this stage: she finishes Pack 1, recognises she's
+been falling asleep a little easier and feeling slightly steadier, and
+decides "let me see if it sticks." This is the trial-to-loyal conversion
+moment. Subscription retention math says: if she finishes Pack 1 and
+reorders Pack 2, she is typically a 12-18 month customer.</p>
+<p><strong>Week 3-4: sustained sleep-quality shift.</strong></p>
+<p>Deeper restorative sleep reported (her wearable confirms it — Oura
+sleep score, Apple Watch sleep stages, Fitbit deep-sleep minutes all
+start ticking up). Mood less reactive across the day (cortisol
+modulation from sustained ashwagandha use). The "wake up groggy" pattern
+fades (no synthetic melatonin = no melatonin hangover; Calm's
+no-grogginess frame earns its credibility here).</p>
+<p><strong>Week 6-8: stress-axis recalibration.</strong></p>
+<p>Sustained sleep-quality shift; deeper restorative sleep reported;
+mood stabilised. The wired-but-tired baseline pattern resolves. She has
+settled into Calm as a nighttime ritual; subscription is on autopilot.
+She introduces it to her partner (the men's cross-sell).</p>
+<p><strong>8+ weeks: maintenance + perimenopause overlay (40+
+users).</strong></p>
+<p>For 40+ female users, the perimenopause sleep-disturbance pattern (3
+AM wake-up, hot-flash-fragmented sleep) starts to settle as the cortisol
++ GABA stack does its background work. Aquamin's multi-mineral matrix
+supports the Ca + Mg balance relevant to bone-health continuity
+(cross-link to the Crest menopause arc).</p>
+<p><strong>What we're NOT promising</strong> (so customers and Deepika
+both stay credible):</p>
+<table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Falls asleep in 15 minutes</td>
+<td>Wrong expectation; melatonin-style rapid onset isn't the Calm
+mechanism</td>
+</tr>
+<tr>
+<td>Cures insomnia</td>
+<td>Insomnia is multi-factorial; we don't cure it, we support the
+underlying physiology</td>
+</tr>
+<tr>
+<td>Replaces sleep medication</td>
+<td>She needs her doctor for clinical insomnia; we are not that</td>
+</tr>
+<tr>
+<td>Sedative effect</td>
+<td>Drug-classification language; not allowed and not what we are</td>
+</tr>
+<tr>
+<td>Effect inside 7 days</td>
+<td>Wrong expectation for the full effect; honest framing protects
+credibility</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest customer message</strong> Deepika repeats across
+content: <em>"Calm is the slow, real wind-down. Magnesium your body
+recognises. Sleep your body remembers. No melatonin. No grogginess.
+Built on Moringa. Powered by Ayurveda."</em></p>
+<hr />
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Five actives in the cap, organised as one moringa whole-leaf
+heritage base + four standardised extracts/distributed
+minerals.</strong> TGL extract-first formulation philosophy in action
+(per <code>02-brand-dna.md</code> Operational Principle 6, locked
+2026-05-09 as TGL-P1-DEC-011) plus the Moringa Foundation principle
+(Tier B heritage signature 50mg/cap = 100mg/day).</p>
+<p><strong>Format: Size #00 capsule × 2 caps/day evening (30-60 min
+before bed); 60-cap pack (30-day supply).</strong> Size #00 chosen
+because the Aquamin-Mg + extract matrix needs more fill volume than
+500mg allows; 2 caps/day stays within the high-priority UX target per
+DEC-016. Capsule shell: opaque plant-cellulose HPMC, dark amber colour
+for nighttime association.</p>
+<p><strong>Locked pricing (V3, after formulation switch per
+DEC-025)</strong>:</p>
+<ul>
+<li><strong>MRP ₹999 / Sale ₹899 / Subscription ₹764</strong></li>
+<li>COGS ~₹250/pack at Deepika's confirmed in-house economics (V3 cost
+lock after formulation switch from premium triple-stack)</li>
+<li><strong>Gross margin at MRP: 75%</strong> ✓ (above the 75%
+premium-D2C floor)</li>
+<li>GM at sale ₹899: 72.2%. GM at sub ₹764: 67.3%.</li>
+</ul>
+<p><strong>The 5-active stack (V3 LOCKED — generic-equivalent stack per
+DEC-025)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (Size #00, ~600mg fill, 2 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Aquamin-Mg</strong></td>
+<td>Algae lithothamnion magnesium (Marigot Ireland origin), ~7%
+elemental Mg, multi-mineral matrix</td>
+<td>via <strong>Inhalation Health India</strong> (Indian
+distributor)</td>
+<td>250 mg (~17.5 mg elemental Mg/cap)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Ashwagandha generic 5% withanolides</strong></td>
+<td>Withania somnifera root hydroalcoholic extract, 5% withanolides
+(HPLC) — <strong>SWITCHED FROM KSM-66 Ixoreal per DEC-025</strong></td>
+<td><strong>Vidya Herbs OR Indfrag</strong></td>
+<td>250 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Sabinsa Bacopin</strong></td>
+<td>Bacopa monnieri extract, 50% bacosides (Sami-Sabinsa branded) —
+<strong>SWITCHED FROM BacoMind Natural Remedies per
+DEC-025</strong></td>
+<td><strong>Sami-Sabinsa</strong></td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Moringa</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa)</td>
+<td>TGL captive</td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td>5</td>
+<td>(cap-fill / excipients — plant cellulose carrier)</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>balance</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total active fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~600 mg / cap</strong> (Size #00 ✓)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>V3 formulation switch — the cost story (DEC-025, applied
+2026-05-09)</strong>:</p>
+<p>The earlier V1/V2 dossier carried a premium "triple-stack"
+formulation: KSM-66 Ixoreal ashwagandha (₹18.5K/kg) + BacoMind Natural
+Remedies Bangalore Bacopa (₹22.5K/kg) + Tagar (Valeriana wallichii) +
+Jatamansi (Nardostachys jatamansi sustainability-restricted). V3 cost
+lock on the Phase 1+ catalog (DEC-023) drove a hard formulation review
+against the ₹999 MRP / 75% GM floor; the premium triple-stack pushed
+COGS above ₹350/pack and GM below 65%. Two switches restored the
+price-band economics:</p>
+<p><strong>Switch 1 — KSM-66 → generic 5% withanolides ashwagandha
+(DEC-025)</strong>:</p>
+<p>KSM-66 (Ixoreal Biomed Hyderabad) is the most-clinically-studied
+ashwagandha extract globally — 24+ RCT citations including the
+Chandrasekhar 2012 cortisol-reduction study (600mg/day, 27.9% cortisol
+reduction) and Langade 2019 sleep study (300mg/day, sleep onset +
+quality improvement). Ixoreal's brand premium runs ~6x above commodity
+ashwagandha extracts (₹18.5K/kg vs ₹3-4K/kg generic 5% withanolides from
+Vidya Herbs or Indfrag).</p>
+<p>The generic 5% withanolides standardisation matches KSM-66's
+published spec — both are 5% withanolides root-only hydroalcoholic
+extracts. The clinical evidence base applies directionally: the active
+compounds are the same; the RCT-citation premium attached to KSM-66 was
+substantially marketing leverage rather than pharmacological
+differentiation. Both extract types comply with FSSAI Schedule VI
+requirements for ashwagandha (Withania somnifera root extract,
+hydroalcoholic, 5%+ withanolides). Both are root-only (no leaf, Pillar 1
+clean).</p>
+<p>The cost saving: at 250mg/cap × 2 caps/day × 60 caps/pack = 30g
+ashwagandha/pack. KSM-66 at ₹18.5K/kg = ₹555/pack ashwagandha alone.
+Generic 5% at ₹3.5K/kg = ₹105/pack. Net saving: ~₹450/pack, the single
+biggest formulation lever in the COGS model. Calm at the ₹999 MRP / 75%
+GM floor cannot accommodate the KSM-66 premium without either (a)
+raising MRP to ₹1,499+ (loses the price-tier vs Earthful Zen Mode ₹599 +
+Carbamide Forte ₹649), or (b) reducing ashwagandha dose to sub-clinical
+100mg/day (loses the cortisol-modulation efficacy story).</p>
+<p>The brand-attribution clarity: Calm's label and PDP say "Ashwagandha
+root extract (Withania somnifera, 5% withanolides standardised)" without
+a co-branded extract callout. Deepika's content can speak to the
+pharmacology + classical Ayurvedic basis (Charaka, Bhavaprakasha)
+without claiming the KSM-66 RCT lineage that doesn't apply to a
+generic-vendor extract.</p>
+<p><strong>Switch 2 — BacoMind → Sabinsa Bacopin (DEC-025)</strong>:</p>
+<p>BacoMind is <strong>Natural Remedies Bangalore</strong> branded (NOT
+Sami-Sabinsa, contrary to earlier V1 brief mis-attribution —
+DEC-024-style brand-attribution correction applied here too). BacoMind
+runs ~₹22.5K/kg at a ~55% bacoside blend with proprietary
+cognitive-claim dossier including DeKosky 2008 + Stough 2008 RCT
+lineage. Sabinsa Bacopin is the Sami-Sabinsa Group equivalent at 50%
+bacosides, ~₹7-8K/kg (~⅓ of BacoMind cost). Bacosides are the active
+compound class; 50% Bacopin and 55% BacoMind are pharmacologically
+equivalent at the dose Calm uses (50mg/cap × 2 caps = 100mg/day Bacopa
+extract = 50-55mg bacosides/day, cognitive-stress supportive range per
+Calabrese 2008 Bacopa cognitive RCT).</p>
+<p>The brand-attribution correction matters: Sami-Sabinsa is TGL's
+primary vendor relationship for Shatavari, Yashtimadhu, Vitex (Cycle +
+Bloom + Crest), and adding Bacopin to the consolidated PO leverages
+existing vendor terms + reduces SKU-level vendor sprawl. BacoMind would
+have required a separate Natural Remedies Bangalore vendor relationship
+at premium pricing for marginal pharmacological lift.</p>
+<p>The cost saving: at 50mg/cap × 2 caps × 60 caps = 6g Bacopa/pack.
+BacoMind at ₹22.5K/kg = ₹135/pack. Bacopin at ₹7.5K/kg = ₹45/pack. Net
+saving: ~₹90/pack, the second-largest formulation lever.</p>
+<p><strong>What dropped from the V2 dossier in the V3
+switch</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Dropped active</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tagar (Valeriana wallichii) 100mg</td>
+<td>Cap fill constraint at Size #00; Aquamin-Mg + ashwagandha + Bacopin
++ moringa already at ~600mg/cap. Tagar's GABA-A direct effect was the
+closest add to the stack but capacity-bound. Considered for V2 brief if
+cap fill is right-sized at vendor-formulator handoff.</td>
+</tr>
+<tr>
+<td>Jatamansi (Nardostachys jatamansi) 50mg</td>
+<td>IUCN Red List (Critically Endangered); cultivated-source supply
+chain unreliable per Section 12 sourcing review; brand commitment to
+Pillar 4 transparency (DEC-011) made the wild-collection regulatory +
+sustainability risk unacceptable. Dropped permanently from Calm
+formulation.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DEC-016 compliance check (2026-05-09)</strong>: All 4
+non-moringa actives are vendor-network standard concentrations. No
+specialty / hyper-premium / single-supplier branded ingredients (KSM-66
+dropped; BacoMind dropped). Aquamin via Inhalation Health India is the
+established Indian-distributor procurement path (same as Bloom + Crest),
+Sami-Sabinsa Bacopin and Vidya/Indfrag generic 5% ashwagandha are
+vendor-network standards at &lt;₹10K/kg.</p>
+<p><strong>Daily intake at 2 caps/day</strong> (every evening, 30-60 min
+before bed):</p>
+<ul>
+<li>Aquamin-Mg: 500mg total Aquamin = ~35 mg elemental Mg/day (note:
+Aquamin-Mg's ~7% elemental density at 500mg/day delivers a supportive
+35mg, well below the 350mg supplement cap; the design choice is to
+position Calm as "magnesium your body recognises" with Ayurvedic stack
+depth, not as a high-dose Mg supplement. For users seeking RDA-level Mg
+supplementation, Calm stacks with dietary Mg sources)</li>
+<li>Ashwagandha generic 5% withanolides: 500 mg/day extract (delivers
+~25 mg withanolides/day; clinical sleep-onset range per Langade 2019 at
+300mg KSM-66 maps to ~15mg withanolides; Calm at 25mg withanolides/day
+is mid-clinical range)</li>
+<li>Sabinsa Bacopin: 100 mg/day extract (delivers 50-55 mg
+bacosides/day; cognitive-stress supportive range per Calabrese
+2008)</li>
+<li>Moringa whole-leaf: 100 mg/day (Tier B heritage signature dose,
+locked per Moringa Foundation principle)</li>
+<li><strong>Total daily extract + heritage intake: ~1,200 mg actual
+mass; magnesium + adaptogen + cognitive-stress + heritage
+stack</strong></li>
+</ul>
+<p><strong>Important honest disclosure</strong>: Calm at ~35mg elemental
+Mg/day from Aquamin is supportive supplementation, not RDA-replacement
+supplementation. The natural-source brand commitment + the Aquamin algae
+density (~7% elemental Mg) means Calm cannot deliver 200mg+ elemental Mg
+in a 2-cap Size #00 format without dropping the Ayurvedic stack or going
+to 4-cap/day form factor. The deliberate trade-off: Pillar 1
+natural-source over high-dose elemental Mg, with the differentiation
+lever being the Ayurvedic adaptogen + Bacopin cognitive-stress pair that
+synthetic-Mg-glycinate competitors cannot offer. Customers seeking pure
+high-dose Mg supplementation are not Calm's target segment — they buy
+Carbamide Forte at ₹649. Calm targets the ingredient-literate
+Huberman-listening consumer who values the comprehensive sleep-stack +
+natural-source story over raw mineral dose.</p>
+<p><strong>V3 cost lock — pack economics (DEC-023 + DEC-025, locked
+2026-05-09)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>₹/pack</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aquamin-Mg (Inhalation Health India, 30g/pack)</td>
+<td>~₹90</td>
+<td>INR-billed via distributor, no FX exposure; same vendor as Bloom +
+Crest</td>
+</tr>
+<tr>
+<td>Ashwagandha generic 5% (Vidya/Indfrag, 30g/pack at ~₹3.5K/kg)</td>
+<td>~₹105</td>
+<td>DEC-025 switch from KSM-66; saves ~₹450/pack vs KSM-66</td>
+</tr>
+<tr>
+<td>Sabinsa Bacopin (6g/pack at ~₹7.5K/kg)</td>
+<td>~₹45</td>
+<td>DEC-025 switch from BacoMind; saves ~₹90/pack vs BacoMind</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf (TGL captive, 6g/pack)</td>
+<td>~₹3</td>
+<td>DPR captive supply, near-zero marginal</td>
+</tr>
+<tr>
+<td>HPMC capsule shells (60 caps, dark amber dye)</td>
+<td>~₹26</td>
+<td>Deepika vendor relationship per DEC-002; dark amber adds ~₹2 vs
+clear</td>
+</tr>
+<tr>
+<td>HDPE amber bottle + label + monocarton + desiccant</td>
+<td>~₹18</td>
+<td>Pragati Pack stack; desiccant for Mg + extract
+moisture-sensitivity</td>
+</tr>
+<tr>
+<td>In-house manufacturing (encapsulation + bottling + QC)</td>
+<td>~₹10</td>
+<td>Deepika facility per V3 (vs ~₹50 external CMO)</td>
+</tr>
+<tr>
+<td>Stability buffer + waste allowance</td>
+<td>~₹3</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total COGS</strong></td>
+<td><strong>~₹250</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at MRP ₹999</strong></td>
+<td><strong>75.0%</strong></td>
+<td>At the premium-D2C floor ✓</td>
+</tr>
+<tr>
+<td><strong>GM at sale ₹899</strong></td>
+<td><strong>72.2%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at sub ₹764</strong></td>
+<td><strong>67.3%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why the GM lands at the 75% floor (not above)</strong>: Calm
+sits below the portfolio leaders (Cycle 84%, Crest 89%, Pulse 83%)
+because the natural-source magnesium discipline (Aquamin via Inhalation
+Health) carries an irreducible per-mg cost premium over synthetic Mg
+glycinate. Carbamide Forte at the synthetic-Mg-glycinate tier hits ~89%
+GM at MRP because Mg glycinate at scale is ~₹0.30/g; Aquamin runs
+~₹3K/kg into India = ~₹3/g, ~10x the per-gram active cost. The
+deliberate trade-off: natural-source Pillar 1 commitment + comprehensive
+Ayurvedic stack at a defensible 75% GM at MRP, vs commodity-economics Mg
+glycinate at 89% GM that any competitor can replicate. Calm's
+right-to-win is the Ayurvedic stack depth + brand thesis, earned at the
+GM floor.</p>
+<p><strong>What's NOT in the stack, and why</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Excluded active</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthetic Mg glycinate</td>
+<td>Pillar 1 violation (synthetic chelate); Carbamide Forte / Setu /
+Wellbeing slot</td>
+</tr>
+<tr>
+<td>Synthetic melatonin</td>
+<td>Pillar 1 violation (synthetic hormone); brand commitment to "no
+melatonin / no grogginess" position</td>
+</tr>
+<tr>
+<td>Tagar (Valeriana wallichii)</td>
+<td>Cap fill constraint at Size #00; Phase 2 reformulation candidate if
+vendor-formulator right-sizes fill</td>
+</tr>
+<tr>
+<td>Jatamansi (Nardostachys jatamansi)</td>
+<td>IUCN Red List + sustainability risk (DEC-011 Pillar 4 transparency);
+permanently excluded</td>
+</tr>
+<tr>
+<td>KSM-66 Ixoreal ashwagandha</td>
+<td>DEC-025 cost-driven switch to generic 5% withanolides; ~6x cost
+premium not justified at ₹999 MRP</td>
+</tr>
+<tr>
+<td>BacoMind Natural Remedies</td>
+<td>DEC-025 cost-driven switch to Sabinsa Bacopin; ~3x cost premium not
+justified at ₹999 MRP</td>
+</tr>
+<tr>
+<td>L-theanine</td>
+<td>Western amino acid (Setu Sleep:Sustain slot); Pillar 2
+(Ayurveda-rooted) tension</td>
+</tr>
+<tr>
+<td>GABA (synthetic supplement form)</td>
+<td>Synthetic Pillar 1 violation; oral GABA bioavailability across
+blood-brain-barrier is contested</td>
+</tr>
+<tr>
+<td>Chamomile / lavender / lemon balm</td>
+<td>Western herbal tradition (Setu / HealthVit slot); Pillar 2
+tension</td>
+</tr>
+<tr>
+<td>Vitamin B6</td>
+<td>Recommended add by V2 dossier for Mg absorption + GABA synthesis;
+deferred to vendor-formulator handoff for source-vetting (must be
+plant-fermented natural-source per Pillar 1)</td>
+</tr>
+<tr>
+<td>5-HTP</td>
+<td>Synthetic / semi-synthetic; Pillar 1 violation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: 600 mg total fill is comfortable
+for Size #00 (~700-1000 mg practical capacity). Standard manufacturing
+across most Indian capsule CMOs / in-house at Deepika's facility per V3
+plan-level changes. Headroom available if vendor-formulator (Dr. Lakshmi
+Kala, post 2026-05-11/12 connect) recommends adding Tagar (50mg) or B6
+(small mass) at trial-fill. Full execution spec to be drafted at
+vendor-formulator handoff.</p>
+<hr />
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 5 actives: mechanism, classical basis, modern
+clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. Aquamin-Mg (algae Lithothamnion calcareum, ~7% elemental
+Mg, 250mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: NMDA-receptor modulator. Magnesium calms
+glutamate-driven hyperarousal that underlies stress-onset insomnia (the
+wired-but-tired baseline pattern). Cofactor for GABA synthesis (the
+body's primary inhibitory neurotransmitter — calming pathway). Cofactor
+for ~300+ enzymatic reactions including muscle relaxation (restless-leg
++ cramp relevance). Aquamin's multi-mineral algae matrix (Mg + Ca + 70+
+trace minerals) is a bioavailability-validated plant-source format.</li>
+<li><strong>Modern clinical evidence</strong>: Felice VD et al.
+<em>"Aquamin: A Multi-Mineral Complex Sourced from Marine Algae."</em>
+Magnes Res, 2018. Bioavailability comparable to Mg citrate. Plus Slutsky
+I et al. <em>"Enhancement of Learning and Memory by Elevating Brain
+Magnesium."</em> Neuron, 2010. <a
+href="https://pubmed.ncbi.nlm.nih.gov/20152124/">PubMed</a>. Establishes
+Mg's NMDA-receptor modulation as the glutamate-hyperarousal-reduction
+mechanism. Plus Abbasi B et al. <em>"The effect of magnesium
+supplementation on primary insomnia in elderly: A double-blind
+placebo-controlled clinical trial."</em> J Res Med Sci, 2012;
+17(12):1161-1169. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3703169/">PMC</a>. 500 mg
+Mg/day improved sleep onset, sleep efficiency, and serum melatonin in
+elderly.</li>
+<li><strong>Dose rationale</strong>: 250 mg/cap × 2 caps = 500 mg
+Aquamin-Mg daily = ~35 mg elemental Mg/day. Supportive supplementation
+dose (vs Abbasi's 500mg elemental Mg trial dose); positioned as
+natural-source comprehensive sleep stack rather than high-dose Mg
+replacement. Customers seeking RDA-level Mg supplementation stack with
+dietary sources.</li>
+</ul>
+<p><strong>2. Ashwagandha generic 5% withanolides (Withania somnifera
+root extract, 250mg/cap) — V3 SWITCH</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: adaptogen, cortisol-axis modulator.
+Withanolides bind to glucocorticoid receptors and modulate the HPA-axis
+stress response. Reduces nocturnal cortisol spikes that drive 3 AM
+wake-ups. Mild GABAergic activity supports sleep-onset transition.
+Classical <em>Rasayana</em> role (rejuvenation tonic) for nervous system
+recalibration over weeks.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> (Withania somnifera as <em>Vajikarana</em> +
+<em>Rasayana</em>), <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a> (Ashwagandha as nervous-system tonic).</li>
+<li><strong>Modern clinical evidence (applies directionally to generic
+5% withanolides)</strong>: Salve J et al. <em>"Adaptogenic and
+Anxiolytic Effects of Ashwagandha Root Extract in Healthy Adults: A
+Double-Blind, Randomized, Placebo-Controlled Clinical Study."</em>
+Cureus, 2019; 11(12):e6466. <a
+href="https://pubmed.ncbi.nlm.nih.gov/32021735/">PubMed</a>. Plus
+Chandrasekhar K et al. <em>"A prospective, randomized double-blind,
+placebo-controlled study of safety and efficacy of a high-concentration
+full-spectrum extract of ashwagandha root in reducing stress and anxiety
+in adults."</em> Indian J Psychol Med, 2012; 34(3):255-262. <a
+href="https://pubmed.ncbi.nlm.nih.gov/23439798/">PubMed</a>. 600 mg/day
+reduced cortisol 27.9% over 60 days. Plus Langade D et al. <em>"Efficacy
+and Safety of Ashwagandha (Withania somnifera) Root Extract in Insomnia
+and Anxiety: A Double-blind, Randomized, Placebo-controlled Study."</em>
+Cureus, 2019; 11(9):e5797. <a
+href="https://pubmed.ncbi.nlm.nih.gov/31728244/">PubMed</a>. 300 mg/day
+improved sleep onset latency and sleep quality over 8 weeks.</li>
+<li><strong>DEC-025 evidence-applicability note</strong>: The Salve 2019
++ Chandrasekhar 2012 + Langade 2019 trials all used KSM-66 Ixoreal
+branded extract. The active compounds (withanolides, withaferin A) are
+the same in generic 5% withanolides root-only hydroalcoholic extracts
+from Vidya Herbs or Indfrag. The pharmacological mechanism (HPA-axis
+modulation + GABAergic activity) is compound-driven, not brand-driven.
+The clinical evidence applies directionally: Calm at 500mg/day generic
+ashwagandha extract delivers ~25mg withanolides/day, which maps to
+KSM-66 at 300mg/day (Langade dose) at ~5% withanolide density. Calm's
+brand and PDP voice claims the pharmacology + classical basis without
+claiming KSM-66's specific RCT lineage.</li>
+<li><strong>Dose rationale</strong>: 250 mg/cap × 2 caps = 500 mg daily
+extract. Mid-clinical range (Langade 300mg lower-clinical, Chandrasekhar
+600mg upper-clinical for cortisol). Calm's positioning targets the
+Langade sleep-onset use case as primary; cortisol modulation is
+supportive.</li>
+</ul>
+<p><strong>3. Sabinsa Bacopin (Bacopa monnieri extract, 50% bacosides,
+50mg/cap) — V3 SWITCH</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: cognitive-stress adaptogen. Bacosides
+modulate serotonin + acetylcholine pathways. Anxiolytic +
+memory-supportive activity. Stress-axis adaptogen complements
+ashwagandha (cortisol modulation) on the cognitive side (rumination +
+racing thoughts that fragment sleep onset). Classical <em>Medhya
+Rasayana</em> (cognitive tonic) role.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a>. Bacopa (Brahmi) explicitly classified as <em>Medhya
+Rasayana</em> (intellect-promoting tonic) in the Medhya category
+alongside Mandukaparni, Yashtimadhu, Guduchi.</li>
+<li><strong>Modern clinical evidence</strong>: Calabrese C et al.
+<em>"Effects of a Standardized Bacopa monnieri Extract on Cognitive
+Performance, Anxiety, and Depression in the Elderly: A Randomized,
+Double-Blind, Placebo-Controlled Trial."</em> J Altern Complement Med,
+2008; 14(6):707-713. <a
+href="https://pubmed.ncbi.nlm.nih.gov/18611150/">PubMed</a>.
+Demonstrates anxiolytic + cognitive effects at 300mg/day Bacopa extract
+over 12 weeks. Plus Stough C et al. <em>"The chronic effects of an
+extract of Bacopa monnieri (Brahmi) on cognitive function in healthy
+human subjects."</em> Psychopharmacology, 2001; 156(4):481-484. <a
+href="https://pubmed.ncbi.nlm.nih.gov/11498727/">PubMed</a>. Plus
+Kongkeaw C et al. <em>"Meta-analysis of randomized controlled trials on
+cognitive effects of Bacopa monnieri extract."</em> J Ethnopharmacol,
+2014; 151(1):528-535. <a
+href="https://pubmed.ncbi.nlm.nih.gov/24252493/">PubMed</a>. Confirms
+cognitive + stress-axis effects across trials.</li>
+<li><strong>DEC-025 evidence-applicability note</strong>: The Calabrese
++ Stough trials used various Bacopa extract specs (Calabrese used a
+proprietary 50% bacoside-equivalent extract); BacoMind's specific RCT
+lineage (DeKosky 2008 cognitive-decline trial) used the Natural Remedies
+Bangalore branded extract. Sabinsa Bacopin at 50% bacosides delivers the
+same active compound class at the same dose; the pharmacology is
+bacoside-driven, not brand-driven. Calm's brand voice claims the
+pharmacology + classical basis without claiming BacoMind's specific
+cognitive-decline RCT lineage.</li>
+<li><strong>Dose rationale</strong>: 50 mg/cap × 2 caps = 100 mg daily
+extract = 50-55 mg bacosides/day. Supportive cognitive-stress dose
+(lower-clinical range; Calabrese 2008 used 300mg extract = ~150mg
+bacosides). Calm uses Bacopin in the cognitive-stress complementary role
+to ashwagandha's cortisol primary.</li>
+</ul>
+<p><strong>4. Moringa whole-leaf powder (heat-treated, TGL captive
+supply, 50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (iron, calcium,
+vitamin C, antioxidants, chlorophyll). Not a primary sleep-related
+active; supports overall nutritional baseline + carries the brand-thesis
+heritage thread.</li>
+<li><strong>Folk + modern basis</strong>: established nutraceutical
+literature on moringa as iron + folate + B-complex source.</li>
+<li><strong>Modern evidence</strong>: Alegbeleye OO. <em>"How Functional
+Is Moringa oleifera? A Review of Its Nutritive, Medicinal, and
+Socioeconomic Potential."</em> Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 50 mg/cap × 2 caps = 100 mg daily.
+Tier B heritage signature dose per Moringa Foundation principle.
+Substantive enough to carry the moringa thread without forcing a
+sleep-related claim moringa cannot deliver.</li>
+<li><strong>Brand role</strong>: heritage signature carrying the
+cross-portfolio "Built on Moringa. Powered by Ayurveda." narrative.</li>
+</ul>
+<hr />
+<p><strong>Evidence-strength summary</strong> (so the team knows where
+we are confident vs cautious):</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Traditional basis</th>
+<th>Modern clinical evidence</th>
+<th>Overall strength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aquamin-Mg</td>
+<td>n/a</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/30100571">Felice 2018</a>,
+<a href="https://pubmed.ncbi.nlm.nih.gov/20152124/">Slutsky 2010</a>, <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3703169/">Abbasi
+2012</a></td>
+<td>Modern-strong</td>
+</tr>
+<tr>
+<td>Ashwagandha (generic 5%)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Vajikarana, Rasayana)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/32021735/">Salve 2019</a>,
+<a href="https://pubmed.ncbi.nlm.nih.gov/23439798/">Chandrasekhar
+2012</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/31728244/">Langade
+2019</a> (KSM-66 trials, applies directionally to generic 5%)</td>
+<td>Traditional-strong, modern-strong (with DEC-025
+directional-applicability note)</td>
+</tr>
+<tr>
+<td>Bacopa (Sabinsa Bacopin)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Medhya Rasayana)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/18611150/">Calabrese
+2008</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/11498727/">Stough
+2001</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/24252493/">Kongkeaw
+2014 meta</a></td>
+<td>Traditional-strong, modern-strong</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>Folk + modern nutraceutical</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29284305/">Alegbeleye
+2018</a></td>
+<td>Modern-strong (nutritive)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Calm as the SKU it is.</p>
+<p><strong>Layer 1: Why Calm in Phase 3 (not Phase 1, not Phase
+4)</strong></p>
+<p>We evaluated all 10 SKUs across volume, profitability, TGL-fit, and
+founder authenticity. Calm scored high on category-volume (sleep +
+magnesium is the #2 Amazon V&amp;S demand category) and
+ad-funnel-efficiency (low-CAC unisex targeting), but scored lower on
+Phase 1 launchability:</p>
+<ul>
+<li><strong>Cold cohort within TGL.</strong> TGL's existing 10K+
+customers skew women's-hormonal — sleep is a category-extension, not a
+brand-native category.</li>
+<li><strong>Operational complexity.</strong> Aquamin-Mg via Inhalation
+Health India is a new vendor relationship for TGL; Phase 3 sequencing
+lets the Aquamin-Ca path on Bloom + Crest mature first, consolidating
+vendor terms.</li>
+<li><strong>The Q1 trio funds the launch.</strong> Q1 women's-hormonal
+trio (Cycle + Bloom + Reset) builds the Klaviyo retention engine and
+proves the website-led acquisition motion before Calm's
+broader-targeting unisex cohort opens up.</li>
+</ul>
+<p>So Calm is sequenced to Phase 3 not because it's a weaker SKU but
+because it benefits from the Q1 trio's infrastructure +
+vendor-relationship scaffolding. The unisex broader-targeting also
+requires Phase 3 timing because Calm's male-cohort cross-sell only
+activates after the women's-hormonal cohort builds the household +
+partner-purchase cohort base.</p>
+<p><strong>Layer 2: Why this 4+1 active stack (and not
+another)</strong></p>
+<p>Sleep-formulation has roughly 14 cited natural-source candidates. We
+considered each and selected 4 (plus moringa heritage):</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aquamin-Mg</td>
+<td>INCLUDED</td>
+<td>Strongest natural-source magnesium evidence; bioavailability
+comparable to Mg citrate; Indian-distributor procurement (Inhalation
+Health) keeps operational simplicity.</td>
+</tr>
+<tr>
+<td>Ashwagandha generic 5% withanolides</td>
+<td>INCLUDED (DEC-025 switch from KSM-66)</td>
+<td>Strongest single-compound adaptogen for cortisol modulation;
+classical Rasayana basis. Generic 5% delivers same active compounds at
+~⅙ KSM-66 cost; DEC-025 prioritises the ₹999 MRP / 75% GM floor.</td>
+</tr>
+<tr>
+<td>Sabinsa Bacopin</td>
+<td>INCLUDED (DEC-025 switch from BacoMind)</td>
+<td>Cognitive-stress adaptogen; classical Medhya Rasayana basis. Sabinsa
+Bacopin delivers same bacoside class as BacoMind at ~⅓ cost;
+consolidates Sami-Sabinsa vendor relationship (Shatavari, Yashtimadhu,
+Vitex shared).</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>INCLUDED (heritage base)</td>
+<td>Brand-thesis anchor + nutritive support. Tier B heritage signature
+dose 50mg/cap = 100mg/day per Moringa Foundation principle.</td>
+</tr>
+<tr>
+<td>Tagar (Valeriana wallichii)</td>
+<td>EXCLUDED (V1 brief)</td>
+<td>GABA-A direct effect closest add to stack; Size #00 cap fill
+capacity-bound at current 600mg/cap. V2 brief reformulation candidate if
+vendor-formulator right-sizes fill.</td>
+</tr>
+<tr>
+<td>Jatamansi (Nardostachys jatamansi)</td>
+<td>EXCLUDED (permanent)</td>
+<td>IUCN Red List Critically Endangered; cultivated-source supply chain
+unreliable; Pillar 4 transparency commitment makes wild-collection
+regulatory + sustainability risk unacceptable.</td>
+</tr>
+<tr>
+<td>KSM-66 Ixoreal ashwagandha</td>
+<td>EXCLUDED (DEC-025)</td>
+<td>~6x cost premium vs generic 5% withanolides; pharmacologically
+equivalent; ₹999 MRP cannot accommodate.</td>
+</tr>
+<tr>
+<td>BacoMind Natural Remedies</td>
+<td>EXCLUDED (DEC-025)</td>
+<td>~3x cost premium vs Sabinsa Bacopin; pharmacologically equivalent;
+vendor sprawl penalty.</td>
+</tr>
+<tr>
+<td>Synthetic Mg glycinate</td>
+<td>EXCLUDED (Pillar 1)</td>
+<td>Synthetic chelate; Carbamide Forte / Setu / Wellbeing slot.</td>
+</tr>
+<tr>
+<td>Synthetic melatonin</td>
+<td>EXCLUDED (Pillar 1)</td>
+<td>Synthetic hormone; brand commitment to "no melatonin / no
+grogginess" position.</td>
+</tr>
+<tr>
+<td>L-theanine</td>
+<td>EXCLUDED (Pillar 2)</td>
+<td>Western amino acid; Setu slot.</td>
+</tr>
+<tr>
+<td>GABA (oral synthetic)</td>
+<td>EXCLUDED (Pillar 1)</td>
+<td>Synthetic; oral bioavailability across BBB contested.</td>
+</tr>
+<tr>
+<td>Chamomile / lavender / lemon balm</td>
+<td>EXCLUDED (Pillar 2)</td>
+<td>Western herbal tradition.</td>
+</tr>
+<tr>
+<td>Vitamin B6 (recommended add)</td>
+<td>DEFERRED</td>
+<td>Vendor-formulator handoff for source-vetting (must be
+plant-fermented natural-source per Pillar 1).</td>
+</tr>
+<tr>
+<td>Brahmi (Bacopa) — duplicate label</td>
+<td>EXCLUDED (already in stack as Bacopin)</td>
+<td>Same plant; Bacopin IS Brahmi extract.</td>
+</tr>
+<tr>
+<td>5-HTP</td>
+<td>EXCLUDED (Pillar 1)</td>
+<td>Synthetic / semi-synthetic.</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio approach forces discipline: each active in one SKU's
+primary role; minimal duplication across SKUs.</p>
+<p><strong>Layer 3: Why this specific dose architecture (and not
+another)</strong></p>
+<p>Every dose was triangulated across three constraints:</p>
+<ol type="1">
+<li><strong>Clinical / classical therapeutic range</strong> (what RCTs
+or Bhavaprakasha actually use)</li>
+<li><strong>Capsule fill feasibility</strong> (Size #00 = ~700-1000 mg
+practical fill)</li>
+<li><strong>2-cap-per-day compliance ceiling</strong> (anything beyond 2
+caps creates retention friction; sleep customers are particularly
+bedtime-routine-sensitive)</li>
+<li><strong>₹999 MRP / 75% GM floor (DEC-023 + DEC-025)</strong> — the
+formulation-switch trigger</li>
+</ol>
+<p>That triangulation forced the Size #00 path (Size #0 cannot hold the
+Aquamin-Mg + ashwagandha + Bacopin + moringa mass at clinical dose). At
+600 mg fill, capsule remains comfortable and we have headroom for
+vendor-formulator to add Tagar (50mg) or B6 (small mass) at trial-fill
+if needed.</p>
+<p><strong>Trade-offs we accepted, openly stated:</strong></p>
+<ul>
+<li><strong>Supportive-dose Mg (35mg elemental/day) vs RDA-level
+(350-400mg/day).</strong> Aquamin's ~7% elemental density + Pillar 1
+natural-source commitment cap the deliverable Mg dose at supportive
+levels in a 2-cap Size #00 form. Customers seeking high-dose Mg
+supplementation are not Calm's segment.</li>
+<li><strong>Generic ashwagandha vs KSM-66 (DEC-025 switch).</strong>
+Loses the Ixoreal RCT-citation marketing leverage but preserves the ₹999
+MRP / 75% GM floor. Clinical evidence applies directionally; brand voice
+claims pharmacology + classical basis, not KSM-66 lineage.</li>
+<li><strong>Bacopin vs BacoMind (DEC-025 switch).</strong> Same
+directional clinical-applicability + brand-attribution clarity as
+ashwagandha switch. Consolidates Sami-Sabinsa vendor terms.</li>
+<li><strong>No Tagar in V1 stack.</strong> GABA-A direct sedative would
+strengthen sleep-onset story; capacity-bound. V2 brief reformulation
+candidate.</li>
+<li><strong>Permanent exclusion of Jatamansi.</strong> Sustainability +
+regulatory risk; brand commitment to Pillar 4 transparency makes
+wild-collection unacceptable. Tagar (cultivated-source Himalayan supply)
+carries the classical-Ayurvedic-sedative role alone in any future
+reformulation.</li>
+<li><strong>No synthetic melatonin.</strong> Hard brand commitment;
+trades 30-min faster sleep onset for sustainable nightly use without
+dependency concern. Calm targets the "no grogginess" customer who has
+aged out of melatonin trust.</li>
+</ul>
+<p><strong>The decision trail in one sentence</strong>: Calm is the
+natural-source plant-magnesium + Ayurvedic adaptogen + cognitive-stress
+sleep SKU India's synthetic-glycinate market doesn't have, with the V3
+formulation switches (KSM-66 → generic 5% withanolides; BacoMind →
+Sabinsa Bacopin) preserving the ₹999 MRP / 75% GM floor while delivering
+directionally-equivalent clinical efficacy and consolidating
+Sami-Sabinsa + Inhalation Health vendor terms, all carrying the moringa
+heritage thread (Tier B 50mg/cap signature) per the cross-portfolio
+"Built on Moringa. Powered by Ayurveda." brand thesis.</p>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p>Calm plays in the natural-source magnesium + Ayurvedic-sedative sleep
+capsule category — a defensible whitespace between
+synthetic-Mg-glycinate brands (Carbamide Forte, Setu, Wellbeing, Pure
+Nutrition, HealthVit) and Ayurvedic-only sleep stacks without magnesium
+(Earthful Zen Mode, Cosmix). Per the V3 dossier benchmark set +
+naming-sprint round 2 input.</p>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>Price (sale)</th>
+<th>Format</th>
+<th>Positioning</th>
+<th>Active focus</th>
+<th>Per-day cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Calm (TGL)</strong></td>
+<td>₹899</td>
+<td>Capsule, 2/day evening</td>
+<td><strong>Natural-source Mg + Ayurvedic adaptogen-cognitive sleep
+stack</strong> + moringa heritage</td>
+<td>Aquamin-Mg + generic 5% ashwagandha + Sabinsa Bacopin + moringa</td>
+<td>~₹30/day</td>
+</tr>
+<tr>
+<td><strong>Earthful Zen Mode</strong></td>
+<td>₹599</td>
+<td>Capsule, 2/day</td>
+<td>Ayurvedic-only sleep blend; closest natural-source peer</td>
+<td>Ashwagandha + Brahmi + Tulsi + Tagar + Jatamansi (no Mg)</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td><strong>Setu Sleep:Sustain</strong></td>
+<td>₹699</td>
+<td>Dual-release capsule, 1/day</td>
+<td>Premium clinical-coded synthetic-melatonin lead-actor</td>
+<td>Synthetic melatonin 5mg + L-theanine + GABA + chamomile + lavender +
+lemon balm</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Carbamide Forte Magnesium Glycinate 2000mg</strong></td>
+<td>₹649</td>
+<td>Tablet, 4/day</td>
+<td>Mass-market synthetic Mg-glycinate</td>
+<td>Synthetic Mg glycinate 200mg elemental</td>
+<td>~₹22/day</td>
+</tr>
+<tr>
+<td><strong>Wellbeing Calm Melts</strong></td>
+<td>₹449</td>
+<td>Effervescent strip, 1/day</td>
+<td>Format gimmick, taste-driven synthetic</td>
+<td>Synthetic Mg + L-theanine + GABA</td>
+<td>~₹15/day</td>
+</tr>
+<tr>
+<td><strong>Wellbeing Daily Probiotic + Prebiotic</strong> (sleep
+adjacent — gut-brain)</td>
+<td>₹699</td>
+<td>Soft-gel, 1/day</td>
+<td>Synthetic-strain probiotic with sleep adjacency</td>
+<td>Lab-isolated probiotic + inulin + flaxseed oil</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Earthful Marine Magnesium</strong></td>
+<td>₹544</td>
+<td>Powder, 100g</td>
+<td>Same Aquamin source, single-actor powder</td>
+<td>Aquamin-Mg + flavoring</td>
+<td>~₹18/day</td>
+</tr>
+<tr>
+<td><strong>Cosmix Sleep</strong></td>
+<td>₹999</td>
+<td>Powder</td>
+<td>Premium-coded multi-extract powder</td>
+<td>Multi-extract powder (similar Ayurvedic stack)</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td><strong>HealthKart Magnesium Glycinate</strong></td>
+<td>₹599</td>
+<td>Tablet</td>
+<td>Mass-market synthetic</td>
+<td>Synthetic Mg glycinate</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td><strong>Plix Sleep</strong></td>
+<td>₹699</td>
+<td>Effervescent</td>
+<td>Format-gimmick, plant + synthetic adjuncts</td>
+<td>Plant extracts + synthetic adjuncts</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Setu Sleep+</strong></td>
+<td>₹1,200</td>
+<td>Premium capsule</td>
+<td>Pharma-tier doctor-recommended</td>
+<td>Multi-active including melatonin</td>
+<td>~₹40/day</td>
+</tr>
+<tr>
+<td><strong>HealthVit Sleep Aid</strong></td>
+<td>₹399</td>
+<td>Tablet</td>
+<td>Cheap synthetic-melatonin tier</td>
+<td>Melatonin + valerian + chamomile</td>
+<td>~₹13/day</td>
+</tr>
+<tr>
+<td><strong>Pure Nutrition Magnesium Glycinate</strong></td>
+<td>₹599</td>
+<td>Tablet</td>
+<td>Synthetic-actor commodity</td>
+<td>Synthetic Mg glycinate</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td><strong>Kapiva Sleep Tea</strong></td>
+<td>₹350-450</td>
+<td>Tea/powder</td>
+<td>Heritage-format only</td>
+<td>Ayurvedic herbs in tea base</td>
+<td>~₹12-15/day</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The single-sentence competitive position</strong>: Calm is
+the only Indian D2C SKU that pairs <strong>natural-source Aquamin algae
+magnesium</strong> (vs synthetic Mg glycinate) with <strong>Ayurvedic
+adaptogen + cognitive-stress stack depth</strong> (ashwagandha +
+Bacopin) at the <strong>₹899 sale tier with no melatonin / no grogginess
+commitment</strong>, sitting between Earthful Zen Mode (Ayurvedic-only
+no Mg, ₹599) and Setu Sleep:Sustain (synthetic melatonin lead, ₹699),
+with the moringa heritage thread carrying TGL's cross-portfolio brand
+thesis — at 75% GM at MRP, the premium pricing is COGS-earned at the
+natural-source-magnesium discipline floor.</p>
+<hr />
+<h2 id="9-right-to-win-why-a-real-customer-picks-calm">9. Right to win
+(why a real customer picks Calm)</h2>
+<p>Five reasons she chooses Calm when she's looking at the shelf.</p>
+<p><strong>1. Natural-source magnesium without the synthetic-chelate
+frame.</strong> Carbamide Forte at ₹649 sale + Pure Nutrition +
+HealthVit all use synthetic Mg glycinate (chemical chelate). Calm uses
+Aquamin algae magnesium (Lithothamnion calcareum, multi-mineral matrix,
+published bioavailability comparable to Mg citrate per Felice 2018). She
+gets "magnesium her body recognises" in a verifiable plant-source
+format, not a lab-synthesized chelate.</p>
+<p><strong>2. The Ayurvedic stack depth synthetic-melatonin brands
+cannot offer.</strong> Setu Sleep:Sustain at ₹699 sale leads with
+synthetic melatonin + L-theanine + GABA + Western herbs (chamomile,
+lavender, lemon balm) — no Ayurvedic register, no adaptogen depth.
+Calm's ashwagandha + Bacopin pair gives her cortisol modulation +
+cognitive-stress support that addresses the wired-but-tired baseline
+pattern Setu's melatonin can't reach. She doesn't have to choose between
+"modern wellness" and "what my grandmother would recognise."</p>
+<p><strong>3. No melatonin = no grogginess.</strong> Hard brand
+commitment. She has tried melatonin, woken up groggy, worried about
+long-tail effects of nightly synthetic-hormone use, and quietly aged out
+of melatonin trust. Calm's "no melatonin / no grogginess" position is
+unique among premium D2C sleep SKUs at this tier; Setu, HealthVit, Plix
+all use synthetic melatonin. Earthful Zen Mode is the closest "no
+melatonin" peer but lacks the Mg layer.</p>
+<p><strong>4. The Ayurvedic + magnesium combination one-bottle.</strong>
+She doesn't want to stack Carbamide Forte (Mg) + Earthful Zen Mode
+(Ayurvedic) at ₹1,250+ combined and remember to take both nightly. Calm
+is the one bottle she puts on her bedside table that addresses Mg +
+adaptogen + cognitive-stress together. Format simplicity is a real lever
+in nightly-routine compliance.</p>
+<p><strong>5. A founder she can see, in the same wellness
+journey.</strong> Deepika at 45+ in the perimenopause boundary tracking
+her sleep score is genuinely in the "wired but tired" cohort. Her
+founder-content arc on Calm — "I tracked my sleep for two years before
+building this" — is authentic in a way Setu's pharma-coded clinical
+positioning + Carbamide Forte's lab-coded mass-market frame cannot
+match.</p>
+<p><strong>Two things that do not show up in the matrix but matter in
+real life:</strong></p>
+<ul>
+<li><strong>The "modern Ayurveda for the Huberman listener" cultural
+bridge.</strong> She listens to Andrew Huberman / Ranveer Allahbadia
+podcasts. She knows the term "magnesium glycinate." She has read enough
+wellness content to be ingredient-literate. Calm is the bridge — the
+natural-source-magnesium claim Huberman would respect, the Ayurvedic
+adaptogen depth her cultural register recognises, the no-synthetic
+commitment that aligns with her wellness-skeptic baseline.</li>
+<li><strong>The label tells the same story Deepika tells in her
+Reels.</strong> Standardisation percentages on the label (5%
+withanolides for ashwagandha, 50% bacosides for Bacopin) match what
+Deepika quotes in content. The Sabinsa Bacopin brand name on the label
+is a verifiable global ingredient she can Google. The Aquamin-Mg via
+Inhalation Health source is on the PDP transparency page.
+Internal-external consistency builds trust in a segment that scrutinises
+ingredient lists.</li>
+</ul>
+<p><strong>The single-sentence right to win</strong>: Calm wins because
+it's the one bottle that pairs natural-source Aquamin magnesium with
+Ayurvedic adaptogen + cognitive-stress depth, commits to no melatonin /
+no grogginess, comes from a founder genuinely in the wired-but-tired
+cohort, and lives in the cultural register of a Huberman-listening
+Indian adult who wants modern wellness without the synthetic-chelate
+frame.</p>
+<hr />
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p><strong>Channel mix is website-first / Shopify-led, NOT
+Amazon-first</strong> (per TGL-P1-DEC-017, locked 2026-05-09). Today's
+80% Amazon revenue concentration on TGL's existing moringa SKUs is a
+remediable weakness from inefficient website performance marketing — not
+strategic intent. Calm's launch motion is built explicitly to fix the
+website under-performance: Meta + Google ads → Shopify PDP, founder
+Reels/Stories for organic, Klaviyo email/SMS for retention, native
+Shopify subscription mechanic. Amazon is added as a <strong>secondary
+channel in Month 2-3 post-launch</strong> after the website motion is
+proven.</p>
+<p>The new launch motion is the fix to the current Amazon
+over-dependence: better PMM, multi-active SKU AOV unlock that softens
+the website shipping-cost problem, stronger PDP-to-checkout conversion,
+retention-funded LTV vs Amazon's single-purchase dynamic. Calm at ₹899
+sale + ₹764 sub anchors the nightly-ritual subscription cohort;
+subscription mechanic is the single most important retention lever for
+this category (sleep is a daily-use product; subscription compounds
+LTV).</p>
+<p><strong>Channel mix at launch (Phase 3)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta (Instagram + Facebook) → Shopify PDP</td>
+<td>Primary acquisition (low-CAC sleep targeting)</td>
+<td>~50%</td>
+</tr>
+<tr>
+<td>Google Search + SEO → Shopify PDP</td>
+<td>Branded + non-branded sleep + magnesium search</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Founder Reels + Stories (organic + boosted)</td>
+<td>Trust + content engine; "I tracked my sleep" arc</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Klaviyo email + SMS (existing TGL list + Cycle/Bloom/Reset
+cross-sell + men's-cohort capture)</td>
+<td>Warm cohort capture + cross-sell + bundle anchor</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Creator partnerships (sleep-wellness micro-influencers,
+Huberman-adjacent India creators)</td>
+<td>Cohort-matched activation</td>
+<td>~5%</td>
+</tr>
+<tr>
+<td>Amazon (secondary, Month 2-3+)</td>
+<td>Channel diversification once website motion proven</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pricing locked (V3, after DEC-025 formulation
+switch)</strong>: ₹999 MRP / ₹899 sale / ₹764 sub. 75% GM at MRP at the
+premium-D2C floor.</p>
+<p><strong>Geography priority</strong>: Tier 1 metros (Mumbai,
+Bangalore, Delhi, Chennai, Hyderabad, Pune) where the
+ingredient-literate Huberman-listening Allahbadia-watching cohort
+concentrates. Less geography-skewed than Cycle (which leans South India
+for TGL warm-cohort match); Calm's unisex 28-55 cohort is more
+pan-Indian metro.</p>
+<p><strong>Deepika's content cadence</strong>: ~1 founder Reel per week
+through launch month. Pre-launch covers "why I'm building Calm at 45+
+tracking my sleep score," "the wired-but-tired pattern most of us don't
+have a name for," "magnesium 101 — synthetic vs natural-source," "the
+Ayurvedic adaptogen + cognitive-stress pair," "no melatonin / no
+grogginess — why we made the trade-off," "the 4-8 week arc — give it
+time." Launch month rotates: founder use, customer Q&amp;A, ingredient
+story, expectation-setting.</p>
+<p><strong>Bundle architecture</strong> (cross-sell to the
+women's-hormonal Q1 trio + Crest Q4):</p>
+<ul>
+<li><strong>Daily Wind-Down Kit</strong>: Calm + Cycle / Bloom
+(perimenopause + sleep overlay) — bundle ₹1,599 vs ₹1,798
+standalone</li>
+<li><strong>Reset Kit</strong>: Calm + Reset (digestive + sleep stress
+overlay) — bundle ₹2,099 vs ₹2,398 standalone</li>
+<li><strong>Menopause Sleep Kit (Phase 4)</strong>: Calm + Crest —
+bundle ₹2,299 vs ₹2,498 standalone</li>
+</ul>
+<p><strong>Asset list (Boco produces, pre-launch)</strong>: Calm PDP,
+brand kit refinement (carrying Cycle's Q1 design language with
+sleep-tier visual lift — dark amber palette, nighttime-ritual
+photography), 5 ad creative templates, Klaviyo email flows for launch +
+onboarding + 4-8 week retention, Ingredient Library entry. Live by
+launch -2 weeks.</p>
+<p><strong>Owner split</strong>: Deepika owns founder content (~6-8
+hrs/week launch month). Unnati owns Meta channel ops + creator outreach
++ email execution (~12-15 hrs/week launch month). Boco (Meera, Kavya,
+Aarav) owns asset production, front-loaded in launch -8 to -2 weeks.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p>Three pitches scaled to the conversation length.</p>
+<p><strong>5-second elevator</strong> (chance encounters, quick brand
+mentions):</p>
+<blockquote>
+<p>"Calm is our nighttime sleep capsule. Two caps before bed. Aquamin
+algae magnesium, Ayurvedic ashwagandha and Bacopa, no melatonin, no
+grogginess. Built on Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<p><strong>30-second customer pitch</strong> (the version most people
+will hear, in Deepika's voice):</p>
+<blockquote>
+<p>"Calm is the slow, real wind-down. I built this after tracking my own
+sleep for two years and realising I needed magnesium my body recognises
+plus the adaptogen depth my grandmother would have recognised. Two
+capsules, 30 to 60 minutes before bed: natural-source Aquamin algae
+magnesium, ashwagandha for the cortisol that's been keeping you up,
+Bacopa for the racing mind, and our farm-grown moringa as the heritage
+thread. No melatonin. No grogginess. Plan for four to eight weeks for
+the full effect."</p>
+</blockquote>
+<p><strong>60-second partner pitch</strong> (creator partnerships,
+retail conversations, in Unnati's or Deepika's voice):</p>
+<blockquote>
+<p>"Calm is The Good Leaf's nighttime sleep capsule, designed for adults
+28-55 navigating stress-driven insomnia, fragmented sleep, and the
+wired-but-tired baseline pattern. Four actives plus moringa: Aquamin-Mg
+algae magnesium at 500mg per day (Felice 2018 bioavailability comparable
+to Mg citrate, sourced via Inhalation Health India), ashwagandha root
+extract at 500mg per day standardised to 5% withanolides (Salve 2019 +
+Langade 2019 sleep-onset evidence at directional doses), Sabinsa Bacopin
+Bacopa at 100mg per day standardised to 50% bacosides (Calabrese 2008
+cognitive-stress evidence), and farm-grown moringa as the heritage
+signature. Two capsules nightly, ₹899 sale, around ₹30 per day, designed
+for a 4-8 week arc with subscription cadence at ₹764. We're the only
+Indian D2C SKU that pairs natural-source Aquamin magnesium with
+Ayurvedic adaptogen + cognitive-stress depth at this tier — competitors
+are synthetic-Mg-glycinate (Carbamide Forte ₹649), synthetic-melatonin
+(Setu ₹699), Ayurvedic-only without Mg (Earthful Zen Mode ₹599), or
+single-actor Aquamin powder (Earthful Marine Magnesium ₹544). Founder
+Deepika is genuinely in the perimenopause sleep-disturbance cohort
+tracking her own sleep score; that authenticity is hard to fake."</p>
+</blockquote>
+<p><strong>The honest message Deepika repeats across organic
+content</strong> (the recurring tagline pattern):</p>
+<blockquote>
+<p>"Calm is the slow, real wind-down. Magnesium your body recognises.
+Sleep your body remembers. No melatonin. No grogginess. Four to eight
+weeks for the full effect. Built on Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<hr />
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<p>The "can we actually build this" layer. How we judge vendor quality,
+per-active vendor candidates, packaging, capsule shell, manufacturing,
+QC, capsule fill, regulatory, aggregate risk.</p>
+<h3 id="121-how-we-judge-vendor-quality-the-compliance-framework">12.1
+How we judge vendor quality (the compliance framework)</h3>
+<p>Same 3-tier framework as Cycle
+(<code>sku-1-cycle-product-brief.md</code> Section 12.1). Tier 1
+mandatory: FSSAI Central + GMP + per-batch CoA + NABL-accredited lab
+inputs + HPLC/HPTLC standardisation + Pillar 1 extraction method (water
+/ hydroalcoholic / CO2 / supercritical, no synthetic-residue solvents).
+Tier 2 strongly preferred: ISO 22000 + HACCP + ISO 9001 + USDA Organic +
+multi-batch reproducibility + 24-month stability + public CoA
+transparency + audit-readiness. Tier 3 application-specific:
+cultivated-origin specification for ashwagandha (Madhya Pradesh Neemuch
+belt or Karnataka Mysuru-Chamarajanagar belt) + Indian-distributor
+agreement for Aquamin-Mg + 50% bacoside HPLC validation for Bacopin.</p>
+<h3 id="122-per-active-vendor-matrix">12.2 Per-active vendor matrix</h3>
+<p><strong>Aquamin-Mg — Inhalation Health India</strong> primary (single
+Indian distributor concentration risk; same vendor as Bloom +
+Crest):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inhalation Health India</strong> (Marigot Ltd
+distributor)</td>
+<td>India distributor for Marigot Ireland origin</td>
+<td>~7% elemental Mg, multi-trace mineral</td>
+<td>TBD</td>
+<td><strong>Tier-1 primary</strong> — INR billing; consolidated with
+Aquamin-Ca on Bloom + Crest</td>
+</tr>
+<tr>
+<td>Indian mineral salts (backup)</td>
+<td>Various Indian mineral processors via Akay Spices, Plant Lipids
+extended catalog</td>
+<td>Variable (Mg sulfate / Mg chloride)</td>
+<td>TBD</td>
+<td>Operational fallback only; Pillar 1 alignment weaker</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ashwagandha generic 5% withanolides</strong> (DEC-025 switch
+from KSM-66):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vidya Herbs</strong></td>
+<td>Bangalore</td>
+<td>5% withanolides root-only hydroalcoholic</td>
+<td>10-25kg</td>
+<td><strong>Tier-1 priority</strong>; ~₹3-4K/kg India landed; existing
+TGL vendor relationship</td>
+</tr>
+<tr>
+<td><strong>Indfrag</strong></td>
+<td>Bangalore</td>
+<td>5% withanolides root-only</td>
+<td>10-25kg</td>
+<td>Tier-1 backup; multi-active capability</td>
+</tr>
+<tr>
+<td><strong>Arjuna Natural</strong></td>
+<td>Aluva, Kerala</td>
+<td>5% withanolides</td>
+<td>TBD</td>
+<td>Tier-2 backup</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa "Sensoril"</td>
+<td>Bangalore</td>
+<td>10% withanolides root + leaf</td>
+<td>5-25kg</td>
+<td>DE-PRIORITISED — leaf inclusion violates Pillar 1 root-only
+commitment</td>
+</tr>
+<tr>
+<td>Ixoreal Biomed "KSM-66"</td>
+<td>Hyderabad</td>
+<td>5%+ withanolides, premium-tier</td>
+<td>5-25kg</td>
+<td><strong>EXCLUDED per DEC-025</strong>: ~6x cost premium not
+justified at ₹999 MRP</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sabinsa Bacopin</strong> (DEC-025 switch from BacoMind):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa Bacopin</strong></td>
+<td>Bangalore</td>
+<td>50% bacosides</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 priority</strong> per DEC-025; ~₹7-8K/kg India
+landed; consolidates Sami-Sabinsa vendor terms (Shatavari, Yashtimadhu,
+Vitex shared)</td>
+</tr>
+<tr>
+<td>Vidya Herbs Bacopa</td>
+<td>Bangalore</td>
+<td>20-50% bacosides (variable)</td>
+<td>10-25kg</td>
+<td>Tier-2 backup</td>
+</tr>
+<tr>
+<td>Bioactive Compounds India</td>
+<td>Pune / Hyderabad</td>
+<td>Bacopa extract</td>
+<td>TBD</td>
+<td>Backup</td>
+</tr>
+<tr>
+<td>Natural Remedies Bangalore "BacoMind"</td>
+<td>Bangalore</td>
+<td>55% bacosides, proprietary</td>
+<td>5-25kg</td>
+<td><strong>EXCLUDED per DEC-025</strong>: ~3x cost premium not
+justified; vendor sprawl penalty</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Moringa whole-leaf</strong> — TGL captive supply (DPR
+Moringa, heat-treated). Same as Cycle.</p>
+<h3 id="123-consolidated-vendor-contact-directory">12.3 Consolidated
+vendor contact directory</h3>
+<p>Same primary contact set as Cycle (Sami-Sabinsa, Vidya Herbs, Akay
+Group, Plant Lipids, Indfrag, Arjuna Natural) plus Inhalation Health
+India (Aquamin distributor; consolidated with Bloom + Crest). Full
+directory in <code>sku-1-cycle-product-brief.md</code> Section 12.3.</p>
+<h3 id="124-packaging-capsule-shell-bottle-manufacturing">12.4
+Packaging, capsule shell, bottle, manufacturing</h3>
+<p>Same packaging vendor stack as Cycle (Pragati Pack India for label +
+monocarton; HPMC capsule shells via Deepika's vendor relationship per
+TGL-P1-DEC-002; HDPE amber bottle from Karur-area Deepika source — Calm
+uses dark amber for nighttime association). Manufacturing per V3
+plan-level changes (master MD Part 0): <strong>in-house at Deepika's
+facility</strong> (FSSAI nutraceutical license; phycocyanin R&amp;D
+capsule already produced) rather than external CMO. Capsule fill at 600
+mg in Size #00 is well within in-house capability. The in-house route
+saves ~₹40/pack vs external Greenfield CMO and is critical for hitting
+the 75% GM at MRP floor.</p>
+<h3 id="125-quality-control-protocol">12.5 Quality control protocol</h3>
+<p>Same QC framework as Cycle. Per-batch testing for ashwagandha
+withanolide assay (verify 5% spec for clinical-equivalence claim per
+DEC-025); per-batch HPLC for Bacopin bacoside content (verify 50% spec);
+per-batch heavy-metal panel for Aquamin (algae source); 24-month
+stability testing for the Mg + extract matrix (Mg + adaptogen extracts
+can degrade in humid storage — desiccant in pack mandatory).</p>
+<h3 id="126-capsule-fill-feasibility">12.6 Capsule fill feasibility</h3>
+<p>600 mg total fill in Size #00 capsule (capacity ~700-1000 mg standard
+density). <strong>Comfortable fit, no granulation step
+required.</strong> Headroom available if vendor-formulator (Dr. Lakshmi
+Kala) recommends adding Tagar (50mg) or natural-source B6 (small mass)
+at trial-fill review.</p>
+<h3 id="127-regulatory-feasibility">12.7 Regulatory feasibility</h3>
+<p>All 4 actives FSSAI-permitted under Schedule VI of the Health
+Supplements Regulations 2022. Magnesium permitted (Annexure A —
+0-350mg/day for nutraceuticals; Aquamin's
+algae-mineralized-Lithothamnion category has its own FSSAI documentation
+chain via Marigot India / Inhalation Health distributor, same as Bloom +
+Crest). Ashwagandha permitted (root-only). Bacopa permitted. Moringa
+permitted (Annexure A whole-food). Label warrants: "Consult your
+healthcare provider before use, especially if pregnant, nursing, on
+sedative medication, or planning surgery within 2 weeks." Plus: "Do not
+consume with alcohol or sedative drugs." Plus: "Not recommended during
+pregnancy or breastfeeding."</p>
+<p><strong>Permitted claim language</strong>: "supports restful sleep,"
+"helps reduce occasional sleeplessness," "promotes relaxation," "helps
+the body adapt to daily stress," "supports magnesium nutrition,"
+"magnesium contributes to the normal functioning of the nervous system"
+(FSSAI-recognized Mg-specific claim), "traditional Ayurvedic herbs that
+have supported deep sleep for centuries," "natural-source magnesium +
+Ayurvedic sleep stack, with moringa heritage," "Built on Moringa.
+Powered by Ayurveda."</p>
+<p><strong>NOT permitted</strong>: "treats / cures insomnia," "replaces
+sleep medication," "induces sleep," "sleep aid" (drug-classification
+language), specific time-to-sleep claims ("falls asleep in 15 minutes"),
+"sedative."</p>
+<p>AYUSH cert in parallel per V3 plan-level changes (FSS Chennai officer
+route).</p>
+<h3 id="128-aggregate-supply-chain-risk-and-mitigation">12.8 Aggregate
+supply chain risk and mitigation</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Severity</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inhalation Health Aquamin-Mg supply concentration (single
+distributor)</td>
+<td>Medium</td>
+<td>Indian mineral salts backup path; consolidated vendor terms with
+Bloom + Crest reduce single-SKU exposure</td>
+</tr>
+<tr>
+<td>Ashwagandha generic 5% withanolides supply variability across
+vendors</td>
+<td>Low-medium</td>
+<td>Per-batch withanolide HPLC; Vidya Herbs primary + Indfrag backup;
+spec ceiling 5% enforced</td>
+</tr>
+<tr>
+<td>Sabinsa Bacopin lead times at our batch tier</td>
+<td>Low</td>
+<td>Sami-Sabinsa is established TGL vendor (Shatavari, Yashtimadhu,
+Vitex); consolidated PO leverages existing terms</td>
+</tr>
+<tr>
+<td>Mg + extract storage stability (humidity-sensitive)</td>
+<td>Medium</td>
+<td>24-month stability testing pre-launch; desiccant in pack mandatory;
+HDPE amber bottle</td>
+</tr>
+<tr>
+<td>Moringa supply continuity (single-source DPR)</td>
+<td>Low (captive)</td>
+<td>TGL existing flow; backup CMO Andhra/TN identified</td>
+</tr>
+<tr>
+<td>Pragati Pack 8K packaging MOQ vs first-batch demand</td>
+<td>Low</td>
+<td>Calm is Phase 3 launch; demand build-up time supports MOQ
+economics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="129-open-sourcing-questions-for-phase-3-vendor-calls">12.9 Open
+sourcing questions for Phase 3 vendor calls</h3>
+<ol type="1">
+<li><strong>Vidya Herbs vs Indfrag generic 5% ashwagandha — primary
+vendor lock.</strong> Confirm pricing at Phase 3 batch tier; lock at
+~₹3.5K/kg mid for COGS planning. Activate cross-vendor backup if
+economics turn adverse.</li>
+<li><strong>Sabinsa Bacopin pricing + lead times at TGL Phase 3 batch
+tier.</strong> Confirm consolidated PO terms with Shatavari +
+Yashtimadhu + Vitex on Cycle/Bloom/Crest.</li>
+<li><strong>Inhalation Health Aquamin-Mg lead times + MOQ flexibility
+consolidated with Aquamin-Ca on Bloom + Crest.</strong>
+Single-distributor concentration risk verification.</li>
+<li><strong>In-house capsule fill validation at 600 mg Size #00 +
+multi-active blend (3 extracts + heritage moringa +
+Aquamin-Mg).</strong> Trial-fill at Deepika's facility pre-launch.</li>
+<li><strong>V3 cost lock confirmation post-DEC-025.</strong> Confirm
+generic 5% ashwagandha and Sabinsa Bacopin per-mg costs at Phase 3
+vendor terms; the ~₹250/pack COGS + 75% GM at MRP is the locked planning
+baseline (DEC-023 + DEC-025). Variance &gt;10% triggers reformulation
+lever (right-size ashwagandha to 200mg/cap or drop Bacopin dose to
+25mg/cap).</li>
+<li><strong>Tagar (Valeriana wallichii) cultivated-source supply for V2
+brief.</strong> Bioactive Compounds India + Arjuna Natural primary
+candidates; confirm Uttarakhand cooperative cultivated-source
+certification.</li>
+<li><strong>Vitamin B6 plant-fermented natural-source vendor
+(recommended add for Mg absorption + GABA synthesis).</strong> EID Parry
+Chennai spirulina-source per Section 5.3 vendor matrix; verify
+bioactive-B6 verification capability.</li>
+</ol>
+<hr />
+<h2 id="13-effort-capital-and-execution-action-plan">13. Effort,
+capital, and execution action plan</h2>
+<p><em>Pending. Phase 3 launch critical path mapped to owner + spend
+bucket. The "who does what, when, with how much money" layer. Bridges
+this brief to the program management spec
+(<code>10-phase-1-program-management.md</code>) once Phase 3 is
+sequenced.</em></p>
+<h2 id="14-technical-appendix">14. Technical appendix</h2>
+<p><em>Pending. References V3 dossier
+(<code>dossiers/06-calm-magnesium-sleep.md</code>), formulation spec (to
+be drafted at Dr. Lakshmi Kala handoff), governance doc 10
+(<code>10-phase-1-program-management.md</code>), brand DNA
+(<code>02-brand-dna.md</code>).</em></p>
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 with Sections 1-12 locked 2026-05-09 by Aarav, V3 cost lock +
+DEC-025 formulation switch (KSM-66 → generic 5% withanolides; BacoMind →
+Sabinsa Bacopin) + brand-attribution corrections applied. Sections 13-14
+pending. On full lock, brief is shareable with Deepika + Unnati for
+input + alignment.</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial full brief, drafted by Aarav post-Deepika V3
+reformulation + verified V3 cost lock + Calm formulation switch per
+DEC-023/024/025.</p>
+<ul>
+<li><strong>DEC-023 (V3 cost lock)</strong>: COGS ~₹250/pack at in-house
+manufacturing; 75% GM at MRP ₹999 (at the premium-D2C floor). Pricing
+locked at ₹999 / ₹899 / ₹764 — accessible-premium price tier between
+Earthful Zen Mode (₹599 sale, no Mg) and Setu Sleep:Sustain (₹699 sale,
+synthetic melatonin lead).</li>
+<li><strong>DEC-024 (Bacopin brand attribution correction)</strong>:
+BacoMind is <strong>Natural Remedies Bangalore</strong> branded, NOT
+Sami-Sabinsa. Earlier V1/V2 dossier mis-attribution corrected
+throughout. Sabinsa Bacopin is the Sami-Sabinsa Group equivalent at 50%
+bacosides; consolidates Sami-Sabinsa vendor terms with
+Shatavari/Yashtimadhu/Vitex.</li>
+<li><strong>DEC-025 (Calm formulation switch)</strong>: KSM-66 Ixoreal
+ashwagandha → generic 5% withanolides ashwagandha (Vidya Herbs OR
+Indfrag). BacoMind Natural Remedies Bacopa → Sabinsa Bacopin Bacopa.
+Cost-driven switches preserving the ₹999 MRP / 75% GM floor (DEC-023).
+Clinical evidence applies directionally; brand voice claims pharmacology
++ classical basis without claiming KSM-66 / BacoMind specific RCT
+lineage. Net saving: ~₹540/pack (KSM-66 → generic ~₹450 + BacoMind →
+Bacopin ~₹90).</li>
+<li><strong>Channel mix</strong>: WEBSITE-FIRST / Shopify-led per
+TGL-P1-DEC-017 (Section 10). Amazon Month 2-3 secondary.</li>
+<li><strong>Manufacturing</strong>: in-house at Deepika's FSSAI-licensed
+facility per V3 plan-level (NOT external CMO). The ~₹40/pack saving vs
+Greenfield CMO is critical for hitting the 75% GM at MRP floor at the
+natural-source-magnesium discipline cost.</li>
+<li><strong>Tagar + Jatamansi exclusion</strong>: Tagar (Valeriana
+wallichii) deferred to V2 brief if Size #00 cap fill is right-sized;
+Jatamansi (Nardostachys jatamansi) permanently excluded per IUCN Red
+List + Pillar 4 transparency commitment (DEC-011).</li>
+</ul>
+</main>
+</body>
+</html>

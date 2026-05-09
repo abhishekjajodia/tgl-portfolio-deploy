@@ -1,0 +1,2652 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Crest (Menopause)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Crest (Menopause)</strong></div>
+
+<blockquote>
+<p><strong>Mirrored in the master doc</strong>: This Crest brief is also
+embedded in <a
+href="tgl-product-portfolio.md"><code>tgl-product-portfolio.md</code></a>,
+the consolidated single-doc view of all 10 SKUs + Plan Moving Forward.
+The master doc is canonical for navigation. This standalone is retained
+for focused single-product viewing.</p>
+</blockquote>
+<h1 id="crest-working-name-product-brief">Crest (working name): Product
+Brief</h1>
+<p><strong>The Good Leaf (TGL)</strong> Phase 4 Q4 launch SKU. Menopause
+/ perimenopause care. <em>Drafted 2026-05-09 by Aarav. Status: V1 with
+Sections 1-12 locked. This brief is the team-readable narrative layer
+for Deepika, Unnati, and Boco. Pair with
+<code>dossiers/04-crest-menopause.md</code> (V3 theory + clinical
+detail) and the formulation-spec (to be drafted at vendor-formulator
+handoff per DEC-023).</em></p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Crest (working name; final lock pending TM
+clearance per TGL-P1-DEC-007 + naming sprint round 2 with Deepika).</p>
+<p><strong>Elevator pitch (3 sentences, repeatable by anyone on the
+team):</strong></p>
+<blockquote>
+<p>Crest is TGL's menopause and perimenopause SKU, designed for the
+45-58 year old Indian woman navigating hot flashes, sleep disruption,
+mood swings, and bone-density concern, who has declined HRT and is
+searching for a credible natural-source alternative. Two plant-cellulose
+capsules a day, every day, deliver SoyLife soy isoflavones (IFF Health
+Sciences), Shatavari, Aquamin algae calcium, Yashtimadhu, Vitex, and
+TGL's farm-grown moringa heritage thread to ease vasomotor symptoms,
+support sleep and mood, and protect bone density over a 6-month-plus
+arc. It's the long-LTV anchor of TGL's women's life-stage portfolio and
+the premium price-anchor of the Phase 1+ catalog: once a customer
+commits to Crest, she stays for years.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-crest-motivation">2. Why we're building
+Crest (motivation)</h2>
+<p>Four reasons, in priority order:</p>
+<p><strong>1. The longest-LTV SKU in the portfolio.</strong> Menopause
+symptoms last 4-10 years. Daily continuous use across the entire arc.
+90-day repeat estimate at 72%, second-highest in the portfolio (after
+Reset). Once a customer trusts a menopause supplement and feels the
+symptom-relief signal, switching cost is high and consumption is steady.
+Cycle is acquisition; Bloom is retention; Reset is
+conversion-of-a-known-condition; Crest is the LTV machine.</p>
+<p><strong>2. The life-stage credibility unlock.</strong> Without Crest,
+TGL is a 25-40 women's brand. With Crest, TGL becomes a 25-58+
+women's-life-stage brand — the differentiator vs Cosmix (Bangalore
+design-led narrow catalog), Be Bodywise (urban-millennial-coded), and
+Gynoveda (clinical PCOS-niche). The 40+ segment pays a premium for trust
+and stays loyal for the duration.</p>
+<p><strong>3. The premium price-anchor of the portfolio.</strong> Crest
+at ₹1,799 MRP / ₹1,599 sale / ₹1,359 sub is the highest-priced SKU in
+the Phase 1+ catalog, and that's the point. Earthful proves demand
+exists at this tier: MenoCool ₹549 (single-symptom entry) and Menopause
+Wellness Kit ₹1,722 (3-SKU bundle premium). What's missing is <strong>a
+credible comprehensive single-SKU at the ₹1,500-1,800 sale band</strong>
+— one bottle, full menopause stack, premium positioning, no bundle
+commitment friction. Crest slots cleanly into that gap and pulls the
+portfolio's perceived ceiling upward — Cycle at ₹899 reads accessible
+because Crest at ₹1,599 reads premium-real. The COGS supports the price
+(89% GM at MRP, the highest in the portfolio — see Section 5), so this
+is not optical premium; it's earned.</p>
+<p><strong>4. The migration runway.</strong> Cycle and Bloom Q1
+customers — currently 28-38 — will graduate into Crest 5-15 years later
+as their cohort ages. Crest is not just a Phase 4 launch; it's the asset
+that protects TGL's customer base from churning out at the perimenopause
+boundary. The brand owns the customer through the full reproductive-life
+arc.</p>
+<p><strong>Why now (Q4, not Q1)</strong>: Crest is high-LTV but
+cold-cohort at launch. TGL's existing 10K+ customer base skews 28-42,
+not yet menopausal. Crest needs creator partnerships (5-7 women-health
+influencers in the 40+ demographic) and warm-cohort discovery patterns
+that take months to build. Q4 launch lets the Q1 trio (Cycle + Bloom +
+Reset) prove the website-led acquisition motion, fund creator outreach,
+and seed the 40+ secondary cohort before Crest ships.</p>
+<p><strong>Single-sentence motivation</strong>: Crest is the long-LTV
+life-stage anchor and premium price-anchor that turns TGL from a
+women's-hormonal brand into a women's-life-stage brand — the
+comprehensive single-SKU menopause supplement that doesn't exist
+credibly at ₹1,500-1,800 today, with portfolio-leading 89% GM at MRP
+earning the premium positioning.</p>
+<hr />
+<h2 id="3-the-customer-who-she-is-what-shes-tried-what-fails-her">3. The
+customer (who she is, what she's tried, what fails her)</h2>
+<p><strong>Who she is</strong> (core 45-55, edge 42-60):</p>
+<p>She's an established Indian woman, urban Tier 1-2 (Mumbai, Delhi,
+Bangalore, Chennai, Hyderabad, Pune; expanding via WhatsApp-cluster
+word-of-mouth into Tier 2), household income ₹15-50L/year, English-Hindi
+(or English-Tamil/Telugu) bilingual, with a stronger Hindi/regional
+comfort than younger TGL segments. She is a senior professional, a
+transitioning advisor or business owner, or a homemaker whose adult
+children have launched. She has 20+ years of supplement-buying history.
+She knows which brands she trusts and is suspicious of new entrants —
+but will switch when a product clearly improves her experience.</p>
+<p>She is sandwiched: aging parents need care, adult children still
+reach for help, her own body is changing in ways nobody warned her
+about. She is wellness-aware but not Instagram-driven. She trusts her
+sister, her college friend, her sister-in-law, and her WhatsApp groups.
+Founder-personal content + peer testimonial wins her over; paid creator
+content does not.</p>
+<p><strong>What's happening to her body</strong> (the medical
+context):</p>
+<p>Perimenopause begins in her early-to-mid 40s. Cycles become
+irregular. Hot flashes appear (30-80% of menopausal women experience
+them, with frequency and intensity varying widely). Sleep fragments —
+she wakes at 3 AM and cannot return. Mood becomes less predictable.
+Cognitive complaints emerge ("brain fog," word-finding pauses). Vaginal
+dryness begins, often unspoken. Bone density loss accelerates at the
+menopausal transition; her DEXA scan may already show osteopenia.
+Cardiovascular risk rises post-menopause as estrogen's protective effect
+withdraws. Body composition shifts — weight gain especially in the
+abdomen — with metabolic slowdown.</p>
+<p>She is not pathologically diagnosed. She is in a normal physiological
+transition that her culture has historically suppressed ("just deal with
+it"). Her doctor has likely offered HRT (hormone replacement therapy);
+she has likely declined for some combination of cultural resistance,
+breast-cancer concerns inherited from older HRT generations, and a
+"natural is better" instinct.</p>
+<p><strong>What she's tried, and why each fails her</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What she tries</th>
+<th>Why it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HRT prescription</td>
+<td>Declined for cultural / breast-cancer-risk / "natural is better"
+reasons</td>
+</tr>
+<tr>
+<td>Calcium + D3 from doctor</td>
+<td>Synthetic, basic, addresses only one slice of the menopause
+picture</td>
+</tr>
+<tr>
+<td>Earthful MenoCool</td>
+<td>Single-symptom focus on hot flashes; she wants the whole menopause
+picture in one bottle</td>
+</tr>
+<tr>
+<td>Patanjali Saumyakanti / Stree Rasayan</td>
+<td>Heritage but mass-coded; packaging feels dated; she has aged out of
+mass-Ayurveda trust</td>
+</tr>
+<tr>
+<td>Ayurvedic clinic prescriptions (decoctions, ghee preparations)</td>
+<td>Works but high access friction — visit Vaidya, brew kashayams,
+manage sticky bottles</td>
+</tr>
+<tr>
+<td>Imported menopause SKUs (Estroven, REMIfemin, Promensil)</td>
+<td>Expensive, irregular India availability, soy-isoflavone-based but
+not Ayurveda-coded; doesn't tell her cultural story</td>
+</tr>
+<tr>
+<td>Soy-only supplements</td>
+<td>Often not enough on its own; concerns about soy quality; misses
+Ayurvedic stack</td>
+</tr>
+<tr>
+<td>Menoveda / Vitalbeing / Gynoveda Menopause Cure</td>
+<td>Either pharma-coded clinical-tier (Gynoveda ₹2,500+) or thin
+formulations at the ₹1,200-1,500 mid-tier without Aquamin-class
+natural-source bone-health backbone</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The gap Crest fills</strong>: a comprehensive single-SKU
+natural-source Ayurveda-rooted menopause blend at the premium
+₹1,500-1,800 tier. One bottle, full stack, daily continuous use, premium
+packaging, founder face she can read about and trust. Combines the
+strongest Western single-compound evidence (SoyLife isoflavones at
+clinical 80mg/day dose, IFF Health Sciences ex-Frutarom) with the
+Ayurvedic phytoestrogen + adaptogen tradition (Shatavari + Yashtimadhu +
+Vitex) and the natural-source bone-health story (Aquamin algae calcium).
+All carrying the moringa heritage thread that ties Crest into TGL's
+broader Built on Moringa, Powered by Ayurveda story.</p>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-6-months">4.
+What the product does (the lived experience over 6 months)</h2>
+<p><strong>Crest is a long-arc product, and we say so directly.</strong>
+Phytoestrogen-stack effects build over weeks to months; bone-health
+benefits compound over years. The single most important
+customer-education message for Crest is <em>"plan for 6 months minimum
+to see the full effect."</em> Drop-off at Month 1-2 is the #1 retention
+risk; honest expectation-setting at the front of the journey is what
+protects the LTV math.</p>
+<p>Here's what she actually experiences across a 6-month arc on 2
+caps/day:</p>
+<p><strong>Month 1: the adjustment window.</strong></p>
+<p>Minimal perceived change. Her body is calibrating to the
+phytoestrogen and adaptogen stack. Maybe one or two nights of marginally
+better sleep. Maybe a slightly less intense hot flash. Often, nothing
+she would consciously register. <strong>This is the highest drop-off
+risk in any menopause supplement category.</strong> The marketing job in
+Month 1 is not to sell efficacy; it's to sell patience. Deepika's
+content arc in launch month centers on <em>"menopause is a multi-year
+journey. Crest is built for the long arc, not the quick fix. Give it 6
+months."</em></p>
+<p><strong>Months 2-3: the first signal.</strong></p>
+<p>A meaningful proportion of consistent users start to notice:</p>
+<ul>
+<li>Hot flash frequency reducing 15-25% from baseline</li>
+<li>Sleep onset easier, mid-night wake-ups less frequent</li>
+<li>Mood less reactive</li>
+<li>Energy steadier through the day</li>
+</ul>
+<p>The user pattern at this stage: she finishes Pack 2, recognises she's
+been sleeping a little better and feeling slightly steadier, and decides
+"let me see if it sticks." This is the trial-to-loyal conversion moment.
+<strong>Subscription retention math says: if she finishes Pack 2 and
+reorders Pack 3, she is typically a 24-month customer.</strong></p>
+<p><strong>Months 3-6: the full effect lands.</strong></p>
+<p>Hot flash frequency reduction in the 20-35% range from baseline.
+Sleep quality measurably improved (her wearable confirms it). Mood
+stabilization. The "brain fog" lifts incrementally. Cyclical symptoms in
+late perimenopause smooth out. Bone-density support is doing its work in
+the background; she will not feel it but her next DEXA may register.</p>
+<p><strong>6-12+ months: maintenance and bone-health
+compounding.</strong></p>
+<p>Sustained symptom relief. Bone-density preservation continues to
+compound (this is years-long math). Cardiovascular markers stable. She
+has settled into Crest as a daily ritual; subscription is on autopilot.
+She introduces friends to it.</p>
+<p><strong>What we're NOT promising</strong> (so customers and Deepika
+both stay credible):</p>
+<table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Replaces HRT</td>
+<td>She needs her gynaec for hormonal therapy decisions; we are not
+that</td>
+</tr>
+<tr>
+<td>Stops menopause</td>
+<td>Menopause is a normal physiological transition; we don't stop it, we
+support it</td>
+</tr>
+<tr>
+<td>Eliminates hot flashes</td>
+<td>Reduces frequency and intensity, doesn't eliminate; honest framing
+protects credibility</td>
+</tr>
+<tr>
+<td>Prevents osteoporosis</td>
+<td>Supports bone health; cannot prevent a multifactorial disease</td>
+</tr>
+<tr>
+<td>Effect inside 30 days</td>
+<td>Wrong expectation; review wall; phytoestrogens take 60-90 days
+minimum</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest customer message</strong> Deepika repeats across
+content: <em>"Menopause is a transition, not a disease. Crest is daily
+natural-source support for the long arc — six months minimum to feel the
+full effect, years to compound the bone-health benefit. Built on
+Moringa. Powered by Ayurveda."</em></p>
+<hr />
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Six actives in the cap, organised as one moringa whole-leaf
+heritage base + five standardised extracts/distributed
+minerals.</strong> This is TGL's extract-first formulation philosophy in
+action (per <code>02-brand-dna.md</code> Operational Principle 6, locked
+2026-05-09 as TGL-P1-DEC-011) plus the Moringa Foundation principle
+(Tier A heritage signature 50-75mg/cap).</p>
+<p><strong>Format: Size #00 capsule × 2 caps/day daily; 60-cap pack
+(30-day supply).</strong> Size #00 (vs Size #0) chosen because the
+natural-source vit/mineral and phytoestrogen matrix needs more fill
+volume than 500mg allows; 2 caps/day stays within the high-priority UX
+target per DEC-016.</p>
+<p><strong>Locked pricing (V3, UNCHANGED from Phase 4 sequencing —
+premium price-anchor of the portfolio)</strong>:</p>
+<ul>
+<li><strong>MRP ₹1,799 / Sale ₹1,599 / Subscription ₹1,359</strong></li>
+<li>COGS ~₹203/pack at Deepika's confirmed in-house economics (V3 cost
+lock)</li>
+<li><strong>Gross margin at MRP: 89%</strong> — the highest in the TGL
+portfolio</li>
+<li>GM at sale ₹1,599: 87.3%. GM at sub ₹1,359: 85.1%. All comfortably
+above the 75% premium-D2C floor.</li>
+</ul>
+<p><strong>The 6-active stack</strong> (each named with form +
+standardisation marker + concentration + primary vendor — DEC-016
+verified all-vendor-network standard concentrations; DEC-023/024
+brand-attribution corrections applied):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (~600mg fill, 2 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>SoyLife soy isoflavones</strong></td>
+<td><strong>IFF Health Sciences (ex-Frutarom)</strong> SoyLife branded
+standardised, 40% total isoflavones (genistein + daidzein + glycitein),
+non-GMO, hexane-free</td>
+<td><strong>IFF Health Sciences</strong> (NOT Sami-Sabinsa) —
+distributed in India via specialty botanicals channel</td>
+<td>100 mg (~40 mg total isoflavones)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Shatavari</strong></td>
+<td>Standardised extract, 4-5% saponins (HPLC)</td>
+<td>Sami-Sabinsa OR Vidya Herbs</td>
+<td>200 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Aquamin-Ca</strong></td>
+<td>Algae lithothamnion calcium (Marigot Ireland origin)</td>
+<td>via <strong>Inhalation Health India</strong> (Indian
+distributor)</td>
+<td>150 mg (~50 mg elemental Ca)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Yashtimadhu (licorice)</strong></td>
+<td>Standardised extract, <strong>4% glycyrrhizin</strong> (well below
+100mg/day pseudoaldosteronism threshold)</td>
+<td>Sami-Sabinsa OR Plant Lipids</td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Vitex / Chasteberry</strong></td>
+<td>Standardised extract, <strong>0.5% agnusides</strong> (industry
+norm)</td>
+<td>Sami-Sabinsa OR Vidya Herbs OR Arjuna Natural</td>
+<td>25 mg</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Moringa</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa)</td>
+<td>TGL captive</td>
+<td>75 mg</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~600 mg / cap</strong> (Size #00 ✓)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Brand-attribution correction (DEC-024, applied
+2026-05-09)</strong>: SoyLife is <strong>IFF Health Sciences</strong>
+branded (acquired in the IFF–Frutarom merger). It is NOT a Sami-Sabinsa
+product. The earlier V1 brief mis-attributed SoyLife to Sami-Sabinsa;
+that error is corrected here. SoyLife at 40% standardised total
+isoflavones runs ~₹6,000-15,000/kg from the IFF Health Sciences
+specialty-botanicals channel into India. Sami-Sabinsa remains the
+primary on Shatavari, Yashtimadhu, and Vitex (all vendor-network
+standard concentrations); IFF Health Sciences is the named SoyLife
+vendor.</p>
+<p><strong>DEC-016 compliance check (2026-05-09)</strong>: All 5
+non-moringa actives are vendor-network standard concentrations (no
+specialty / hyper-premium / single-supplier branded ingredients required
+beyond Aquamin-via-Inhalation-Health, which is the established
+Indian-distributor procurement path, and SoyLife-via-IFF-Health-Sciences
+which is the standard specialty-botanicals channel).</p>
+<p><strong>On-pack and PDP labelling shows the whole-plant equivalence
+and active doses transparently</strong> (example: "Soy isoflavones 40 mg
+per 2 caps — clinical menopause therapeutic range") so the customer sees
+clinical-dose efficacy delivered via standardised pharma-grade
+consistency.</p>
+<p><strong>Daily intake at 2 caps/day</strong> (every day):</p>
+<ul>
+<li>Soy isoflavones (SoyLife, IFF): 80 mg total isoflavones (clinical
+menopause range 50-80 mg/day per Howes 2006 + Taku 2012 meta-analysis;
+lower-therapeutic floor for hot flash reduction)</li>
+<li>Shatavari extract: 400 mg (delivers ~16-20 mg saponins/day,
+classical Stree-rasayana therapeutic range for menopause context)</li>
+<li>Aquamin elemental Ca: 100 mg (10% adult RDA; supportive bone-density
+dose; designed to stack with dietary Ca + Bloom cross-sell)</li>
+<li>Yashtimadhu extract: 100 mg (delivers ~4 mg glycyrrhizin/day, well
+within safe chronic-use range)</li>
+<li>Vitex extract: 50 mg (residual cycle support for late-perimenopausal
+users)</li>
+<li>Moringa whole-leaf: 150 mg (Tier A heritage signature dose, locked
+per Moringa Foundation principle)</li>
+<li><strong>Total daily extract + heritage intake: ~1,200 mg actual
+mass; phytoestrogen + adaptogen + bone-health stack</strong></li>
+</ul>
+<p><strong>V3 cost lock — pack economics (DEC-023, locked
+2026-05-09)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>₹/pack</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoyLife (IFF Health Sciences) — 6g/pack at ~₹11K/kg mid</td>
+<td>~₹66</td>
+<td>Highest per-mg active cost; specialty-botanicals channel</td>
+</tr>
+<tr>
+<td>Shatavari extract (Sami-Sabinsa / Vidya, ~₹3K/kg)</td>
+<td>~₹36</td>
+<td>Vendor-network standard 4-5% saponins</td>
+</tr>
+<tr>
+<td>Aquamin-Ca (Inhalation Health India)</td>
+<td>~₹27</td>
+<td>INR-billed via distributor, no FX exposure</td>
+</tr>
+<tr>
+<td>Yashtimadhu extract (~₹2-4K/kg, 3g/pack)</td>
+<td>~₹9</td>
+<td>4% glycyrrhizin standard</td>
+</tr>
+<tr>
+<td>Vitex extract (~₹6-8K/kg, 1.5g/pack)</td>
+<td>~₹11</td>
+<td>0.5% agnusides industry norm</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf (TGL captive)</td>
+<td>~₹4</td>
+<td>DPR captive supply, near-zero marginal</td>
+</tr>
+<tr>
+<td>HPMC capsule shells (60 caps)</td>
+<td>~₹24</td>
+<td>Deepika vendor relationship per DEC-002</td>
+</tr>
+<tr>
+<td>HDPE amber bottle + label + monocarton</td>
+<td>~₹16</td>
+<td>Pragati Pack stack</td>
+</tr>
+<tr>
+<td>In-house manufacturing (encapsulation + bottling + QC)</td>
+<td>~₹10</td>
+<td>Deepika facility per V3 (vs ~₹50 external CMO)</td>
+</tr>
+<tr>
+<td><strong>Total COGS</strong></td>
+<td><strong>~₹203</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at MRP ₹1,799</strong></td>
+<td><strong>89.0%</strong></td>
+<td>Highest in portfolio</td>
+</tr>
+<tr>
+<td><strong>GM at sale ₹1,599</strong></td>
+<td><strong>87.3%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at sub ₹1,359</strong></td>
+<td><strong>85.1%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why the GM is portfolio-leading</strong>: in-house
+manufacturing per V3 (Deepika's FSSAI-licensed facility, NOT external
+CMO) saves ~₹40/pack vs the Greenfield CMO benchmark used in earlier
+dossiers. SoyLife and Aquamin are the two highest per-mg cost levers but
+the price-band absorbs them comfortably. Crest is the SKU where
+Deepika's captive manufacturing capex pays back hardest.</p>
+<p><strong>Why this specific 6-active stack</strong>:</p>
+<ul>
+<li><strong>SoyLife soy isoflavones (IFF Health Sciences)</strong>:
+strongest single-compound RCT evidence base for hot flash reduction
+(Howes 2006, Taku 2012). 80 mg/day at the lower-therapeutic floor
+delivers measurable vasomotor support without crossing into
+pharmacological-estrogen territory. SoyLife is IFF's branded
+standardised-isoflavone product (acquired in the IFF-Frutarom merger);
+it has been the global menopause-supplement gold standard for two
+decades. The brand name on the label gives the woman a verifiable
+ingredient she can Google.</li>
+<li><strong>Shatavari extract</strong>: gold-standard Ayurvedic
+Stree-rasayana for menopause. Steroidal saponins (shatavarins) bind
+weakly to estrogen receptors; partial estrogen-modulating effect
+counters menopausal estrogen decline. Cross-portfolio carrier across
+Cycle, Bloom, Reset, Crest, Nourish.</li>
+<li><strong>Aquamin-Ca</strong>: most clinically-validated plant-source
+calcium globally. Multi-mineral algae complex (Ca + Mg + 70+ trace
+minerals from Lithothamnion calcareum). Bone-density evidence (Felice
+2018, Aslam 2010) particularly relevant for menopausal bone-loss.
+Procured via Inhalation Health India distributor — TGL pays INR.</li>
+<li><strong>Yashtimadhu (licorice)</strong>: glycyrrhizin + flavonoid
+liquiritin + isoflavones. Mild phytoestrogenic + adrenal-modulating
+action (cortisol support during the menopause-stress overlay). Mucosal
+soothing for vaginal dryness over chronic use. Strong classical
+Ayurvedic basis (<em>Madhuyashti</em>).</li>
+<li><strong>Vitex / Chasteberry</strong>: residual hormonal balance for
+late-perimenopausal users still cycling irregularly. Sub-clinical
+primary, supportive role in the stack.</li>
+<li><strong>Moringa whole-leaf</strong>: brand heritage thread (the
+"Built on Moringa" anchor) + nutritive support during a phase where
+dietary nutrient absorption can be compromised. The ONE whole-plant
+ingredient in the cap, per Operational Principle 6.</li>
+</ul>
+<p><strong>What's NOT in the stack, and why</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Excluded active</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Black cohosh (Cimicifuga racemosa)</td>
+<td>Strongest Western-evidence-base hot-flash botanical (REMIfemin built
+on it) but North American native — Pillar 2 (Ayurveda-rooted) tension.
+Soy + Shatavari + Yashtimadhu cover the phytoestrogen story from
+Indian-source angle.</td>
+</tr>
+<tr>
+<td>Ashoka, Lodhra</td>
+<td>Those serve Cycle (acute uterine tonic context). Crest customer's
+periods have ceased or are ceasing; uterine-tonic action is less
+central.</td>
+</tr>
+<tr>
+<td>Sesamin (sesame lignan)</td>
+<td>Strong V3 dossier candidate at 50mg; deferred from V1 brief to keep
+the cap fill at 600 mg and the active count at 6. Vendor-formulator can
+re-evaluate at trial-fill if cap headroom allows.</td>
+</tr>
+<tr>
+<td>Vitashine D3</td>
+<td>Bloom carries D3 at the daily-multi tier; Crest leans on Bloom
+cross-sell for D3 + the natural Aquamin multi-mineral matrix supports Ca
+absorption. Open question for V2 brief whether to add D3
+standalone.</td>
+</tr>
+<tr>
+<td>Brahmi (Bacopa)</td>
+<td>"Menopause brain fog" is real, but the cognitive angle lives in
+Spark and Calm. Adding here would complicate the cap fill without
+dose-clinical leverage.</td>
+</tr>
+<tr>
+<td>Amla</td>
+<td>V3 dossier candidate at 100mg; deferred from V1 brief.
+Cross-portfolio Bloom carries amla at the daily-multi tier. Crest leans
+on the more menopause-specific Yashtimadhu + Vitex pair instead.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: 600 mg total fill is comfortable
+for Size #00 (~700-1000 mg practical capacity). Standard manufacturing
+across most Indian capsule CMOs / in-house at Deepika's facility per V3
+plan-level changes. Full execution spec to be drafted at
+vendor-formulator handoff (Dr. Lakshmi Kala, post 2026-05-11/12
+connect).</p>
+<hr />
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 6 actives: mechanism, classical basis, modern
+clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. SoyLife soy isoflavones (IFF Health Sciences, 40% total
+isoflavones, 100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: Soy isoflavones (genistein 50%, daidzein
+35%, glycitein 15%) are SERMs (selective estrogen receptor modulators).
+Mild estrogenic activity at receptor sites where estrogen is deficient
+(vasomotor symptom relevance) and mild antagonist activity where
+estrogen is excess. Strongest single-compound meta-analysis evidence
+base for hot flash reduction.</li>
+<li><strong>Modern clinical evidence</strong>: Howes LG et al.
+<em>"Isoflavone therapy for menopausal flushes: a systematic review and
+meta-analysis."</em> Maturitas, 2006. <a
+href="https://pubmed.ncbi.nlm.nih.gov/16527436/">PubMed</a>. Confirmed
+20-25% hot flash frequency reduction over 12-24 weeks. Plus Taku K et
+al. <em>"Extracted or synthesized soybean isoflavones reduce menopausal
+hot flash frequency and severity: systematic review and meta-analysis of
+randomized controlled trials."</em> Menopause, 2012; 19(7):776-790. <a
+href="https://pubmed.ncbi.nlm.nih.gov/22433977/">PubMed</a>.
+Dose-response 30-80 mg/day genistein-equivalent. Crisafulli et al.
+<em>"Effects of genistein on hot flushes in early postmenopausal women:
+a randomized, double-blind EPT- and placebo-controlled study."</em>
+Menopause, 2004. <a
+href="https://pubmed.ncbi.nlm.nih.gov/15257099/">PubMed</a> confirms
+54mg genistein-equivalent dose-response.</li>
+<li><strong>Dose rationale</strong>: 100 mg/cap × 2 caps = 200 mg daily
+extract = 80 mg total isoflavones. Lower-therapeutic floor of the Taku
+2012 clinical band.</li>
+</ul>
+<p><strong>2. Shatavari extract (4-5% saponins, 200mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: phytoestrogenic steroidal saponins
+(shatavarins I-IV) bind weakly to estrogen receptors. Modulates estrogen
+activity (agonist where deficient, antagonist where excess). Adaptogenic
+action on the HPO axis. Mild diuretic helps menopause bloating.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a>. Primary <em>Stree-rasayana</em>; explicit reference to
+<em>Vriddhavastha</em> (women's later years) in Charaka.</li>
+<li><strong>Modern clinical evidence</strong>: Pandey AK et al.
+<em>"Impact of stress on female reproductive health disorders."</em>
+Biomed Pharmacother, 2018; 103:46-49. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29635127/">PubMed</a>. Plus Alok S
+et al. <em>"Plant profile, phytochemistry and pharmacology of Asparagus
+racemosus."</em> APJTD, 2013; 3(3):242-251. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4027291/">PMC</a>.</li>
+<li><strong>Dose rationale</strong>: 200 mg/cap × 2 caps = 400 mg daily
+extract. Delivers 16-20 mg shatavarins/day, classical therapeutic range
+for menopause-context phytoestrogen modulation.</li>
+</ul>
+<p><strong>3. Aquamin-Ca (algae Lithothamnion, 150mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: multi-mineral algae complex (32%
+elemental Ca, 2.2% Mg, 70+ trace minerals). Documented bioavailability
+comparable to Ca citrate. Bone-density preservation in the
+menopausal-loss window.</li>
+<li><strong>Modern clinical evidence</strong>: Felice VD et al.
+<em>"Aquamin: A Multi-Mineral Complex Sourced from Marine Algae."</em>
+Magnes Res, 2018. Plus Aslam MN et al. <em>"A Mineral-Rich Extract from
+the Red Marine Algae Lithothamnion calcareum Preserves Bone Structure
+and Function in Female Mice on a Western-Style Diet."</em> Calcif Tissue
+Int, 2010. <a
+href="https://pubmed.ncbi.nlm.nih.gov/19957165/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 150 mg/cap × 2 caps = 300 mg
+Aquamin daily = ~100 mg elemental Ca/day. Supportive 10% RDA dose;
+designed to stack with dietary Ca + Bloom cross-sell rather than replace
+full RDA supplementation.</li>
+</ul>
+<p><strong>4. Yashtimadhu / Licorice extract (4% glycyrrhizin,
+50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: glycyrrhizin + flavonoid liquiritin +
+isoflavones. Mild phytoestrogenic action. Adrenal-supporting (cortisol
+modulation during menopause-stress overlay). Mucosal soothing for
+vaginal dryness over chronic use. Anti-inflammatory.</li>
+<li><strong>Classical basis</strong>: strong traditional Ayurvedic basis
+(<em>Madhuyashti</em>). <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+classifies Yashtimadhu as <em>Rasayana</em> with explicit
+women's-wellness application.</li>
+<li><strong>Modern clinical evidence</strong>: Hajirahimkhan A et al.
+<em>"Botanical modulation of menopausal symptoms: mechanisms of
+action?"</em> Planta Med, 2013; 79(7):538-553. <a
+href="https://pubmed.ncbi.nlm.nih.gov/23408273/">PubMed</a>. Confirms
+phytoestrogen + adrenal-modulating mechanism.</li>
+<li><strong>Dose rationale</strong>: 50 mg/cap × 2 caps = 100 mg daily
+extract = ~4 mg glycyrrhizin/day at 4% standardisation. Well below the
+100 mg/day pseudoaldosteronism safety ceiling for chronic use. Label
+must show mg glycyrrhizin per serving +
+hypertension/heart-kidney/diuretic-co-medication contraindication.</li>
+</ul>
+<p><strong>5. Vitex / Chasteberry extract (0.5% agnusides,
+25mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: dopaminergic action on the pituitary,
+modulating prolactin and indirectly supporting the LH/FSH axis.
+Strongest evidence in PMS (Schellenberg 2001) and irregular cycles;
+supportive role for late-perimenopausal users still experiencing
+residual cyclic disturbance.</li>
+<li><strong>Modern clinical evidence</strong>: Schellenberg R.
+<em>"Treatment for the premenstrual syndrome with agnus castus fruit
+extract: prospective, randomised, placebo controlled study."</em> BMJ,
+2001; 322(7279):134-137. <a
+href="https://www.bmj.com/content/322/7279/134">BMJ full text</a>.</li>
+<li><strong>Dose rationale</strong>: 25 mg/cap × 2 caps = 50 mg daily
+extract. Sub-clinical primary, supportive role in the stack.
+Industry-standard 0.5% agnusides spec.</li>
+<li><strong>Safety</strong>: contraindicated in pregnancy,
+breastfeeding, dopamine-receptor medication. Label must reflect.</li>
+</ul>
+<p><strong>6. Moringa whole-leaf powder (heat-treated, TGL captive
+supply, 75mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (iron, calcium,
+vitamin C, antioxidants, chlorophyll). Not a primary menopause-symptom
+active; supports overall nutritional baseline during a phase when
+dietary absorption can decline.</li>
+<li><strong>Folk + modern basis</strong>: established nutraceutical
+literature on moringa as iron + folate + B-complex source. Bone-density,
+mood, and energy all benefit from background nutritional
+sufficiency.</li>
+<li><strong>Modern evidence</strong>: Alegbeleye OO. <em>"How Functional
+Is Moringa oleifera? A Review of Its Nutritive, Medicinal, and
+Socioeconomic Potential."</em> Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 75 mg/cap × 2 caps = 150 mg daily.
+Tier A 50-75mg signature dose ceiling per Moringa Foundation principle.
+Substantive enough to carry the moringa thread.</li>
+<li><strong>Brand role</strong>: heritage signature carrying the
+cross-portfolio narrative.</li>
+</ul>
+<hr />
+<p><strong>Evidence-strength summary</strong> (so the team knows where
+we are confident vs cautious):</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Traditional basis</th>
+<th>Modern clinical evidence</th>
+<th>Overall strength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoyLife isoflavones (IFF)</td>
+<td>n/a (Western SERM evidence base)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/16527436/">Howes 2006
+meta</a> + <a href="https://pubmed.ncbi.nlm.nih.gov/22433977/">Taku 2012
+meta</a> + <a
+href="https://pubmed.ncbi.nlm.nih.gov/15257099/">Crisafulli
+2004</a></td>
+<td>Modern-strong</td>
+</tr>
+<tr>
+<td>Shatavari</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Stree-rasayana, Vriddhavastha)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29635127/">Pandey 2018</a>,
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4027291/">Alok 2013
+review</a></td>
+<td>Moderate-strong</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>n/a</td>
+<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/30100571">Felice
+2018</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/19957165/">Aslam
+2010</a></td>
+<td>Modern-strong</td>
+</tr>
+<tr>
+<td>Yashtimadhu</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Madhuyashti, Rasayana)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/23408273/">Hajirahimkhan
+2013 review</a></td>
+<td>Traditional-strong, modern-moderate</td>
+</tr>
+<tr>
+<td>Vitex</td>
+<td>n/a (Western herbal tradition)</td>
+<td><a href="https://www.bmj.com/content/322/7279/134">Schellenberg 2001
+RCT</a></td>
+<td>Modern-moderate (PMS-anchored, supportive role for
+late-perimenopause)</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>Folk + modern nutraceutical</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29284305/">Alegbeleye
+2018</a></td>
+<td>Modern-strong (nutritive)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Crest as the SKU it is.</p>
+<p><strong>Layer 1: Why Crest as Phase 4 (not Phase 1, not
+later)</strong></p>
+<p>We evaluated all 10 SKUs across volume, profitability, TGL-fit, and
+founder authenticity. Crest scored second-highest on profitability
+(longest LTV) and category-volume (40+ cohort is large and underserved)
+but scored lower on Phase 1 launchability:</p>
+<ul>
+<li><strong>Cold cohort at launch.</strong> TGL's existing 10K+
+customers skew 28-42; menopause-stage is years away. Launching Crest in
+Q1 would mean cold-acquisition into an unfamiliar segment.</li>
+<li><strong>Creator partnerships needed.</strong> 5-7 women-health
+influencers in the 40+ demographic are the activation lever. Building
+that creator network takes 6-9 months.</li>
+<li><strong>The Q1 trio (Cycle + Bloom + Reset) funds the
+runway.</strong> Q1 launches prove the website-led acquisition motion,
+fund creator outreach, and seed the 40+ secondary cohort before Crest
+ships in Q4.</li>
+</ul>
+<p>So Crest is sequenced to Phase 4 not because it's a weaker SKU but
+because it's a higher-friction launch that pays off long-term. The
+premium pricing also requires the Q1 trio to set the perception ladder —
+Cycle ₹899 + Bloom ₹999 + Reset ₹1,499 prepares the customer to read
+Crest ₹1,599 as "the next-tier option" rather than "the only option, why
+so expensive."</p>
+<p><strong>Layer 2: Why this 6-active stack (and not
+another)</strong></p>
+<p>Menopause-care formulation has roughly 12 cited natural-source
+candidates. We considered each and selected 6:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SoyLife soy isoflavones (IFF Health Sciences)</td>
+<td>INCLUDED</td>
+<td>Strongest single-compound meta-analysis evidence for hot flashes.
+Non-negotiable for credibility. <strong>IFF Health Sciences
+(ex-Frutarom) branded</strong> — NOT Sami-Sabinsa per DEC-024
+brand-attribution correction.</td>
+</tr>
+<tr>
+<td>Shatavari</td>
+<td>INCLUDED</td>
+<td>Primary Ayurvedic Stree-rasayana; explicit Vriddhavastha indication
+in Charaka. Cross-portfolio carrier.</td>
+</tr>
+<tr>
+<td>Aquamin-Ca</td>
+<td>INCLUDED</td>
+<td>Best plant-source bone-density evidence. Critical for menopausal
+bone-loss window. Indian-distributor procurement keeps operational
+simplicity.</td>
+</tr>
+<tr>
+<td>Yashtimadhu</td>
+<td>INCLUDED</td>
+<td>Phytoestrogen + adrenal + mucosal-soothing in one ingredient. Strong
+classical basis.</td>
+</tr>
+<tr>
+<td>Vitex</td>
+<td>INCLUDED</td>
+<td>Late-perimenopausal residual cycle support. Sub-clinical supportive
+role.</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>INCLUDED (heritage base)</td>
+<td>Brand thesis anchor + nutritive support. The ONE whole-plant per
+SKU.</td>
+</tr>
+<tr>
+<td>Black cohosh</td>
+<td>EXCLUDED</td>
+<td>Strongest Western hot-flash botanical but North American native —
+Pillar 2 tension. Soy + Shatavari cover the phytoestrogen story.</td>
+</tr>
+<tr>
+<td>Sesamin (sesame lignan)</td>
+<td>EXCLUDED (V1 brief)</td>
+<td>Strong V3 dossier candidate at 50mg; deferred to keep cap fill at
+600 mg / 6 actives. Vendor-formulator can re-evaluate at
+trial-fill.</td>
+</tr>
+<tr>
+<td>Amla</td>
+<td>EXCLUDED (V1 brief)</td>
+<td>V3 dossier candidate at 100mg; Bloom carries amla at the daily-multi
+tier. Crest leans on more menopause-specific Yashtimadhu + Vitex
+pair.</td>
+</tr>
+<tr>
+<td>Vitashine D3</td>
+<td>EXCLUDED</td>
+<td>Bloom carries D3; Crest leans on Bloom cross-sell + Aquamin
+multi-mineral matrix supports Ca absorption.</td>
+</tr>
+<tr>
+<td>Brahmi (Bacopa)</td>
+<td>EXCLUDED</td>
+<td>Cognitive angle lives in Spark and Calm.</td>
+</tr>
+<tr>
+<td>Ashoka, Lodhra</td>
+<td>EXCLUDED</td>
+<td>Acute uterine-tonic context lives in Cycle.</td>
+</tr>
+<tr>
+<td>Methi (fenugreek)</td>
+<td>EXCLUDED</td>
+<td>Insulin-sensitivity primary lives in Reset.</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio approach forces discipline: each active in one SKU's
+primary role; minimal duplication across SKUs.</p>
+<p><strong>Layer 3: Why this specific dose architecture (and not
+another)</strong></p>
+<p>Every dose was triangulated across three constraints:</p>
+<ol type="1">
+<li><strong>Clinical / classical therapeutic range</strong> (what RCTs
+or Bhavaprakasha actually use)</li>
+<li><strong>Capsule fill feasibility</strong> (Size #00 = ~700-1000 mg
+practical fill)</li>
+<li><strong>2-cap-per-day compliance ceiling</strong> (anything beyond 2
+caps creates retention friction; menopause customers are particularly
+fatigue-sensitive)</li>
+</ol>
+<p>That triangulation forced the Size #00 path (Size #0 cannot hold the
+SoyLife + Aquamin + Shatavari mass). At 600 mg fill, capsule remains
+comfortable and we have headroom for vendor-formulator to add Sesamin
+(50mg) or D3 (small mass) at trial-fill if needed.</p>
+<p><strong>Trade-offs we accepted, openly stated:</strong></p>
+<ul>
+<li><strong>Lower-therapeutic floor on isoflavones (80mg/day vs upper
+120mg/day).</strong> Higher dose forces cap fill near Size #00 limit. We
+accept the lower-therapeutic clinical band as the right balance of
+efficacy + cost + cap fit. The 89% GM at MRP gives us latitude to lift
+the dose later if reformulation evidence warrants.</li>
+<li><strong>Aquamin at supportive 100mg/day Ca, not full 400-600mg/day
+RDA replacement.</strong> Cap fill cannot accommodate a full Ca RDA
+without crowding phytoestrogen and Shatavari. We frame Crest as
+bone-health support that stacks with dietary Ca and Bloom cross-sell,
+not standalone osteoporosis prevention.</li>
+<li><strong>Vitex at sub-clinical 50mg/day.</strong> Industry clinical
+Vitex doses run 100-200mg/day. We use it at sub-clinical for residual
+perimenopausal cycle support, not as a primary active.</li>
+<li><strong>Single Indian distributor (Inhalation Health) for Aquamin
+concentration risk.</strong> Mitigated by DPR moringa-Ca fallback path
+retained as backup if Inhalation Health supply turns adverse.</li>
+<li><strong>Per-active mg numbers look small on label</strong> (Vitex
+25mg/cap reads weak). Mitigated by labelling clinical context ("Vitex
+25mg — supportive perimenopausal hormonal balance") and standardisation
+markers.</li>
+</ul>
+<p><strong>The decision trail in one sentence</strong>: Crest is the
+comprehensive menopause SKU Indian women have been asking for at the
+₹1,500-1,800 single-bottle premium tier; the 6-active stack pairs the
+strongest Western single-compound evidence (SoyLife isoflavones from IFF
+Health Sciences) with Ayurvedic phytoestrogen and adaptogen heritage
+(Shatavari, Yashtimadhu) and natural-source bone-health (Aquamin), all
+carrying the moringa heritage thread, with portfolio-leading 89% GM at
+MRP earning the premium positioning.</p>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p>Crest plays in the comprehensive premium D2C Ayurvedic menopause
+category — a small, underserved space. Per the V3 dossier benchmark set
++ naming-sprint round 2 input.</p>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>Price (sale)</th>
+<th>Format</th>
+<th>Positioning</th>
+<th>Active focus</th>
+<th>Per-day cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Crest (TGL)</strong></td>
+<td>₹1,599</td>
+<td>Capsule, 2/day</td>
+<td><strong>Comprehensive premium single-SKU Ayurveda</strong> + soy
+isoflavones + Aquamin Ca</td>
+<td>SoyLife (IFF) + Shatavari + Aquamin + Yashtimadhu + Vitex +
+moringa</td>
+<td>~₹53/day</td>
+</tr>
+<tr>
+<td><strong>Menoveda (Vedi Herbals)</strong></td>
+<td>₹1,200-1,500</td>
+<td>Tablet/capsule</td>
+<td>Pharma-coded Ayurvedic, doctor-channel-leaning</td>
+<td>Multi-herb Ayurvedic stack</td>
+<td>~₹40-50/day</td>
+</tr>
+<tr>
+<td><strong>Vitalbeing Menopause</strong></td>
+<td>₹1,500</td>
+<td>Capsule</td>
+<td>Mid-tier multi-active, Ayurvedic-coded</td>
+<td>Soy-based + multi-herb</td>
+<td>~₹50/day</td>
+</tr>
+<tr>
+<td><strong>Gynoveda Menopause Cure</strong></td>
+<td>₹2,500-3,500</td>
+<td>Multi-cap kit</td>
+<td>Pharma-tier, doctor-coded</td>
+<td>4-active kit, cycle-day numbered</td>
+<td>~₹80-115/day</td>
+</tr>
+<tr>
+<td><strong>Earthful MenoCool</strong></td>
+<td>₹549</td>
+<td>Capsule, 2/day</td>
+<td>Single-symptom hot-flash entry</td>
+<td>Shatavari + Ashoka + soy + flax + sage + black cohosh + Vit E +
+Mg</td>
+<td>~₹18/day</td>
+</tr>
+<tr>
+<td><strong>Earthful Menopause Wellness Kit</strong></td>
+<td>₹1,722 (3 SKUs)</td>
+<td>Bundle</td>
+<td>3-SKU comprehensive bundle</td>
+<td>Multi-SKU stack</td>
+<td>~₹19/day (per SKU averaged)</td>
+</tr>
+<tr>
+<td><strong>Patanjali Saumyakanti / Stree Rasayan</strong></td>
+<td>₹150-300</td>
+<td>Tablet/Powder</td>
+<td>Mass-Ayurveda, dated packaging</td>
+<td>Generic classical</td>
+<td>~₹5-10/day</td>
+</tr>
+<tr>
+<td><strong>Imported (Estroven, REMIfemin, Promensil)</strong></td>
+<td>₹2,500-4,500</td>
+<td>Capsule</td>
+<td>Western pharma-coded</td>
+<td>Soy iso / black cohosh / red clover</td>
+<td>~₹40-60/day</td>
+</tr>
+<tr>
+<td><strong>Kindra / Bonafide (via Indian retailers)</strong></td>
+<td>₹3,000-5,000</td>
+<td>Capsule + lozenge</td>
+<td>Western premium D2C</td>
+<td>Multi-SKU US-imported</td>
+<td>~₹100+/day</td>
+</tr>
+<tr>
+<td><strong>Plix Plant Menopause</strong></td>
+<td>₹1,099</td>
+<td>Effervescent</td>
+<td>Format-gimmick, taste-driven</td>
+<td>Plant extracts + synthetic adjuncts</td>
+<td>~₹37/day</td>
+</tr>
+<tr>
+<td><strong>Be Bodywise Menopause</strong></td>
+<td>₹1,299</td>
+<td>Capsule</td>
+<td>Telehealth-coded urban-millennial</td>
+<td>Extract stack</td>
+<td>~₹22/day</td>
+</tr>
+<tr>
+<td><strong>Cosmix Menopause Magic</strong></td>
+<td>₹1,099</td>
+<td>Powder</td>
+<td>Format-gimmick</td>
+<td>Multi-extract powder</td>
+<td>~₹37/day</td>
+</tr>
+<tr>
+<td><strong>Kapiva Menopause Care juice</strong></td>
+<td>₹600-800</td>
+<td>Juice</td>
+<td>Heritage-juice format</td>
+<td>Ayurvedic herbs in juice base</td>
+<td>~₹20-27/day</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The single-sentence competitive position</strong>: Crest is
+the only Indian D2C SKU that is <strong>comprehensive premium
+single-SKU</strong> (not single-symptom, not 3-SKU bundle, not
+pharma-tier kit), pairs <strong>Ayurvedic phytoestrogen + adaptogen
+stack with the strongest Western single-compound evidence</strong>
+(SoyLife isoflavones from IFF Health Sciences at clinical dose), uses
+<strong>natural-source Aquamin algae calcium</strong> (not synthetic Ca
+salts), with a <strong>moringa heritage thread</strong> in every cap —
+and at 89% GM at MRP, the premium pricing is COGS-earned not
+optical.</p>
+<hr />
+<h2 id="9-right-to-win-why-a-real-woman-picks-crest">9. Right to win
+(why a real woman picks Crest)</h2>
+<p>Five reasons she chooses Crest when she's looking at the shelf.</p>
+<p><strong>1. One bottle, full picture.</strong> She doesn't want a
+3-SKU bundle (Earthful Wellness Kit) and she doesn't want a
+single-symptom slice (MenoCool). She wants one bottle she can put on her
+counter that addresses hot flashes, sleep, mood, and bone health
+together. Crest is that bottle.</p>
+<p><strong>2. The strongest Western evidence married to the Ayurvedic
+heritage.</strong> SoyLife isoflavones from IFF Health Sciences (the
+ex-Frutarom global menopause-supplement gold standard) at clinical
+80mg/day deliver the most-evidenced hot-flash support available. Pairing
+that with Shatavari + Yashtimadhu (Ayurvedic phytoestrogen + adrenal)
+gives her both the science and the cultural register. She doesn't have
+to choose between "modern wellness" and "what my grandmother would
+recognise."</p>
+<p><strong>3. Bone health that isn't synthetic Ca + D3.</strong> Aquamin
+algae calcium has the published bioavailability and bone-density
+evidence she would get from a doctor's prescription, but it's
+plant-source and Ayurveda-coded. The doctor's calcium tablets felt
+clinical and made her constipated; Crest's Aquamin is a different
+category of supplement.</p>
+<p><strong>4. Honest timeline-setting.</strong> "6 months minimum to
+feel the full effect" is a hard message most brands won't say out loud.
+Crest's marketing leads with it. Honest expectation-setting at the front
+protects the trust that compounds into a multi-year subscription.</p>
+<p><strong>5. A founder she can see.</strong> Deepika at 45+ is
+genuinely in this life stage. Authentic founder voice for the cohort.
+Most competitors have absent or younger-coded founders. Crest is the
+brand where the woman on the bottle is also the woman on the
+journey.</p>
+<p><strong>Two things that do not show up in the matrix but matter in
+real life:</strong></p>
+<ul>
+<li><strong>The "no HRT" cultural bridge.</strong> Her doctor offered
+HRT; she said no. Mass-market Ayurveda felt below her station; imported
+soy supplements felt clinical-coded. Crest is the bridge — premium,
+Ayurveda-rooted, founder-led, the cultural register of a 45-55 Indian
+woman who wants modern wellness without the medicalisation.</li>
+<li><strong>The label tells the same story Deepika tells in her
+Reels.</strong> No marketing-only descriptors. Standardisation
+percentages on the label (40% isoflavones, 4-5% saponins, 4%
+glycyrrhizin) match what Deepika quotes in content. The IFF Health
+Sciences SoyLife brand name on the label is a verifiable global
+ingredient she can Google. Internal-external consistency builds trust in
+a segment that scrutinises ingredient lists.</li>
+</ul>
+<p><strong>The single-sentence right to win</strong>: Crest wins because
+it's the one bottle that addresses the full menopause picture, marries
+the strongest Western evidence (SoyLife from IFF) to the Ayurvedic
+heritage, supports bone health without synthetic Ca, sets honest
+expectations, and comes from a founder genuinely in the same life
+stage.</p>
+<hr />
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p><strong>Channel mix is website-first / Shopify-led, NOT
+Amazon-first</strong> (per TGL-P1-DEC-017, locked 2026-05-09). Today's
+80% Amazon revenue concentration on TGL's existing moringa SKUs is a
+remediable weakness from inefficient website performance marketing — not
+strategic intent. Crest's launch motion is built explicitly to fix the
+website under-performance: Meta + Google ads → Shopify PDP, founder
+Reels/Stories for organic, Klaviyo email/SMS for retention, native
+Shopify subscription mechanic. Amazon is added as a <strong>secondary
+channel in Month 2-3 post-launch</strong> after the website motion is
+proven.</p>
+<p>The new launch motion is the fix to the current Amazon
+over-dependence: better PMM, multi-active SKU AOV unlock that softens
+the website shipping-cost problem, stronger PDP-to-checkout conversion,
+retention-funded LTV vs Amazon's single-purchase dynamic. Crest is the
+SKU where this matters most — at ₹1,599 sale, every shipped order
+generates ~₹1,396 GM, vs Amazon's commission + return + listing-fee drag
+that compresses Crest's contribution margin disproportionately.</p>
+<p><strong>Channel mix at launch (Q4)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta (Instagram + Facebook) → Shopify PDP</td>
+<td>Primary acquisition</td>
+<td>~50%</td>
+</tr>
+<tr>
+<td>Google Search + SEO → Shopify PDP</td>
+<td>Branded + non-branded menopause search</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Founder Reels + Stories (organic + boosted)</td>
+<td>Trust + content engine</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Creator partnerships (40+ women-health)</td>
+<td>Cohort-matched activation</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Klaviyo email + SMS (existing TGL list + Cycle/Bloom
+cross-sell)</td>
+<td>Warm cohort capture + cross-sell</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Amazon (secondary, Month 2-3+)</td>
+<td>Channel diversification once website motion proven</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pricing locked (V3, UNCHANGED from Phase 4
+sequencing)</strong>: ₹1,799 MRP / ₹1,599 sale / ₹1,359 sub. Premium
+price-anchor of the portfolio. 89% GM at MRP.</p>
+<p><strong>Geography priority</strong>: Tier 1 metros (Mumbai,
+Bangalore, Delhi, Chennai, Hyderabad, Pune) where the established 45-55
+cohort with disposable income concentrates. Less geography-skewed than
+Cycle (which leans South India for TGL warm-cohort match); Crest's 40+
+cohort is more pan-Indian metro.</p>
+<p><strong>Deepika's content cadence</strong>: ~1 founder Reel per week
+through launch month. Pre-launch covers "why I'm building Crest at 45+,"
+"what HRT is and why most Indian women decline," "the SoyLife (IFF) +
+Ayurveda evidence base," "the 6-month arc — give it time," "bone health
+and why Aquamin." Launch month rotates: founder use, customer Q&amp;A,
+ingredient story, expectation-setting.</p>
+<p><strong>Asset list (Boco produces, pre-launch)</strong>: Crest PDP,
+brand kit refinement (carrying Cycle's Q1 design language with
+menopause-tier visual lift to justify the premium pricing read), 5 ad
+creative templates, Klaviyo email flows for launch + onboarding +
+6-month retention, Ingredient Library entry. Live by launch -2
+weeks.</p>
+<p><strong>Owner split</strong>: Deepika owns founder content (~6-8
+hrs/week launch month). Unnati owns Meta channel ops + creator outreach
++ email execution (~12-15 hrs/week launch month). Boco (Meera, Kavya,
+Aarav) owns asset production, front-loaded in launch -8 to -2 weeks.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p>Three pitches scaled to the conversation length.</p>
+<p><strong>5-second elevator</strong> (chance encounters, quick brand
+mentions):</p>
+<blockquote>
+<p>"Crest is our menopause supplement. Two capsules a day, every day.
+SoyLife soy isoflavones, Ayurvedic herbs, algae calcium for bone health.
+Built on Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<p><strong>30-second customer pitch</strong> (the version most people
+will hear, in Deepika's voice):</p>
+<blockquote>
+<p>"Menopause is a transition, not a disease, and most of us go through
+it without anyone telling us what's happening or what to do. Crest is
+the comprehensive supplement I'm making for this stage of life. Two
+capsules a day, every day: clinical-dose SoyLife soy isoflavones for hot
+flashes and sleep, Shatavari and Yashtimadhu for the Ayurvedic stack,
+Aquamin algae calcium for bone health, Vitex for the irregular-cycle
+phase, and our farm-grown moringa as the heritage thread. Plan for six
+months minimum. The long arc is what works."</p>
+</blockquote>
+<p><strong>60-second partner pitch</strong> (creator partnerships,
+retail conversations, in Unnati's or Deepika's voice):</p>
+<blockquote>
+<p>"Crest is The Good Leaf's comprehensive menopause SKU, designed for
+women 45-58 navigating perimenopause and menopause. Six actives at
+clinical or supportive doses: SoyLife soy isoflavones from IFF Health
+Sciences at 80mg per day (lower-therapeutic floor of the Howes 2006 /
+Taku 2012 meta-analysis range), Shatavari at 400mg per day (classical
+Stree-rasayana for women's later-life), Aquamin algae calcium at
+supportive 100mg elemental Ca per day (Felice 2018 bone-density
+evidence), Yashtimadhu and Vitex for adaptogen and residual cycle
+support, and farm-grown moringa as the heritage signature. Two capsules
+a day, ₹1,599 sale, around ₹53 per day, designed for a 6-month-plus arc
+with subscription cadence at ₹1,359. We're the only Indian D2C
+comprehensive premium single-SKU at this price tier — competitors are
+single-symptom entry, multi-SKU bundles, mass-Ayurveda, or imported
+pharma-coded. Founder Deepika is genuinely 45+ and in this life stage;
+that authenticity is hard to fake."</p>
+</blockquote>
+<p><strong>The honest message Deepika repeats across organic
+content</strong> (the recurring tagline pattern):</p>
+<blockquote>
+<p>"Menopause is a transition, not a disease. Crest is daily
+natural-source support for the long arc. Six months minimum to feel the
+full effect, years to compound the bone-health benefit. Built on
+Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<hr />
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<p>The "can we actually build this" layer. How we judge vendor quality,
+per-active vendor candidates, packaging, capsule shell, manufacturing,
+QC, capsule fill, regulatory, aggregate risk.</p>
+<h3 id="121-how-we-judge-vendor-quality-the-compliance-framework">12.1
+How we judge vendor quality (the compliance framework)</h3>
+<p>Same 3-tier framework as Cycle
+(<code>sku-1-cycle-product-brief.md</code> Section 12.1). Tier 1
+mandatory: FSSAI Central + GMP + per-batch CoA + NABL-accredited lab
+inputs + HPLC/HPTLC standardisation + Pillar 1 extraction method (water
+/ hydroalcoholic / CO2 / supercritical, no synthetic-residue solvents,
+hexane-free for SoyLife specifically). Tier 2 strongly preferred: ISO
+22000 + HACCP + ISO 9001 + USDA Organic + multi-batch reproducibility +
+24-month stability + public CoA transparency + audit-readiness. Tier 3
+application-specific: non-GMO chain-of-custody for SoyLife + verified
+Indian distributor agreement for Aquamin + cultivated-origin
+specification for Yashtimadhu (vs wild-collected variant).</p>
+<h3 id="122-per-active-vendor-matrix">12.2 Per-active vendor matrix</h3>
+<p><strong>SoyLife soy isoflavones — IFF Health Sciences
+(ex-Frutarom)</strong> primary; brand-attribution corrected per DEC-024.
+NOT Sami-Sabinsa.</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IFF Health Sciences SoyLife</strong></td>
+<td>Global (acquired Frutarom; India distributed via specialty
+botanicals channel)</td>
+<td>40% total isoflavones, non-GMO, hexane-free</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 priority</strong> per DEC-024. ~₹6-15K/kg India
+landed via specialty channel. Two-decade global menopause-supplement
+gold standard.</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa SoyLife (incorrect attribution in earlier V1
+brief)</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td><strong>NOT a Sami product</strong>. DEC-024 brand-attribution
+correction. Reference removed.</td>
+</tr>
+<tr>
+<td>Imported soy iso via specialty distributor (backup)</td>
+<td>Various (US/EU/Brazilian origin)</td>
+<td>40% total isoflavones</td>
+<td>TBD</td>
+<td>Fallback if IFF SoyLife MOQ insufficient at our batch tier</td>
+</tr>
+<tr>
+<td>Vidya Herbs (deep backup)</td>
+<td>Bangalore</td>
+<td>Soy isoflavone extract (commodity-grade)</td>
+<td>TBD</td>
+<td>Last-resort if both IFF + imported channels stall</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Shatavari extract</strong> — same vendor matrix as Cycle
+(Sami-Sabinsa Asparoot primary; Arjuna Natural / Indfrag / Vidya Herbs
+backup).</p>
+<p><strong>Aquamin-Ca</strong> — single Indian distributor concentration
+risk:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inhalation Health India</strong> (Marigot Ltd
+distributor)</td>
+<td>India distributor for Marigot Ireland origin</td>
+<td>32% elemental Ca, 2.2% Mg, multi-trace mineral</td>
+<td>TBD</td>
+<td>Tier-1 primary — INR billing</td>
+</tr>
+<tr>
+<td>DPR moringa-Ca concentrate (backup)</td>
+<td>TGL captive</td>
+<td>TBD</td>
+<td>n/a</td>
+<td>V2 spec retained as Indian-source fallback</td>
+</tr>
+<tr>
+<td>Sesame-Ca from Akay / Plant Lipids (tertiary)</td>
+<td>Kerala / multi</td>
+<td>TBD</td>
+<td>TBD</td>
+<td>Tertiary fallback synergy with future Sesamin sourcing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Yashtimadhu (licorice) extract</strong> (4%
+glycyrrhizin):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa</strong></td>
+<td>Bangalore</td>
+<td>4% glycyrrhizin, cultivated-origin</td>
+<td>5-25kg</td>
+<td>Tier-1 priority; vendor-network standard</td>
+</tr>
+<tr>
+<td><strong>Plant Lipids</strong></td>
+<td>Cochin, Kerala</td>
+<td>4% glycyrrhizin</td>
+<td>TBD</td>
+<td>Backup; multi-active capability</td>
+</tr>
+<tr>
+<td>Akay Spices</td>
+<td>Kerala</td>
+<td>Yashtimadhu extract</td>
+<td>TBD</td>
+<td>Backup</td>
+</tr>
+<tr>
+<td>Bioactive Compounds India</td>
+<td>Pune</td>
+<td>Yashtimadhu</td>
+<td>TBD</td>
+<td>Backup</td>
+</tr>
+<tr>
+<td>Olive Lifesciences</td>
+<td>India</td>
+<td>Yashtimadhu</td>
+<td>TBD</td>
+<td>Backup</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Vitex / Chasteberry extract</strong> (0.5% agnusides):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa</strong></td>
+<td>Bangalore</td>
+<td>0.5% agnusides</td>
+<td>5-25kg</td>
+<td>Tier-1 priority</td>
+</tr>
+<tr>
+<td><strong>Vidya Herbs</strong></td>
+<td>Bangalore</td>
+<td>0.5% agnusides</td>
+<td>10-25kg</td>
+<td>Backup</td>
+</tr>
+<tr>
+<td><strong>Arjuna Natural</strong></td>
+<td>Aluva, Kerala</td>
+<td>Vitex extract</td>
+<td>10-25kg</td>
+<td>Backup</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Moringa whole-leaf</strong> — TGL captive supply (DPR
+Moringa, heat-treated). Same as Cycle.</p>
+<h3 id="123-consolidated-vendor-contact-directory">12.3 Consolidated
+vendor contact directory</h3>
+<p>Same primary contact set as Cycle (Sami-Sabinsa, Vidya Herbs, Akay
+Group, Plant Lipids, Indfrag) plus Inhalation Health India (Aquamin
+distributor) and <strong>IFF Health Sciences specialty-botanicals India
+channel for SoyLife</strong> (DEC-024 — replaces incorrect Sami-Sabinsa
+SoyLife reference). Full directory in
+<code>sku-1-cycle-product-brief.md</code> Section 12.3.</p>
+<h3 id="124-packaging-capsule-shell-bottle-manufacturing">12.4
+Packaging, capsule shell, bottle, manufacturing</h3>
+<p>Same packaging vendor stack as Cycle (Pragati Pack India for label +
+monocarton; HPMC capsule shells via Deepika's vendor relationship per
+TGL-P1-DEC-002; HDPE amber bottle from Karur-area Deepika source).
+Manufacturing per V3 plan-level changes (master MD Part 0):
+<strong>in-house at Deepika's facility</strong> (FSSAI nutraceutical
+license; phycocyanin R&amp;D capsule already produced) rather than
+external CMO. Capsule fill at 600 mg in Size #00 is well within in-house
+capability. The in-house route is the single biggest GM lever in the
+cost model — it saves ~₹40/pack vs external Greenfield CMO and is the
+reason Crest hits 89% GM at MRP.</p>
+<h3 id="125-quality-control-protocol">12.5 Quality control protocol</h3>
+<p>Same QC framework as Cycle. Per-batch testing for Yashtimadhu
+glycyrrhizin assay (verify ≤4% spec for safe chronic-use compliance);
+per-batch heavy-metal panel for Aquamin (algae source); non-GMO
+chain-of-custody documentation per batch for SoyLife (IFF Health
+Sciences provides this with their CoA chain). Stability testing at Month
+3/6/12/24 for the soy-isoflavone matrix (isoflavones can degrade in
+humid storage).</p>
+<h3 id="126-capsule-fill-feasibility">12.6 Capsule fill feasibility</h3>
+<p>600 mg total fill in Size #00 capsule (capacity ~700-1000 mg standard
+density). <strong>Comfortable fit, no granulation step
+required.</strong> Headroom available if vendor-formulator (Dr. Lakshmi
+Kala) recommends adding Sesamin (50mg) or Vitashine D3 (small mass) at
+trial-fill review.</p>
+<h3 id="127-regulatory-feasibility">12.7 Regulatory feasibility</h3>
+<p>All 6 actives FSSAI-permitted under Schedule VI of the Health
+Supplements Regulations 2022. Soy isoflavones permitted with non-GMO
+disclosure (IFF Health Sciences provides this). Yashtimadhu warrants
+explicit safety-label compliance: "Not for chronic use beyond 4-6 weeks
+unless under practitioner supervision; contraindicated in hypertension,
+heart/kidney disease, pregnancy, or diuretic co-medication. Glycyrrhizin
+content per serving: 8mg." Vitex warrants: "Contraindicated in
+pregnancy, breastfeeding, and dopamine-receptor medication."</p>
+<p><strong>Permitted claim language</strong>: "supports women through
+menopause transition," "helps maintain comfort during peri-menopause and
+menopause," "traditionally used Ayurvedic herbs for women's later-life
+wellness," "supports bone health in menopause," "calcium contributes to
+maintenance of normal bones" (FSSAI-recognized calcium claim), "Built on
+Moringa. Powered by Ayurveda."</p>
+<p><strong>NOT permitted</strong>: "treats / cures menopause," "replaces
+hormone replacement therapy (HRT)," "prevents osteoporosis," "eliminates
+hot flashes," "hormonal therapy alternative."</p>
+<p>AYUSH cert in parallel per V3 plan-level changes (FSS Chennai officer
+route).</p>
+<h3 id="128-aggregate-supply-chain-risk-and-mitigation">12.8 Aggregate
+supply chain risk and mitigation</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Severity</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IFF SoyLife MOQ insufficient at our batch tier (specialty-botanicals
+channel)</td>
+<td>Medium</td>
+<td>Imported soy iso via specialty distributor as fallback path</td>
+</tr>
+<tr>
+<td>Inhalation Health Aquamin supply concentration (single
+distributor)</td>
+<td>Medium</td>
+<td>DPR moringa-Ca + sesame-Ca backup paths preserve operational
+continuity</td>
+</tr>
+<tr>
+<td>Yashtimadhu glycyrrhizin dose ceiling drift (vendor variation)</td>
+<td>Medium</td>
+<td>Per-batch glycyrrhizin assay; 4% spec ceiling enforced</td>
+</tr>
+<tr>
+<td>Soy isoflavone storage stability (humidity-sensitive)</td>
+<td>Low-medium</td>
+<td>24-month stability testing pre-launch; appropriate packaging (HDPE
+amber bottle, desiccant)</td>
+</tr>
+<tr>
+<td>Moringa supply continuity (single-source DPR)</td>
+<td>Low (captive)</td>
+<td>TGL existing flow; backup CMO Andhra/TN identified</td>
+</tr>
+<tr>
+<td>Pragati Pack 8K packaging MOQ vs first-batch demand</td>
+<td>Low</td>
+<td>Crest is Q4 launch; demand build-up time supports MOQ economics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="129-open-sourcing-questions-for-phase-4-vendor-calls">12.9 Open
+sourcing questions for Phase 4 vendor calls</h3>
+<ol type="1">
+<li><strong>IFF Health Sciences SoyLife MOQ + pricing at TGL Q4 batch
+tier.</strong> Confirm specialty-botanicals channel terms. ~₹6-15K/kg
+landed range; lock at ₹11K/kg mid for COGS planning. Activate
+imported-soy-distributor fallback if economics turn adverse.</li>
+<li><strong>Inhalation Health Aquamin lead times + MOQ
+flexibility.</strong> Single-distributor concentration risk
+verification.</li>
+<li><strong>Yashtimadhu cultivated-origin certification.</strong>
+Cultivated (Kashmir / UP / Maharashtra) preferred over wild-collected;
+verify per vendor.</li>
+<li><strong>In-house capsule fill validation at 600 mg Size #00 +
+multi-active blend (5 extracts + heritage moringa).</strong> Trial-fill
+at Deepika's facility pre-launch.</li>
+<li><strong>V3 cost lock confirmation.</strong> Confirm SoyLife (IFF)
+and Aquamin per-mg costs at Q4 vendor terms; the ~₹203/pack COGS + 89%
+GM at MRP is the locked planning baseline (DEC-023). Variance &gt;10%
+triggers reformulation lever (SoyLife dose right-size to 60mg/cap).</li>
+</ol>
+<hr />
+<h2 id="13-effort-capital-and-execution-action-plan">13. Effort,
+capital, and execution action plan</h2>
+<p><em>Pending. Phase 4 (Q4) launch critical path mapped to owner +
+spend bucket. The "who does what, when, with how much money" layer.
+Bridges this brief to the program management spec
+(<code>10-phase-1-program-management.md</code>) once Phase 4 is
+sequenced.</em></p>
+<h2 id="14-technical-appendix">14. Technical appendix</h2>
+<p><em>Pending. References V3 dossier
+(<code>dossiers/04-crest-menopause.md</code>), formulation spec (to be
+drafted at Dr. Lakshmi Kala handoff), governance doc 10
+(<code>10-phase-1-program-management.md</code>), brand DNA
+(<code>02-brand-dna.md</code>).</em></p>
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 with Sections 1-12 locked 2026-05-09 by Aarav, V3 cost lock +
+brand-attribution corrections applied. Sections 13-14 pending. On full
+lock, brief is shareable with Deepika + Unnati for input +
+alignment.</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial full brief, drafted by Aarav post-Deepika V3
+reformulation + verified V3 cost lock + brand attribution corrections
+per DEC-023/024/025.</p>
+<ul>
+<li><strong>DEC-023 (V3 cost lock)</strong>: COGS ~₹203/pack at in-house
+manufacturing; 89% GM at MRP ₹1,799 (highest in portfolio). Pricing
+UNCHANGED at ₹1,799 / ₹1,599 / ₹1,359 — premium price-anchor of
+catalog.</li>
+<li><strong>DEC-024 (SoyLife brand attribution correction)</strong>:
+SoyLife is <strong>IFF Health Sciences (ex-Frutarom)</strong> branded,
+NOT Sami-Sabinsa. Earlier V1 mis-attribution corrected throughout.
+~₹6-15K/kg India landed via specialty-botanicals channel. Sami-Sabinsa
+retained as primary on Shatavari, Yashtimadhu, Vitex.</li>
+<li><strong>DEC-025 (Phase 4 Q4 batch sequencing)</strong>: Crest sits
+in batch 3 (Q4) per the 12-month rollout. Q1 trio (Cycle + Bloom +
+Reset) prepares the perception ladder before Crest's premium ₹1,599 sale
+price reads as "next tier" rather than "only tier."</li>
+<li><strong>Channel mix</strong>: WEBSITE-FIRST / Shopify-led per
+TGL-P1-DEC-017 (Section 10). Amazon Month 2-3 secondary.</li>
+<li><strong>Manufacturing</strong>: in-house at Deepika's FSSAI-licensed
+facility per V3 plan-level (NOT external CMO). The ~₹40/pack saving vs
+Greenfield CMO is the single biggest GM lever in the model.</li>
+</ul>
+</main>
+</body>
+</html>

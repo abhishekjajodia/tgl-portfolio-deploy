@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Pulse (Triphala+ digestive)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Pulse (Triphala+ digestive)</strong></div>
+
+<blockquote>
+<p><strong>Mirrored in the master doc</strong>: This Pulse brief is also
+embedded in <a
+href="tgl-product-portfolio.md"><code>tgl-product-portfolio.md</code></a>,
+the consolidated single-doc view of all 10 SKUs + Plan Moving Forward.
+The master doc is canonical for navigation. This standalone is retained
+for focused single-product viewing.</p>
+</blockquote>
+<h1 id="pulse-working-name-product-brief">Pulse (working name): Product
+Brief</h1>
+<p><strong>The Good Leaf (TGL)</strong> Phase 2 batch SKU. Triphala+
+digestive synbiotic-ready capsule. <em>Drafted 2026-05-09 by Aarav.
+Status: V1 with Sections 1-12 locked, V1 ships as Triphala+ digestive
+blend without probiotic; V2 (Year 2) adds Unique Biotech IS-2 strain
+probiotic if vendor scouting clears. This brief is the team-readable
+narrative layer for Deepika, Unnati, and Boco. Pair with
+<code>dossiers/08-pulse-triphala-probiotic.md</code> (V3 theory +
+clinical detail) and the formulation-spec (to be drafted at
+vendor-formulator handoff per DEC-023).</em></p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Pulse (working name; Sanskrit alternative
+"Agni" considered — classical Ayurvedic digestive-fire metaphor. Final
+lock pending TM clearance per TGL-P1-DEC-007 + naming sprint round 2
+with Deepika).</p>
+<p><strong>Elevator pitch (3 sentences, repeatable by anyone on the
+team):</strong></p>
+<blockquote>
+<p>Pulse is TGL's daily digestive capsule, designed for the 30-65 year
+old Indian adult navigating sluggish digestion, intermittent bloating,
+irregular bowels, and the post-antibiotic / post-travel gut-recovery
+window — and crucially, the existing TGL Triphala buyer who's been on
+the single-ingredient version for years and is ready to upgrade. Two
+plant-cellulose capsules a day deliver Triphala (TGL captive heritage
+triad — Amla + Bibhitaki + Haritaki), Pippali long-pepper at
+clinical-therapeutic dose (per Kumar 2011 dyspepsia evidence), Gentian
+root bitter, BioPerine, and the moringa heritage thread to ease
+bloating, restore digestive rhythm, and prepare the gut for the V2
+Unique Biotech IS-2 probiotic upgrade. Built on Moringa. Powered by
+Ayurveda.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-pulse-motivation">2. Why we're building
+Pulse (motivation)</h2>
+<p>Four reasons, in priority order:</p>
+<p><strong>1. Migration vehicle for existing TGL Triphala buyers — the
+highest-confidence acquisition cohort in the portfolio.</strong> TGL's
+existing single-ingredient Triphala SKU is a gateway purchase with a
+tight repeat cohort (~5-10K buyers based on category share of catalog).
+These customers are already convinced of Triphala efficacy, already
+trust the brand, and are looking for "the next level." Pulse is the
+upgrade — same Triphala heritage triad at clinical 400mg/day, plus
+Pippali + Gentian + BioPerine for compounded digestive efficacy. The
+migration math: existing Triphala SKU at ~₹399-499 → Pulse at ₹699 sale
+= ₹200-300 price uplift on a warm-cohort already in the brand.
+<strong>This is the single highest-conversion launch motion in the
+entire 10-SKU portfolio.</strong></p>
+<p><strong>2. The Shopify-first conversion of Amazon-concentrated
+Triphala demand.</strong> Critical operational note: existing TGL
+Triphala buyers are concentrated on Amazon today (per TGL's overall 80%
+Amazon revenue concentration). Pulse's launch motion is
+<strong>Shopify-first MANDATORY</strong> specifically to convert these
+Amazon-resident upgrade buyers into Shopify subscription cohort BEFORE
+Amazon listing exists. If Pulse launches on Amazon Day 1, the cohort
+migrates Amazon-to-Amazon and TGL never breaks the Amazon LTV ceiling.
+If Pulse launches Shopify-first with founder content + Klaviyo email +
+subscription mechanic for 60-90 days, the upgrade cohort migrates
+Amazon-to-Shopify-subscription, anchoring them at the higher-LTV channel
+with native subscription cadence. <strong>TGL-P1-DEC-017 channel mix
+discipline is most consequential on Pulse — this is where the
+website-first commitment converts to actual LTV unlock.</strong></p>
+<p><strong>3. Category-creation play in Indian probiotics (V2
+unlock).</strong> Indian probiotics market is ₹2,070 Cr in 2025, growing
+at 19% CAGR (IMARC Group, 2025; <em>India Probiotics Market
+Report</em>). The Good Bug grew +1,477% YoY in 2025 to ₹44 Cr revenue
+(Inc42, 2025), proving D2C category appetite. Every credible D2C
+probiotic in India today uses lab-isolated strains imported from
+Danisco, Chr. Hansen, or DuPont. <strong>TGL claiming "first
+naturally-fermented probiotic from Indian fermented food traditions" via
+the V2 Unique Biotech IS-2 strain (isolated from Indian fermented food
+sources) is genuinely defensible Pillar 1 differentiation that no
+incumbent can match without changing their supply chain.</strong> V1
+ships without probiotic to de-risk the operational complexity
+(delayed-release encapsulation + CFU stability + strain-specific FSSAI
+clearance); V2 adds the probiotic in Year 2 once vendor scouting
+clears.</p>
+<p><strong>4. AOV and repeat anchor at strong margin.</strong> Triphala
+is a daily-use product in Ayurveda. Pulse at ₹699 sale + ₹594 sub places
+at the entry-mid tier with 83% GM at MRP — third-highest in the
+portfolio (after Crest 89% + Cycle 84%). Subscription mechanics should
+drive 25%+ subscription rate (in line with hero SKUs). The high GM is
+structural: Triphala is the cheapest active in the entire benchmark set
++ Pippali + Gentian are commodity-tier vendor-network standards + Pulse
+uses Size #0 capsule (smaller fill = lower cap shell cost) + in-house
+manufacturing.</p>
+<p><strong>Why now (Phase 2, not Phase 1)</strong>: Pulse benefits from
+the Q1 trio (Cycle + Bloom + Reset) proving the website-led acquisition
+motion + building the Klaviyo retention engine + seeding the
+cross-portfolio bundle architecture before the existing-Triphala-buyer
+migration push. Phase 2 sequencing also lets the V2 probiotic vendor
+scouting (Unique Biotech Hyderabad — primary candidate per Section 12.2)
+run in parallel without blocking the V1-without-probiotic launch.</p>
+<p><strong>Single-sentence motivation</strong>: Pulse is the migration
+vehicle that converts TGL's existing Amazon-concentrated Triphala buyers
+into Shopify-subscription cohort at ₹200-300 price uplift, anchoring the
+daily-use digestive category at 83% GM at MRP, with the V2 Unique
+Biotech IS-2 probiotic upgrade unlocking genuine Pillar 1
+category-creation in the ₹2,070 Cr Indian probiotics market.</p>
+<hr />
+<h2
+id="3-the-customer-who-heshe-is-what-theyve-tried-what-fails-them">3.
+The customer (who he/she is, what they've tried, what fails them)</h2>
+<p><strong>Who they are</strong> (core 30-65, dual gender skew 60% women
+/ 40% men + existing TGL Triphala loyalist sub-cohort):</p>
+<p>He or she is an urban Tier 1-2 Indian adult, 30-65 (peaking 35-50),
+household income ₹8-25 LPA, English-Hindi (or English-Tamil/Telugu)
+bilingual, sedentary work pattern (7-9 hour screen days), irregular meal
+timing, 30%+ have antibiotic exposure in past 12 months, frequent travel
+disrupting gut routine. Self-identifies with one or more of: sluggish
+digestion, intermittent bloating, irregular bowel movements (3-5
+days/week not 7), occasional acidity, post-antibiotic gut imbalance, "I
+feel heavy after every meal."</p>
+<p><strong>Two distinct sub-cohorts</strong> Pulse must speak to:</p>
+<p><strong>Sub-cohort A: Existing TGL Triphala buyers (the migration
+cohort, ~5-10K customers)</strong>:</p>
+<p>These are the gold cohort. They're already buying TGL Triphala
+(single-ingredient SKU at ~₹399-499), mostly on Amazon, mostly
+month-on-month repeat. They trust the brand, they trust Triphala's mild
+laxative + digestive-tonic effect, they're already convinced of the
+daily-Ayurveda value proposition. They're looking for "the next level" —
+they've bumped against the ceiling of single-ingredient Triphala and
+want compounded digestive efficacy. They are NOT looking for a probiotic
+per se; they're looking for "Triphala plus something."</p>
+<p>The migration message is direct: <em>"You already trust Triphala.
+We're adding Pippali at clinical dose for the dyspepsia + bloating
+Triphala alone doesn't reach, plus Gentian and BioPerine for compounded
+digestive support. Same heritage, deeper formulation."</em></p>
+<p>This sub-cohort is the highest-LTV launch lever in the entire
+portfolio because the trust foundation is pre-built. They migrate at
+~70-80% conversion if the message is honest and the price uplift is
+justified by the formulation upgrade.</p>
+<p><strong>Sub-cohort B: New customers — modern D2C Indian gut-health
+buyer (the broader cohort, the ₹2,070 Cr probiotics + digestive
+market)</strong>:</p>
+<p>He or she is the 30-45 sedentary professional, post-antibiotic or
+post-travel, has tried 2-3 of: imported probiotic capsule (The Good Bug,
+Wellbeing Daily Probiotics), home kanji or curd routine, herbal teas,
+antacids. Has dropped The Good Bug subscription within 2 months because
+of price (₹999-1,800/month) or lack of perceived effect. Wants "one
+capsule that does what their grandmother's Triphala did + replenishes
+gut flora the way kanji does, in a measured daily dose, at a price they
+can sustain." V1 Pulse delivers the Triphala+ part; V2 adds the
+kanji-equivalent probiotic strain.</p>
+<p><strong>What's happening in their bodies</strong> (the medical
+context):</p>
+<p>Indian probiotics market sizing (₹2,070 Cr in 2025, 19% CAGR — IMARC)
+reflects real category demand: chronic-but-not-clinical gut dysfunction
+is the dominant phenotype in urban India. Sedentary work + irregular
+meals + antibiotic exposure + travel disruption all contribute to gut
+microbiome disruption and the "sluggish digestion + bloating + irregular
+bowels" cluster. The clinical literature (Peterson 2017 Triphala
+bowel-regularity RCT; Kumar 2011 Pippali dyspepsia trial) supports the
+synbiotic-ready Triphala+ blend at clinical-therapeutic doses.</p>
+<p><strong>What they've tried, and why each fails them</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What they try</th>
+<th>Why it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Existing TGL Triphala (single-ingredient)</td>
+<td>Works mildly, feels traditional, but doesn't address the deeper
+bloating + dyspepsia overlay; ready for "next level"</td>
+</tr>
+<tr>
+<td>The Good Bug Mighty Probiotic ₹999-1,800/month</td>
+<td>Felt expensive, couldn't tell if it was working, dropped
+subscription within 2 months</td>
+</tr>
+<tr>
+<td>Wellbeing Daily Probiotic ₹699/month</td>
+<td>Synthetic-strain soft-gel with flaxseed-oil base; no Ayurvedic
+register; lower CFU disclosure (5B vs Good Bug's 10B) drove return</td>
+</tr>
+<tr>
+<td>Plix Happy Tummy ₹999/month</td>
+<td>Synthetic-strain effervescent format gimmick; format mismatch with
+daily-routine compliance</td>
+</tr>
+<tr>
+<td>Himalaya Triphala Tablets ₹130 sale</td>
+<td>Mass-market chemist channel; trust the Himalaya name but no
+compounded formulation; basic single-ingredient</td>
+</tr>
+<tr>
+<td>Patanjali Triphala ₹150</td>
+<td>Mass-market dated-packaging; aged out of mass-Ayurveda trust</td>
+</tr>
+<tr>
+<td>Curd / kanji at home</td>
+<td>Works but inconsistent (winter break disrupts kanji, travel disrupts
+curd routine, CFU dose is unmeasurable)</td>
+</tr>
+<tr>
+<td>Antacids (Eno, Gelusil, Pudin Hara)</td>
+<td>Symptomatic relief only; doesn't address underlying digestive rhythm
+or microbiome</td>
+</tr>
+<tr>
+<td>Hingvashtak churna from Ayurvedic shops</td>
+<td>Loose powder, taste objectionable, dose inconsistent; capsule format
+preferred</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The gap Pulse fills (V1)</strong>: a comprehensive Triphala+
+digestive blend at the ₹699 sale tier with clinical-therapeutic Pippali
+dose, designed specifically to upgrade existing TGL Triphala buyers into
+Shopify-subscription cohort + acquire new modern D2C Indian gut-health
+buyers who want "Triphala plus something" without paying The Good Bug
+premium pricing. <strong>The gap Pulse fills (V2)</strong>: the first
+naturally-fermented Indian-source probiotic strain (Unique Biotech IS-2)
+co-encapsulated with Triphala prebiotic substrate — genuine Pillar 1
+category-creation in Indian probiotics.</p>
+<p>The "V1 ships without probiotic, V2 adds it Year 2" framing is honest
+brand-narrative discipline (DEC-026 V1/V2 sequencing) — TGL doesn't ship
+a probiotic claim it can't deliver on day 1. The migration message for
+existing Triphala buyers works on V1's Triphala+ formulation alone; V2's
+probiotic addition is the upsell + re-acquisition lever in Year 2.</p>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-4-12-weeks">4.
+What the product does (the lived experience over 4-12 weeks)</h2>
+<p><strong>Pulse delivers same-day perceived effect (week 1) + sustained
+digestive-rhythm shift (week 4-12).</strong> Bristol Stool Form Scale
+improvement and bloating VAS reduction start in week 1-2 as Pippali +
+Gentian + Triphala carminative effects accumulate. Deeper
+digestive-rhythm shift compounds over weeks 4-12. This is the
+consumer-experience advantage over probiotic-only competitors (The Good
+Bug, Wellbeing Daily Probiotics) who deliver effect at week 4-6 with no
+week-1 signal — Pulse's same-day perceived efficacy is essential for
+repeat at the 30-day mark.</p>
+<p>Here's what the customer actually experiences across a 12-week arc on
+2 caps/day:</p>
+<p><strong>Week 1: same-day perceived effect.</strong></p>
+<p>Bloating reduction noticeable from day 3-5 (Pippali's prokinetic
+effect + Gentian bitter's pre-meal digestive secretion stimulation +
+Triphala's gentle carminative action all activate within hours of dose).
+Post-meal heaviness resolves faster. Bowel movement frequency may shift
+from 3-5 days/week toward daily, depending on baseline.</p>
+<p>For existing Triphala buyers: this is the "wait, this is different"
+moment. Their baseline single-ingredient Triphala delivers mild laxative
++ tonic effect; Pulse adds the bloating + dyspepsia layer their old SKU
+didn't reach. The migration justification lands here.</p>
+<p><strong>Week 2-3: sustained bowel regularity + bloating
+shift.</strong></p>
+<p>Bristol Stool Form Scale improvement consolidates (moving from Type
+3-5 toward Type 4 ideal). Bloating VAS scores improve. The "I feel heavy
+after every meal" pattern softens. Gas + flatulence reduce. The
+carminative back-end (Pippali + Gentian + Triphala) is doing its work
+daily.</p>
+<p>The user pattern at this stage: she finishes Pack 1, recognises her
+digestion has shifted in a way single-ingredient Triphala didn't
+deliver, and decides "let me see if it sticks." Subscription retention
+math: Pack 1 → Pack 2 conversion is the gate; Pack 2 → Pack 3 conversion
+is the loyalty signal.</p>
+<p><strong>Week 4-8: digestive-rhythm consolidation.</strong></p>
+<p>Daily bowel movement consolidated. Bloating substantially reduced.
+Post-antibiotic / post-travel users find their gut returning to
+baseline. Quality of Life — Inflammatory Bowel Disease
+Questionnaire-style markers (where Pulse's V2 in-house clinical pilot
+would measure) start to show shift.</p>
+<p><strong>Week 8-12: maintenance + V2 probiotic upsell
+window.</strong></p>
+<p>Sustained digestive comfort. The customer has settled into Pulse as a
+daily morning + evening ritual; subscription is on autopilot. <strong>V2
+launch window</strong>: at Month 12-18 post-V1 launch, Unique Biotech
+IS-2 strain probiotic vendor scouting clears and Pulse V2 ships with the
+synbiotic upgrade. Existing V1 customers receive priority migration
+pricing into V2 — second-purchase upsell anchoring the cross-portfolio
+₹2,070 Cr probiotics-market opportunity.</p>
+<p><strong>What we're NOT promising</strong> (so customers and Deepika
+both stay credible):</p>
+<table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treats IBS / IBD / Crohn's</td>
+<td>Diagnosed conditions need clinician care; not what we are</td>
+</tr>
+<tr>
+<td>Cures any digestive disorder</td>
+<td>Drug claim — illegal for nutraceuticals</td>
+</tr>
+<tr>
+<td>Boosts immunity</td>
+<td>Schedule VI grey area; safer to say "supports digestive health"</td>
+</tr>
+<tr>
+<td>Probiotic effect (V1)</td>
+<td>V1 ships WITHOUT probiotic; promise the Triphala+ formulation
+only</td>
+</tr>
+<tr>
+<td>Effect inside 24 hours</td>
+<td>Some users feel week-1 same-day shift; others need 2-3 weeks; honest
+framing protects credibility</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest customer message</strong> Deepika repeats across
+content: <em>"Pulse is the next chapter of our Triphala. Same heritage
+triad — Amla, Bibhitaki, Haritaki — at clinical dose, plus Pippali
+long-pepper for the bloating and dyspepsia Triphala alone doesn't reach.
+Two capsules daily. Built on Moringa. Powered by Ayurveda. Year 2: we
+add the naturally-fermented Indian probiotic strain that turns this into
+the synbiotic our gut deserves."</em></p>
+<hr />
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Five actives in the cap, organised as one moringa whole-leaf
+heritage base + four standardised extracts/heritage powders.</strong>
+TGL extract-first formulation philosophy in action (per
+<code>02-brand-dna.md</code> Operational Principle 6, locked 2026-05-09
+as TGL-P1-DEC-011) plus the Moringa Foundation principle (Tier C minimal
+heritage signature dose 12.5mg/cap = 25mg/day; Triphala IS the hero in
+this Tier C line extension).</p>
+<p><strong>Format: Size #0 capsule × 2 caps/day daily (1 morning + 1
+evening with meals); 60-cap pack (30-day supply).</strong> Size #0 (vs
+Size #00) chosen because Pulse's smaller fill profile + Triphala-led
+heritage-powder composition fits Size #0 capacity (~400-600mg practical
+fill); 2 caps/day stays within the high-priority UX target per DEC-016.
+Size #0 is also deliberately cheaper-per-shell than Size #00,
+contributing to the 83% GM at MRP.</p>
+<p><strong>Locked pricing (V3, after formulation locked per Phase 2
+batch sequencing)</strong>:</p>
+<ul>
+<li><strong>MRP ₹799 / Sale ₹699 / Subscription ₹594</strong></li>
+<li>COGS ~₹137/pack at Deepika's confirmed in-house economics (V3 cost
+lock)</li>
+<li><strong>Gross margin at MRP: 82.9%</strong> ≈ 83% ✓ (third-highest
+in portfolio after Crest 89% + Cycle 84%)</li>
+<li>GM at sale ₹699: 80.4%. GM at sub ₹594: 76.9%.</li>
+</ul>
+<p><strong>The 5-active stack (V1 LOCKED — no probiotic; V2 adds Unique
+Biotech IS-2 in Year 2)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (Size #0, ~470mg fill, 2 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Triphala</strong></td>
+<td>TGL captive heritage triad (Amla + Bibhitaki + Haritaki, 1:1:1
+whole-fruit powder, classical Ayurvedic digestive triad)</td>
+<td>TGL captive (Andhra Pradesh / Tamil Nadu / Madhya Pradesh supplier
+belt managed via Konark Herbals OR Sami-Sabinsa OR Arjuna Natural for QC
++ processing)</td>
+<td>100 mg</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Pippali (long pepper) extract</strong></td>
+<td>Piper longum 4:1 extract from whole-fruit (Vidya Herbs OR Arjuna
+Natural — Kumar 2011 dyspepsia clinical dose 500mg/day)</td>
+<td><strong>Vidya Herbs OR Arjuna Natural</strong></td>
+<td>250 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Gentian root bitter extract</strong></td>
+<td>Gentiana lutea root extract, classical Western bitter herb with
+cross-cultural Ayurvedic Tikta-rasa parallel</td>
+<td>Konark Herbals OR Bioactive Compounds India</td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>BioPerine</strong></td>
+<td>Sabinsa-branded Piper nigrum extract, 95% piperine — bioavailability
+enhancer for the Triphala + Pippali matrix</td>
+<td><strong>Sami-Sabinsa BioPerine</strong></td>
+<td>5 mg</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Moringa</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa)</td>
+<td>TGL captive</td>
+<td>12.5 mg</td>
+</tr>
+<tr>
+<td>6</td>
+<td>(cap-fill / excipients — plant cellulose carrier)</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>balance</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total active fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~417 mg / cap</strong> + cap shell (Size #0 ✓)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>V1 Pippali dose increase from 25mg sub-clinical to 250mg
+clinical-therapeutic (per Kumar 2011)</strong>:</p>
+<p>The earlier dossier carried Pippali at 25mg/cap (sub-clinical
+decorative dose). V1 brief locks Pippali at <strong>250mg/cap =
+500mg/day extract</strong>, the clinical-therapeutic dose validated by
+Kumar B et al. <em>"Effect of Piper longum Linn fruits on digestive
+disorders."</em> Indian J Pharmacol, 2011. Kumar 2011 demonstrated
+meaningful digestive-symptom improvement (dyspepsia, bloating,
+postprandial fullness) at 500mg/day Pippali extract over 4-6 weeks. The
+dose increase is the formulation-upgrade lever that converts existing
+TGL Triphala buyers into Pulse buyers — Pippali at clinical dose is the
+"Triphala plus something" the migration cohort is looking for.</p>
+<p>The cost impact is modest: Pippali 4:1 extract from Vidya Herbs /
+Arjuna Natural runs ~₹2-3K/kg. At 250mg/cap × 2 caps × 60 caps =
+30g/pack. ~₹60-90/pack Pippali, well within the 83% GM at MRP target.
+The dose increase delivers clinical-therapeutic efficacy without
+breaking the price-band economics — it's the clearest example of the V1
+formulation logic where the clinical dose IS the brand asset.</p>
+<p><strong>V2 (Year 2) adds Unique Biotech IS-2 strain probiotic if
+vendor scouting clears</strong>:</p>
+<p>Unique Biotech (Hyderabad) is the primary V2 probiotic candidate per
+Section 12.2 vendor matrix. Unique Biotech is FSSAI-licensed, WHO-GMP
+certified, has indigenous Lactobacillus strain library (including IS-2
+strain isolated from Indian fermented food sources), confirmed
+delayed-release encapsulation experience, geography aligns with TGL's
+Hyderabad / Tamil Nadu manufacturing preference. V2 launch window (Month
+12-18 post-V1) gates on:</p>
+<ol type="1">
+<li><strong>Strain identification</strong>: Unique Biotech IS-2 strain
+(Lactobacillus spp.) with 16S rRNA + whole-genome sequence on file;
+FSSAI permitted-list status confirmed</li>
+<li><strong>Delayed-release capsule supplier</strong>: ACG Capsules
+DRcaps OR Sunrise Nutraceuticals confirmed with documented dissolution
+profile (no release until pH ≥5.5)</li>
+<li><strong>Pilot stability batch</strong>: ≥1B CFU at 6 months
+accelerated aging (ICH Q1A compliant) for the IS-2 + Triphala
+co-encapsulation</li>
+<li><strong>CMO total cost-add</strong>: ≤₹80/pack vs V1 Triphala+
+formulation (preserves pricing band)</li>
+</ol>
+<p>If any of these fail in vendor scouting, V2 ships as enhanced
+Triphala+ digestive blend (potentially adding Tagar or B6 or fermented
+turmeric) without probiotic, and the probiotic claim defers to V3 (Year
+3) or out of the Pulse line entirely. The V1 brief discipline:
+<strong>never ship a probiotic claim TGL can't deliver on supply
+chain</strong>.</p>
+<p><strong>DEC-016 compliance check (2026-05-09)</strong>: All 4
+non-moringa V1 actives are vendor-network standard concentrations or TGL
+captive supply. Sami-Sabinsa BioPerine is a branded Sami extract
+(consolidated Sami vendor relationship with Shatavari, Yashtimadhu,
+Vitex, Bacopin across other SKUs), but BioPerine is the global
+bioavailability-enhancement industry standard at &lt;5mg dose,
+vendor-network normalised. No specialty / hyper-premium /
+single-supplier actives required for V1.</p>
+<p><strong>Daily intake at 2 caps/day</strong> (every day, 1 morning + 1
+evening with meals):</p>
+<ul>
+<li>Triphala: 200 mg/day (TGL captive heritage triad — the 200mg dose is
+calibrated to fit the Size #0 cap fill alongside clinical-therapeutic
+Pippali; for customers seeking higher-dose Triphala, Pulse stacks with
+the existing single-ingredient TGL Triphala SKU)</li>
+<li>Pippali extract 4:1: 500 mg/day extract (Kumar 2011 dyspepsia
+clinical dose; the formulation-upgrade lever)</li>
+<li>Gentian root bitter: 100 mg/day extract (pre-meal digestive
+secretion stimulation; classical Western bitter cross-cultural with
+Ayurvedic Tikta-rasa)</li>
+<li>BioPerine: 10 mg/day (95% piperine bioavailability enhancer for
+Triphala + Pippali matrix)</li>
+<li>Moringa whole-leaf: 25 mg/day (Tier C minimal heritage signature
+dose, locked per Moringa Foundation principle)</li>
+<li><strong>Total daily extract + heritage intake: ~835 mg actual mass;
+Triphala-led digestive + carminative + bioavailability-enhanced
+stack</strong></li>
+</ul>
+<p><strong>V3 cost lock — pack economics (DEC-023, locked
+2026-05-09)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>₹/pack</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triphala (TGL captive heritage triad, 12g/pack at near-zero marginal
+— captive supply)</td>
+<td>~₹15</td>
+<td>TGL captive supply via Andhra/TN belt; Konark/Sami/Arjuna for
+QC</td>
+</tr>
+<tr>
+<td>Pippali extract 4:1 (Vidya Herbs OR Arjuna Natural, 30g/pack at
+~₹2.5K/kg)</td>
+<td>~₹75</td>
+<td>Kumar 2011 clinical-therapeutic dose; the formulation-upgrade
+lever</td>
+</tr>
+<tr>
+<td>Gentian root bitter extract (Konark/Bioactive Compounds India,
+6g/pack at ~₹1.5K/kg)</td>
+<td>~₹9</td>
+<td>Commodity-tier bitter herb</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa BioPerine (0.6g/pack at ~₹15K/kg — premium
+branded)</td>
+<td>~₹9</td>
+<td>Bioavailability enhancer; consolidated Sami vendor terms</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf (TGL captive, 1.5g/pack)</td>
+<td>~₹1</td>
+<td>DPR captive supply, near-zero marginal</td>
+</tr>
+<tr>
+<td>HPMC capsule shells (60 caps Size #0 — smaller than Size #00,
+~₹0.32/cap)</td>
+<td>~₹19</td>
+<td>Deepika vendor relationship per DEC-002; Size #0 saves ~₹7/pack vs
+Size #00</td>
+</tr>
+<tr>
+<td>HDPE amber bottle + label + monocarton</td>
+<td>~₹16</td>
+<td>Pragati Pack stack</td>
+</tr>
+<tr>
+<td>In-house manufacturing (encapsulation + bottling + QC)</td>
+<td>~₹10</td>
+<td>Deepika facility per V3 (vs ~₹50 external CMO)</td>
+</tr>
+<tr>
+<td>Stability buffer + waste allowance</td>
+<td>~₹2</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total COGS</strong></td>
+<td><strong>~₹137</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at MRP ₹799</strong></td>
+<td><strong>82.9%</strong></td>
+<td>Third-highest in portfolio ✓</td>
+</tr>
+<tr>
+<td><strong>GM at sale ₹699</strong></td>
+<td><strong>80.4%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at sub ₹594</strong></td>
+<td><strong>76.9%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why the GM is portfolio-leading-tier (third behind Crest 89%
++ Cycle 84%)</strong>: Triphala is captive supply at near-zero marginal
+cost. Pippali + Gentian are commodity-tier vendor-network standards at
+&lt;₹3K/kg. BioPerine is premium per-mg but used at &lt;5mg dose so cost
+contribution is low. Size #0 capsule shells save ~₹7/pack vs Size #00.
+In-house manufacturing per V3 (Deepika's FSSAI-licensed facility, NOT
+external CMO) saves ~₹40/pack vs the Greenfield CMO benchmark. The
+combination produces the 83% GM at MRP that funds the website-first
+launch motion + subscription mechanic + V2 probiotic R&amp;D budget.</p>
+<p><strong>What's NOT in the V1 stack, and why</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Excluded active</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lactobacillus probiotic strain (V2 only)</td>
+<td>V1 ships WITHOUT probiotic to de-risk operational complexity
+(delayed-release encapsulation + CFU stability + strain-specific FSSAI
+clearance); V2 adds Unique Biotech IS-2 in Year 2 if vendor scouting
+clears</td>
+</tr>
+<tr>
+<td>Hingvashtak churna</td>
+<td>Considered but cap fill capacity-bound at Size #0; Pippali at
+clinical dose is the higher-leverage carminative; Hingvashtak deferred
+to V2 brief if cap fill is right-sized</td>
+</tr>
+<tr>
+<td>Fennel + Ajwain + Ginger</td>
+<td>Considered as carminative back-end but cap fill capacity-bound;
+Pippali at clinical dose covers the carminative + prokinetic story
+alone; deferred to V2 reformulation</td>
+</tr>
+<tr>
+<td>Inulin / FOS prebiotic substrate</td>
+<td>Triphala's tannin + polyphenol content provides the prebiotic
+substrate; additional inulin would crowd cap fill without proportional
+efficacy lift</td>
+</tr>
+<tr>
+<td>Imported probiotic strains (Danisco / Chr. Hansen / DuPont)</td>
+<td>Pillar 1 violation (lab-isolated imported); the brand commitment is
+naturally-fermented Indian-source strain (V2 Unique Biotech IS-2) or no
+probiotic at all</td>
+</tr>
+<tr>
+<td>Curcumin / Boswellia</td>
+<td>Anti-inflammatory primary lives in other portfolio SKUs; Pulse stays
+digestive-led</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: 417 mg total fill is comfortable
+for Size #0 (~400-600 mg practical capacity). Standard manufacturing
+across most Indian capsule CMOs / in-house at Deepika's facility per V3
+plan-level changes. Cap fill headroom is tighter than Size #00 SKUs in
+the portfolio (Cycle, Crest, Calm) — this is by design to keep COGS low
+and GM high. Full execution spec to be drafted at vendor-formulator
+handoff (Dr. Lakshmi Kala, post 2026-05-11/12 connect).</p>
+<hr />
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 5 actives: mechanism, classical basis, modern
+clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. Triphala (Amla + Bibhitaki + Haritaki, 1:1:1 whole-fruit
+powder, 100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: prebiotic substrate (tannin +
+polyphenol-rich); mild bowel-regulation via Haritaki's anthraquinone
+glycosides; antioxidant load from Amla's vitamin C + ellagitannins; gut
+microbiota modulation via combined polyphenol matrix. Classical
+Ayurvedic <em>Tridoshic</em> digestive tonic.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> (Triphala as primary <em>Anulomana</em> — bowel-regulating
+tonic), <a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a> — Triphala as <em>Tridoshahara</em> (balances all three
+doshas) with explicit digestive-system primary indication.</li>
+<li><strong>Modern clinical evidence</strong>: Peterson CT, Denniston K,
+Chopra D. <em>"Therapeutic Uses of Triphala in Ayurvedic Medicine."</em>
+J Altern Complement Med, 2017; 23(8):607-614. <a
+href="https://pubmed.ncbi.nlm.nih.gov/28696777/">PubMed</a>. Plus
+Mukherjee PK et al. <em>"Phytopharmacology of Triphala."</em>
+Phytomedicine, 2006; 13(7). Triphala polyphenols modulate gut microbiota
+composition; 12-week double-blind RCT demonstrated significant
+improvement in bowel regularity and reduction of bloating in adults with
+functional constipation.</li>
+<li><strong>Dose rationale</strong>: 100 mg/cap × 2 caps = 200 mg daily
+Triphala. Calibrated to fit Size #0 cap fill alongside
+clinical-therapeutic Pippali. For customers seeking higher-dose
+Triphala, Pulse stacks with the existing single-ingredient TGL Triphala
+SKU. The 200mg dose is the heritage-anchor + prebiotic substrate role;
+Pippali carries the clinical-therapeutic dose primary.</li>
+</ul>
+<p><strong>2. Pippali (Piper longum) extract 4:1 from whole-fruit
+(250mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: prokinetic (speeds gastric emptying);
+carminative (reduces flatulence); piperine content stimulates digestive
+secretions and enhances bioavailability of co-administered actives;
+classical Ayurvedic <em>Deepana-Pachana</em> (digestive fire stimulant)
+and <em>Vatahara</em> (vata-pacifying for bloating + gas).</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> (Pippali as primary <em>Deepana-Pachana</em> +
+<em>Rasayana</em>), <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a> (Pippali in <em>Trikatu</em> digestive triad alongside
+Maricha + Shunti).</li>
+<li><strong>Modern clinical evidence</strong>: Kumar B et al.
+<em>"Effect of Piper longum Linn fruits on digestive disorders."</em>
+Indian J Pharmacol, 2011. Demonstrated meaningful digestive-symptom
+improvement (dyspepsia, bloating, postprandial fullness) at 500 mg/day
+Pippali extract over 4-6 weeks. Plus Kumar S et al. <em>"Pharmacological
+actions of Piper longum (Pippali) — a review."</em> Anc Sci Life, 2011;
+30(3). Reviews carminative + digestive-tonic mechanism. Plus Shoba G et
+al. <em>"Influence of piperine on the pharmacokinetics of curcumin in
+animals and human volunteers."</em> Planta Med, 1998; 64(4):353-356. <a
+href="https://pubmed.ncbi.nlm.nih.gov/9619120/">PubMed</a>. Demonstrates
+piperine's bioavailability-enhancement mechanism (relevant
+cross-reference for BioPerine's role in the Pulse stack).</li>
+<li><strong>Dose rationale</strong>: 250 mg/cap × 2 caps = 500 mg daily
+extract = Kumar 2011 clinical-therapeutic dose. The formulation-upgrade
+lever vs the existing TGL single-ingredient Triphala SKU. Sub-clinical
+decorative doses (25-50mg/day) deliver brand-narrative without efficacy;
+500mg/day delivers measurable digestive-symptom improvement.</li>
+</ul>
+<p><strong>3. Gentian root bitter extract (Gentiana lutea,
+50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: classical Western bitter herb with
+cross-cultural Ayurvedic Tikta-rasa parallel. Gentiopicroside +
+amarogentin content stimulates pre-meal saliva + gastric acid + bile +
+pancreatic enzyme secretion via vagal-nerve bitter-receptor activation.
+Pre-meal digestive priming reduces post-meal heaviness + bloating +
+dyspepsia.</li>
+<li><strong>Classical basis</strong>: Western European herbal tradition
+(Gentian as primary digestive bitter); Ayurvedic parallel via
+<em>Tikta-rasa</em> (bitter taste) digestive-stimulation principle
+articulated in Charaka Samhita and Bhavaprakasha (Tikta-rasa as
+<em>Deepana</em> — digestive-fire-kindling).</li>
+<li><strong>Modern clinical evidence</strong>: Wegener T, Wagner H.
+<em>"The active components and the pharmacological multi-target
+principle of STW 5 (Iberogast)."</em> Phytomedicine, 2006; 13 Suppl
+5:20-35. <a href="https://pubmed.ncbi.nlm.nih.gov/16926095/">PubMed</a>.
+Multi-herbal digestive bitter formula (including Gentian) demonstrated
+efficacy in functional dyspepsia. Plus McMullen MK et al. <em>"The
+bitter taste of beverages and bitter herbs in modulating gastric
+function — a review."</em> Phytother Res, 2015; 29(10):1419-1428. <a
+href="https://pubmed.ncbi.nlm.nih.gov/26183035/">PubMed</a>. Reviews
+bitter-receptor mechanism.</li>
+<li><strong>Dose rationale</strong>: 50 mg/cap × 2 caps = 100 mg daily
+extract. Pre-meal digestive-priming dose; works synergistically with
+Pippali's carminative + prokinetic effect.</li>
+</ul>
+<p><strong>4. Sami-Sabinsa BioPerine (Piper nigrum extract, 95%
+piperine, 5mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: bioavailability enhancer for
+co-administered actives (Triphala polyphenols, Pippali piperine matrix).
+Inhibits intestinal glucuronidation enzymes, increasing systemic
+absorption of polyphenol + alkaloid actives. Classical Ayurvedic
+<em>Maricha</em> (black pepper) function in <em>Trikatu</em>
+digestive-fire triad.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha
+Nighantu</a> (Maricha in Trikatu digestive triad).</li>
+<li><strong>Modern clinical evidence</strong>: Shoba G et al.
+<em>"Influence of piperine on the pharmacokinetics of curcumin in
+animals and human volunteers."</em> Planta Med, 1998; 64(4):353-356. <a
+href="https://pubmed.ncbi.nlm.nih.gov/9619120/">PubMed</a>. Foundational
+BioPerine bioavailability-enhancement study; 2000% bioavailability
+enhancement of curcumin documented. Plus Patil VM et al.
+<em>"Bioavailability of black pepper extract (BioPerine®)."</em> Curr
+Drug Metab, 2011; 12(7):649-657. Reviews mechanism.</li>
+<li><strong>Dose rationale</strong>: 5 mg/cap × 2 caps = 10 mg daily
+BioPerine. Standard BioPerine bioavailability-enhancement dose per
+Sami-Sabinsa's published clinical dossier. Premium branded extract
+chosen for piperine standardisation consistency (95% vs commodity Piper
+nigrum's variable 1-10%).</li>
+</ul>
+<p><strong>5. Moringa whole-leaf powder (heat-treated, TGL captive
+supply, 12.5mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (iron, calcium,
+vitamin C, antioxidants, chlorophyll). Not a primary digestive active;
+carries the brand-thesis heritage thread at Tier C minimal signature
+dose.</li>
+<li><strong>Folk + modern basis</strong>: established nutraceutical
+literature on moringa as iron + folate + B-complex source.</li>
+<li><strong>Modern evidence</strong>: Alegbeleye OO. <em>"How Functional
+Is Moringa oleifera? A Review of Its Nutritive, Medicinal, and
+Socioeconomic Potential."</em> Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 12.5 mg/cap × 2 caps = 25 mg daily.
+Tier C minimal heritage signature dose per Moringa Foundation principle
+(Pulse / Glide / Spark are line extensions where the named active is the
+hero — Triphala IS the hero here). Substantive enough to carry the
+moringa thread without forcing a digestive-related claim moringa cannot
+deliver.</li>
+<li><strong>Brand role</strong>: heritage signature carrying the
+cross-portfolio "Built on Moringa. Powered by Ayurveda." narrative.</li>
+</ul>
+<hr />
+<p><strong>Evidence-strength summary</strong> (so the team knows where
+we are confident vs cautious):</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Traditional basis</th>
+<th>Modern clinical evidence</th>
+<th>Overall strength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triphala</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Anulomana, Tridoshahara)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/28696777/">Peterson
+2017</a>, Mukherjee 2006</td>
+<td>Traditional-strong, modern-strong</td>
+</tr>
+<tr>
+<td>Pippali (Piper longum)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Deepana-Pachana, Trikatu)</td>
+<td>Kumar 2011 (clinical-therapeutic dose validation)</td>
+<td>Traditional-strong, modern-moderate-strong</td>
+</tr>
+<tr>
+<td>Gentian root bitter</td>
+<td>Western herbal tradition, Ayurvedic Tikta-rasa parallel</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/16926095/">Wegener
+2006</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/26183035/">McMullen
+2015</a></td>
+<td>Modern-moderate (cross-cultural bitter-herb evidence)</td>
+</tr>
+<tr>
+<td>BioPerine (Piper nigrum)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(Maricha, Trikatu)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/9619120/">Shoba 1998</a>,
+Patil 2011</td>
+<td>Modern-strong (bioavailability mechanism)</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>Folk + modern nutraceutical</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29284305/">Alegbeleye
+2018</a></td>
+<td>Modern-strong (nutritive)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note on Triphala-individual evidence</strong>: each component
+(Amla, Bibhitaki, Haritaki) has its own classical + modern evidence
+base; Triphala-as-formulation evidence (Peterson 2017, Mukherjee 2006)
+is the strongest synergistic dataset. Single-component citations
+available on request for label-substantiation file.</p>
+<hr />
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Pulse as the SKU it is.</p>
+<p><strong>Layer 1: Why Pulse in Phase 2 (not Phase 1, not Phase
+3)</strong></p>
+<p>We evaluated all 10 SKUs across volume, profitability, TGL-fit, and
+founder authenticity. Pulse scored highest on
+existing-customer-portability (the TGL Triphala buyer migration cohort
+is the highest-confidence acquisition lever in the entire portfolio) but
+scored lower on Phase 1 launchability:</p>
+<ul>
+<li><strong>The Q1 trio funds the migration push.</strong> Q1
+women's-hormonal trio (Cycle + Bloom + Reset) builds the Klaviyo
+retention engine and proves the website-led acquisition motion before
+Pulse's existing-customer-migration push. Without the Klaviyo
+infrastructure in place, Pulse's email-led migration message cannot
+reach the existing Triphala cohort effectively.</li>
+<li><strong>V2 probiotic vendor scouting runs in parallel.</strong>
+Phase 2 sequencing lets Unique Biotech vendor relationship +
+delayed-release capsule supplier scouting run alongside V1 launch
+without blocking. V2 launch window (Month 12-18 post-V1) lands
+cleanly.</li>
+<li><strong>Shopify-first conversion is most consequential
+here.</strong> Existing TGL Triphala buyers are concentrated on Amazon.
+Pulse's launch motion MUST be Shopify-first for 60-90 days before Amazon
+listing to convert the migration cohort into Shopify subscription
+cadence. Phase 2 sequencing gives the time + infrastructure to execute
+this discipline.</li>
+</ul>
+<p>So Pulse is sequenced to Phase 2 not because it's a weaker SKU but
+because it benefits from the Q1 trio's infrastructure + the
+Shopify-first migration discipline + parallel V2 probiotic vendor
+scouting. Pulse at Phase 2 + V2 probiotic at Year 2 is a ~24-month arc
+that compounds: V1 anchors the existing-customer migration, V2 unlocks
+the ₹2,070 Cr Indian probiotics market.</p>
+<p><strong>Layer 2: Why this 4+1 active stack (and not
+another)</strong></p>
+<p>Digestive-formulation has roughly 12 cited natural-source candidates.
+We considered each and selected 4 (plus moringa heritage):</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triphala</td>
+<td>INCLUDED (heritage anchor)</td>
+<td>Strongest single-formulation Ayurvedic digestive evidence; classical
+Tridoshahara basis; TGL captive supply chain at near-zero marginal cost;
+the existing-customer-migration trust-anchor.</td>
+</tr>
+<tr>
+<td>Pippali extract (clinical-therapeutic dose)</td>
+<td>INCLUDED (formulation-upgrade lever)</td>
+<td>Kumar 2011 clinical-therapeutic dose at 500mg/day delivers
+measurable dyspepsia + bloating improvement; the "Triphala plus
+something" the migration cohort wants.</td>
+</tr>
+<tr>
+<td>Gentian root bitter</td>
+<td>INCLUDED (pre-meal digestive priming)</td>
+<td>Cross-cultural Western bitter herb with Ayurvedic Tikta-rasa
+parallel; pre-meal digestive secretion stimulation works synergistically
+with Pippali's carminative effect.</td>
+</tr>
+<tr>
+<td>BioPerine</td>
+<td>INCLUDED (bioavailability enhancer)</td>
+<td>95% piperine standardised; Sami-Sabinsa branded;
+bioavailability-enhancement mechanism documented (Shoba 1998);
+consolidated Sami vendor terms.</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>INCLUDED (heritage base)</td>
+<td>Brand-thesis anchor + nutritive support. Tier C minimal heritage
+signature dose 12.5mg/cap = 25mg/day per Moringa Foundation
+principle.</td>
+</tr>
+<tr>
+<td>Lactobacillus probiotic strain</td>
+<td>DEFERRED to V2</td>
+<td>Operational complexity (delayed-release encapsulation + CFU
+stability + strain-specific FSSAI clearance) too high for V1; V2 adds
+Unique Biotech IS-2 in Year 2 if vendor scouting clears.</td>
+</tr>
+<tr>
+<td>Hingvashtak churna</td>
+<td>EXCLUDED (V1 brief)</td>
+<td>Cap fill capacity-bound at Size #0; Pippali at clinical dose is the
+higher-leverage carminative; deferred to V2 brief if cap fill is
+right-sized.</td>
+</tr>
+<tr>
+<td>Fennel + Ajwain + Ginger</td>
+<td>EXCLUDED (V1 brief)</td>
+<td>Cap fill capacity-bound; Pippali at clinical dose covers carminative
++ prokinetic story alone; deferred to V2 reformulation.</td>
+</tr>
+<tr>
+<td>Inulin / FOS prebiotic</td>
+<td>EXCLUDED</td>
+<td>Triphala's tannin + polyphenol content provides the prebiotic
+substrate; additional inulin would crowd cap fill without proportional
+efficacy lift.</td>
+</tr>
+<tr>
+<td>Imported probiotic strains (Danisco / Chr. Hansen / DuPont)</td>
+<td>PERMANENTLY EXCLUDED</td>
+<td>Pillar 1 violation (lab-isolated imported); brand commitment is
+naturally-fermented Indian-source strain (V2 Unique Biotech IS-2) or no
+probiotic at all.</td>
+</tr>
+<tr>
+<td>Curcumin / Boswellia</td>
+<td>EXCLUDED</td>
+<td>Anti-inflammatory primary lives in other portfolio SKUs; Pulse stays
+digestive-led.</td>
+</tr>
+<tr>
+<td>Aloe vera</td>
+<td>EXCLUDED</td>
+<td>Bowel-regulation primary overlaps with Triphala; Aloe's efficacy at
+supplement-cap dose is contested.</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio approach forces discipline: each active in one SKU's
+primary role; minimal duplication across SKUs.</p>
+<p><strong>Layer 3: Why this specific dose architecture (and not
+another)</strong></p>
+<p>Every dose was triangulated across three constraints:</p>
+<ol type="1">
+<li><strong>Clinical / classical therapeutic range</strong> (what RCTs
+or Bhavaprakasha actually use)</li>
+<li><strong>Capsule fill feasibility</strong> (Size #0 = ~400-600 mg
+practical fill)</li>
+<li><strong>2-cap-per-day compliance ceiling</strong> (anything beyond 2
+caps creates retention friction)</li>
+<li><strong>₹799 MRP / 83% GM at MRP target</strong> (cost-discipline
+lever for the price-band economics)</li>
+</ol>
+<p>That triangulation forced the Size #0 path (Size #0 saves ~₹7/pack vs
+Size #00 capsule shells, the structural GM-floor protection). At 417 mg
+fill, capsule remains comfortable.</p>
+<p><strong>Trade-offs we accepted, openly stated:</strong></p>
+<ul>
+<li><strong>Triphala at 200mg/day vs higher.</strong> Full-dose Triphala
+(1-2g/day) doesn't fit Size #0 alongside clinical-therapeutic Pippali.
+Customers seeking high-dose Triphala stack with the existing
+single-ingredient TGL Triphala SKU. The 200mg/day dose is the
+heritage-anchor + prebiotic substrate role; Pippali carries the
+clinical-therapeutic primary.</li>
+<li><strong>Pippali at 500mg/day clinical-therapeutic vs
+sub-clinical.</strong> This is the formulation-upgrade lever; 25mg/day
+decorative doses don't deliver Kumar 2011 efficacy. The 500mg/day dose
+IS the brand asset for the migration cohort.</li>
+<li><strong>No Hingvashtak / Fennel / Ajwain / Ginger in V1.</strong>
+Cap fill capacity-bound at Size #0; Pippali at clinical dose covers the
+carminative + prokinetic story alone. Future reformulation lever for V2
+if cap fill is right-sized.</li>
+<li><strong>V1 ships without probiotic.</strong> Hard discipline. The
+probiotic claim is the V2 anchor; shipping V1 with an imported probiotic
+strain would violate Pillar 1 + lock TGL out of the V2 Unique Biotech
+IS-2 differentiation. V1's Triphala+ formulation alone delivers the
+migration efficacy.</li>
+<li><strong>Moringa at Tier C minimal 25mg/day.</strong> Triphala IS the
+hero in this Tier C line extension; moringa is the brand-continuity
+thread, not a dose-clinical active. Per Moringa Foundation principle
+(locked 2026-05-09).</li>
+</ul>
+<p><strong>The decision trail in one sentence</strong>: Pulse is the
+Triphala upgrade SKU that converts TGL's existing Amazon-concentrated
+Triphala buyers into Shopify-subscription cohort via
+clinical-therapeutic Pippali dose (Kumar 2011, 500mg/day) + Gentian +
+BioPerine + Triphala captive supply, ships V1 without probiotic to
+de-risk operational complexity, and sets up V2 Year 2 Unique Biotech
+IS-2 naturally-fermented Indian-source probiotic upgrade as the genuine
+Pillar 1 category-creation play in the ₹2,070 Cr Indian probiotics
+market — at 83% GM at MRP, the third-highest in the portfolio, the
+price-band economics are COGS-earned via captive Triphala + Size #0 cap
+shell + in-house manufacturing.</p>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p>Pulse plays in a layered competitive space: (a) mass-market Ayurvedic
+Triphala (Himalaya, Patanjali, Earthful), (b) premium D2C probiotic (The
+Good Bug, Wellbeing Daily Probiotics, Plix Happy Tummy), and (c) modern
+Ayurvedic comprehensive digestive (Cosmix Digestive). Per the V3 dossier
+benchmark set + naming-sprint round 2 input.</p>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>Price (sale)</th>
+<th>Format</th>
+<th>Positioning</th>
+<th>Active focus</th>
+<th>Per-day cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pulse (TGL)</strong></td>
+<td>₹699</td>
+<td>Capsule, 2/day</td>
+<td><strong>Triphala+ digestive synbiotic-ready</strong> with V2
+probiotic upgrade path</td>
+<td>Triphala captive + Pippali clinical dose + Gentian + BioPerine +
+moringa</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Existing TGL Triphala (single-ingredient)</strong></td>
+<td>₹399-499</td>
+<td>Capsule</td>
+<td>Migration source SKU</td>
+<td>Triphala only</td>
+<td>~₹13-17/day</td>
+</tr>
+<tr>
+<td><strong>Earthful Triphala</strong></td>
+<td>₹399</td>
+<td>Capsule</td>
+<td>Mass-market D2C Ayurvedic</td>
+<td>Triphala only</td>
+<td>~₹13/day</td>
+</tr>
+<tr>
+<td><strong>Cosmix Digestive</strong></td>
+<td>₹999</td>
+<td>Powder</td>
+<td>Premium-coded multi-extract powder</td>
+<td>Multi-extract digestive blend</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td><strong>Patanjali Triphala</strong></td>
+<td>₹150</td>
+<td>Tablet</td>
+<td>Mass-Ayurveda chemist-channel</td>
+<td>Triphala only</td>
+<td>~₹5/day</td>
+</tr>
+<tr>
+<td><strong>Himalaya Triphala Tablets</strong></td>
+<td>₹130</td>
+<td>Tablet</td>
+<td>Mass-market chemist + 1mg</td>
+<td>Triphala only</td>
+<td>~₹4/day</td>
+</tr>
+<tr>
+<td><strong>The Good Bug Power Up (Mighty Probiotic)</strong></td>
+<td>₹999-1,800</td>
+<td>Capsule</td>
+<td>Premium D2C probiotic, lab-isolated imported strains</td>
+<td>6-strain probiotic 10B CFU + inulin</td>
+<td>~₹33-60/day</td>
+</tr>
+<tr>
+<td><strong>Wellbeing Daily Probiotics + Prebiotics</strong></td>
+<td>₹699</td>
+<td>Soft-gel</td>
+<td>Synthetic-strain mid-tier synbiotic</td>
+<td>5-strain probiotic 5B CFU + inulin + GOS + flaxseed-oil base</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Plix Happy Tummy</strong></td>
+<td>₹999</td>
+<td>Effervescent</td>
+<td>Format-gimmick synthetic-strain</td>
+<td>Effervescent probiotic blend</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td><strong>HealthKart HK Vitals Probiotic</strong></td>
+<td>₹599</td>
+<td>Capsule</td>
+<td>Mass-D2C probiotic, lab-isolated imported strains</td>
+<td>Lab-isolated probiotic</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td><strong>Kapiva Triphala Juice</strong></td>
+<td>₹399/500ml</td>
+<td>Liquid juice</td>
+<td>Heritage-juice format</td>
+<td>Triphala only</td>
+<td>varies</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The single-sentence competitive position</strong>: Pulse is
+the only Indian D2C SKU that pairs <strong>TGL captive Triphala
+heritage</strong> (the brand-trust anchor) with
+<strong>clinical-therapeutic Pippali dose</strong> (Kumar 2011,
+500mg/day — the formulation-upgrade lever that mass-market
+Himalaya/Patanjali/Earthful Triphala don't carry) and <strong>Gentian +
+BioPerine bioavailability-enhanced digestive priming</strong> at the
+<strong>₹699 sale tier with V2 naturally-fermented Indian-source
+probiotic upgrade path</strong> (Unique Biotech IS-2 in Year 2) —
+sitting between mass-market chemist Triphala (Himalaya ₹130) and premium
+D2C probiotic (The Good Bug ₹999), at 83% GM at MRP that funds the
+website-first migration motion + Year 2 probiotic R&amp;D budget.</p>
+<hr />
+<h2 id="9-right-to-win-why-a-real-customer-picks-pulse">9. Right to win
+(why a real customer picks Pulse)</h2>
+<p>Five reasons they choose Pulse when they're looking at the shelf.</p>
+<p><strong>1. The "Triphala plus something" the existing TGL Triphala
+buyer has been waiting for.</strong> Existing TGL Triphala buyers have
+been on the single-ingredient SKU for years — they trust it, they see
+the mild laxative + tonic effect, but they've bumped against the
+ceiling. Pulse delivers the clinical-therapeutic Pippali dose (Kumar
+2011, 500mg/day) for the dyspepsia + bloating that single-ingredient
+Triphala doesn't reach. The migration is direct and trust-anchored: same
+heritage, deeper formulation, ₹200-300 price uplift justified by the
+upgrade.</p>
+<p><strong>2. Clinical-therapeutic Pippali dose vs sub-clinical
+decoration.</strong> Most Indian digestive SKUs that include Pippali use
+sub-clinical 25-50mg/day decorative doses for label aesthetics. Pulse
+uses 500mg/day per Kumar 2011 — the actual dose at which dyspepsia +
+bloating + postprandial fullness improvement is measurable. Customers
+who Google "Pippali clinical dose" find the Kumar 2011 study and
+recognise Pulse as the only SKU at therapeutic dose.</p>
+<p><strong>3. Same-day perceived effect + sustained digestive-rhythm
+shift.</strong> Pulse delivers week-1 same-day signal (Pippali's
+prokinetic effect + Gentian's pre-meal digestive priming + Triphala's
+gentle carminative action all activate within hours of dose) AND week
+4-12 sustained digestive-rhythm consolidation. Probiotic-only
+competitors (The Good Bug, Wellbeing Daily Probiotics) deliver effect at
+week 4-6 with no week-1 signal — Pulse's same-day perceived efficacy is
+the repeat-at-30-day-mark advantage.</p>
+<p><strong>4. The V2 probiotic upgrade path (Year 2).</strong> Pulse V2
+(Year 2) adds Unique Biotech IS-2 strain probiotic — naturally-fermented
+from Indian fermented food sources, not lab-isolated imported. This is
+the future-state Pillar 1 differentiation The Good Bug + Wellbeing +
+Plix cannot match without changing their supply chain. V1 customers
+receive priority migration pricing into V2 — second-purchase upsell
+anchoring the ₹2,070 Cr Indian probiotics market opportunity.</p>
+<p><strong>5. A founder she can see, Built on Moringa.</strong> Deepika
+at 45+ in the perimenopause + digestive overlay is genuinely in this
+category. Her founder-content arc on Pulse — "I built this because I
+needed Triphala+ at clinical dose, not decorative dose" — is authentic.
+The TGL captive Triphala supply (Andhra/TN heritage triad) is on the PDP
+transparency page; the moringa heritage thread carries the
+cross-portfolio narrative.</p>
+<p><strong>Two things that do not show up in the matrix but matter in
+real life:</strong></p>
+<ul>
+<li><strong>The "modern Ayurveda for the gut-health-aware Indian"
+cultural bridge.</strong> She / he listens to gut-health podcasts
+(Andrew Huberman gut episodes, Krish Ashok), follows wellness-creator
+content, has read enough about microbiome to want naturally-fermented
+Indian-source probiotics in V2. Pulse is the bridge —
+clinical-therapeutic Pippali dose her grandmother would have recognised
+at the Trikatu basis, modern bioavailability enhancement via
+Sami-Sabinsa BioPerine, V2 probiotic from kanji + curd cultural
+traditions instead of imported lab strains.</li>
+<li><strong>The label tells the same story Deepika tells in her
+Reels.</strong> Standardisation markers on the label (Pippali 4:1
+extract from whole-fruit, Gentian root bitter, 95% piperine BioPerine)
+match what Deepika quotes in content. The Sami-Sabinsa BioPerine brand
+name on the label is a verifiable global ingredient. The TGL captive
+Triphala source is on the PDP transparency page. Internal-external
+consistency builds trust in a segment that scrutinises ingredient
+lists.</li>
+</ul>
+<p><strong>The single-sentence right to win</strong>: Pulse wins because
+it's the Triphala upgrade with clinical-therapeutic Pippali dose the
+existing TGL Triphala buyer has been waiting for, delivers same-day
+perceived effect plus sustained digestive-rhythm shift the
+probiotic-only competitors can't match, sets up the V2
+naturally-fermented Indian-source probiotic upgrade path for genuine
+Pillar 1 category-creation, and lives in the cultural register of a
+modern gut-health-aware Indian who wants Ayurvedic depth without the
+chemist-channel mass-market frame.</p>
+<hr />
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p><strong>Channel mix is website-first / Shopify-led, NOT
+Amazon-first</strong> (per TGL-P1-DEC-017, locked 2026-05-09).
+<strong>This discipline is most consequential on Pulse.</strong>
+Existing TGL Triphala buyers are concentrated on Amazon today (per TGL's
+overall 80% Amazon revenue concentration). Pulse's launch motion MUST be
+Shopify-first for 60-90 days before Amazon listing exists, specifically
+to convert these Amazon-resident upgrade buyers into
+Shopify-subscription cohort BEFORE Amazon listing pulls them back into
+Amazon LTV ceiling.</p>
+<p>If Pulse launches on Amazon Day 1, the migration cohort migrates
+Amazon-to-Amazon and TGL never breaks the Amazon LTV ceiling. If Pulse
+launches Shopify-first with founder content + Klaviyo email +
+subscription mechanic for 60-90 days, the upgrade cohort migrates
+Amazon-to-Shopify-subscription, anchoring them at the higher-LTV channel
+with native subscription cadence.</p>
+<p><strong>The Shopify-first migration playbook
+(Pulse-specific)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Days</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 1: Klaviyo email migration push</td>
+<td>Day 1-30</td>
+<td>Email sequence to existing TGL Triphala buyer list (via Shopify
+customer + Amazon-recovered emails). "You already trust Triphala. Here's
+the next chapter." Shopify PDP link. Founder Reel embed. ₹100
+first-order discount for V1 trial.</td>
+</tr>
+<tr>
+<td>Phase 2: Founder content + Meta retargeting</td>
+<td>Day 30-60</td>
+<td>Deepika Reels on "why I built Pulse / why clinical-therapeutic
+Pippali dose matters / the ceiling of single-ingredient Triphala." Meta
+retargeting on Shopify pixel + Klaviyo segmenting for
+non-converters.</td>
+</tr>
+<tr>
+<td>Phase 3: Subscription anchor + bundle push</td>
+<td>Day 60-90</td>
+<td>Subscription mechanic at ₹594/month vs ₹699 sale (15% off). Bundle
+with Cycle / Bloom / Reset for cross-sell. Daily Gut Kit + Reset Kit
+messaging.</td>
+</tr>
+<tr>
+<td>Phase 4: Amazon launch (secondary)</td>
+<td>Day 90+</td>
+<td>Amazon listing live as secondary channel; existing Amazon-resident
+Triphala buyers who haven't migrated to Shopify are now captured at
+Amazon, but the highest-LTV cohort is already on Shopify
+subscription.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Channel mix at launch (Phase 2)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Klaviyo email + SMS (existing TGL Triphala list — the migration
+cohort + cross-sell from Q1 trio)</td>
+<td><strong>Primary acquisition (the migration cohort)</strong></td>
+<td>~35%</td>
+</tr>
+<tr>
+<td>Founder Reels + Stories (organic + boosted)</td>
+<td>Trust + content engine; "why clinical-therapeutic Pippali dose
+matters" arc</td>
+<td>~20%</td>
+</tr>
+<tr>
+<td>Meta (Instagram + Facebook) → Shopify PDP</td>
+<td>Acquisition (broader cohort + retargeting on non-converters)</td>
+<td>~25%</td>
+</tr>
+<tr>
+<td>Google Search + SEO → Shopify PDP</td>
+<td>Branded + non-branded "Triphala + Pippali" search</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Creator partnerships (gut-health micro-influencers, wellness-creator
+India cohort)</td>
+<td>Cohort-matched activation</td>
+<td>~5%</td>
+</tr>
+<tr>
+<td>Amazon (secondary, Day 90+)</td>
+<td>Channel diversification once Shopify migration proven</td>
+<td>~5%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pricing locked (V3, Phase 2 batch sequencing)</strong>: ₹799
+MRP / ₹699 sale / ₹594 sub. 83% GM at MRP, third-highest in
+portfolio.</p>
+<p><strong>Geography priority</strong>: Tier 1 + Tier 2 metros
+(Bangalore, Hyderabad, Chennai, Pune, Mumbai, Delhi NCR, Kolkata) where
+Indian-fermented-food cultural literacy is high (V2
+probiotic-positioning relevance) + existing TGL Triphala buyer
+concentration (the migration cohort). Less geography-skewed than Cycle
+(women's-hormonal); Pulse's unisex 30-65 cohort is more pan-Indian
+metro.</p>
+<p><strong>Deepika's content cadence</strong>: ~1 founder Reel per week
+through launch month. Pre-launch covers "the ceiling of
+single-ingredient Triphala," "why clinical-therapeutic Pippali dose at
+500mg/day matters per Kumar 2011," "the digestive priming role of
+Gentian + BioPerine," "what V2 probiotic from Indian fermented food
+sources will look like (Year 2)," "the migration story for existing TGL
+Triphala buyers." Launch month rotates: founder use, customer Q&amp;A,
+ingredient story, expectation-setting.</p>
+<p><strong>Bundle architecture</strong> (cross-sell + migration
+anchor):</p>
+<ul>
+<li><strong>Daily Gut Kit</strong>: Pulse + Reset (digestive + metabolic
+synergy) — bundle ₹2,099 vs ₹2,398 standalone</li>
+<li><strong>Existing-Triphala-Upgrade Kit</strong>: Pulse + existing TGL
+moringa capsules — bundle ₹1,099 vs ₹1,198 standalone</li>
+<li><strong>Reset Kit</strong>: Pulse + Calm (digestive + sleep stress
+overlay) — bundle ₹1,499 vs ₹1,598 standalone</li>
+</ul>
+<p><strong>Asset list (Boco produces, pre-launch)</strong>: Pulse PDP,
+brand kit refinement (carrying Cycle's Q1 design language with
+digestive-tier visual lift — warm-amber palette, daily-ritual
+photography), Klaviyo email migration sequence (5-email arc for existing
+Triphala buyer migration), 5 ad creative templates, Klaviyo email flows
+for launch + onboarding + 12-week retention, Ingredient Library entry.
+Live by launch -2 weeks.</p>
+<p><strong>Owner split</strong>: Deepika owns founder content (~6-8
+hrs/week launch month). Unnati owns Klaviyo migration sequence + Meta
+channel ops + creator outreach + email execution (~15-18 hrs/week launch
+month — Pulse's migration push is more email-heavy than other SKUs).
+Boco (Meera, Kavya, Aarav) owns asset production, front-loaded in launch
+-8 to -2 weeks.</p>
+<p><strong>Sunset decision for existing single-ingredient TGL Triphala
+SKU</strong>: Per portfolio strategy doc, retain existing Triphala SKU
+at ₹399-499 for budget-conscious buyers; Pulse becomes the premium tier
+at ₹699. Cannibalization is expected and welcomed — the migration to
+Pulse is the strategic intent. Retention of the entry-tier SKU prevents
+losing budget-sensitive customers entirely while anchoring the upgrade
+path.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p>Three pitches scaled to the conversation length.</p>
+<p><strong>5-second elevator</strong> (chance encounters, quick brand
+mentions):</p>
+<blockquote>
+<p>"Pulse is our daily digestive capsule. Two caps a day. Triphala from
+our farms, Pippali at clinical dose, Gentian, BioPerine. Built on
+Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<p><strong>30-second customer pitch</strong> (the version most people
+will hear, in Deepika's voice):</p>
+<blockquote>
+<p>"Pulse is the next chapter of our Triphala. If you've been on our
+single-ingredient Triphala for years, you know the ceiling. Pulse adds
+Pippali long-pepper at the clinical-therapeutic dose Kumar 2011
+validated for dyspepsia and bloating, plus Gentian root bitter for
+pre-meal digestive priming and Sami-Sabinsa BioPerine for
+bioavailability. Two capsules a day. Built on Moringa. Powered by
+Ayurveda. Year 2, we're adding the naturally-fermented Indian probiotic
+strain that turns this into the synbiotic our gut deserves."</p>
+</blockquote>
+<p><strong>60-second partner pitch</strong> (creator partnerships,
+retail conversations, in Unnati's or Deepika's voice):</p>
+<blockquote>
+<p>"Pulse is The Good Leaf's daily digestive capsule, designed for
+Indian adults 30-65 navigating sluggish digestion, intermittent
+bloating, irregular bowels, and the post-antibiotic / post-travel
+gut-recovery window — and crucially, the existing TGL Triphala buyer
+who's been on the single-ingredient version for years and is ready to
+upgrade. Five actives plus moringa: Triphala TGL captive heritage triad
+at 200mg per day, Pippali long-pepper extract at 500mg per day per Kumar
+2011 clinical-therapeutic dose, Gentian root bitter at 100mg per day for
+pre-meal digestive priming, Sami-Sabinsa BioPerine at 10mg per day for
+bioavailability enhancement, and farm-grown moringa as the heritage
+signature. Two capsules daily, ₹699 sale, around ₹23 per day, designed
+for week-1 same-day perceived effect plus sustained digestive-rhythm
+consolidation over 4-12 weeks, with subscription cadence at ₹594. We're
+the only Indian D2C SKU that pairs TGL captive Triphala heritage with
+clinical-therapeutic Pippali dose — competitors are mass-market chemist
+Triphala (Himalaya ₹130, Patanjali ₹150, Earthful ₹399), premium D2C
+probiotic with imported lab-isolated strains (The Good Bug ₹999-1,800),
+or premium powder format (Cosmix Digestive ₹999). V2 in Year 2 adds
+Unique Biotech IS-2 naturally-fermented Indian-source probiotic strain —
+first-in-category Pillar 1 differentiation. Founder Deepika is genuinely
+in the digestive-overlay perimenopause cohort and built Pulse because
+single-ingredient Triphala wasn't enough; that authenticity is hard to
+fake."</p>
+</blockquote>
+<p><strong>The honest message Deepika repeats across organic
+content</strong> (the recurring tagline pattern):</p>
+<blockquote>
+<p>"Pulse is the next chapter of our Triphala. Same heritage, deeper
+formulation. Pippali at clinical dose for the bloating and dyspepsia
+Triphala alone doesn't reach. Year 2: the naturally-fermented Indian
+probiotic that turns this into the synbiotic our gut deserves. Built on
+Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<hr />
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<p>The "can we actually build this" layer. How we judge vendor quality,
+per-active vendor candidates, packaging, capsule shell, manufacturing,
+QC, capsule fill, regulatory, aggregate risk.</p>
+<h3 id="121-how-we-judge-vendor-quality-the-compliance-framework">12.1
+How we judge vendor quality (the compliance framework)</h3>
+<p>Same 3-tier framework as Cycle
+(<code>sku-1-cycle-product-brief.md</code> Section 12.1). Tier 1
+mandatory: FSSAI Central + GMP + per-batch CoA + NABL-accredited lab
+inputs + HPLC/HPTLC standardisation + Pillar 1 extraction method (water
+/ hydroalcoholic / CO2 / supercritical, no synthetic-residue solvents).
+Tier 2 strongly preferred: ISO 22000 + HACCP + ISO 9001 + USDA Organic +
+multi-batch reproducibility + 24-month stability + public CoA
+transparency + audit-readiness. Tier 3 application-specific: HPTLC
+fingerprint matching reference Triphala chromatogram (gallic acid,
+ellagic acid, chebulagic acid markers); Pippali whole-fruit 4:1 extract
+with piperine assay; aflatoxin &lt;30 ppb on Triphala (mandatory).</p>
+<h3 id="122-per-active-vendor-matrix">12.2 Per-active vendor matrix</h3>
+<p><strong>Triphala — TGL captive heritage triad</strong> (Andhra
+Pradesh / Tamil Nadu / Madhya Pradesh supplier belt):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TGL captive supply</strong> (Andhra/TN belt managed via QC
+partner)</td>
+<td>Andhra Pradesh / Tamil Nadu / Madhya Pradesh</td>
+<td>1:1:1 whole-fruit powder, HPTLC fingerprint, heavy metals +
+aflatoxin compliant</td>
+<td>n/a</td>
+<td><strong>Tier-1 primary</strong> — TGL existing supply chain;
+near-zero marginal cost</td>
+</tr>
+<tr>
+<td><strong>Konark Herbals &amp; Healthcare</strong></td>
+<td>Mumbai</td>
+<td>FSSAI, GMP, ISO; AYUSH-licensed Triphala</td>
+<td>25-100kg</td>
+<td>Tier-1 backup for QC + processing if captive supply fails QA</td>
+</tr>
+<tr>
+<td><strong>Sami-Sabinsa Tri-Active</strong></td>
+<td>Bangalore</td>
+<td>Standardised Triphala extract + whole-fruit powder;
+premium-tier</td>
+<td>5-25kg</td>
+<td>Tier-2 backup; premium pricing; consolidated Sami vendor terms</td>
+</tr>
+<tr>
+<td><strong>Arjuna Natural</strong></td>
+<td>Aluva, Kerala</td>
+<td>GMP, ISO, USDA Organic, Non-GMO Project Verified</td>
+<td>TBD</td>
+<td>Tier-2 backup; strong organic certification</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pippali (Piper longum) extract 4:1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vidya Herbs</strong></td>
+<td>Bangalore</td>
+<td>4:1 whole-fruit extract, piperine assay</td>
+<td>10-25kg</td>
+<td><strong>Tier-1 priority</strong>; ~₹2-3K/kg India landed; existing
+TGL vendor relationship</td>
+</tr>
+<tr>
+<td><strong>Arjuna Natural</strong></td>
+<td>Aluva, Kerala</td>
+<td>4:1 extract</td>
+<td>10-25kg</td>
+<td>Tier-1 backup</td>
+</tr>
+<tr>
+<td>Akay Spices</td>
+<td>Kerala</td>
+<td>Pippali extract</td>
+<td>TBD</td>
+<td>Tier-2 backup</td>
+</tr>
+<tr>
+<td>Plant Lipids</td>
+<td>Cochin, Kerala</td>
+<td>Pippali extract</td>
+<td>TBD</td>
+<td>Tier-2 backup</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gentian root bitter extract</strong> (Gentiana lutea):</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Konark Herbals &amp; Healthcare</strong></td>
+<td>Mumbai</td>
+<td>Gentian extract; AYUSH-licensed</td>
+<td>5-25kg</td>
+<td>Tier-1 priority; commodity-tier bitter herb</td>
+</tr>
+<tr>
+<td>Bioactive Compounds India</td>
+<td>Pune / Hyderabad</td>
+<td>Gentian extract</td>
+<td>5-25kg</td>
+<td>Tier-2 backup</td>
+</tr>
+<tr>
+<td>Specialty botanicals importer</td>
+<td>Various</td>
+<td>European Gentiana lutea</td>
+<td>TBD</td>
+<td>Tier-3 if Indian-source supply turns adverse</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BioPerine (Piper nigrum, 95% piperine) — Sami-Sabinsa branded
+only</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa BioPerine</strong></td>
+<td>Bangalore</td>
+<td>95% piperine standardised; branded</td>
+<td>1-5kg</td>
+<td><strong>Tier-1 ONLY</strong> — branded extract per global standard;
+consolidated Sami vendor terms</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Moringa whole-leaf</strong> — TGL captive supply (DPR
+Moringa, heat-treated). Same as Cycle.</p>
+<p><strong>V2 probiotic — Unique Biotech IS-2 strain (Year 2 vendor
+scouting)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unique Biotech</strong></td>
+<td>Hyderabad</td>
+<td>IS-2 strain (Lactobacillus spp. isolated from Indian fermented food
+sources); FSSAI-licensed; WHO-GMP; delayed-release encapsulation
+experience</td>
+<td>TBD</td>
+<td><strong>V2 Tier-1 primary</strong>; Hyderabad geography aligns with
+TGL manufacturing preference</td>
+</tr>
+<tr>
+<td>Advanced Enzyme Technologies</td>
+<td>Thane / Sinnar</td>
+<td>Probiotic + enzyme specialist; NSF-GMP</td>
+<td>TBD</td>
+<td>V2 Tier-2 backup; geography is Maharashtra</td>
+</tr>
+<tr>
+<td>Sami LactoSpore (Bacillus coagulans)</td>
+<td>Bangalore</td>
+<td>Branded Bacillus coagulans strain</td>
+<td>TBD</td>
+<td>V2 Tier-3 fallback if Lactobacillus IS-2 vendor scouting fails; Sami
+consolidation lever</td>
+</tr>
+</tbody>
+</table>
+<h3 id="123-consolidated-vendor-contact-directory">12.3 Consolidated
+vendor contact directory</h3>
+<p>Same primary contact set as Cycle (Sami-Sabinsa, Vidya Herbs, Akay
+Group, Plant Lipids, Indfrag, Arjuna Natural, Konark Herbals). Plus
+Unique Biotech Hyderabad for V2 probiotic vendor scouting. Full
+directory in <code>sku-1-cycle-product-brief.md</code> Section 12.3.</p>
+<h3 id="124-packaging-capsule-shell-bottle-manufacturing">12.4
+Packaging, capsule shell, bottle, manufacturing</h3>
+<p>Same packaging vendor stack as Cycle (Pragati Pack India for label +
+monocarton; HPMC capsule shells via Deepika's vendor relationship per
+TGL-P1-DEC-002; HDPE amber bottle from Karur-area Deepika source).
+<strong>Pulse uses Size #0 capsule shells (vs Size #00 for
+Cycle/Crest/Calm)</strong> — saves ~₹7/pack vs Size #00, contributing
+structurally to the 83% GM at MRP. Manufacturing per V3 plan-level
+changes: in-house at Deepika's facility (FSSAI nutraceutical license;
+phycocyanin R&amp;D capsule already produced). Capsule fill at 417 mg in
+Size #0 is well within in-house capability. The in-house route saves
+~₹40/pack vs external Greenfield CMO.</p>
+<p>V2 (Year 2) probiotic addition requires delayed-release coating
+capability — ACG Capsules DRcaps OR Sunrise Nutraceuticals confirmed
+candidates per Section 12.2 V2 vendor matrix.</p>
+<h3 id="125-quality-control-protocol">12.5 Quality control protocol</h3>
+<p>Same QC framework as Cycle. Per-batch testing for Triphala HPTLC
+fingerprint (gallic acid, ellagic acid, chebulagic acid markers);
+per-batch heavy-metal panel (Pb, As, Hg, Cd within Schedule VI Ayurvedic
+limits); per-batch aflatoxin &lt;30 ppb (mandatory for Triphala);
+per-batch piperine assay for Pippali + BioPerine matrix; 24-month
+stability testing for the Triphala + extract matrix.</p>
+<p>V2 probiotic addition requires per-batch CFU testing at manufacture +
+end-of-shelf-life (≥1B CFU at 18 months at 25°C/60% RH); strain
+identification (16S rRNA + whole-genome sequence on file);
+acid-tolerance + bile-salt tolerance assays; antibiotic susceptibility
+profile (no transferable antibiotic resistance genes per FSSAI Schedule
+VI safety requirement).</p>
+<h3 id="126-capsule-fill-feasibility">12.6 Capsule fill feasibility</h3>
+<p>417 mg total fill in Size #0 capsule (capacity ~400-600 mg standard
+density). <strong>Comfortable fit, no granulation step
+required.</strong> Cap fill headroom is tighter than Size #00 SKUs in
+the portfolio (Cycle, Crest, Calm) — by design to keep COGS low + GM
+high. Future reformulation lever for V2 if cap fill is right-sized via
+Size #00 capsule (would add Hingvashtak / Fennel / Ajwain / Ginger as
+carminative back-end + accommodate probiotic CFU pellet).</p>
+<h3 id="127-regulatory-feasibility">12.7 Regulatory feasibility</h3>
+<p>All 5 V1 actives FSSAI-permitted under Schedule VI of the Health
+Supplements Regulations 2022. Triphala individual components (Amla,
+Bibhitaki, Haritaki) all on standard Ayurvedic herbs list. Pippali
+listed (Piper longum). Gentian listed (cross-cultural Western herbal but
+FSSAI-permitted). BioPerine via Sami-Sabinsa is the global
+bioavailability-enhancement standard with FSSAI documentation chain.
+Moringa permitted (Annexure A whole-food).</p>
+<p>V2 probiotic addition (Unique Biotech IS-2 strain) requires FSSAI
+strain-specific approval per Schedule VI probiotic regulations (FSSAI
+Notification F.No 1-3/Standards/Probiotics/FSSAI-2017 and subsequent
+amendments). FSSAI has approved &gt;40 strains as of 2025 including L.
+plantarum, L. fermentum, L. acidophilus, L. rhamnosus, L. casei.
+Strain-specific dossier with safety data is the V2 regulatory gate.</p>
+<p><strong>Permitted claim language (V1)</strong>: "supports digestive
+health and regularity," "helps maintain a healthy gut environment,"
+"eases occasional bloating and discomfort," "supports natural digestive
+rhythm," "traditional Ayurvedic herbs that have supported digestion for
+centuries," "Built on Moringa. Powered by Ayurveda."</p>
+<p><strong>V2 additional permitted claim language (with
+probiotic)</strong>: "replenishes beneficial gut flora," "supports
+healthy gut microbiome," "naturally-fermented probiotic from Indian
+fermented food traditions" (the V2 differentiation claim).</p>
+<p><strong>NOT permitted</strong>: "treats / cures IBS / IBD / Crohn's,"
+"boosts immunity" (Schedule VI grey area; safer to say "supports immune
+function"), specific CFU efficacy claims tied to numeric outcomes ("5B
+CFU = X% improvement") without an in-house clinical study.</p>
+<p>AYUSH cert in parallel per V3 plan-level changes (FSS Chennai officer
+route).</p>
+<h3 id="128-aggregate-supply-chain-risk-and-mitigation">12.8 Aggregate
+supply chain risk and mitigation</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Severity</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TGL captive Triphala supply concentration</td>
+<td>Low (captive)</td>
+<td>Konark Herbals + Sami-Sabinsa Tri-Active + Arjuna Natural backup
+paths preserve operational continuity</td>
+</tr>
+<tr>
+<td>Triphala aflatoxin compliance (humid storage)</td>
+<td>Medium</td>
+<td>Per-batch aflatoxin testing mandatory; &lt;30 ppb spec ceiling
+enforced; Andhra/TN belt processing controls</td>
+</tr>
+<tr>
+<td>Pippali extract supply variability across vendors</td>
+<td>Low-medium</td>
+<td>Per-batch piperine assay; Vidya Herbs primary + Arjuna Natural
+backup</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa BioPerine lead times at small batch tier</td>
+<td>Low</td>
+<td>Sami-Sabinsa is established TGL vendor; consolidated PO leverages
+existing terms</td>
+</tr>
+<tr>
+<td>V2 Unique Biotech IS-2 strain identification + FSSAI clearance</td>
+<td>High (V2 only)</td>
+<td>V1 ships without probiotic; V2 vendor scouting at Month 12-18
+includes strain identification + FSSAI dossier; if vendor scouting
+fails, V2 ships as enhanced Triphala+ blend without probiotic</td>
+</tr>
+<tr>
+<td>V2 delayed-release encapsulation feasibility</td>
+<td>Medium-high (V2 only)</td>
+<td>ACG DRcaps + Sunrise Nutraceuticals candidates; pilot stability
+batch at 6 months ICH-compliant accelerated aging is the V2 gate</td>
+</tr>
+<tr>
+<td>Moringa supply continuity (single-source DPR)</td>
+<td>Low (captive)</td>
+<td>TGL existing flow; backup CMO Andhra/TN identified</td>
+</tr>
+<tr>
+<td>Pragati Pack 8K packaging MOQ vs first-batch demand</td>
+<td>Low</td>
+<td>Pulse is Phase 2 launch with existing-Triphala-buyer migration
+cohort; demand build-up time supports MOQ economics</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="129-open-sourcing-questions-for-phase-2-vendor-calls-v1--year-2-v2-vendor-scouting">12.9
+Open sourcing questions for Phase 2 vendor calls (V1) + Year 2 V2 vendor
+scouting</h3>
+<p><strong>V1 (Phase 2 launch) sourcing questions</strong>:</p>
+<ol type="1">
+<li><strong>TGL captive Triphala QC partner lock.</strong> Konark
+Herbals OR Sami-Sabinsa OR Arjuna Natural for HPTLC fingerprint
+validation + aflatoxin compliance; lock primary at Phase 2 vendor
+calls.</li>
+<li><strong>Vidya Herbs Pippali extract pricing + lead times at Phase 2
+batch tier.</strong> Confirm 4:1 whole-fruit extract spec with piperine
+assay; lock at ~₹2.5K/kg mid for COGS planning.</li>
+<li><strong>Konark Gentian root bitter pricing.</strong> Confirm
+commodity-tier vendor terms; activate Bioactive Compounds India backup
+if supply turns adverse.</li>
+<li><strong>Sami-Sabinsa BioPerine pricing + MOQ at small batch
+tier.</strong> Confirm consolidated PO terms with Bacopin (Calm) +
+Shatavari + Yashtimadhu + Vitex (Cycle/Bloom/Crest) on Sami vendor
+relationship.</li>
+<li><strong>In-house capsule fill validation at 417 mg Size #0 +
+multi-active blend (Triphala + Pippali + Gentian + BioPerine + heritage
+moringa).</strong> Trial-fill at Deepika's facility pre-launch.</li>
+<li><strong>V3 cost lock confirmation.</strong> Confirm Triphala captive
++ Pippali Vidya + Gentian Konark + BioPerine Sami per-mg costs at Phase
+2 vendor terms; the ~₹137/pack COGS + 83% GM at MRP is the locked
+planning baseline (DEC-023). Variance &gt;10% triggers reformulation
+lever (right-size Pippali to 200mg/cap or drop Gentian dose).</li>
+</ol>
+<p><strong>V2 (Year 2) vendor scouting questions</strong>:</p>
+<ol start="7" type="1">
+<li><strong>Unique Biotech IS-2 strain identification.</strong> 16S rRNA
++ whole-genome sequence; FSSAI permitted-list status; Indian fermented
+food source documentation (kanji / curd starter / idli batter origin);
+clinical safety dossier.</li>
+<li><strong>Delayed-release encapsulation supplier
+confirmation.</strong> ACG Capsules DRcaps OR Sunrise Nutraceuticals;
+documented dissolution profile (no release until pH ≥5.5); cost premium
+vs standard HPMC (~₹0.40-0.60/capsule estimate).</li>
+<li><strong>CFU + Triphala tannin compatibility validation.</strong>
+Triphala's tannin load can inhibit some Lactobacillus strains; pilot
+stability batch confirms IS-2 strain survives co-encapsulation with
+200mg Triphala for 18 months at 25°C/60% RH.</li>
+<li><strong>V2 cost-add ceiling.</strong> CMO total cost-add per pack
+must be ≤₹80 vs V1 Triphala+ formulation to preserve pricing band; if
+exceeds ceiling, V2 reformulates around lower-cost probiotic strain
+(Sami LactoSpore Bacillus coagulans Tier-3 fallback).</li>
+<li><strong>In-house clinical pilot (Phase 6 launch milestone).</strong>
+60-90 person 12-week observational study post-V2 launch (in partnership
+with Vedic Lifesciences Mumbai or Ayurvedic college) measuring Bristol
+Stool Form Scale change + bloating VAS + QOL-IBDQ subset + gut
+microbiome 16S sequencing pre/post (subset of cohort). Generates
+next-tier substantiation for V3 marketing claims.</li>
+</ol>
+<hr />
+<h2 id="13-effort-capital-and-execution-action-plan">13. Effort,
+capital, and execution action plan</h2>
+<p><em>Pending. Phase 2 launch critical path mapped to owner + spend
+bucket. The "who does what, when, with how much money" layer. Bridges
+this brief to the program management spec
+(<code>10-phase-1-program-management.md</code>) once Phase 2 is
+sequenced. V2 (Year 2) probiotic vendor scouting + R&amp;D budget runs
+parallel as separate workstream.</em></p>
+<h2 id="14-technical-appendix">14. Technical appendix</h2>
+<p><em>Pending. References V3 dossier
+(<code>dossiers/08-pulse-triphala-probiotic.md</code>), formulation spec
+(to be drafted at Dr. Lakshmi Kala handoff), governance doc 10
+(<code>10-phase-1-program-management.md</code>), brand DNA
+(<code>02-brand-dna.md</code>).</em></p>
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 with Sections 1-12 locked 2026-05-09 by Aarav, V3 cost lock +
+V1/V2 sequencing discipline (V1 ships without probiotic; V2 adds Unique
+Biotech IS-2 in Year 2) + Pippali clinical-therapeutic dose increase per
+Kumar 2011 applied. Sections 13-14 pending. On full lock, brief is
+shareable with Deepika + Unnati for input + alignment.</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial full brief, drafted by Aarav post-Deepika V3
+reformulation + verified V3 cost lock + Pippali dose increase per Kumar
+2011 + V1/V2 sequencing discipline locked.</p>
+<ul>
+<li><strong>DEC-023 (V3 cost lock)</strong>: COGS ~₹137/pack at in-house
+manufacturing; 83% GM at MRP ₹799 (third-highest in portfolio after
+Crest 89% + Cycle 84%). Pricing locked at ₹799 / ₹699 / ₹594 —
+accessible-premium price tier between mass-market chemist Triphala
+(Himalaya ₹130) and premium D2C probiotic (The Good Bug ₹999). Size #0
+capsule shells (vs Size #00 for other portfolio SKUs) save ~₹7/pack,
+contributing structurally to the GM-floor.</li>
+<li><strong>Pippali dose increase from 25mg V1 sub-clinical to 250mg V2
+clinical-therapeutic (per Kumar 2011)</strong>: The earlier dossier
+carried Pippali at 25mg/cap (sub-clinical decorative dose). V1 brief
+locks Pippali at 250mg/cap = 500mg/day extract, the clinical-therapeutic
+dose validated by Kumar 2011 dyspepsia trial. The dose increase is the
+formulation-upgrade lever that converts existing TGL Triphala buyers
+into Pulse buyers — Pippali at clinical dose is the "Triphala plus
+something" the migration cohort is looking for. Cost impact modest
+(~₹60-90/pack); well within 83% GM at MRP target.</li>
+<li><strong>V1/V2 sequencing discipline</strong>: V1 ships WITHOUT
+probiotic to de-risk operational complexity (delayed-release
+encapsulation + CFU stability + strain-specific FSSAI clearance). V2
+(Year 2) adds Unique Biotech IS-2 strain probiotic if vendor scouting
+clears (Section 12.9 V2 questions). V1's Triphala+ formulation alone
+delivers the migration efficacy; V2's probiotic addition is the upsell +
+re-acquisition lever in Year 2 anchoring the ₹2,070 Cr Indian probiotics
+market opportunity.</li>
+<li><strong>Channel mix</strong>: WEBSITE-FIRST / Shopify-led per
+TGL-P1-DEC-017 — <strong>most consequential on Pulse</strong>. Existing
+TGL Triphala buyers concentrated on Amazon today; Shopify-first launch
+mandatory for 60-90 days BEFORE Amazon listing to convert upgrade buyers
+into Shopify subscription cohort. Amazon Day 90+ secondary.</li>
+<li><strong>Manufacturing</strong>: in-house at Deepika's FSSAI-licensed
+facility per V3 plan-level (NOT external CMO). The ~₹40/pack saving vs
+Greenfield CMO + Size #0 capsule shell saving + Triphala captive supply
+at near-zero marginal combine to produce the 83% GM at MRP that funds
+the website-first migration motion + subscription mechanic + V2
+probiotic R&amp;D budget.</li>
+<li><strong>Migration cohort discipline</strong>: Existing
+single-ingredient TGL Triphala SKU retained at ₹399-499 for
+budget-conscious buyers; Pulse becomes the premium tier at ₹699.
+Cannibalization is expected and welcomed — the migration to Pulse is the
+strategic intent.</li>
+</ul>
+</main>
+</body>
+</html>

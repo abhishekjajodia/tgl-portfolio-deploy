@@ -1,0 +1,2745 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Glide (Turmeric+ Joint comfort)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Glide (Turmeric+ Joint comfort)</strong></div>
+
+<h1 id="glide-working-name-product-brief">Glide (working name): Product
+Brief</h1>
+<p><strong>The Good Leaf (TGL)</strong> Phase 3 (batch 3) launch SKU.
+Joint comfort + anti-inflammatory. Tier C extension on the existing TGL
+Turmeric single-ingredient SKU. <em>Drafted 2026-05-09 by Aarav. Status:
+V1 with Sections 1-12 locked. This brief is the team-readable narrative
+layer for Deepika, Unnati, and Boco. Pair with
+<code>dossiers/09-glide-turmeric-joint.md</code> (V3 theory + clinical
+detail) and the formulation-spec (to be drafted at Dr. Lakshmi Kala
+vendor-formulator handoff per DEC-023).</em></p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Glide (working name; final lock pending TM
+clearance per TGL-P1-DEC-007 + naming sprint round 2 with Deepika).
+Sanskrit alternative <em>Sandhi</em> (joint) retained as backup.</p>
+<p><strong>Elevator pitch (3 sentences, repeatable by anyone on the
+team):</strong></p>
+<blockquote>
+<p>Glide is TGL's joint comfort and anti-inflammatory SKU, built for the
+35-65 year-old Indian adult navigating knee/lower-back stiffness,
+post-exercise soreness, finger-joint discomfort, and early-onset
+osteoarthritis indicators — and crafted explicitly as the upgrade path
+for the ~10-15K existing TGL Turmeric buyers in repeat cohort. Two
+plant-cellulose capsules a day, every day, deliver Sami-Sabinsa Curcumin
+C3 Complex (95% curcuminoids) + Sami-Sabinsa Boswellin Super (65%
+boswellic acids) + TGL captive whole-rhizome turmeric heritage thread +
+Sami-Sabinsa BioPerine + a minimal moringa heritage signature,
+addressing joint inflammation through complementary COX-2/NF-kB and
+5-LOX pathways at clinical-evidenced doses. Priced at premium ₹1,499 MRP
+(V3 lift from ₹999 to anchor TGL's premium position), Glide is the Tier
+C extension that turns a single-ingredient turmeric customer into a
+multi-active joint-care subscriber, opens the unisex 35-55
+men's-extension door TGL has never operated in, and slots into the Phase
+4 Active Adult Kit bundle with Spark.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-glide-motivation">2. Why we're building
+Glide (motivation)</h2>
+<p>Four reasons, in priority order:</p>
+<p><strong>1. The migration vehicle for ~10-15K existing TGL Turmeric
+buyers.</strong> Single-ingredient Turmeric is one of TGL's hero SKUs
+already in capsule format on Amazon. The repeat cohort already trusts
+TGL's turmeric quality. They have tried turmeric, felt mild benefit, and
+dropped off — the typical single-actor curcumin pattern. Glide is
+positioned as the <em>upgrade</em>, not a competing product: same
+turmeric whole-rhizome heritage thread they recognise, plus the curcumin
+concentration research actually validates, plus Boswellia (the
+most-evidenced Ayurvedic anti-inflammatory after curcumin), plus the
+BioPerine bioavailability hack. The Shopify-first launch motion
+(DEC-017) routes the existing TGL Turmeric Amazon customer to TGL.com
+via Klaviyo email + founder Reels with explicit upgrade messaging.
+Migration is the lowest-CAC growth in the Tier C playbook; Glide is
+built to harvest it.</p>
+<p><strong>2. The 35-65 unisex life-stage extension.</strong> Joint pain
+is the most cleanly unisex concern in TGL's catalog. Tier A women's
+hormonal continuum (Cycle, Bloom, Reset, Crest) tops out at the 28-58
+women's-life-stage cohort. Glide opens the 35-65 segment — including the
+men's-extension door under Pillar 3 ("women-led with men extensions
+where supply chain reuses"). Joint health is gender-neutral at this age
+band, Boswellia + Ashwagandha + curcumin are well-tolerated unisex
+actives, and a 60% female / 40% male customer mix is realistic without
+forcing TGL into a primary men's-health position. The Active Adult Kit
+bundle (Glide + Spark) is the Phase 4 flagship for the 35-55 unisex
+stress + joint customer.</p>
+<p><strong>3. The premium price-anchor reinforcement (V3 price
+lift).</strong> Per DEC-023 V3 cost lock, Glide MRP was lifted from ₹999
+to ₹1,499 (+₹500) to anchor TGL's premium positioning. The 76% GM at the
+new MRP holds; the lift is strategic, not cost-driven. Premium D2C
+joint-care benchmarks (Setu Joints:Sustain ₹899 sale, branded
+curcumin+Boswellia premium SKUs ₹1,500-2,500) confirm price-band
+headroom. Crest at ₹1,599 sale and Glide at ₹1,499 sale together set the
+perception ceiling that makes Cycle ₹899 read accessible-affordable
+rather than entry-low. Boswellin Super is the right active at the right
+price-band; the 95% curcuminoid C3 Complex carries enough premium-active
+credibility to support the lift without optical-only positioning.</p>
+<p><strong>4. The Pillar 1 extraction-method line in the sand.</strong>
+Curcumin extraction has a public bifurcation in the Indian D2C category:
+hexane-extracted 95% curcumin is the cheap industry default (~50-60% the
+cost of CO2-extracted) and the Pillar 1 violation that TGL declines on
+principle. Sami-Sabinsa C3 Complex is supercritical-CO2-extracted,
+hexane-free, with batch-level GC-MS solvent residue testing. Glide is
+TGL's public commitment to the harder-but-cleaner extraction path — and
+the Ingredient Library page on the website carries the per-batch CoA
+disclosure that no D2C competitor publishes. Pillar 4 transparency,
+applied to Pillar 1 sourcing discipline.</p>
+<p><strong>Why now (Phase 3 / batch 3, not Phase 1)</strong>: Glide is a
+customer-base portability play, not a hormonal-continuum core SKU. Phase
+1 (Cycle + Bloom + Reset) earns the website-led acquisition motion,
+validates the Shopify-first playbook, and seeds the multi-ingredient
+brand thesis. Phase 2 brings Bloom + Reset to scale and adds the
+daily-multi adjacency. Phase 3 (batch 3) is when the Tier C extensions
+ship — Glide first (largest existing-Turmeric migration cohort), Spark
+close behind (largest existing-Ashwagandha migration cohort). Sequencing
+reflects: Tier A first to set the brand + price ladder; Tier C second to
+harvest the existing Amazon customer base into Shopify subscription.</p>
+<p><strong>Single-sentence motivation</strong>: Glide is the upgrade SKU
+for ~10-15K existing TGL Turmeric Amazon customers and the 35-65 unisex
+joint-care extension — premium-priced at ₹1,499 to reinforce TGL's
+premium ceiling, formulated with branded Sami-Sabinsa C3 Complex +
+Boswellin Super at clinical evidenced doses, and positioned as the
+Pillar 1 line in the sand on supercritical CO2 extraction.</p>
+<hr />
+<h2
+id="3-the-customer-who-heshe-is-what-heshe-has-tried-what-fails-himher">3.
+The customer (who he/she is, what he/she has tried, what fails
+him/her)</h2>
+<p><strong>Who they are</strong> (core 35-65, peaking 40-55):</p>
+<p>The Glide customer skews ~60% female / ~40% male — the most unisex
+SKU in the TGL portfolio. The 40-55 woman is the largest cohort:
+peri-menopausal joint laxity beginning, post-pregnancy joint stress
+accumulated over years, finger-joint stiffness emerging in her late 40s,
+knee discomfort on the morning stair-descent. The 35-50 man is the
+secondary cohort: weekend-warrior runner / yoga / gym, post-30 joint
+recovery slower than it used to be, lower-back stiffness from a
+desk-bound work week. The 55-65 segment of both genders is the
+early-osteoarthritis cohort: their orthopaedist has named the diagnosis
+but not prescribed DMARDs yet.</p>
+<p>Household income ₹15-50L/year, urban Tier 1-2 (Mumbai, Delhi,
+Bangalore, Chennai, Hyderabad, Pune; expanding via WhatsApp-cluster
+word-of-mouth into Tier 2-3 — joint health is geographically broader
+than gut/hormonal). Comfortable with ₹600-1,500 monthly supplement
+spend. English-Hindi (or English-Tamil/Telugu) bilingual. He/she trusts
+ingredient transparency, brand-name actives they can Google (Curcumin C3
+Complex / BioPerine specifically), and percentage standardisation
+labels.</p>
+<p><strong>What's happening to their bodies</strong> (the medical
+context):</p>
+<p>Joint inflammation at this age band is a slow-onset multifactorial
+process: cumulative micro-trauma from decades of weight-bearing
+activity, age-related cartilage thinning, post-menopausal estrogen
+withdrawal accelerating bone-and-joint remodelling (in women),
+accumulated dietary inflammatory load, reduced sleep quality
+compromising overnight tissue repair, and the
+cortisol-stress-inflammation feedback loop. The morning-stiffness
+signal, the 1-hour-sitting-stiffness signal, the post-yoga-soreness
+signal — these are not pathological-yet, they are the body's
+pre-osteoarthritis communication.</p>
+<p>He/she is generally not pathologically diagnosed (the anti-persona is
+the diagnosed RA / severe OA patient on prescription DMARDs — refer to
+clinician). He/she is in a normal aging-and-load physiological process
+that he/she wants to manage rather than treat.</p>
+<p><strong>What he/she has tried, and why each fails
+him/her</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What he/she tries</th>
+<th>Why it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Family turmeric milk (haldi doodh)</td>
+<td>Sub-clinical curcumin dose (&lt;100mg per glass vs 500-1,000mg in
+clinical trials); cultural ritual but inadequate therapeutic load</td>
+</tr>
+<tr>
+<td>Single-ingredient Turmeric capsules (Patanjali ₹150, Himalaya ₹200,
+OZiva ₹699, existing TGL Turmeric ₹399)</td>
+<td>Curcumin alone underperforms vs multi-active stacks; bioavailability
+is low without piperine; no Boswellia synergy; he/she takes for 2-3
+months, feels slight benefit, drops off</td>
+</tr>
+<tr>
+<td>Glucosamine + chondroitin (HealthKart, MuscleBlaze, Setu
+Joints:Sustain ₹899)</td>
+<td>Shellfish-derived (NOT vegan / vegetarian, structural objection for
+the ~45% Indian vegetarian segment); synthetic; drops off because of
+taste/side-effects/Pillar 1 incompatibility</td>
+</tr>
+<tr>
+<td>Topical pain balms (Volini, Iodex, Move)</td>
+<td>Symptomatic relief only; doesn't address root inflammation; cycle of
+repeat-application</td>
+</tr>
+<tr>
+<td>Doctor-prescribed NSAIDs (ibuprofen, diclofenac)</td>
+<td>GI side-effects on chronic use; doesn't want to be on daily NSAIDs
+at 45; orthopaedist himself/herself often suggests a "natural"
+alternative for daily use</td>
+</tr>
+<tr>
+<td>Premium imported curcumin SKUs (CurcuWIN, Meriva, BCM-95
+standalone)</td>
+<td>Single-actor; expensive (₹1,500-2,500); no Indian Ayurvedic
+Boswellia heritage thread; thin storytelling</td>
+</tr>
+<tr>
+<td>Branded curcumin+Boswellia premium SKUs (₹1,500-2,500 in pharmacy /
+specialty channel)</td>
+<td>Available but anonymous brand presence in D2C; no founder voice; no
+Indian-source supply-chain transparency</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The gap Glide fills</strong>: a comprehensive premium D2C
+joint-care SKU at the ₹1,300-1,500 sale band (₹1,499 MRP / ₹1,349 sale),
+pairing the gold-standard Sami-Sabinsa C3 Complex curcumin with
+Sami-Sabinsa Boswellin Super at premium 65% boswellic acid
+standardisation, plus BioPerine bioavailability and TGL captive
+whole-rhizome turmeric heritage. One bottle, two complementary
+anti-inflammatory pathways (COX-2/NF-kB + 5-LOX), branded actives the
+customer can Google, founder face he/she can read, supercritical CO2
+extraction transparency on the website.</p>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-3-6-months">4.
+What the product does (the lived experience over 3-6 months)</h2>
+<p><strong>Glide is a slower-onset product than acute-pain customers
+expect, and we say so directly.</strong> Curcumin and Boswellia
+anti-inflammatory effects build over 4-8 weeks; joint-comfort
+improvement compounds over months as systemic inflammation reduces. The
+single most important customer-education message for Glide is <em>"plan
+for 8-12 weeks minimum to feel the full effect — daily use, every
+day."</em> Drop-off at Week 4 is the #1 retention risk; honest
+expectation-setting at the front of the journey is what protects the LTV
+math.</p>
+<p>Here's what he/she actually experiences across a 3-6 month arc on 2
+caps/day (1 morning + 1 evening with meals):</p>
+<p><strong>Weeks 1-2: the adjustment window.</strong></p>
+<p>Minimal perceived change. The body is calibrating to the curcumin +
+Boswellia + piperine load. Maybe one or two mornings of marginally
+easier knee mobility. Often, nothing he/she would consciously register.
+Some users notice mild GI activity in the first week (curcumin can be
+activating; BioPerine increases gastric activity); typically resolves by
+Week 2 when taken with meals.</p>
+<p><strong>Weeks 3-6: the first signal.</strong></p>
+<p>A meaningful proportion of consistent users start to notice:</p>
+<ul>
+<li>Morning knee/lower-back stiffness duration reducing (from ~10-15
+minutes to ~5-7 minutes)</li>
+<li>Post-1-hour-sitting stiffness less pronounced when he/she
+stands</li>
+<li>Post-yoga / post-exercise soreness recovering faster</li>
+<li>Finger-joint stiffness easing (women particularly)</li>
+</ul>
+<p>The user pattern at this stage: he/she finishes Pack 1, recognises
+he/she has been moving slightly easier, and decides "let me see if the
+pattern holds." This is the trial-to-loyal conversion moment.</p>
+<p><strong>Weeks 6-12: the full effect lands.</strong></p>
+<p>Joint-comfort improvement at the 30-50% subjective range (validated
+against benchmarks: Daily 2016 meta-analysis on curcumin in OA showed
+effects comparable to NSAIDs over 8-12 weeks; Kimmatkar 2003 RCT on
+Boswellia at 333mg 3x/day showed knee pain reduction over 8 weeks).
+Range-of-motion improving. Sleep quality marginally better (less
+night-time joint discomfort). The "I feel my knees more than I used to"
+subjective complaint reduces.</p>
+<p><strong>3-6+ months: maintenance and systemic anti-inflammatory
+compounding.</strong></p>
+<p>Sustained joint comfort. Systemic inflammatory markers (CRP if
+measured) trend down. He/she has settled into Glide as a daily ritual;
+subscription is on autopilot. The post-30-yoga-class soreness is now
+manageable, the morning knee stiffness is a distant memory, the
+orthopaedist visit is a routine annual check rather than a
+problem-driven consult.</p>
+<p><strong>What we're NOT promising</strong> (so customers and Deepika
+both stay credible):</p>
+<table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treats / cures arthritis or osteoarthritis</td>
+<td>Drug claim; FSSAI red line; not what supplements do</td>
+</tr>
+<tr>
+<td>Reverses joint damage</td>
+<td>Disease-reversal claim; cartilage damage is multifactorial and we
+cannot reverse it</td>
+</tr>
+<tr>
+<td>Stronger than ibuprofen or NSAIDs</td>
+<td>Drug-comparison claim; FSSAI prohibits</td>
+</tr>
+<tr>
+<td>Eliminates all pain</td>
+<td>Reduces inflammation and discomfort; doesn't eliminate; honest
+framing protects credibility</td>
+</tr>
+<tr>
+<td>Effect inside 30 days</td>
+<td>Wrong expectation; review wall; curcumin + Boswellia take 8-12 weeks
+minimum at clinical dose</td>
+</tr>
+<tr>
+<td>Replaces prescribed medication</td>
+<td>He/she needs his/her orthopaedist for diagnosed-disease decisions;
+we are daily anti-inflammatory support, not a prescription
+substitute</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest customer message</strong> Deepika repeats across
+content: <em>"Joint care is daily care. Glide is the natural-source
+anti-inflammatory stack — curcumin, Boswellia, and our farm-grown
+turmeric — at the doses research actually validates. Eight to twelve
+weeks minimum to feel the full effect. Built on Moringa. Powered by
+Ayurveda."</em></p>
+<hr />
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Five actives in the cap, organised as one TGL captive
+whole-rhizome turmeric heritage base + four standardised
+extracts.</strong> This is TGL's extract-first formulation philosophy in
+action (per <code>02-brand-dna.md</code> Operational Principle 6, locked
+2026-05-09 as TGL-P1-DEC-011) plus the Moringa Foundation principle
+(Tier C minimal heritage signature 12.5mg/cap × 2 caps = 25mg/day).
+Turmeric IS the hero of this Tier C SKU; moringa is the brand-continuity
+thread.</p>
+<p><strong>Format: Size #00 capsule × 2 caps/day daily; 60-cap pack
+(30-day supply).</strong> Size #00 (vs Size #0) chosen because the 250mg
+C3 + 350mg Boswellin Super + 100mg whole-rhizome matrix needs more fill
+volume than 500mg allows; 2 caps/day stays within the high-priority UX
+target per DEC-016.</p>
+<p><strong>Locked pricing (V3 — PRICE LIFT per DEC-023, +₹500 from V1
+₹999)</strong>:</p>
+<ul>
+<li><strong>MRP ₹1,499 / Sale ₹1,349 / Subscription ₹1,147</strong>
+(lifted from V1 ₹999/₹899/₹764 to anchor premium positioning)</li>
+<li>COGS ~₹354/pack at Deepika's confirmed in-house economics (V3 cost
+lock)</li>
+<li><strong>Gross margin at MRP: 76.4%</strong> — comfortable above the
+75% premium-D2C floor</li>
+<li>GM at sale ₹1,349: 73.8%. GM at sub ₹1,147: 69.1%. Sub margin sits
+at the floor; lever available is Boswellia generic fallback (see vendor
+matrix below) which restores ~3-4 percentage points if margin pressure
+builds.</li>
+</ul>
+<p><strong>Why the price was lifted (DEC-023 strategic
+rationale)</strong>:</p>
+<p>V1 priced Glide at ₹999 MRP / ₹899 sale to undercut Setu
+Joints:Sustain (₹1,299 MRP / ₹899 sale) and OZiva Plant-Based Curcumin
+(₹999 MRP / ₹699 sale). V3 reframes: TGL's premium ceiling needs
+anchoring. Crest at ₹1,799 MRP / ₹1,599 sale is the menopause flagship;
+Glide at ₹1,499 MRP / ₹1,349 sale becomes the joint-care premium anchor
+in the same band. The V1 ₹999 price-point read as "Indian D2C premium"
+but not as "premium-real" — and it left the branded curcumin+Boswellia
+premium D2C category (₹1,500-2,500) unclaimed by TGL.</p>
+<p>The V3 lift positions Glide where the formulation actually deserves
+to sit: branded Sami-Sabinsa C3 Complex curcumin (the
+most-clinically-cited curcumin globally), branded Sami-Sabinsa Boswellin
+Super (premium 65% boswellic acids), branded BioPerine. The ingredient
+deck commands the price; the COGS supports it (76% GM at MRP). And the
+perception ladder reads correctly: Cycle ₹899 entry / Bloom ₹999 / Reset
+₹1,499 / Glide ₹1,349 / Spark ₹999 / Crest ₹1,599 — a clean
+accessible-to-premium ladder where Glide and Crest hold the upper tier
+together.</p>
+<p><strong>The 5-active stack</strong> (each named with form +
+standardisation marker + concentration + primary vendor — DEC-016
+verified all-vendor-network standard concentrations; DEC-023/024
+brand-attribution corrections applied):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (~700mg fill, 2 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Sami-Sabinsa Curcumin C3 Complex</strong></td>
+<td>Standardised extract, <strong>95-97% curcuminoids</strong> (in
+80:18:2 curcumin:demethoxycurcumin:bisdemethoxycurcumin ratio, HPLC);
+supercritical CO2-extracted; hexane-free</td>
+<td><strong>Sami-Sabinsa</strong> (~₹8-18K/kg India landed)</td>
+<td>250 mg</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Sami-Sabinsa Boswellin Super</strong></td>
+<td>Standardised extract, <strong>65% total boswellic acids</strong>
+(with high AKBA fraction); hydroalcoholic-extracted; hexane-free</td>
+<td><strong>Sami-Sabinsa Boswellin Super</strong> (~₹1,500-4,000/kg
+India landed); generic 65% Boswellia from <strong>Vidya Herbs
+Boswellin</strong> OR <strong>Arjuna Natural</strong> at ~₹795-1,500/kg
+as margin-lever fallback</td>
+<td>350 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Turmeric whole-rhizome powder</strong></td>
+<td>Heat-treated whole rhizome powder, TGL captive farm supply (DPR
+Moringa farm extension; Erode/Salem-source cohort)</td>
+<td>TGL captive</td>
+<td>100 mg</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Sami-Sabinsa BioPerine</strong></td>
+<td>Standardised extract, <strong>95% piperine</strong> (HPLC);
+CO2-extracted; the patented 1998-Shoba bioavailability-enhancement
+industry standard</td>
+<td><strong>Sami-Sabinsa BioPerine</strong> (~₹3-6K/kg India)</td>
+<td>5 mg</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Moringa</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa) — Tier C minimal heritage signature</td>
+<td>TGL captive</td>
+<td>12.5 mg</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~717 mg / cap</strong> (Size #00 ✓)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Brand attribution (DEC-024-aligned)</strong>: Sami-Sabinsa is
+the primary on Curcumin C3 Complex, Boswellin Super, and BioPerine —
+three branded Sami actives in one cap is unusual for the D2C category
+and is a meaningful credibility signal. Sami-Sabinsa Curcumin C3 Complex
+is the most-clinically-cited curcumin extract globally (&gt;40 published
+RCTs); BioPerine is the patented 1998-Shoba bioavailability industry
+standard; Boswellin Super is the premium 65% boswellic-acid Sami
+offering. Generic 65% Boswellia from Vidya Herbs Boswellin OR Arjuna
+Natural is retained as the margin-lever fallback (~₹1,000-2,500 per kg
+cheaper than Sami Boswellin Super, restores ~3-4 percentage points GM if
+Sami pricing hardens at Q3 vendor terms).</p>
+<p><strong>DEC-016 compliance check (2026-05-09)</strong>: All 4
+non-moringa actives are vendor-network standard concentrations
+(Sami-Sabinsa C3 Complex 95-97% curcuminoids, Sami Boswellin Super 65%
+boswellic acids, BioPerine 95% piperine, TGL captive whole-rhizome) — no
+specialty / hyper-premium / single-supplier branded ingredients beyond
+the established Sami-Sabinsa relationship which is itself the
+network-standard premium tier.</p>
+<p><strong>On-pack and PDP labelling shows the standardisation
+transparently</strong> (example: "Curcumin C3 Complex 250 mg per cap —
+95-97% curcuminoids; Boswellin Super 350 mg per cap — 65% boswellic
+acids; BioPerine 5 mg per cap — 95% piperine") so the customer sees
+branded-active credibility delivered at clinical-evidenced doses.</p>
+<p><strong>Daily intake at 2 caps/day</strong> (every day, 1 morning + 1
+evening with meals):</p>
+<ul>
+<li>C3 Complex curcuminoids: 500 mg/day curcuminoid extract (~475-485 mg
+actual curcuminoids; lower-clinical-effective dose per Daily 2016
+meta-analysis, with BioPerine bioavailability enhancement equivalent to
+~10x non-piperine 1,000mg curcumin)</li>
+<li>Boswellin Super: 700 mg/day extract (~455 mg total boswellic acids;
+well above Kimmatkar 2003 RCT 333mg-3x/day = 1,000mg/day total at lower
+boswellic-acid standardisation)</li>
+<li>Whole-rhizome turmeric: 200 mg/day (carries non-curcuminoid
+turmerones and ar-turmerone for the traditional Ayurvedic full-spectrum
+delivery)</li>
+<li>BioPerine piperine: 10 mg/day (within Shoba 1998 study dose range;
+well below 20mg/day GI-tolerance ceiling)</li>
+<li>Moringa whole-leaf: 25 mg/day (Tier C minimal heritage signature
+dose, locked per Moringa Foundation principle)</li>
+<li><strong>Total daily extract + heritage intake: ~1,435 mg actual
+mass; comprehensive joint anti-inflammatory stack at clinical
+doses</strong></li>
+</ul>
+<p><strong>V3 cost lock — pack economics (DEC-023, locked
+2026-05-09)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>₹/pack</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sami-Sabinsa C3 Complex (~₹13K/kg mid, 15g/pack)</td>
+<td>~₹195</td>
+<td>Highest active cost; branded premium curcumin</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa Boswellin Super (~₹2,800/kg mid, 21g/pack)</td>
+<td>~₹59</td>
+<td>Branded premium Boswellia; generic Vidya Herbs Boswellin or Arjuna
+fallback at ~₹1,150/kg saves ~₹35/pack if needed</td>
+</tr>
+<tr>
+<td>TGL captive whole-rhizome turmeric (Erode/Salem-source,
+6g/pack)</td>
+<td>~₹4</td>
+<td>Captive supply, near-zero marginal</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa BioPerine (~₹4.5K/kg mid, 0.3g/pack)</td>
+<td>~₹2</td>
+<td>Trivial line item but branded credibility</td>
+</tr>
+<tr>
+<td>TGL captive moringa whole-leaf (0.75g/pack)</td>
+<td>~₹0.5</td>
+<td>DPR captive supply, near-zero marginal</td>
+</tr>
+<tr>
+<td>HPMC capsule shells (60 caps)</td>
+<td>~₹24</td>
+<td>Deepika vendor relationship per DEC-002</td>
+</tr>
+<tr>
+<td>HDPE amber bottle + label + monocarton</td>
+<td>~₹16</td>
+<td>Pragati Pack stack</td>
+</tr>
+<tr>
+<td>In-house manufacturing (encapsulation + bottling + QC)</td>
+<td>~₹10</td>
+<td>Deepika facility per V3 (vs ~₹50 external CMO)</td>
+</tr>
+<tr>
+<td>Other variable (desiccant, freight, QC consumables)</td>
+<td>~₹43</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total COGS</strong></td>
+<td><strong>~₹354</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at MRP ₹1,499</strong></td>
+<td><strong>76.4%</strong></td>
+<td>Above 75% premium-D2C floor</td>
+</tr>
+<tr>
+<td><strong>GM at sale ₹1,349</strong></td>
+<td><strong>73.8%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at sub ₹1,147</strong></td>
+<td><strong>69.1%</strong></td>
+<td>At the floor; Boswellia generic fallback restores ~3-4pp if
+needed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Boswellia margin-lever fallback explained</strong>: If Sami
+Boswellin Super pricing hardens at Q3 vendor terms (&gt;₹3,500/kg
+landed), TGL switches Boswellia line item to generic 65% Boswellia from
+Vidya Herbs Boswellin or Arjuna Natural at ~₹1,150/kg average. This swap
+saves ~₹35/pack in COGS, restoring GM at sub from 69.1% to ~72.1%, GM at
+sale from 73.8% to ~76.4%, GM at MRP from 76.4% to ~78.7%. The clinical
+equivalence justification is direct: 65% total boswellic acids is the
+standardisation marker; AKBA-fraction differences exist between Sami
+Boswellin Super and generic 65% extracts but the modern clinical
+literature (Kimmatkar 2003, Sengupta 2008, Vishal 2011) supports both
+formats at clinical doses. The lever is operational, not strategic —
+Sami Boswellin Super remains primary; generic Boswellia is the
+margin-protect path.</p>
+<p><strong>Why this specific 5-active stack</strong>:</p>
+<ul>
+<li><strong>Sami-Sabinsa Curcumin C3 Complex (95-97%)</strong>: the
+most-clinically-cited curcumin extract globally (&gt;40 published RCTs);
+patented Sami-Sabinsa product since 1995; supercritical CO2-extracted.
+Standard 95% curcuminoid spec at clinical-evidenced 500mg/day delivers
+measurable joint-comfort improvement when combined with BioPerine
+bioavailability enhancement. The brand name on the label gives the
+customer a verifiable global ingredient.</li>
+<li><strong>Sami-Sabinsa Boswellin Super (65% boswellic acids)</strong>:
+most-evidenced Ayurvedic anti-inflammatory after curcumin. Different
+mechanism (5-LOX inhibition vs curcumin's COX-2/NF-kB) creates
+documented synergy in the curcumin-Boswellia combination. Premium Sami
+offering at 65% standardisation; generic 65% Boswellia from Vidya
+Herbs/Arjuna retained as margin-lever fallback.</li>
+<li><strong>TGL captive whole-rhizome turmeric (Erode/Salem cohort,
+100mg/cap)</strong>: Tier C heritage thread anchoring the existing TGL
+Turmeric customer migration; carries non-curcuminoid turmerones
+(ar-turmerone, atlantone, zingiberene) absent from extract-only
+formulations; classical Ayurvedic full-spectrum delivery.</li>
+<li><strong>Sami-Sabinsa BioPerine (5mg/cap)</strong>: the patented
+1998-Shoba curcumin bioavailability enhancement industry standard.
+Increases serum curcumin AUC ~2000% (Shoba 1998). Without piperine, the
+Sami C3 Complex 500mg/day would be sub-clinically bioavailable; with
+BioPerine, the effective bioavailability puts Glide in the same clinical
+range as 1g+/day standalone curcumin.</li>
+<li><strong>Moringa whole-leaf (12.5mg/cap, Tier C minimal heritage
+signature)</strong>: brand heritage thread (the "Built on Moringa"
+anchor) at the Tier C minimal 25mg/day signature dose. Sub-therapeutic
+for primary anti-inflammatory effect but maintains the brand-thesis
+through-line.</li>
+</ul>
+<p><strong>What's NOT in the stack, and why</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Excluded active</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ashwagandha (KSM-66 or generic)</td>
+<td>Spark (SKU 10) carries Ashwagandha as primary active;
+cross-portfolio Tier C duplication avoided. Customer who wants joint +
+stress can buy the Active Adult Kit bundle (Glide + Spark).</td>
+</tr>
+<tr>
+<td>Glucosamine + chondroitin</td>
+<td>Shellfish-derived (NOT vegan / vegetarian); Pillar 1 declines
+synthetic / non-plant inputs; the ~45% Indian vegetarian segment objects
+structurally; clinical evidence for glucosamine in OA is mixed in the
+most-recent meta-analyses.</td>
+</tr>
+<tr>
+<td>MSM (methylsulfonylmethane)</td>
+<td>Synthetic adjunct (industrial-source); Pillar 1 declines. Glide
+stays plant-only.</td>
+</tr>
+<tr>
+<td>Ginger extract (6-gingerol)</td>
+<td>Strong V2 dossier candidate but adds cap-fill mass; deferred to keep
+cap fill at ~717mg / 5 actives. Vendor-formulator can re-evaluate at
+trial-fill if cap headroom allows.</td>
+</tr>
+<tr>
+<td>CurcuWIN / Meriva (curcumin-phospholipid complexes)</td>
+<td>Higher bioavailability than C3+BioPerine but ~3x ingredient cost;
+doesn't justify the COGS bump at the V3 ₹1,499 price-point. C3+BioPerine
+is the right cost-efficacy balance.</td>
+</tr>
+<tr>
+<td>Higher AKBA% Boswellia (Sami Boswellin Super 30%+ AKBA grade)</td>
+<td>We use 65% total boswellic acids (which includes AKBA fraction) at
+premium tier; isolating to AKBA-only specification is V2 reformulation
+candidate if customer feedback shows joint-pain reduction is the
+dominant testimonial driver.</td>
+</tr>
+<tr>
+<td>Sesamin (sesame lignan)</td>
+<td>V3 dossier candidate at 50mg for cross-SKU anti-inflammatory;
+deferred from Glide to keep cap fill discipline; reserved for a future
+combined anti-inflammatory + bone-health SKU.</td>
+</tr>
+<tr>
+<td>Vitamin D3 (lichen-source)</td>
+<td>Bone-joint link is real but Bloom carries D3 at the daily-multi
+tier; cross-sell rather than stack into Glide.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: 717 mg total fill in Size #00
+capsule (~700-1000 mg practical capacity). Comfortable fit, no
+granulation step required. Standard manufacturing in Deepika's in-house
+facility per V3 plan-level changes. Full execution spec to be drafted at
+vendor-formulator handoff (Dr. Lakshmi Kala, post 2026-05-11/12
+connect).</p>
+<hr />
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 5 actives: mechanism, classical basis, modern
+clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. Sami-Sabinsa Curcumin C3 Complex (95-97% curcuminoids,
+250mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: curcuminoids inhibit COX-2
+(cyclooxygenase-2) and modulate NF-kB transcription factor — two of the
+central inflammation-signalling pathways. Antioxidant via free-radical
+scavenging. Modulates inflammatory cytokine expression (TNF-alpha, IL-1,
+IL-6).</li>
+<li><strong>Classical basis</strong>: Turmeric (<em>Haridra</em>,
+<em>Curcuma longa</em>) is one of the most-cited herbs in <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> and <a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta
+Samhita</a>. Classical indications include <em>Sandhivata</em> (joint
+disease), <em>Vatarakta</em> (gouty arthritis), <em>Shotha</em>
+(inflammation/swelling). Cross-pillar Ayurvedic anti-inflammatory.</li>
+<li><strong>Modern clinical evidence</strong>: Daily JW, Yang M, Park S.
+<em>"Efficacy of Turmeric Extracts and Curcumin for Alleviating the
+Symptoms of Joint Arthritis: A Systematic Review and Meta-Analysis of
+Randomized Clinical Trials."</em> Journal of Medicinal Food, 2016;
+19(8):717-729. <a
+href="https://pubmed.ncbi.nlm.nih.gov/27533649/">PubMed</a>. 8 RCTs
+pooled; curcumin 1,000mg/day for 8-12 weeks improved joint pain
+comparable to NSAIDs in osteoarthritis patients. Plus the broader
+Aggarwal-lab curcumin literature at MD Anderson (&gt;120 published
+papers): Aggarwal BB, Sundaram C, Malani N, Ichikawa H. <em>"Curcumin:
+the Indian solid gold."</em> Adv Exp Med Biol, 2007; 595:1-75. <a
+href="https://pubmed.ncbi.nlm.nih.gov/17569205/">PubMed</a>. Plus
+Hewlings SJ, Kalman DS. <em>"Curcumin: A Review of Its Effects on Human
+Health."</em> Foods, 2017; 6(10):92. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5664031/">PMC</a>.</li>
+<li><strong>Dose rationale</strong>: 250 mg/cap × 2 caps = 500 mg
+curcuminoid extract daily. With BioPerine bioavailability enhancement
+(~2000% AUC uplift per Shoba 1998), bioavailable curcumin equivalent is
+in the clinical-effective range of standalone 1,000mg+ curcumin
+formulations. Lower-clinical-effective dose at the
+bioavailability-enhanced tier; cost-efficient vs CurcuWIN/Meriva
+bioavailability formats.</li>
+</ul>
+<p><strong>2. Sami-Sabinsa Boswellin Super (65% boswellic acids,
+350mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: boswellic acids (especially AKBA —
+acetyl-11-keto-beta-boswellic acid) inhibit 5-LOX (5-lipoxygenase),
+reducing leukotriene-mediated inflammation. Distinct mechanism from
+curcumin's COX-2/NF-kB pathway — the two together address both major
+inflammatory cascades.</li>
+<li><strong>Classical basis</strong>: Boswellia (<em>Shallaki</em>,
+<em>Boswellia serrata</em>) is classically indicated in <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> for <em>Sandhivata</em> (joint disease) and <em>Amavata</em>
+(rheumatoid-equivalent). Resin from the Boswellia tree has been used in
+Ayurvedic anti-inflammatory preparations for millennia.</li>
+<li><strong>Modern clinical evidence</strong>: Kimmatkar N, Thawani V,
+Hingorani L, Khiyani R. <em>"Efficacy and tolerability of Boswellia
+serrata extract in treatment of osteoarthritis of knee: a randomized
+double blind placebo controlled trial."</em> Phytomedicine, 2003;
+10(1):3-7. <a
+href="https://pubmed.ncbi.nlm.nih.gov/12622457/">PubMed</a>. 333mg
+Boswellia 3x/day for 8 weeks reduced knee OA pain significantly vs
+placebo. Plus Sengupta K et al. <em>"A double blind, randomized, placebo
+controlled study of the efficacy and safety of 5-Loxin for treatment of
+osteoarthritis of the knee."</em> Arthritis Res Ther, 2008; 10:R85. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2575633/">PMC</a>. Plus
+Vishal AA et al. <em>"A Double Blind, Randomized, Placebo Controlled
+Clinical Study Evaluates the Early Efficacy of Aflapin in Subjects with
+Osteoarthritis of Knee."</em> Int J Med Sci, 2011; 8(7):615-622. <a
+href="https://pubmed.ncbi.nlm.nih.gov/22022213/">PubMed</a>. Plus
+Kizhakkedath R. <em>"Clinical evaluation of a formulation containing
+Curcuma longa and Boswellia serrata extracts in the management of knee
+osteoarthritis."</em> Mol Med Rep, 2013; 8(5):1542-1548. <a
+href="https://pubmed.ncbi.nlm.nih.gov/24002213/">PubMed</a> — confirms
+curcumin + Boswellia combination superior to either alone.</li>
+<li><strong>Dose rationale</strong>: 350 mg/cap × 2 caps = 700 mg
+Boswellin Super daily, delivering ~455 mg total boswellic acids (vs
+Kimmatkar 2003 333mg-3x/day = 1,000mg/day at unspecified
+standardisation). At the premium 65% standardisation, our 700mg/day
+extract dose puts Glide at the upper end of the clinical-effective
+range.</li>
+</ul>
+<p><strong>3. Turmeric whole-rhizome powder (TGL captive, Erode/Salem
+cohort, 100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-rhizome carries non-curcuminoid
+actives — ar-turmerone, atlantone, zingiberene, alpha-turmerone — that
+exhibit independent anti-inflammatory and antioxidant activity.
+Classical Ayurvedic full-spectrum delivery.</li>
+<li><strong>Classical basis</strong>: same Charaka / Sushruta foundation
+as Sami C3 Complex; whole-rhizome is the traditional kashayam / churna
+delivery form (extracts are a modern format).</li>
+<li><strong>Modern clinical evidence</strong>: Aggarwal BB et al.
+<em>"Curcumin: An Indian Solid Gold."</em> Adv Exp Med Biol, 2007;
+595:1-75. <a href="https://pubmed.ncbi.nlm.nih.gov/17569205/">PubMed</a>
+— covers non-curcuminoid turmeric actives. Plus Park SY, Kim DSHL.
+<em>"Discovery of natural products from Curcuma longa that protect cells
+from beta-amyloid insult: a drug discovery effort against Alzheimer's
+disease."</em> J Nat Prod, 2002; 65(9):1227-1231. <a
+href="https://pubmed.ncbi.nlm.nih.gov/12350137/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 100 mg/cap × 2 caps = 200 mg/day
+whole-rhizome. Tier C heritage thread anchoring the existing TGL
+Turmeric migration cohort; carries traditional Ayurvedic full-spectrum
+signal alongside the clinical-dose extract.</li>
+<li><strong>Brand role</strong>: the migration story for existing TGL
+Turmeric buyers requires a visible turmeric heritage thread.
+Whole-rhizome at 100mg/cap is the "same TGL turmeric you know" anchor
+that bridges single-actor-turmeric to multi-active joint-care.</li>
+</ul>
+<p><strong>4. Sami-Sabinsa BioPerine (95% piperine,
+5mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: piperine inhibits hepatic and intestinal
+glucuronidation of curcumin, dramatically increasing serum curcumin AUC.
+Without piperine, oral curcumin has low bioavailability (large
+first-pass metabolism); with piperine, bioavailable curcumin increases
+~2000%.</li>
+<li><strong>Classical basis</strong>: black pepper (<em>Maricha</em>,
+<em>Piper nigrum</em>) is the most-cited <em>anupana</em> (vehicle) in
+classical Ayurveda for enhancing the action of other herbs. The
+Ayurvedic concept of <em>bhaisajya</em> (synergy) anchors the piperine +
+curcumin combination two millennia before the Shoba 1998 modern
+study.</li>
+<li><strong>Modern clinical evidence</strong>: Shoba G, Joy D, Joseph T,
+Majeed M, Rajendran R, Srinivas PSSR. <em>"Influence of piperine on the
+pharmacokinetics of curcumin in animals and human volunteers."</em>
+Planta Medica, 1998; 64(4):353-356. <a
+href="https://pubmed.ncbi.nlm.nih.gov/9619120/">PubMed</a>. The classic
+bioavailability study; piperine at 20mg/day increased curcumin AUC 2000%
+in healthy human volunteers. Industry-standard reference for curcumin
+formulation since.</li>
+<li><strong>Dose rationale</strong>: 5 mg/cap × 2 caps = 10 mg/day
+piperine extract (~9.5mg actual piperine at 95% standardisation). Below
+Shoba 1998 study dose of 20mg/day piperine; well below 20mg/day
+GI-tolerance ceiling. Effective at this dose for curcumin
+bioavailability enhancement; conservative for tolerance.</li>
+</ul>
+<p><strong>5. Moringa whole-leaf powder (TGL captive, Tier C minimal
+heritage signature, 12.5mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (iron, calcium,
+vitamin C, antioxidants, chlorophyll) — at this Tier C minimal dose,
+primarily a brand-thesis carrier rather than a primary
+anti-inflammatory.</li>
+<li><strong>Folk + modern basis</strong>: established nutraceutical
+literature on moringa as iron + folate + B-complex source.</li>
+<li><strong>Modern evidence</strong>: Alegbeleye OO. <em>"How Functional
+Is Moringa oleifera? A Review of Its Nutritive, Medicinal, and
+Socioeconomic Potential."</em> Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 12.5 mg/cap × 2 caps = 25 mg/day.
+Tier C minimal heritage signature dose, locked per Moringa Foundation
+principle (2026-05-05). Substantive enough to carry the moringa thread
+without overstating in a Tier C extension where Turmeric is the
+hero.</li>
+<li><strong>Brand role</strong>: heritage signature carrying the
+cross-portfolio "Built on Moringa. Powered by Ayurveda." narrative.</li>
+</ul>
+<hr />
+<p><strong>Evidence-strength summary</strong> (so the team knows where
+we are confident vs cautious):</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Traditional basis</th>
+<th>Modern clinical evidence</th>
+<th>Overall strength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sami C3 Complex curcumin (95%)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/sushruta-samhita-volume-1-sutrasthana">Sushruta</a>
+(Sandhivata, Vatarakta, Shotha)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/27533649/">Daily 2016
+meta</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/17569205/">Aggarwal
+2007 review</a>, <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5664031/">Hewlings 2017
+review</a></td>
+<td>Modern-strong + Traditional-strong</td>
+</tr>
+<tr>
+<td>Sami Boswellin Super (65%)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>
+(Sandhivata, Amavata)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/12622457/">Kimmatkar 2003
+RCT</a>, <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2575633/">Sengupta 2008
+RCT</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/22022213/">Vishal 2011
+RCT</a>, <a
+href="https://pubmed.ncbi.nlm.nih.gov/24002213/">Kizhakkedath 2013
+combination RCT</a></td>
+<td>Modern-strong + Traditional-strong</td>
+</tr>
+<tr>
+<td>Whole-rhizome turmeric</td>
+<td>Charaka, Sushruta (kashayam/churna tradition)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/17569205/">Aggarwal
+2007</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/12350137/">Park
+2002</a></td>
+<td>Traditional-strong, Modern-supportive</td>
+</tr>
+<tr>
+<td>Sami BioPerine (95%)</td>
+<td>Maricha as classical <em>anupana</em> (synergy vehicle)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/9619120/">Shoba 1998 PK
+study</a></td>
+<td>Modern-strong (bioavailability) + Traditional-strong</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>Folk + modern nutraceutical</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29284305/">Alegbeleye
+2018</a></td>
+<td>Modern-strong (nutritive); sub-therapeutic at Tier C minimal
+dose</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Glide as the SKU it is.</p>
+<p><strong>Layer 1: Why Glide as Tier C / Phase 3 (not Tier A, not
+later)</strong></p>
+<p>We evaluated all 10 SKUs across volume, profitability, TGL-fit, and
+founder authenticity. Glide scored well on:</p>
+<ul>
+<li><strong>Migration cohort size</strong>: ~10-15K existing TGL
+Turmeric Amazon buyers in repeat cohort — the largest single-SKU
+migration target in the catalog after Spark (existing Ashwagandha
+cohort).</li>
+<li><strong>Unisex extension</strong>: only Tier C SKU that opens the
+men's-extension door under Pillar 3 without forcing primary men's-health
+positioning.</li>
+<li><strong>Premium price-anchor support</strong>: at the V3 ₹1,499 MRP,
+Glide co-anchors the upper price ceiling alongside Crest ₹1,799 — making
+Cycle ₹999 read accessible-affordable.</li>
+</ul>
+<p>Glide scored lower on Phase 1 launchability:</p>
+<ul>
+<li><strong>Cold-cohort education cost</strong>: TGL has no current
+35-65 unisex joint-care customer base at the women's-hormonal-continuum
+lead. Education investment is real.</li>
+<li><strong>Tier A first</strong>: the Q1 trio (Cycle + Bloom + Reset)
+earns the website-led acquisition motion + brand + price ladder before
+Tier C extensions ship.</li>
+</ul>
+<p>So Glide is sequenced to Phase 3 / batch 3 not because it's a weaker
+SKU but because it's a Tier C extension that pays off after Tier A sets
+the brand foundation. The migration economics are best-in-portfolio
+(existing customer base, not cold acquisition), but the migration motion
+only works after Phase 1 has proven the Shopify-first playbook.</p>
+<p><strong>Layer 2: Why this 5-active stack (and not
+another)</strong></p>
+<p>Joint-care formulation has roughly 10 cited natural-source
+candidates. We considered each and selected 5:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sami-Sabinsa Curcumin C3 Complex (95-97%)</td>
+<td>INCLUDED</td>
+<td>Most-clinically-cited curcumin globally; supercritical CO2-extracted
+(Pillar 1); patented Sami brand on label is verifiable credibility.</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa Boswellin Super (65% boswellic acids)</td>
+<td>INCLUDED</td>
+<td>Most-evidenced Ayurvedic anti-inflammatory after curcumin;
+complementary 5-LOX mechanism; documented synergy with curcumin.</td>
+</tr>
+<tr>
+<td>TGL captive whole-rhizome turmeric (100mg/cap)</td>
+<td>INCLUDED</td>
+<td>Heritage thread for migration cohort; non-curcuminoid turmerone
+full-spectrum delivery; brand-continuity signal.</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa BioPerine (95% piperine, 5mg/cap)</td>
+<td>INCLUDED</td>
+<td>Without piperine, C3 Complex 500mg/day is sub-bioavailable; with
+BioPerine, equivalent to 10x dose. Classical <em>anupana</em>
+foundation.</td>
+</tr>
+<tr>
+<td>Moringa (Tier C minimal, 12.5mg/cap)</td>
+<td>INCLUDED (heritage signature)</td>
+<td>Brand-thesis through-line at Tier C minimal dose.</td>
+</tr>
+<tr>
+<td>Ashwagandha (KSM-66 or generic)</td>
+<td>EXCLUDED</td>
+<td>Spark carries Ashwagandha as primary; cross-portfolio Tier C
+duplication avoided. Bundle (Glide + Spark) is the customer who wants
+both.</td>
+</tr>
+<tr>
+<td>Glucosamine + chondroitin</td>
+<td>EXCLUDED</td>
+<td>Shellfish-derived; vegan/vegetarian objection; Pillar 1 declines;
+mixed clinical evidence in newer meta-analyses.</td>
+</tr>
+<tr>
+<td>MSM</td>
+<td>EXCLUDED</td>
+<td>Synthetic adjunct; Pillar 1 declines plant-only stays
+plant-only.</td>
+</tr>
+<tr>
+<td>Ginger extract (6-gingerol)</td>
+<td>EXCLUDED (V1)</td>
+<td>Strong V2 candidate at 50mg; deferred to keep cap fill at ~717mg.
+Vendor-formulator can reconsider at trial-fill.</td>
+</tr>
+<tr>
+<td>CurcuWIN / Meriva (curcumin-phospholipid)</td>
+<td>EXCLUDED</td>
+<td>Higher bioavailability than C3+BioPerine but ~3x cost; doesn't
+justify the COGS bump at V3 price-point. C3+BioPerine is the right
+cost-efficacy balance.</td>
+</tr>
+<tr>
+<td>Higher AKBA-only Boswellia</td>
+<td>EXCLUDED (V1)</td>
+<td>Sami Boswellin Super 65% total boswellic acids includes AKBA
+fraction; isolating to AKBA-only spec is V2 reformulation candidate
+based on customer feedback.</td>
+</tr>
+<tr>
+<td>Sesamin (sesame lignan)</td>
+<td>EXCLUDED</td>
+<td>V3 dossier candidate at 50mg; deferred from V1 to keep cap fill at 5
+actives. Reserved for future combined SKU.</td>
+</tr>
+<tr>
+<td>Vitamin D3 (lichen)</td>
+<td>EXCLUDED</td>
+<td>Bone-joint link is real but Bloom carries D3 at daily-multi tier;
+cross-sell rather than stack.</td>
+</tr>
+<tr>
+<td>Topical ingredients (capsicum, methyl salicylate)</td>
+<td>EXCLUDED</td>
+<td>Glide is oral capsule; topical lives in a separate product line if
+TGL ever extends format.</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio approach forces discipline: each active in one SKU's
+primary role; minimal cross-SKU duplication.</p>
+<p><strong>Layer 3: Why this specific dose architecture (and not
+another)</strong></p>
+<p>Every dose was triangulated across three constraints:</p>
+<ol type="1">
+<li><strong>Clinical / classical therapeutic range</strong> (what RCTs
+or Charaka actually use)</li>
+<li><strong>Capsule fill feasibility</strong> (Size #00 = ~700-1000 mg
+practical fill)</li>
+<li><strong>2-cap-per-day compliance ceiling</strong> (anything beyond 2
+caps creates retention friction)</li>
+</ol>
+<p>That triangulation forced the Size #00 path (Size #0 cannot hold the
+250mg C3 + 350mg Boswellin Super matrix at premium standardisation). At
+717 mg fill, capsule remains comfortable and we have headroom for
+vendor-formulator to add ginger (50mg) at trial-fill if needed.</p>
+<p><strong>Trade-offs we accepted, openly stated:</strong></p>
+<ul>
+<li><strong>Lower-clinical-effective curcumin dose at the
+bioavailability-enhanced tier</strong>, not the 1,000mg+/day
+standalone-curcumin dose. C3+BioPerine equivalence justifies the lower
+extract dose; cost-efficiency vs CurcuWIN/Meriva is real.
+Customer-feedback signal on joint-comfort improvement at Week 12 is the
+validation gate; if sub-clinical, V2 reformulation lifts curcuminoid
+extract to 350mg/cap (700mg/day extract).</li>
+<li><strong>GM at sub price (₹1,147) sits at 69.1% — at the
+floor</strong>, not above. Boswellia generic fallback (Vidya Herbs
+Boswellin or Arjuna at ~₹1,150/kg vs Sami Boswellin Super ~₹2,800/kg) is
+the margin-protect lever, restoring sub GM to ~72%. Lever is
+operational, not strategic.</li>
+<li><strong>Single Sami-Sabinsa supplier concentration on three of five
+actives</strong> (C3 Complex, Boswellin Super, BioPerine). Mitigated by
+Vidya Herbs / Arjuna Natural backup paths for Boswellia and piperine; C3
+Complex is the only active where Sami is the structural primary.</li>
+<li><strong>Per-active mg numbers look modest on label</strong> vs
+single-actor 1,000mg curcumin SKUs (Glide reads "Curcumin C3 Complex
+250mg/cap" while Himalaya Curcumin reads "Curcumin 250mg/tablet").
+Mitigated by the multi-active framing — Glide doesn't compete on
+curcumin-mg count, it competes on multi-pathway anti-inflammatory stack
+at clinical doses.</li>
+<li><strong>Migration friction from existing TGL Turmeric ₹399 to Glide
+₹1,349 sale</strong> (~3.4x price uplift). Mitigated by explicit upgrade
+messaging ("same TGL turmeric, plus what your joints need"), bundle
+pricing for the Turmeric→Glide transition cycle, founder Reels walking
+the upgrade story.</li>
+</ul>
+<p><strong>The decision trail in one sentence</strong>: Glide is the
+upgrade SKU for ~10-15K existing TGL Turmeric Amazon customers and the
+35-65 unisex joint-care extension, formulated with branded Sami-Sabinsa
+C3 Complex + Boswellin Super at clinical-evidenced doses + BioPerine
+bioavailability + TGL captive turmeric heritage thread, priced at V3
+premium ₹1,499 MRP to anchor TGL's premium ceiling, with 76% GM at MRP
+earning the position.</p>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p>Glide plays in the comprehensive premium D2C joint-care category. Per
+the V3 dossier benchmark set + V2 short brief input.</p>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>Price (sale)</th>
+<th>Format</th>
+<th>Positioning</th>
+<th>Active focus</th>
+<th>Per-day cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Glide (TGL)</strong></td>
+<td>₹1,349</td>
+<td>Capsule, 2/day</td>
+<td><strong>Comprehensive premium single-SKU multi-pathway
+anti-inflammatory</strong> + Sami branded actives</td>
+<td>C3 Complex curcumin + Boswellin Super + whole-rhizome turmeric +
+BioPerine + moringa</td>
+<td>~₹45/day</td>
+</tr>
+<tr>
+<td><strong>Earthful Joint Care</strong></td>
+<td>₹699</td>
+<td>Capsule</td>
+<td>Mid-tier multi-active Ayurvedic</td>
+<td>Curcumin + Boswellia + ashwagandha + ginger</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Setu Joints:Sustain</strong></td>
+<td>₹1,200</td>
+<td>Dual-release capsule</td>
+<td>Pharma-coded clinical Western joint-care</td>
+<td>Glucosamine + chondroitin + MSM + curcumin + D3</td>
+<td>~₹40/day</td>
+</tr>
+<tr>
+<td><strong>OZiva Plant-Based Curcumin</strong></td>
+<td>₹699</td>
+<td>Tablet</td>
+<td>Single-actor curcumin + bioavailability hack</td>
+<td>Curcumin + Vit D3 synthetic + amla + BioPerine</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Branded curcumin singles (Carbamide Forte, HK Vitals,
+etc.)</strong></td>
+<td>₹500-1,500</td>
+<td>Capsule/tablet</td>
+<td>Single-actor curcumin</td>
+<td>Curcumin 95% + piperine</td>
+<td>~₹17-50/day</td>
+</tr>
+<tr>
+<td><strong>Premium branded curcumin+Boswellia (Mihiral, Zenith,
+etc.)</strong></td>
+<td>₹1,500-2,500</td>
+<td>Capsule</td>
+<td>Premium D2C multi-active</td>
+<td>C3 Complex / BCM-95 + AKBA Boswellia</td>
+<td>~₹50-80/day</td>
+</tr>
+<tr>
+<td><strong>Cureveda Joint Sure</strong></td>
+<td>₹699</td>
+<td>Capsule</td>
+<td>Ayurveda-rooted multi-active</td>
+<td>Curcumin + Boswellia + ashwagandha</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Patanjali Divya Peedantak Vati</strong></td>
+<td>₹150</td>
+<td>Tablet</td>
+<td>Mass-Ayurveda</td>
+<td>Multi-herb Ayurvedic</td>
+<td>~₹5/day</td>
+</tr>
+<tr>
+<td><strong>Himalaya Rumalaya Forte</strong></td>
+<td>₹250</td>
+<td>Tablet</td>
+<td>Mass-Ayurveda</td>
+<td>Multi-herb formulation</td>
+<td>~₹8/day</td>
+</tr>
+<tr>
+<td><strong>Kapiva Joint Care juice</strong></td>
+<td>₹499</td>
+<td>Liquid juice</td>
+<td>Heritage-juice format</td>
+<td>Turmeric + Boswellia + ashwagandha juice</td>
+<td>~₹17/day</td>
+</tr>
+<tr>
+<td><strong>Imported (Meriva, CurcuWIN, BCM-95 standalone)</strong></td>
+<td>₹1,500-2,500</td>
+<td>Capsule</td>
+<td>Premium imported curcumin</td>
+<td>Curcumin-phospholipid complex</td>
+<td>~₹50-80/day</td>
+</tr>
+<tr>
+<td><strong>Existing TGL Turmeric (single-ingredient)</strong></td>
+<td>₹399</td>
+<td>Capsule</td>
+<td>Entry single-actor turmeric</td>
+<td>Whole-rhizome turmeric</td>
+<td>~₹13/day</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The single-sentence competitive position</strong>: Glide is
+the only Indian D2C SKU that pairs <strong>branded Sami-Sabinsa C3
+Complex curcumin + Boswellin Super at premium 65% boswellic
+acids</strong> in a single comprehensive premium multi-pathway
+anti-inflammatory capsule, with <strong>TGL captive whole-rhizome
+turmeric heritage thread</strong> carrying the existing Turmeric
+customer migration story, <strong>Pillar 1 supercritical CO2 extraction
+transparency</strong> published per batch on the Ingredient Library
+page, and <strong>founder Deepika voice</strong> that no
+commodity-Ayurveda competitor (Patanjali, Dabur) and no
+urban-millennial-coded D2C (OZiva, Setu, Cureveda) can match — at 76% GM
+at MRP, the ₹1,499 premium pricing is COGS-earned not optical.</p>
+<hr />
+<h2 id="9-right-to-win-why-a-real-customer-picks-glide">9. Right to win
+(why a real customer picks Glide)</h2>
+<p>Five reasons he/she chooses Glide when he/she's looking at the
+shelf.</p>
+<p><strong>1. The Sami-Sabinsa branded actives on the label.</strong>
+Curcumin C3 Complex + Boswellin Super + BioPerine — three branded Sami
+actives in one capsule is unusual for the D2C category and is a
+meaningful credibility signal. He/she can Google each one and verify the
+global clinical citation base. No-name 95% curcumin from an unspecified
+extractor doesn't have the same credibility weight, especially at the
+premium ₹1,499 price-band.</p>
+<p><strong>2. Multi-pathway anti-inflammatory at clinical
+doses.</strong> Curcumin (COX-2/NF-kB) + Boswellia (5-LOX) is the
+most-evidenced complementary mechanism pairing in plant-source
+joint-care. Single-actor curcumin SKUs (OZiva, HK Vitals, Carbamide
+Forte) miss the 5-LOX pathway entirely; Glide closes the gap. The Daily
+2016 meta + Kimmatkar 2003 RCT + Kizhakkedath 2013 combination RCT all
+stack to a clinical-evidence floor that single-actor competitors don't
+reach.</p>
+<p><strong>3. The migration story for existing TGL Turmeric
+buyers.</strong> "You already trust our turmeric. We've kept the
+whole-rhizome you know, and added the curcumin concentration research
+validates plus Boswellia and BioPerine — same TGL turmeric, plus what
+your joints need." The existing customer has 2-3 years of TGL trust
+banked; Glide is the natural upgrade, not a switch-cost decision.</p>
+<p><strong>4. Pillar 1 supercritical CO2 extraction
+transparency.</strong> Hexane-extracted 95% curcumin is the cheap
+industry default and the Pillar 1 violation. Glide's Sami C3 Complex is
+supercritical CO2-extracted with batch-level GC-MS solvent residue
+testing, published per batch on the Ingredient Library page. No D2C
+competitor publishes per-batch solvent-extraction CoAs. Pillar 4
+transparency applied to Pillar 1 sourcing discipline.</p>
+<p><strong>5. The unisex use case + founder voice.</strong> Joint pain
+is the most cleanly unisex concern in TGL's catalog; Deepika's content
+can address both 45-year-old women and 45-year-old men without rebrand.
+Most competitors are either women-coded (OZiva), men-coded (Man
+Matters), or brand-anonymous (premium pharmacy SKUs). TGL is the rare
+brand where the founder face is genuinely in the joint-care life-stage
+and can speak to both genders without code-switching.</p>
+<p><strong>Two things that do not show up in the matrix but matter in
+real life:</strong></p>
+<ul>
+<li><strong>The "premium-real, not optical" credibility check.</strong>
+At ₹1,499 MRP, customers scrutinise. Single Sami branded actives have
+global clinical citations (&gt;40 RCTs on C3 Complex alone). Per-batch
+CoA on the website. In-house manufacturing at Deepika's facility (not
+third-party CMO black-box). 76% GM at MRP earned via in-house
+manufacturing economics, not optical premium positioning.</li>
+<li><strong>The vegan / vegetarian structural advantage vs Setu's
+shellfish-derived glucosamine.</strong> Setu Joints:Sustain is the
+closest premium competitor at ₹1,200 sale, but glucosamine + chondroitin
+are shellfish-derived. ~45% of Indian customers are vegetarian / vegan.
+Glide is plant-only with no asterisk. Frame this explicitly in PDP +
+Reels content — it's a real structural sourcing limitation Setu cannot
+reverse.</li>
+</ul>
+<p><strong>The single-sentence right to win</strong>: Glide wins because
+it's the one capsule that pairs the most-clinically-cited branded Sami
+curcumin + Boswellia at clinical-evidenced multi-pathway
+anti-inflammatory doses, with TGL captive turmeric heritage threading
+the migration story, Pillar 1 CO2 extraction transparency the category
+lacks, founder Deepika voice that crosses gender, and 76% GM at MRP
+earning the premium positioning.</p>
+<hr />
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p><strong>Channel mix is website-first / Shopify-led, NOT
+Amazon-first</strong> (per TGL-P1-DEC-017, locked 2026-05-09). Today's
+80% Amazon revenue concentration on TGL's existing Turmeric SKU is a
+remediable weakness from inefficient website performance marketing — not
+strategic intent. Glide's launch motion is built explicitly to migrate
+the existing TGL Turmeric Amazon customer base to TGL.com via Shopify
+subscription: Meta + Google ads → Shopify PDP, founder Reels/Stories for
+organic, Klaviyo email/SMS for the existing-Turmeric-buyer migration
+sequence, native Shopify subscription mechanic. Amazon is added as a
+<strong>secondary channel in Month 2-3 post-launch</strong> after the
+website motion is proven.</p>
+<p>The migration math is the central planning lever: existing TGL
+Turmeric Amazon customer at ₹399 sale generates ~₹52 contribution margin
+(assuming ₹190 COGS + Amazon ~30% commission/return drag at this price
+band). Same customer migrated to TGL.com Glide subscription at ₹1,147
+generates ~₹793 contribution margin (₹354 COGS + zero Amazon drag +
+Klaviyo retention + 6-month subscription LTV). The migration is a 15x
+contribution-margin uplift per customer per cycle. Even at 20% migration
+rate from the ~10-15K existing Turmeric repeat cohort, the Phase 3 batch
+math is dominated by the migration story, not cold acquisition.</p>
+<p><strong>Channel mix at launch (Phase 3 / batch 3)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Klaviyo email + SMS to existing TGL Turmeric customer base</td>
+<td><strong>Migration sequence — primary launch lever</strong></td>
+<td>~30%</td>
+</tr>
+<tr>
+<td>Meta (Instagram + Facebook) → Shopify PDP</td>
+<td>Acquisition + retargeting</td>
+<td>~30%</td>
+</tr>
+<tr>
+<td>Google Search + SEO → Shopify PDP</td>
+<td>Branded + non-branded joint-care search</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Founder Reels + Stories (organic + boosted)</td>
+<td>Trust + content engine + migration story</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Creator partnerships (35-55 wellness, joint-care, yoga)</td>
+<td>Cohort-matched activation</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Amazon (secondary, Month 2-3+)</td>
+<td>Channel diversification once website motion proven</td>
+<td>~5%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pricing locked (V3, LIFTED per DEC-023)</strong>: ₹1,499 MRP
+/ ₹1,349 sale / ₹1,147 sub. Premium price-anchor reinforcement. 76% GM
+at MRP.</p>
+<p><strong>Geography priority</strong>: pan-Indian Tier 1-2 metros where
+the 35-65 cohort with disposable income concentrates. Joint-care is
+geographically broader than gut/hormonal — Tier 2 reach is real (Indore,
+Jaipur, Coimbatore, Lucknow, Chandigarh). Less South-skewed than
+Cycle.</p>
+<p><strong>Deepika's content cadence</strong>: ~1 founder Reel per week
+through launch month. Pre-launch covers "why I'm building Glide for the
+40+ joint-stiffness conversation," "the curcumin + Boswellia evidence
+base," "what supercritical CO2 extraction means and why it matters,"
+"the migration story for our existing Turmeric customers," "the 8-12
+week arc — give it time." Launch month rotates: founder use, customer
+Q&amp;A, ingredient story, expectation-setting, the unisex framing.</p>
+<p><strong>Asset list (Boco produces, pre-launch)</strong>: Glide PDP,
+brand kit refinement (carrying Cycle's Q1 design language with
+joint-care-tier visual lift to justify the premium pricing read), 5 ad
+creative templates, Klaviyo migration email flow for existing Turmeric
+buyers, launch + onboarding + 8-12 week retention flows, Ingredient
+Library entry with per-batch CoA disclosure framework. Live by launch -2
+weeks.</p>
+<p><strong>Owner split</strong>: Deepika owns founder content (~6-8
+hrs/week launch month). Unnati owns Meta channel ops + Klaviyo migration
+sequence + creator outreach (~12-15 hrs/week launch month). Boco (Meera,
+Kavya, Aarav) owns asset production, front-loaded in launch -8 to -2
+weeks.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p>Three pitches scaled to the conversation length.</p>
+<p><strong>5-second elevator</strong> (chance encounters, quick brand
+mentions):</p>
+<blockquote>
+<p>"Glide is our joint-care supplement. Two capsules a day, every day.
+Curcumin C3 Complex, Boswellin Super, BioPerine, our farm-grown
+turmeric. Built on Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<p><strong>30-second customer pitch</strong> (the version most people
+will hear, in Deepika's voice):</p>
+<blockquote>
+<p>"Joint stiffness in your forties is the body telling you what's
+coming. Glide is the comprehensive joint-care supplement I'm making for
+this stage. Two capsules a day, every day: clinical-dose Sami-Sabinsa
+Curcumin C3 Complex with BioPerine for bioavailability, Sami Boswellin
+Super for the second anti-inflammatory pathway curcumin alone misses,
+and our farm-grown whole-rhizome turmeric as the heritage thread. Plan
+for eight to twelve weeks minimum. The arc is what works."</p>
+</blockquote>
+<p><strong>60-second partner pitch</strong> (creator partnerships,
+retail conversations, in Unnati's or Deepika's voice):</p>
+<blockquote>
+<p>"Glide is The Good Leaf's comprehensive joint-care SKU, designed for
+adults 35-65 navigating knee, lower-back, and finger-joint stiffness,
+post-exercise soreness, and early-onset osteoarthritis indicators. Five
+actives at clinical doses: Sami-Sabinsa Curcumin C3 Complex 500mg/day at
+95-97% curcuminoids (the most-clinically-cited curcumin globally,
+supercritical CO2-extracted), Sami Boswellin Super 700mg/day at 65%
+boswellic acids (Kimmatkar 2003 RCT validated), TGL captive
+whole-rhizome turmeric 200mg/day for the traditional Ayurvedic heritage
+thread, Sami BioPerine 10mg/day for the curcumin bioavailability
+enhancement (Shoba 1998 ~2000% AUC uplift), and farm-grown moringa as
+the heritage signature. Two capsules a day, ₹1,349 sale, around ₹45 per
+day, designed for a 8-12 week minimum arc with subscription cadence at
+₹1,147. We're the only Indian D2C joint-care SKU that pairs branded Sami
+C3 Complex + Boswellin Super + BioPerine in one capsule — competitors
+are single-actor curcumin, glucosamine-based pharma-coded
+(shellfish-derived), or commodity multi-Ayurvedic without
+standardisation transparency. Founder Deepika voice crosses gender for
+the unisex 35-65 cohort; per-batch CoA disclosure on the Ingredient
+Library page is the Pillar 4 transparency no D2C competitor
+publishes."</p>
+</blockquote>
+<p><strong>The honest message Deepika repeats across organic
+content</strong> (the recurring tagline pattern):</p>
+<blockquote>
+<p>"Joint care is daily care. Glide is the natural-source
+anti-inflammatory stack — curcumin, Boswellia, and our farm-grown
+turmeric — at the doses research actually validates. Eight to twelve
+weeks minimum to feel the full effect. Built on Moringa. Powered by
+Ayurveda."</p>
+</blockquote>
+<hr />
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<p>The "can we actually build this" layer. How we judge vendor quality,
+per-active vendor candidates, packaging, capsule shell, manufacturing,
+QC, capsule fill, regulatory, aggregate risk.</p>
+<h3 id="121-how-we-judge-vendor-quality-the-compliance-framework">12.1
+How we judge vendor quality (the compliance framework)</h3>
+<p>Same 3-tier framework as Cycle
+(<code>sku-1-cycle-product-brief.md</code> Section 12.1). Tier 1
+mandatory: FSSAI Central + GMP + per-batch CoA + NABL-accredited lab
+inputs + HPLC/HPTLC standardisation + Pillar 1 extraction method (water
+/ hydroalcoholic / supercritical CO2, no synthetic-residue solvents,
+hexane-free non-negotiable for curcumin). Tier 2 strongly preferred: ISO
+22000 + HACCP + ISO 9001 + USDA Organic + multi-batch reproducibility +
+24-month stability + public CoA transparency + audit-readiness. Tier 3
+application-specific: lead-chromate-specific testing for turmeric supply
+chain (post-2019 FSSAI enforcement actions on Indian turmeric
+adulteration); cultivated-origin specification for Boswellia (vs
+wild-collected variant); GC-MS solvent residue testing on every curcumin
+batch (Pillar 1 gate).</p>
+<h3 id="122-per-active-vendor-matrix">12.2 Per-active vendor matrix</h3>
+<p><strong>Curcumin C3 Complex — Sami-Sabinsa primary</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa Curcumin C3 Complex</strong></td>
+<td>Bangalore / Hyderabad</td>
+<td>95-97% curcuminoids in 80:18:2 ratio, supercritical CO2-extracted,
+hexane-free</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 priority</strong>. ~₹8-18K/kg India landed, lock at
+~₹13K/kg mid for COGS planning. Most-clinically-cited curcumin globally
+(&gt;40 RCTs). Patented since 1995.</td>
+</tr>
+<tr>
+<td>Arjuna Natural BCM-95 / Curcugreen (backup)</td>
+<td>Aluva, Kerala</td>
+<td>95% curcuminoids + turmerone-rich; bioavailability-enhanced</td>
+<td>5-25kg</td>
+<td>Backup if Sami terms harden; Curcugreen is bioavailability-enhanced
+(no piperine needed) but ~30% higher cost — only activate if margin
+allows reformulation.</td>
+</tr>
+<tr>
+<td>OmniActive CurcuWIN (deep backup)</td>
+<td>Mumbai HQ</td>
+<td>Curcumin + galactomannan complex; 46x bioavailability</td>
+<td>TBD</td>
+<td>Tertiary; premium-cost; reserved for V2 reformulation if customer
+feedback shows sub-clinical effect.</td>
+</tr>
+<tr>
+<td>Synthite / Plant Lipids (commodity backup)</td>
+<td>Kerala</td>
+<td>Standard 95% curcumin extract</td>
+<td>TBD</td>
+<td>Last-resort if Sami + Arjuna both stall; verify CO2 extraction SKU
+specifically.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Boswellin Super — Sami-Sabinsa primary; generic 65% Boswellia
+margin-lever fallback</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa Boswellin Super</strong></td>
+<td>Bangalore / Hyderabad</td>
+<td>65% total boswellic acids (high AKBA fraction),
+hydroalcoholic-extracted</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 priority</strong>. ~₹1,500-4,000/kg India landed;
+lock at ~₹2,800/kg mid for COGS planning. Premium Sami offering.</td>
+</tr>
+<tr>
+<td><strong>Vidya Herbs Boswellin (margin-lever fallback)</strong></td>
+<td>Bangalore</td>
+<td>65% total boswellic acids</td>
+<td>10-25kg</td>
+<td><strong>Generic 65% Boswellia at ~₹795-1,500/kg</strong> — saves
+~₹35/pack vs Sami Boswellin Super. Activate if Sami pricing hardens at
+Q3 vendor terms. Clinical equivalence at 65% standardisation;
+AKBA-fraction differences exist but modern clinical literature supports
+both formats at clinical doses.</td>
+</tr>
+<tr>
+<td><strong>Arjuna Natural Boswelya / 5-Loxin (margin-lever
+fallback)</strong></td>
+<td>Aluva, Kerala</td>
+<td>65% total boswellic acids; 5-Loxin is 30% AKBA-enriched</td>
+<td>10-25kg</td>
+<td><strong>Generic 65% Boswellia ~₹1,000-1,500/kg</strong>; alternative
+margin-lever fallback to Vidya Herbs.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Whole-rhizome turmeric — TGL captive</strong>:
+Erode/Salem-source cohort via TGL captive farm extension (DPR Moringa
+farm relationship). Heat-treated. Lead-chromate-specific testing per
+batch (post-2019 FSSAI enforcement context on Indian turmeric).</p>
+<p><strong>BioPerine — Sami-Sabinsa primary</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sami-Sabinsa BioPerine</strong></td>
+<td>Bangalore / Hyderabad</td>
+<td>95% piperine, CO2-extracted</td>
+<td>1-5kg</td>
+<td><strong>Tier-1 priority</strong>. ~₹3-6K/kg India; lock at ~₹4.5K/kg
+mid. Patented industry-standard piperine since 1996.</td>
+</tr>
+<tr>
+<td>Plant Lipids piperine (backup)</td>
+<td>Cochin, Kerala</td>
+<td>95% piperine</td>
+<td>TBD</td>
+<td>Backup if BioPerine cost prohibitive.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Moringa whole-leaf</strong> — TGL captive supply (DPR
+Moringa, heat-treated). Same as Cycle.</p>
+<h3 id="123-consolidated-vendor-contact-directory">12.3 Consolidated
+vendor contact directory</h3>
+<p>Same primary contact set as Cycle (Sami-Sabinsa, Vidya Herbs, Akay
+Group, Plant Lipids, Indfrag) plus Arjuna Natural (Boswellia + curcumin
+backup) and OmniActive (deep curcumin backup). Full directory in
+<code>sku-1-cycle-product-brief.md</code> Section 12.3.</p>
+<h3 id="124-packaging-capsule-shell-bottle-manufacturing">12.4
+Packaging, capsule shell, bottle, manufacturing</h3>
+<p>Same packaging vendor stack as Cycle (Pragati Pack India for label +
+monocarton; HPMC capsule shells via Deepika's vendor relationship per
+TGL-P1-DEC-002; HDPE amber bottle from Karur-area Deepika source).
+Manufacturing per V3 plan-level changes (master MD Part 0):
+<strong>in-house at Deepika's facility</strong> (FSSAI nutraceutical
+license; phycocyanin R&amp;D capsule already produced) rather than
+external CMO. Capsule fill at 717 mg in Size #00 is well within in-house
+capability. The in-house route saves ~₹40/pack vs external Greenfield
+CMO — the single biggest GM lever in the cost model.</p>
+<h3 id="125-quality-control-protocol">12.5 Quality control protocol</h3>
+<p>Same QC framework as Cycle. Per-batch testing for: curcumin GC-MS
+solvent residue (Pillar 1 gate — disqualify any batch with detectable
+hexane); Boswellia HPLC standardisation verification (65% boswellic
+acids spec); turmeric lead-chromate testing per batch (post-2019 FSSAI
+enforcement context); piperine standardisation verification. Stability
+testing at Month 3/6/12/24 for the curcumin matrix (curcumin can degrade
+in humid storage; HDPE amber bottle + desiccant).</p>
+<h3 id="126-capsule-fill-feasibility">12.6 Capsule fill feasibility</h3>
+<p>717 mg total fill in Size #00 capsule (capacity ~700-1000 mg standard
+density). <strong>Comfortable fit at the lower end of headroom; no
+granulation step required.</strong> Vendor-formulator (Dr. Lakshmi Kala)
+has trial-fill validation gate at ~720mg fill. Headroom available if
+formulator recommends adding ginger extract (50mg) at trial-fill
+review.</p>
+<h3 id="127-regulatory-feasibility">12.7 Regulatory feasibility</h3>
+<p>All 5 actives FSSAI-permitted under Schedule VI of the Health
+Supplements Regulations 2022. Curcumin (95% standardised) permitted up
+to 1500mg/day (we are at 500mg/day extract; well below). Boswellia,
+turmeric, piperine, moringa all standard. Curcumin warrants explicit
+safety-label compliance: "Not recommended for pregnant or breastfeeding
+women. If you are on blood thinners, anticoagulants, or scheduled for
+surgery, consult your physician before use."</p>
+<p><strong>Permitted claim language</strong>: "supports joint comfort
+and mobility," "helps maintain healthy joint function," "supports the
+body's natural anti-inflammatory response," "helps maintain flexibility
+and ease of movement," "supports joint health for active adults," "Built
+on Moringa. Powered by Ayurveda."</p>
+<p><strong>NOT permitted</strong>: "treats / cures arthritis or
+osteoarthritis," "reverses joint damage," "stronger than ibuprofen /
+NSAIDs," "eliminates pain," "anti-inflammatory drug alternative."</p>
+<p>AYUSH cert in parallel per V3 plan-level changes (FSS Chennai officer
+route).</p>
+<h3 id="128-aggregate-supply-chain-risk-and-mitigation">12.8 Aggregate
+supply chain risk and mitigation</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Severity</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sami-Sabinsa pricing hardening on three actives (C3, Boswellin
+Super, BioPerine)</td>
+<td>Medium-high</td>
+<td>Vidya Herbs / Arjuna Natural backup paths for Boswellia + piperine;
+C3 Complex is structural Sami primary with Arjuna BCM-95 / OmniActive
+CurcuWIN as deep backups. Boswellia margin-lever fallback restores
+~3-4pp GM.</td>
+</tr>
+<tr>
+<td>Lead-chromate adulteration in Indian turmeric supply chain</td>
+<td>Medium</td>
+<td>TGL captive Erode/Salem-source via DPR farm extension; per-batch
+lead-chromate-specific testing; certified-supplier relationship
+enforcement.</td>
+</tr>
+<tr>
+<td>Curcumin storage stability (humidity-sensitive)</td>
+<td>Low-medium</td>
+<td>24-month stability testing pre-launch; HDPE amber bottle + desiccant
++ appropriate packaging.</td>
+</tr>
+<tr>
+<td>Migration friction from existing TGL Turmeric ₹399 to Glide ₹1,349
+sale (3.4x price uplift)</td>
+<td>Medium</td>
+<td>Klaviyo migration email sequence with explicit upgrade messaging;
+founder Reels narrative; bundle pricing for Turmeric→Glide transition;
+existing-customer-only first-bottle discount.</td>
+</tr>
+<tr>
+<td>Boswellia supply seasonality (winter resin tapping in
+MP/AP/Rajasthan)</td>
+<td>Low</td>
+<td>Multi-vendor matrix (Sami + Vidya + Arjuna) covers seasonal supply
+variability.</td>
+</tr>
+<tr>
+<td>Pragati Pack 8K packaging MOQ vs first-batch demand</td>
+<td>Low</td>
+<td>Glide is Phase 3 / batch 3 launch; demand build-up time supports MOQ
+economics.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="129-open-sourcing-questions-for-phase-3-vendor-calls">12.9 Open
+sourcing questions for Phase 3 vendor calls</h3>
+<ol type="1">
+<li><strong>Sami-Sabinsa C3 Complex MOQ + pricing at TGL Phase 3 batch
+tier.</strong> Confirm ~₹8-18K/kg India landed range; lock at ₹13K/kg
+mid for COGS planning. Activate Arjuna BCM-95 backup if Sami terms
+harden.</li>
+<li><strong>Sami Boswellin Super vs generic Vidya/Arjuna Boswellia 65% —
+pricing decision gate.</strong> If Sami Boswellin Super lands
+≥₹3,500/kg, activate generic 65% Boswellia margin-lever fallback (Vidya
+Herbs Boswellin or Arjuna Natural at ~₹1,150/kg average) for ~₹35/pack
+COGS savings.</li>
+<li><strong>TGL captive turmeric lead-chromate testing
+protocol.</strong> Per-batch testing infrastructure in DPR Moringa farm
+extension; NABL-accredited lab partner identified.</li>
+<li><strong>In-house capsule fill validation at 717 mg Size #00 +
+multi-active blend (3 standardised extracts + 2 captive
+heritage).</strong> Trial-fill at Deepika's facility pre-launch.</li>
+<li><strong>V3 cost lock confirmation.</strong> Confirm Sami C3 Complex
++ Boswellin Super + BioPerine per-mg costs at Phase 3 vendor terms; the
+~₹354/pack COGS + 76% GM at MRP is the locked planning baseline
+(DEC-023). Variance &gt;10% triggers Boswellia margin-lever fallback OR
+curcuminoid extract right-size to 200mg/cap.</li>
+</ol>
+<hr />
+<h2 id="13-effort-capital-and-execution-action-plan">13. Effort,
+capital, and execution action plan</h2>
+<p><em>Pending. Phase 3 (batch 3) launch critical path mapped to owner +
+spend bucket. The "who does what, when, with how much money" layer.
+Bridges this brief to the program management spec
+(<code>10-phase-1-program-management.md</code>) once Phase 3 is
+sequenced.</em></p>
+<h2 id="14-technical-appendix">14. Technical appendix</h2>
+<p><em>Pending. References V3 dossier
+(<code>dossiers/09-glide-turmeric-joint.md</code>), formulation spec (to
+be drafted at Dr. Lakshmi Kala handoff), governance doc 10
+(<code>10-phase-1-program-management.md</code>), brand DNA
+(<code>02-brand-dna.md</code>).</em></p>
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 with Sections 1-12 locked 2026-05-09 by Aarav, V3 cost lock +
+price lift + brand-attribution corrections applied. Sections 13-14
+pending. On full lock, brief is shareable with Deepika + Unnati for
+input + alignment.</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial full brief, drafted by Aarav post-Deepika V3
+reformulation + verified V3 cost lock per DEC-023/024/025.</p>
+<ul>
+<li><strong>DEC-023 (V3 cost lock + Glide price lift)</strong>: COGS
+~₹354/pack at in-house manufacturing; 76% GM at MRP ₹1,499 (LIFTED from
+V1 ₹999, +₹500 to anchor TGL premium ceiling alongside Crest). Sale
+₹1,349 / Sub ₹1,147. Premium price-anchor reinforcement; Boswellia
+generic fallback (Vidya Herbs Boswellin / Arjuna Natural at
+~₹795-1,500/kg) retained as margin-lever restoring ~3-4pp GM if Sami
+Boswellin Super pricing hardens.</li>
+<li><strong>DEC-024 (Sami-Sabinsa branded actives)</strong>: Curcumin C3
+Complex + Boswellin Super + BioPerine all branded Sami-Sabinsa primary —
+three Sami branded actives in one cap is unusual D2C credibility signal.
+Generic 65% Boswellia from Vidya Herbs Boswellin OR Arjuna Natural
+retained as margin-lever fallback (clinical equivalence at 65%
+standardisation; AKBA-fraction differences exist but modern clinical
+literature supports both formats).</li>
+<li><strong>DEC-025 (Phase 3 / batch 3 sequencing)</strong>: Glide sits
+in batch 3 per the 12-month rollout, paired with Spark as the Tier C
+duo. Phase 1 (Cycle + Bloom + Reset) earns the Shopify-first playbook +
+brand + price ladder before Glide ships to harvest the existing TGL
+Turmeric Amazon migration cohort.</li>
+<li><strong>Channel mix</strong>: WEBSITE-FIRST / Shopify-led per
+TGL-P1-DEC-017 (Section 10). Klaviyo migration sequence to existing TGL
+Turmeric customer base is the primary launch lever (~30% weight). Amazon
+Month 2-3 secondary.</li>
+<li><strong>Manufacturing</strong>: in-house at Deepika's FSSAI-licensed
+facility per V3 plan-level (NOT external CMO). The ~₹40/pack saving vs
+Greenfield CMO is the single biggest GM lever in the model.</li>
+</ul>
+</main>
+</body>
+</html>

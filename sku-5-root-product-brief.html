@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TGL — Root (Hair fall + scalp health)</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="tgl-product-portfolio.html" style="font-weight: 600;">Back to TGL Portfolio Master</a> · You are reading the full product brief for <strong>Root (Hair fall + scalp health)</strong></div>
+
+<blockquote>
+<p><strong>Mirrored in the master doc</strong>: This Root brief is also
+embedded in <a
+href="tgl-product-portfolio.md"><code>tgl-product-portfolio.md</code></a>,
+the consolidated single-doc view of all 10 SKUs + Plan Moving Forward.
+The master doc is canonical for navigation. This standalone is retained
+for focused single-product viewing.</p>
+</blockquote>
+<h1 id="root-working-name-product-brief">Root (working name): Product
+Brief</h1>
+<p><strong>The Good Leaf (TGL)</strong> Phase 2 Q2 launch SKU. Hair
+care. <em>Drafted 2026-05-09 by Aarav. Status: V1 with Sections 1-12
+locked. This brief is the team-readable narrative layer for Deepika,
+Unnati, and Boco. Pair with <code>dossiers/05-root-hair.md</code> (V3
+theory + clinical detail) and the formulation-spec (to be drafted at
+vendor-formulator handoff per DEC-023).</em></p>
+<hr />
+<h2 id="1-name--elevator-pitch">1. Name + Elevator Pitch</h2>
+<p><strong>Name</strong>: Root (working name; final lock pending TM
+clearance per TGL-P1-DEC-007 + naming sprint round 2 with Deepika).</p>
+<p><strong>Elevator pitch (3 sentences, repeatable by anyone on the
+team):</strong></p>
+<blockquote>
+<p>Root is TGL's daily Ayurvedic hair-care SKU, designed for the 25-50
+year old Indian woman dealing with the modern triple stack of hair fall
+— postpartum telogen effluvium, post-Covid shedding, and stress /
+PCOS-linked thinning — who has cycled through synthetic-biotin gummies
+and is looking for a comprehensive Ayurvedic alternative that addresses
+the root cause, not just the cofactor. Two plant-cellulose capsules a
+day, every day, deliver Bhringraj (the classical kesha-raja hair tonic),
+BacoMind Bacopa from Natural Remedies Bangalore, PrimaVie Shilajit from
+Natreon (the only RCT-backed clinical-grade Shilajit), Manjistha, curry
+leaf, and TGL's farm-grown moringa heritage thread to reduce shedding,
+support new growth, and stabilise hair density over 3-6 months of
+consistent use. It's the cross-sell anchor that makes the Daily Woman
+Kit (Bloom + Root) and the Cycle Glow Kit (Cycle + Root) the
+highest-attach bundles in the portfolio.</p>
+</blockquote>
+<hr />
+<h2 id="2-why-were-building-root-motivation">2. Why we're building Root
+(motivation)</h2>
+<p>Four reasons, in priority order:</p>
+<p><strong>1. Existing customer-voice we're under-serving.</strong> Hair
+fall is the <strong>#2 most-mentioned non-period concern</strong> in
+TGL's existing 10K+ customer review base. Customers already buy our
+moringa for hair. We have a warm cohort that's pre-converted to "TGL
+helps with hair" — we just need the formulation worth their daily
+commitment. Root takes that latent demand and gives it the Ayurvedic
+stack-depth it deserves. Moringa stays as the heritage signature (Tier B
+50mg/cap) carrying the brand thread; Bhringraj, BacoMind Bacopa,
+PrimaVie Shilajit, Manjistha do the actual work.</p>
+<p><strong>2. The cross-sell anchor that funds Phase 2+ unit
+economics.</strong> PMS + PCOS buyers (SKUs 1 + 2) carry hair-fall
+co-morbidity in 60-70% of cases (PCOS-driven androgenic alopecia is
+textbook). Root is the natural attach-SKU. Three of five planned bundles
+include Root: Cycle Glow Kit (Cycle + Root), Daily Woman Kit (Bloom +
+Root), New Mom Kit (Nourish + Root). The bundle-attach math says Root
+lifts portfolio AOV by 15-25% in the cohorts where it bundles cleanly —
+capital-efficient demand capture that doesn't require new top-of-funnel
+acquisition.</p>
+<p><strong>3. Pricing whitespace at the comprehensive Ayurvedic premium
+tier (V3 LIFT TO ₹1,199 MRP).</strong> The hair-care category has a
+clear price ladder: Mamaearth Onion at ₹599 (mass-market), Be Bodywise
+at ₹699 (telehealth-coded synthetic biotin), Earthful Root Nourish at
+₹658 (closest peer, lighter formulation), HealthKart Biotin at ₹700
+(single-active pharma), Forest Essentials at ₹1,500 (luxury heritage).
+<strong>Root at ₹1,199 MRP / ₹1,049 sale slots into a defensible
+gap</strong> — accessible relative to Forest Essentials, premium
+relative to Earthful Root Nourish, justified by the dual-premium
+PrimaVie + BacoMind ingredient stack that no Indian D2C hair SKU
+currently carries at clinical-grade dose. The ₹100 lift from V2's ₹1,099
+reflects the genuine COGS step-up from the dual-branded actives, not
+optical premium (~₹302/pack COGS, 75% GM at new ₹1,199 MRP).</p>
+<p><strong>4. Lowest CAC of the Phase 2+ SKUs.</strong> Hair is the #1
+ad-funnel category for women's wellness in India. Targeting is broad and
+well-trodden, CPCs are competitive but stable, the customer journey is
+well-mapped (trigger event → first-line attempt → plateau →
+re-evaluation). Root meets the customer at the re-evaluation stage with
+a comprehensive Ayurvedic answer to the question "what should I actually
+take?" The ad-creative angle (founder-led + Ayurvedic stack +
+plant-source + farm heritage) is differentiated against the
+synthetic-biotin gummy noise dominating the category.</p>
+<p><strong>Why now (Q2, not Q1)</strong>: Hair fall is a
+90-day-to-effect category. Phase 1 needs anchor SKUs that prove fast
+(Cycle at 1-2 cycles, Reset at 60-90 days for known PCOS condition).
+Root launches in Phase 2 (Q2) once the hair-fall cohort has been seeded
+by Phase 1 ad spend and the customer base has matured into multi-need
+buyers. Bundling with Bloom (Phase 1 Q1) is the first-month attach that
+validates the Daily Woman Kit motion.</p>
+<p><strong>Single-sentence motivation</strong>: Root is the cross-sell
+anchor that converts TGL's already-buying-moringa-for-hair customer base
+into a comprehensive Ayurvedic hair-care commitment — the one Indian D2C
+SKU that pairs the classical kesha-raja stack (Bhringraj + Manjistha)
+with two clinical-grade branded actives (BacoMind Bacopa + PrimaVie
+Shilajit) at the ₹1,199 premium tier where no peer currently exists.</p>
+<hr />
+<h2 id="3-the-customer-who-she-is-what-shes-tried-what-fails-her">3. The
+customer (who she is, what she's tried, what fails her)</h2>
+<p><strong>Who she is</strong> (core 28-38, edge 25-50):</p>
+<p>She's an urban Indian woman, Tier 1-2 (Mumbai, Bangalore, Delhi,
+Pune, Hyderabad, Chennai expanding nationally), household income ₹6-25L,
+English-Hindi or English-regional bilingual, on Instagram, follows
+hair-care creators (Anaysa, Aishwarya Kandpal, Be Bodywise UGC). She is
+wellness-conscious but supplement-skeptical, reads Earthful and Cosmix
+content, has one or more friends on Minoxidil topical 2%, has tried at
+least one biotin gummy, and is now asking the deeper question: "what's
+actually causing this and how do I fix it from the inside?"</p>
+<p>She's at one of three trigger points:</p>
+<ul>
+<li><strong>Postpartum</strong> (0-18 months postpartum): peak telogen
+effluvium 3-4 months post-delivery; she's distressed and Googling.</li>
+<li><strong>Post-Covid</strong> (still trailing through 2024-26 cohort
+per Mieczkowska JAAD 2021 — 22% of post-acute-Covid patients reported
+hair fall): her acute illness has resolved, but the hair fall
+hasn't.</li>
+<li><strong>PCOS / stress / hormonal</strong> (chronic): 25-40% of PCOS
+women have androgenic alopecia presentation; chronic stress + sustained
+cortisol elevation pushes follicles into telogen prematurely.</li>
+</ul>
+<p>There's also a <strong>secondary persona, 38-50</strong>,
+perimenopausal hair thinning + slower scalp regeneration +
+dryness/breakage. More clinical, more research-driven, will scrutinise
+ingredient lists and source provenance. This cohort cross-sells from
+Bloom (Phase 1 Q1) and Crest (Phase 4 Q4) into Root.</p>
+<p><strong>What's happening to her body</strong> (the medical
+context):</p>
+<p>Hair fall is rarely one cause. It's almost always a stack of:</p>
+<ul>
+<li><strong>Iron-deficiency anaemia</strong> (~52% of Indian women of
+reproductive age per NFHS-5, 2019-21) — hair fall is a downstream
+symptom in deficient women.</li>
+<li><strong>Cortisol-driven telogen effluvium</strong> — sustained
+stress pushes follicles out of anagen prematurely; effect lags onset by
+~3 months.</li>
+<li><strong>Androgenic-pattern thinning</strong> in PCOS — DHT-driven
+follicle miniaturisation at the crown / parting.</li>
+<li><strong>Postpartum telogen effluvium</strong> — natural
+estrogen-withdrawal cascade after delivery; resolves in 6-12 months but
+causes high-distress in 20-40% of new mothers.</li>
+<li><strong>Nutritional thinness</strong> — modern Indian diets are
+protein-thin, iron-thin, B-vitamin-thin; the hair shaft is the first to
+show it.</li>
+</ul>
+<p>She is not pathologically diagnosed. She has not been to a
+trichologist. Her dermatologist (if she's seen one) handed her Minoxidil
++ told her "give it 6 months." Most general practitioners just say "take
+iron + biotin."</p>
+<p><strong>What she's tried, and why each fails her</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>What she tries</th>
+<th>Why it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthetic-biotin gummies (Be Bodywise, Power Gummies, Plix Hair
+Vitamins)</td>
+<td>Single-cofactor approach; biotin alone doesn't solve the stack of
+causes. Gummies are sugar-coated; some get GI / acne side effects at
+high biotin doses.</td>
+</tr>
+<tr>
+<td>Anti-hair-fall shampoos (Mamaearth, WOW, Indulekha)</td>
+<td>External-only; doesn't touch the systemic cause. Marginal benefit at
+best.</td>
+</tr>
+<tr>
+<td>Hair oils (Indulekha, Trichup, classical Ayurvedic blends)</td>
+<td>Scalp ritual is good but doesn't replace the missing nutrients or
+address cortisol/hormonal drivers.</td>
+</tr>
+<tr>
+<td>Multivitamins (Centrum, Revital)</td>
+<td>Generic, low-dose, nothing hair-specific.</td>
+</tr>
+<tr>
+<td>Minoxidil 2% topical</td>
+<td>Works for some (especially androgenic) but topical-only commitment
+is high (twice daily forever); shedding-on-stoppage is real.</td>
+</tr>
+<tr>
+<td>Dermatologist consult</td>
+<td>Often ends in "take iron + biotin + Minoxidil + give it 6 months."
+She wants a comprehensive Ayurvedic plan, not a 3-line
+prescription.</td>
+</tr>
+<tr>
+<td>Earthful Root Nourish</td>
+<td>Closest peer at ₹658 — but lighter Ayurvedic stack (Bhringraj + Amla
++ Brahmi + Methi + Hibiscus), no clinical-grade BacoMind/PrimaVie, no
+Shilajit at all. Customers report "wished for stronger biotin / Shilajit
+component."</td>
+</tr>
+<tr>
+<td>Forest Essentials hair (₹1,500)</td>
+<td>Luxury-heritage positioning, premium pricing, but more lifestyle
+than clinical. Doesn't address the modern medical context with branded
+clinical-grade actives.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The gap Root fills</strong>: a comprehensive Ayurvedic
+capsule with two clinical-grade branded actives (BacoMind Bacopa +
+PrimaVie Shilajit) — the only Indian D2C hair SKU at this depth. Two
+caps a day, daily. The classical kesha-raja stack she'd recognise from
+her grandmother's vocabulary (Bhringraj + Manjistha + Brahmi) plus the
+modern clinical-evidence actives that her ingredient-literate friends
+will respect. Founder face she trusts. Farm-source moringa thread she
+can verify. ₹1,049 sale, ~₹35/day.</p>
+<p><strong>The 90-day journey</strong> (where the pain peaks, where Root
+fits):</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Days</th>
+<th>What she experiences</th>
+<th>Where Root fits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trigger</td>
+<td>-90 to 0</td>
+<td>Acute event (postpartum, illness, sustained stress)</td>
+<td>Pre-purchase awareness phase</td>
+</tr>
+<tr>
+<td>Acute shedding</td>
+<td>0-30</td>
+<td>Visible hair on pillow/shower/comb. Distress.</td>
+<td>Cycle 1: compliance test, minimal change</td>
+</tr>
+<tr>
+<td>Plateau</td>
+<td>30-60</td>
+<td>Shedding stabilising; no visible regrowth yet</td>
+<td>Cycle 2: starting to notice less shedding</td>
+</tr>
+<tr>
+<td>Recovery</td>
+<td>60-90</td>
+<td>Telogen-phase follicles cycling back to anagen</td>
+<td>Cycle 3: new growth visible at hairline / parting</td>
+</tr>
+<tr>
+<td>Stabilisation</td>
+<td>90-180</td>
+<td>Density visibly recovering</td>
+<td>Months 4-6: continue subscription</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-what-the-product-does-the-lived-experience-over-3-6-months">4.
+What the product does (the lived experience over 3-6 months)</h2>
+<p><strong>Root is not a 30-day fix, and we don't market it as
+one.</strong> Hair grows ~1cm/month; the follicle cycle is 3+ months
+minimum. Any hair-care brand promising "results in 30 days" is selling
+biology that doesn't exist. Setting that expectation honestly is what
+protects us from the "I took it for two weeks and felt nothing" review
+wall that kills D2C wellness brands.</p>
+<p>Here's what she actually experiences if she takes 2 caps/day for 6
+months:</p>
+<p><strong>Month 1 (first 30 days): the compliance test.</strong></p>
+<p>Minimal perceived change. Maybe a subtle reduction in shedding by
+week 3-4 (BacoMind Bacopa adaptogen action accumulating, PrimaVie
+Shilajit micronutrient repletion starting). Often, nothing she'd
+register. <strong>This is the highest drop-off window in any hair-care
+D2C; most customers quit here.</strong> The marketing job in Month 1 is
+not to sell efficacy; it's to sell patience. Deepika's content arc in
+launch month is <em>"hair grows 1cm a month — that's biology, not
+marketing. Give it 3 months before you decide."</em></p>
+<p><strong>Months 2-3 (60-90 days): the first signal.</strong></p>
+<p>A meaningful proportion of consistent users start to report:</p>
+<ul>
+<li>Visible reduction in shower-drain hair / comb-pull hair count</li>
+<li>Fewer strands on the pillow in the morning</li>
+<li>"Baby hairs" appearing at the hairline (new anagen-phase follicles
+cycling through)</li>
+<li>Scalp feels less dry / less inflamed (Manjistha + curry leaf
+microcirculation effect)</li>
+</ul>
+<p>The user pattern at this stage: she finishes Pack 2, recognises she
+felt better last month than the one before, and decides "let me see if
+it sticks." This is the conversion moment from trial to loyal customer.
+<strong>Subscription retention math says: if she finishes Pack 2 and
+reorders Pack 3, she's typically a 6-9 month customer.</strong></p>
+<p><strong>Months 3-6 (90-180 days): density recovery.</strong></p>
+<p>For users with the dominant trigger profile (postpartum / post-stress
+/ mild PCOS), Root starts to show measurable density recovery. Parting
+line less visible, ponytail circumference returning, hair feels thicker
+at root. Cyclical shedding events (luteal-phase shedding for cycling
+women) less acute. The "I forgot how much hair I used to have" moment
+lands somewhere in this window.</p>
+<p><strong>6+ months: maintenance and step-down.</strong></p>
+<p>Once density is recovered, some users step down from full daily
+dosing to alternate-day dosing. Pack consumption stretches from 1 month
+to 1.5-2 months. Subscription cadence adjusts; annual revenue per
+customer drops modestly, but lifetime stays high. Others stay on full
+daily dose for the consistency. We don't push customers either way; the
+product trains its own dose.</p>
+<p><strong>What we're NOT promising</strong> (so customers and Deepika
+both stay credible):</p>
+<table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reverses baldness</td>
+<td>Disease-coded claim; FSSAI Schedule VI violation; also untrue</td>
+</tr>
+<tr>
+<td>Regrows hair from scarred follicles</td>
+<td>Biologically impossible</td>
+</tr>
+<tr>
+<td>Stops shedding in 30 days</td>
+<td>Biology doesn't move that fast; setting wrong expectation kills
+retention</td>
+</tr>
+<tr>
+<td>Replaces Minoxidil for androgenic alopecia</td>
+<td>Different mechanism; her dermatologist still has a role</td>
+</tr>
+<tr>
+<td>"Cures" PCOS-related hair fall</td>
+<td>We're addressing one symptom, not the underlying endocrine
+condition</td>
+</tr>
+<tr>
+<td>Effect inside 6 weeks</td>
+<td>Too aggressive; wrong expectation; review wall</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest customer message</strong> Deepika repeats across
+content: <em>"Hair grows 1cm a month — that's biology, not marketing.
+Root works on a 90-day arc minimum. Two caps a day. The Ayurvedic stack
+your grandmother would recognise, plus the clinical-grade actives your
+dermatologist would respect. Built on Moringa. Powered by
+Ayurveda."</em></p>
+<hr />
+<h2 id="5-composition--formulation-logic">5. Composition + formulation
+logic</h2>
+<p><strong>Six actives in the cap, organised as one moringa whole-leaf
+heritage base + five standardised extracts.</strong> This is TGL's
+extract-first formulation philosophy in action (per
+<code>02-brand-dna.md</code> Operational Principle 6, locked 2026-05-09
+as TGL-P1-DEC-011) plus the Moringa Foundation principle (Tier B
+heritage signature 50mg/cap).</p>
+<p><strong>Format: Size #0 capsule × 2 caps/day daily; 60-cap pack
+(30-day supply).</strong> Comfortable Size #0 fit at the high-priority
+UX target per DEC-016. Hits the 500mg fill envelope cleanly.</p>
+<p><strong>Locked pricing (V3, +₹100 LIFT from V2 reflecting the
+dual-premium PrimaVie + BacoMind ingredient cost driver)</strong>:</p>
+<ul>
+<li><strong>MRP ₹1,199 / Sale ₹1,049 / Subscription ₹891</strong>
+(lifted proportionally from V2's ₹1,099 / ₹999 / ₹849 per V3 pricing
+matrix)</li>
+<li>COGS ~₹302/pack at Deepika's confirmed in-house economics (V3 cost
+lock)</li>
+<li><strong>Gross margin at MRP: 75%</strong> — comfortable premium-D2C
+floor</li>
+<li>GM at sale ₹1,049: 71.2%. GM at sub ₹891: 66.1%. All defensible vs
+Earthful Root Nourish's ~64-66% on lighter formulation.</li>
+</ul>
+<p><strong>Why the ₹100 lift</strong>: V2 brief priced at ₹1,099 MRP
+assumed the formulation would use generic Bacopa + raw/commodity
+Shilajit. V3 locks <strong>two clinical-grade branded actives</strong> —
+BacoMind from Natural Remedies Bangalore (50% bacosides standardised,
+~3x cost of generic 20% bacosides) and PrimaVie from Natreon Inc (≥50%
+fulvic acid + 10.3% DBPs, NABL heavy-metal cleared, the only Shilajit
+ingredient with published RCTs at clinical dose). These are the two
+highest per-mg cost levers in the formulation, and they're
+non-negotiable for the brand's clinical-credibility positioning. The
++₹100 MRP lift covers the genuine COGS step-up; GM stays comfortably
+above the 75% premium-D2C floor.</p>
+<p><strong>The 6-active stack</strong> (each named with form +
+standardisation marker + concentration + primary vendor — DEC-016
+verified all-vendor-network standard concentrations + DEC-024
+brand-attribution corrections applied):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Active</th>
+<th>Form + standardisation</th>
+<th>Vendor (primary)</th>
+<th>Dose / cap (~330mg fill, 2 caps/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Bhringraj</strong></td>
+<td>Standardised extract, 8:1 from whole-leaf, 2.5% wedelolactone</td>
+<td>Akay Group OR Plant Lipids OR Sami-Sabinsa</td>
+<td>100 mg</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>BacoMind Bacopa (Bacopa monnieri)</strong></td>
+<td><strong>Natural Remedies Bangalore</strong> branded, <strong>50%
+bacosides</strong> standardised. <strong>NOT Sami-Sabinsa</strong> —
+Sabinsa's equivalent is Bacopin.</td>
+<td><strong>Natural Remedies (Bangalore)</strong></td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>PrimaVie Shilajit</strong></td>
+<td><strong>Natreon Inc</strong> branded, ≥50% fulvic acid + 10.3% DBPs
+(dibenzo-α-pyrones), NABL heavy-metal cleared, clinical-grade purified.
+<strong>NOT Sami-Sabinsa</strong> — Sabinsa's equivalent is Shilajit
+Extract (commodity grade).</td>
+<td><strong>Natreon Inc</strong> (US-headquartered, India-distributed
+via specialty channel)</td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Manjistha</strong></td>
+<td>Standardised extract, ~10% anthraquinones, 8:1 from whole-root</td>
+<td>Akay Group OR Vidya Herbs</td>
+<td>25 mg</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Curry leaf</strong></td>
+<td>Standardised carbazole alkaloids (NOT iron-standardised — no Indian
+vendor offers iron-standardised Murraya koenigii at clinical-grade)</td>
+<td>Plant Lipids OR Vidya Herbs</td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Moringa</strong></td>
+<td>Heat-treated whole-leaf powder, TGL captive farm supply (DPR
+Moringa)</td>
+<td>TGL captive</td>
+<td>50 mg</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total fill</strong></td>
+<td></td>
+<td></td>
+<td><strong>~325 mg / cap</strong> (Size #0 comfortable)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Brand-attribution corrections (DEC-024, applied
+2026-05-09)</strong>:</p>
+<ul>
+<li><strong>BacoMind is Natural Remedies Bangalore</strong>, NOT
+Sami-Sabinsa. Natural Remedies (Bangalore-based botanical specialist)
+holds the BacoMind brand — clinically-studied 50% bacosides Bacopa with
+multiple peer-reviewed dossier (Stough 2001, Roodenrys 2002, Calabrese
+2008 cognitive-RCT lineage). <strong>Sabinsa's equivalent is
+Bacopin</strong> (also 50% bacosides). The two products are clinically
+comparable but commercially distinct — for Root we use BacoMind primary
+because Natural Remedies' clinical-trial dossier is denser; for Calm we
+use Sabinsa Bacopin (DEC-024 V3 cost lock — see SKU 6).</li>
+<li><strong>PrimaVie is Natreon Inc</strong>, NOT Sami-Sabinsa. Natreon
+(US-headquartered specialty botanical, India-distributed via specialty
+channel) holds the PrimaVie brand — the only Shilajit ingredient with
+published RCTs at clinical dose (Pandit 2016 testosterone RCT, Stohs
+2017 mitochondrial review), ≥50% fulvic acid + 10.3% DBPs standardised,
+NABL heavy-metal cleared. Sabinsa's Shilajit Extract is commodity grade
+(no published RCTs, no DBPs standardisation). For the brand's
+clinical-credibility positioning, PrimaVie is non-negotiable.</li>
+</ul>
+<p><strong>DEC-016 + DEC-024 compliance check (2026-05-09)</strong>:
+Bhringraj + Manjistha + curry leaf + moringa are all vendor-network
+standard concentrations. BacoMind (Natural Remedies) and PrimaVie
+(Natreon) are the two specialty branded actives that earn premium
+positioning — they're not "specialty for specialty's sake" but
+specifically the clinically-evidenced branded versions of two actives
+where commodity-grade alternatives lack the published RCT depth that the
+ingredient-literate hair-care customer actually checks.</p>
+<p><strong>On-pack and PDP labelling shows the brand attribution and
+standardisation transparently</strong> (example: "BacoMind Bacopa 50mg
+per cap (Natural Remedies, 50% bacosides)" and "PrimaVie Shilajit 50mg
+per cap (Natreon, ≥50% fulvic acid + 10.3% DBPs)") so the customer can
+verify against the published clinical-trial literature.</p>
+<p><strong>Daily intake at 2 caps/day</strong> (every day):</p>
+<ul>
+<li>Bhringraj 8:1: 200 mg extract = ~1,600 mg whole-plant equivalent
+(classical kesha-raja therapeutic range)</li>
+<li>BacoMind Bacopa 50% bacosides: 100 mg extract = 50 mg bacosides/day
+(sub-clinical for cognition primary, supportive for stress / scalp
+circulation)</li>
+<li>PrimaVie Shilajit (≥50% fulvic + 10.3% DBPs): 100 mg extract
+(sub-clinical adjunctive — full clinical 250 mg dose lives in
+Spark)</li>
+<li>Manjistha 8:1: 50 mg extract = ~200 mg whole-root equivalent</li>
+<li>Curry leaf extract: 100 mg (supportive phytochemicals + brand-story
+leverage)</li>
+<li>Moringa whole-leaf: 100 mg (Tier B heritage signature dose, locked
+per Moringa Foundation principle)</li>
+<li><strong>Total daily extract + heritage intake: ~650 mg actual mass;
+classical kesha-raja stack + dual clinical-grade branded actives +
+heritage thread</strong></li>
+</ul>
+<p><strong>V3 cost lock — pack economics (DEC-023, locked
+2026-05-09)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Cost line</th>
+<th>₹/pack</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bhringraj 2.5% wedelolactone (Akay/Plant Lipids, ~₹3K/kg,
+6g/pack)</td>
+<td>~₹18</td>
+<td>Vendor-network standard 8:1</td>
+</tr>
+<tr>
+<td><strong>BacoMind Bacopa (Natural Remedies, 50% bacosides, ~₹15K/kg,
+3g/pack)</strong></td>
+<td><strong>~₹45</strong></td>
+<td>Specialty branded; ~3x generic 20% bacosides cost</td>
+</tr>
+<tr>
+<td><strong>PrimaVie Shilajit (Natreon, ≥50% fulvic + 10.3% DBPs,
+~₹22-30K/kg, 3g/pack)</strong></td>
+<td><strong>~₹72</strong></td>
+<td>Specialty branded; only RCT-backed Shilajit; NABL heavy-metal
+cleared; specialty-channel pricing</td>
+</tr>
+<tr>
+<td>Manjistha 8:1 (Akay/Vidya, ~₹4K/kg, 1.5g/pack)</td>
+<td>~₹6</td>
+<td></td>
+</tr>
+<tr>
+<td>Curry leaf extract (Plant Lipids/Vidya, ~₹2-3K/kg, 3g/pack)</td>
+<td>~₹8</td>
+<td>Carbazole alkaloid standardisation</td>
+</tr>
+<tr>
+<td>Moringa whole-leaf (TGL captive)</td>
+<td>~₹4</td>
+<td>DPR captive supply, near-zero marginal</td>
+</tr>
+<tr>
+<td>HPMC capsule shells (60 caps)</td>
+<td>~₹24</td>
+<td>Deepika vendor relationship per DEC-002</td>
+</tr>
+<tr>
+<td>HDPE amber bottle + label + monocarton</td>
+<td>~₹16</td>
+<td>Pragati Pack stack</td>
+</tr>
+<tr>
+<td>In-house manufacturing (encapsulation + bottling + QC)</td>
+<td>~₹10</td>
+<td>Deepika facility per V3 (vs ~₹50 external CMO)</td>
+</tr>
+<tr>
+<td>Per-batch QC overhead (heavy-metal panel critical for Shilajit)</td>
+<td>~₹3</td>
+<td>Allocated per pack at 60K-batch steady-state</td>
+</tr>
+<tr>
+<td>Insert + desiccant pouch</td>
+<td>~₹2</td>
+<td>Moisture-sensitive ingredients require desiccant</td>
+</tr>
+<tr>
+<td><strong>Total COGS</strong></td>
+<td><strong>~₹302</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at MRP ₹1,199</strong></td>
+<td><strong>74.8%</strong></td>
+<td>Premium-D2C floor met</td>
+</tr>
+<tr>
+<td><strong>GM at sale ₹1,049</strong></td>
+<td><strong>71.2%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>GM at sub ₹891</strong></td>
+<td><strong>66.1%</strong></td>
+<td>Subscription tier; sustainable for 6-month commitment</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why the dual-branded actives drive the cost step-up</strong>:
+BacoMind (~₹45/pack) + PrimaVie (~₹72/pack) = ₹117/pack on two actives
+alone — that's 39% of total COGS on two ingredients out of six. The
++₹100 MRP lift (V2 ₹1,099 → V3 ₹1,199) covers exactly this cost step-up.
+If we'd used generic 20% Bacopa + commodity Shilajit, we'd save
+~₹70-80/pack but lose the clinical-evidence story that justifies the
+premium positioning. The trade-off is intentional: TGL competes on
+clinical-credibility depth, not on COGS-cutting via commodity
+actives.</p>
+<p><strong>Why this specific 6-active stack</strong>:</p>
+<ul>
+<li><strong>Bhringraj</strong>: classical <em>kesha-raja</em> (king of
+hair) — the canonical Ayurvedic scalp tonic. Datta et al. 2009 (Arch
+Dermatol Res) showed ethanolic Eclipta alba extract induced more
+anagen-phase follicles than 2% Minoxidil in a mouse model.
+Standardisation to 2.5% wedelolactone ensures batch consistency. The
+non-negotiable hero ingredient.</li>
+<li><strong>BacoMind Bacopa (Natural Remedies)</strong>: stress-axis
+modulator + adaptogen. Cortisol-driven telogen effluvium is a documented
+hair-fall driver; Bacopa's adaptogen effect is well-substantiated
+(Calabrese et al. 2008). At 100mg/day this is supportive (not
+lead-active dose) but the <strong>branded BacoMind 50% bacosides
+standardisation</strong> gives us clinical-trial-citable evidence the
+ingredient-literate customer verifies.</li>
+<li><strong>PrimaVie Shilajit (Natreon)</strong>: micronutrient +
+adaptogenic + mitochondrial support. Pandit 2016 (Andrologia) RCT on
+PrimaVie at 250mg/day; Stohs 2017 (Ayu) review on PrimaVie's DBPs +
+fulvic acid mitochondrial mechanism. <strong>The only Shilajit
+ingredient on the planet with published RCTs at clinical dose, NABL
+heavy-metal cleared.</strong> At 100mg/day this is sub-clinical
+adjunctive (full 250mg clinical dose lives in Spark) but the brand
+attribution + clinical-trial dossier is what justifies the premium
+positioning vs raw/commodity Shilajit.</li>
+<li><strong>Manjistha</strong>: classical <em>Raktashodhaka</em> (blood
+purifier) — modern read = anti-inflammatory + microcirculation support
+at scalp level. Paired with Bhringraj in classical hair-loss
+formulations (Ashtanga Hridayam, Bhaishajya Ratnavali).</li>
+<li><strong>Curry leaf</strong>: brand-story leverage + supportive
+phytochemicals. Curry leaf carries strong cultural-narrative weight in
+South Indian hair care ("curry leaf for thick black hair" is a
+grandmother saying); the carbazole alkaloid standardisation gives us a
+real bioactive to back the story. <strong>No Indian vendor offers
+iron-standardised curry leaf at clinical dose</strong> — the iron
+narrative is supportive (delivered via moringa whole-leaf), not
+primary.</li>
+<li><strong>Moringa whole-leaf</strong>: brand heritage thread (the
+"Built on Moringa" anchor) + nutritive support (~1-2 mg natural Fe + Ca
++ B-complex from 100mg/day). The ONE whole-plant ingredient in the cap,
+per Operational Principle 6.</li>
+</ul>
+<p><strong>What's NOT in the stack, and why</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Excluded active</th>
+<th>Why we left it out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sesbania-derived plant-source biotin</td>
+<td>V2 dossier candidate; supplier landscape unclear
+(synthetic-biotin-spiked-into-plant-carrier risk is real); deferred from
+V1 brief. Vendor-formulator can re-evaluate at trial-fill. The biotin
+narrative is a Be Bodywise differentiator we're deliberately not chasing
+— Root competes on Ayurvedic-stack depth, not biotin-cofactor mass.</td>
+</tr>
+<tr>
+<td>Methi (fenugreek)</td>
+<td>V2 candidate; Earthful Root Nourish carries it. Cleaner Schedule VI
+without it; cap fill stays at 325mg/cap.</td>
+</tr>
+<tr>
+<td>Hibiscus</td>
+<td>V2 candidate; carries cultural narrative but thin clinical evidence
+for hair-fall context. Can revisit at trial-fill.</td>
+</tr>
+<tr>
+<td>Amla</td>
+<td>Lives in Bloom (daily multi). Cross-portfolio discipline — each
+active in one SKU's primary role.</td>
+</tr>
+<tr>
+<td>Synthetic biotin (5000mcg high-dose like gummy brands)</td>
+<td>Pillar 1 violation (synthetic active). Also — high-dose synthetic
+biotin is associated with cystic acne in sensitive users; we don't sell
+that side effect.</td>
+</tr>
+<tr>
+<td>Marine collagen (Setu Hair:Sustain plays)</td>
+<td>Not vegan; not plant-source. Pillar 1 + brand-positioning
+conflict.</td>
+</tr>
+<tr>
+<td>Saw palmetto</td>
+<td>DHT-modulation angle for androgenic alopecia is interesting but
+limited Indian-vendor supply at clinical-grade; deferred.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Capsule fill brief</strong>: 325 mg total fill is well within
+Size #0 capsule capacity (~410-500mg standard density).
+<strong>Comfortable fit, no granulation step required.</strong> Headroom
+available if vendor-formulator (Dr. Lakshmi Kala) recommends adding
+sesbania-biotin (small mass) at trial-fill review.</p>
+<hr />
+<h2 id="6-theoretical-justification-why-each-active-works">6.
+Theoretical justification (why each active works)</h2>
+<p>For each of the 6 actives: mechanism, classical basis, modern
+clinical evidence with verifiable URLs, dose rationale.</p>
+<p><strong>1. Bhringraj extract (8:1 from whole-leaf, 2.5%
+wedelolactone, 100mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: wedelolactone + flavonoids + tannins.
+Promotes anagen-phase hair follicle cycling; documented angiogenic +
+hair-follicle-induction activity in animal models. Classical Ayurvedic
+<em>kesha-raja</em> (king of hair).</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a>, <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>.
+Primary classical hair tonic across the Ayurvedic materia medica.
+Combined with Brahmi + Manjistha in classical hair formulations
+(Ashtanga Hridayam, Bhaishajya Ratnavali).</li>
+<li><strong>Modern clinical evidence</strong>: Datta K et al.
+<em>"Eclipta alba extract with potential for hair growth promoting
+activity."</em> J Ethnopharmacol, 2009 / Arch Dermatol Res. <a
+href="https://pubmed.ncbi.nlm.nih.gov/18621114/">PubMed</a>. Ethanolic
+Eclipta alba extract induced more anagen follicles than 2% Minoxidil in
+a C57BL/6 mouse model.</li>
+<li><strong>Dose rationale</strong>: 100mg/cap × 2 caps = 200mg daily
+extract = ~1,600mg whole-plant equivalent (Datta 2009 mouse-model dose
+extrapolated to ~250-300mg human-equivalent; 200mg is the conservative
+entry dose, vendor-formulator can lift to 250-300mg at trial-fill if
+economics support).</li>
+</ul>
+<p><strong>2. BacoMind Bacopa (Natural Remedies, 50% bacosides,
+50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: bacosides A + B (active triterpenoid
+saponin glycosides). Adaptogen; modulates HPA axis cortisol response.
+Cortisol-driven telogen effluvium is a documented hair-fall driver —
+sustained stress pushes follicles into telogen phase prematurely (effect
+lags onset by ~3 months, recovers after stressor resolves + Bacopa 60-90
+day window).</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> primary <em>Medhya Rasayana</em> (cognitive tonic). <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>.</li>
+<li><strong>Modern clinical evidence</strong>: Calabrese C et al.
+<em>"Effects of a standardized Bacopa monnieri extract on cognitive
+performance, anxiety, and depression in the elderly."</em> J Altern
+Complement Med, 2008; 14(6):707-713. <a
+href="https://pubmed.ncbi.nlm.nih.gov/18611150/">PubMed</a>. Plus the
+Stough 2001 (Psychopharmacology) + Roodenrys 2002 cognitive-RCT lineage
+that BacoMind specifically has been used in.</li>
+<li><strong>Dose rationale</strong>: 50mg/cap × 2 caps = 100mg daily
+extract = 50mg bacosides/day. Sub-clinical for cognition primary (which
+requires 300-600mg bacosides/day per the cognitive-RCT lineage),
+supportive for stress / scalp circulation context. The branded BacoMind
+attribution (Natural Remedies, NOT Sabinsa Bacopin) is the citable
+clinical-trial leverage.</li>
+</ul>
+<p><strong>3. PrimaVie Shilajit (Natreon, ≥50% fulvic acid + 10.3% DBPs,
+50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: dibenzo-α-pyrones (DBPs) + fulvic acid +
+80+ trace minerals. Mitochondrial-CoQ10-stabilising effect (Stohs 2017).
+Documented bioavailability enhancement of co-administered actives.
+Anti-inflammatory + adaptogenic.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> — <em>Shilajatu</em> as primary <em>Rasayana</em>.
+Long-standing classical adjunct in hair-fall formulations.</li>
+<li><strong>Modern clinical evidence</strong>: Pandit S et al.
+<em>"Clinical evaluation of purified Shilajit on testosterone levels in
+healthy volunteers."</em> Andrologia, 2016; 48(5):570-575. <a
+href="https://pubmed.ncbi.nlm.nih.gov/26395129/">PubMed</a>. Plus Stohs
+SJ et al. <em>"Safety and efficacy of Shilajit (mumie, moomiyo)."</em>
+Phytother Res, 2014. <a
+href="https://pubmed.ncbi.nlm.nih.gov/24080503/">PubMed</a> — review of
+PrimaVie clinical evidence base.</li>
+<li><strong>Dose rationale</strong>: 50mg/cap × 2 caps = 100mg daily —
+sub-clinical adjunctive (Pandit 2016 used 250mg/day for testosterone
+clinical effect; full clinical dose lives in Spark). At 100mg/day,
+PrimaVie's role in Root is micronutrient + adaptogenic +
+bioavailability-enhancement of co-administered Bhringraj + Bacopa.</li>
+<li><strong>Why NABL heavy-metal clearance is non-negotiable</strong>:
+raw Shilajit collected from Himalayan sources can carry mercury, lead,
+arsenic at unsafe levels. PrimaVie's purified clinical-grade processing
+eliminates this risk (NABL-accredited per-batch testing). This is why
+PrimaVie is the only Shilajit ingredient TGL will use, despite the cost
+premium vs commodity Shilajit.</li>
+</ul>
+<p><strong>4. Manjistha extract (8:1 from whole-root, ~10%
+anthraquinones, 25mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: anthraquinones + glycosides. Classical
+<em>Raktashodhaka</em> (blood purifier). Modern: anti-inflammatory +
+lymphatic decongestant + scalp microcirculation support. Paired with
+Bhringraj in classical hair formulations.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka
+Samhita</a> primary <em>Raktaprasadana</em> herb. <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
++ Sushruta both feature it.</li>
+<li><strong>Modern clinical evidence</strong>: anti-inflammatory in
+vitro studies; hair-fall-specific clinical data limited.
+Traditional-strong, modern-emerging. No specific landmark clinical paper
+at this stage.</li>
+<li><strong>Dose rationale</strong>: 25mg/cap × 2 caps = 50mg daily =
+~200mg whole-root equivalent (modern Ayurvedic supplement dose typically
+100-300mg whole-root).</li>
+</ul>
+<p><strong>5. Curry leaf extract (carbazole alkaloid standardisation,
+50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: carbazole alkaloids (mahanimbine,
+koenimbine) + flavonoids + iron + B-complex (in whole leaf). Classical
+South Indian hair-care narrative ("curry leaf for thick black hair").
+Modern: antioxidant + supportive phytochemical contribution.</li>
+<li><strong>Classical basis</strong>: <a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>.
+Folk + classical hair-care application across South Indian Ayurvedic
+tradition.</li>
+<li><strong>Modern clinical evidence</strong>: hair-fall-specific
+clinical data thin. Brand-story + supportive-phytochemical role in the
+formulation, not primary clinical lever.</li>
+<li><strong>Dose rationale</strong>: 50mg/cap × 2 caps = 100mg daily
+extract.</li>
+<li><strong>Important caveat</strong>: <strong>NOT
+iron-standardised</strong>. No Indian vendor offers iron-standardised
+Murraya koenigii at clinical-grade. The iron narrative for hair-fall is
+supportive (delivered via moringa whole-leaf at ~1-2 mg natural Fe/day),
+NOT therapeutic. Iron-deficient hair-fall users should pair Root with
+Bloom (daily multi) or with practitioner-prescribed iron
+supplementation. This is an honesty point we make on the PDP.</li>
+</ul>
+<p><strong>6. Moringa whole-leaf powder (heat-treated, TGL captive
+supply, 50mg/cap)</strong></p>
+<ul>
+<li><strong>Mechanism</strong>: whole-plant nutritive (iron ~1-2 mg/day
+at this dose, calcium, vitamin C, antioxidants, chlorophyll). Not a
+primary hair-fall active; supports nutritional baseline + carries the
+brand heritage thread.</li>
+<li><strong>Folk + modern basis</strong>: established nutraceutical
+literature on moringa as iron + folate + B-complex source. Iron
+deficiency exacerbates hair fall; many menstruating Indian women are
+sub-clinically deficient.</li>
+<li><strong>Modern evidence</strong>: Alegbeleye OO. <em>"How Functional
+Is Moringa oleifera? A Review of Its Nutritive, Medicinal, and
+Socioeconomic Potential."</em> Food Nutr Bull, 2018. <a
+href="https://pubmed.ncbi.nlm.nih.gov/29284305/">PubMed</a>.</li>
+<li><strong>Dose rationale</strong>: 50mg/cap × 2 caps = 100mg daily.
+Tier B 50mg signature dose per Moringa Foundation principle. Substantive
+enough to carry the moringa thread; calibrated against Deepika's
+stacking-overload concern.</li>
+<li><strong>Brand role</strong>: heritage signature carrying the
+cross-portfolio narrative.</li>
+</ul>
+<hr />
+<p><strong>Evidence-strength summary</strong> (so the team knows where
+we are confident vs cautious):</p>
+<table>
+<thead>
+<tr>
+<th>Active</th>
+<th>Traditional basis</th>
+<th>Modern clinical evidence</th>
+<th>Overall strength</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bhringraj</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>,
+<a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(kesha-raja)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/18621114/">Datta 2009
+Eclipta-vs-Minoxidil mouse model</a></td>
+<td>Traditional-strong, modern-moderate</td>
+</tr>
+<tr>
+<td>BacoMind Bacopa (Natural Remedies)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>
+(Medhya Rasayana)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/18611150/">Calabrese 2008
+RCT</a> + Stough 2001 + Roodenrys 2002 lineage</td>
+<td>Modern-strong (cognitive primary; supportive for hair via
+stress-axis)</td>
+</tr>
+<tr>
+<td>PrimaVie Shilajit (Natreon)</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>
+(Rasayana)</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/26395129/">Pandit 2016
+testosterone RCT</a> + <a
+href="https://pubmed.ncbi.nlm.nih.gov/24080503/">Stohs 2014
+review</a></td>
+<td>Modern-strong (only RCT-backed Shilajit ingredient)</td>
+</tr>
+<tr>
+<td>Manjistha</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/charaka-samhita-english">Charaka</a>
+(Raktashodhaka)</td>
+<td>Anti-inflammatory in vitro studies</td>
+<td>Traditional-strong, modern-emerging</td>
+</tr>
+<tr>
+<td>Curry leaf</td>
+<td><a
+href="https://www.wisdomlib.org/hinduism/book/bhava-prakasha">Bhavaprakasha</a>
+(folk + classical)</td>
+<td>Limited hair-fall-specific RCTs</td>
+<td>Traditional-strong, modern-thin</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>Folk + modern nutraceutical</td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29284305/">Alegbeleye
+2018</a></td>
+<td>Modern-strong (nutritive)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-how-we-arrived-at-this-product-the-decision-narrative">7. How
+we arrived at this product (the decision narrative)</h2>
+<p>Three layers of decisions that produced Root as the SKU it is.</p>
+<p><strong>Layer 1: Why Root as Phase 2 Q2 (not Phase 1, not
+later)</strong></p>
+<p>We evaluated all 10 SKUs across volume, profitability, TGL-fit, and
+founder authenticity. Root scored high on cross-sell anchor potential
+and ad-funnel CAC efficiency, but lower than Cycle on Phase 1
+launchability:</p>
+<ul>
+<li><strong>90-day-to-effect category, not 1-2 cycles.</strong> Cycle
+proves fast (1-2 cycles); Root needs 90 days minimum. Phase 1 needs
+anchor SKUs that prove fast.</li>
+<li><strong>Bundling with Phase 1 Q1 SKUs is the activation
+lever.</strong> Bloom + Root (Daily Woman Kit) and Cycle + Root (Cycle
+Glow Kit) are the two highest-attach bundle picks. Root needs Phase 1
+SKUs in market to bundle against.</li>
+<li><strong>Hair fall is the #2 customer-voice in TGL's existing review
+base.</strong> Already-warm cohort waiting for the formulation;
+sequencing to Q2 doesn't lose the cohort, it just delays the
+conversion.</li>
+</ul>
+<p>So Root is sequenced to Phase 2 Q2 not because it's a weaker SKU but
+because the bundle-attach economics depend on Phase 1 SKUs being live
+first.</p>
+<p><strong>Layer 2: Why this 6-active stack (and not
+another)</strong></p>
+<p>Hair-care formulation has roughly 12 cited natural-source candidates.
+We considered each and selected 6:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bhringraj</td>
+<td>INCLUDED</td>
+<td>Classical kesha-raja; non-negotiable hero ingredient. Datta 2009
+evidence base.</td>
+</tr>
+<tr>
+<td>BacoMind Bacopa (Natural Remedies, 50% bacosides)</td>
+<td>INCLUDED</td>
+<td>Stress-axis modulator + adaptogen. <strong>Branded BacoMind
+specifically</strong> for clinical-trial-citable evidence. <strong>NOT
+Sabinsa Bacopin</strong> per DEC-024 brand-attribution.</td>
+</tr>
+<tr>
+<td>PrimaVie Shilajit (Natreon, ≥50% fulvic + 10.3% DBPs)</td>
+<td>INCLUDED</td>
+<td>Only RCT-backed Shilajit ingredient. NABL heavy-metal cleared.
+<strong>NOT Sabinsa Shilajit Extract (commodity)</strong> per
+DEC-024.</td>
+</tr>
+<tr>
+<td>Manjistha</td>
+<td>INCLUDED</td>
+<td>Anti-inflammatory + microcirculation. Classical
+pair-with-Bhringraj.</td>
+</tr>
+<tr>
+<td>Curry leaf</td>
+<td>INCLUDED</td>
+<td>Brand-story leverage (South Indian cultural narrative) + supportive
+phytochemicals. Honest about NOT iron-standardised.</td>
+</tr>
+<tr>
+<td>Moringa</td>
+<td>INCLUDED (heritage base)</td>
+<td>Brand thesis anchor + nutritive support. The ONE whole-plant per
+SKU.</td>
+</tr>
+<tr>
+<td>Sesbania-biotin (V2 candidate)</td>
+<td>EXCLUDED (V1 brief)</td>
+<td>Supplier landscape unclear. Defer to vendor-formulator at
+trial-fill. The biotin narrative is a Be Bodywise differentiator we
+deliberately don't chase.</td>
+</tr>
+<tr>
+<td>Methi (fenugreek)</td>
+<td>EXCLUDED</td>
+<td>Earthful Root Nourish carries it; cleaner Schedule VI without
+it.</td>
+</tr>
+<tr>
+<td>Hibiscus</td>
+<td>EXCLUDED</td>
+<td>Cultural narrative strong, clinical evidence thin. Can revisit at
+trial-fill.</td>
+</tr>
+<tr>
+<td>Amla</td>
+<td>EXCLUDED</td>
+<td>Lives in Bloom. Cross-portfolio discipline.</td>
+</tr>
+<tr>
+<td>Synthetic biotin 5000mcg</td>
+<td>EXCLUDED</td>
+<td>Pillar 1 violation. Cystic acne risk in sensitive users at high
+doses.</td>
+</tr>
+<tr>
+<td>Marine collagen</td>
+<td>EXCLUDED</td>
+<td>Not vegan, not plant-source. Pillar conflict.</td>
+</tr>
+<tr>
+<td>Saw palmetto</td>
+<td>EXCLUDED</td>
+<td>DHT-modulation interesting but limited Indian-vendor clinical-grade
+supply.</td>
+</tr>
+</tbody>
+</table>
+<p>The portfolio approach forces discipline: each active in one SKU's
+primary role; minimal duplication across SKUs. Root's leverage is the
+dual-branded clinical-grade actives (BacoMind + PrimaVie) at the premium
+tier — Earthful Root Nourish at ₹658 cannot match this without
+reformulating, and the synthetic-biotin gummy tier (Be Bodywise et al.)
+plays a different game entirely.</p>
+<p><strong>Layer 3: Why this specific dose architecture (and not
+another)</strong></p>
+<p>Every dose was triangulated across three constraints:</p>
+<ol type="1">
+<li><strong>Clinical / classical therapeutic range</strong> (what RCTs
+or Bhavaprakasha actually use)</li>
+<li><strong>Capsule fill feasibility</strong> (Size #0 = ~500mg max
+practical fill)</li>
+<li><strong>2-cap-per-day compliance ceiling</strong> (anything beyond 2
+caps creates retention friction)</li>
+</ol>
+<p>That triangulation forced the extract-first decision (Operational
+Principle 6, locked as TGL-P1-DEC-011). With 5 extracts + 1 whole-leaf
+base at 8:1 concentration on the Bhringraj + Manjistha extracts, we
+deliver classical-equivalent doses (Bhringraj ~1,600 mg whole-plant
+equivalent, Manjistha ~200mg whole-root equivalent) while staying inside
+the 325mg fill × 2 caps/day envelope.</p>
+<p><strong>Trade-offs we accepted, openly stated:</strong></p>
+<ul>
+<li><strong>BacoMind + PrimaVie are sub-clinical doses in this
+SKU.</strong> BacoMind 100mg/day is below the cognitive-RCT range
+(300-600mg bacosides/day); PrimaVie 100mg/day is below the
+testosterone-RCT dose (250mg/day). Full clinical doses for both live in
+Spark (Phase 6 Q3 ashwagandha+ stress SKU). In Root, both are
+<strong>adjunctive supportive doses with branded-citable
+evidence</strong> — the BacoMind / PrimaVie attribution gives us the
+clinical-trial leverage even at sub-clinical dose, which is how the
+ingredient-literate hair-care customer reads ingredient lists.</li>
+<li><strong>Curry leaf is NOT iron-standardised.</strong> No Indian
+vendor offers it at clinical-grade. The iron narrative is supportive
+(moringa whole-leaf), not primary. Honesty point on the PDP —
+iron-deficient hair-fall users should pair with Bloom or
+practitioner-prescribed iron.</li>
+<li><strong>Sesbania-biotin deferred from V1.</strong> Supplier
+landscape unclear at brief-lock; can revisit at trial-fill. The
+biotin-narrative gap is intentional — we're not competing with
+synthetic-biotin gummy brands, we're competing with the comprehensive
+Ayurvedic stack at premium tier.</li>
+<li><strong>Per-active mg numbers look small on label</strong>
+(Manjistha 25mg/cap reads weak). Mitigated by labelling whole-plant
+equivalence on-pack ("Manjistha extract 25mg, equivalent to 200mg
+whole-root").</li>
+<li><strong>Single Indian distributor (specialty channel) for PrimaVie +
+BacoMind concentration risk.</strong> Mitigated by both Natural Remedies
+(BacoMind) and Natreon (PrimaVie India distributor) being established
+specialty-botanical relationships with multi-year India-supply track
+records. Sabinsa Bacopin + Sabinsa Shilajit Extract are retained as
+cost-fallback paths if specialty channels stall (with explicit
+brand-narrative compromise — we'd need to step back the
+clinical-evidence claim).</li>
+</ul>
+<p><strong>The decision trail in one sentence</strong>: Root is the
+cross-sell anchor that converts TGL's already-buying-moringa-for-hair
+customer base into a comprehensive Ayurvedic hair-care commitment; the
+6-active stack pairs the classical kesha-raja Bhringraj + Manjistha duo
+with two clinical-grade branded actives (BacoMind Bacopa from Natural
+Remedies + PrimaVie Shilajit from Natreon) at the premium ₹1,199 MRP
+tier where no peer currently exists; the +₹100 lift from V2 reflects the
+genuine COGS step-up from the dual-branded actives, earning the premium
+positioning.</p>
+<hr />
+<h2 id="8-competitive-landscape">8. Competitive landscape</h2>
+<p>Root plays in the comprehensive Ayurvedic hair-care premium tier. Per
+the V3 dossier benchmark set + naming-sprint round 2 input.</p>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>Price (sale)</th>
+<th>Format</th>
+<th>Positioning</th>
+<th>Active focus</th>
+<th>Per-day cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Root (TGL)</strong></td>
+<td>₹1,049</td>
+<td>Capsule, 2/day</td>
+<td><strong>Premium Ayurvedic + dual clinical-grade branded (BacoMind +
+PrimaVie)</strong></td>
+<td>Bhringraj + BacoMind Bacopa + PrimaVie Shilajit + Manjistha + curry
+leaf + moringa</td>
+<td>~₹35/day</td>
+</tr>
+<tr>
+<td><strong>Earthful Root Nourish</strong></td>
+<td>₹658</td>
+<td>Capsule, 2/day</td>
+<td>Closest peer; lighter Ayurvedic stack</td>
+<td>Bhringraj + Amla + Brahmi + Methi + Hibiscus + small biotin</td>
+<td>~₹22/day</td>
+</tr>
+<tr>
+<td><strong>Be Bodywise Biotin Hair Gummies</strong></td>
+<td>₹699</td>
+<td>Gummy, 1/day</td>
+<td>Synthetic-biotin urban-millennial telehealth-coded</td>
+<td>Synthetic biotin 5000mcg + folic + B-complex + zinc</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>Mamaearth Onion Hair Vitamins</strong></td>
+<td>₹599</td>
+<td>Capsule</td>
+<td>Mass-market, onion-narrative</td>
+<td>Biotin + onion extract + multi-vitamin</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td><strong>Forest Essentials hair</strong></td>
+<td>₹1,500</td>
+<td>Capsule</td>
+<td>Luxury heritage premium</td>
+<td>Multi-herb classical Ayurvedic</td>
+<td>~₹50/day</td>
+</tr>
+<tr>
+<td><strong>HealthKart Biotin</strong></td>
+<td>₹700</td>
+<td>Tablet</td>
+<td>Single-active pharma-coded</td>
+<td>Synthetic biotin 10,000mcg</td>
+<td>~₹23/day</td>
+</tr>
+<tr>
+<td><strong>OZiva Plant-Based Collagen Builder</strong></td>
+<td>₹999</td>
+<td>Powder</td>
+<td>Anti-aging premium pseudo-natural</td>
+<td>Amino acids + synthetic biotin + amla + sea buckthorn</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td><strong>Wellbeing Nutrition Skin Fuel</strong></td>
+<td>₹999</td>
+<td>Liquid</td>
+<td>Format-gimmick synthetic</td>
+<td>Synthetic biotin + collagen + hyaluronic</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td><strong>Plix Plant Fix Hair Gummies</strong></td>
+<td>₹599</td>
+<td>Gummy</td>
+<td>Format-gimmick synthetic-biotin</td>
+<td>Synthetic biotin + multivitamin</td>
+<td>~₹20/day</td>
+</tr>
+<tr>
+<td><strong>Setu Hair:Sustain</strong></td>
+<td>₹999</td>
+<td>Capsule</td>
+<td>Pharma-coded marine-collagen</td>
+<td>Marine collagen + biotin + Vit C</td>
+<td>~₹33/day</td>
+</tr>
+<tr>
+<td><strong>Cosmix No-Nonsense Hair Magic</strong></td>
+<td>₹799</td>
+<td>Powder</td>
+<td>Multi-herb powder format</td>
+<td>Multi-herb powder + magnesium</td>
+<td>~₹27/day</td>
+</tr>
+<tr>
+<td><strong>Power Gummies Hair Vitamins</strong></td>
+<td>₹599</td>
+<td>Gummy</td>
+<td>Mass-market synthetic</td>
+<td>Synthetic biotin + multivitamin</td>
+<td>~₹20/day</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The single-sentence competitive position</strong>: Root is
+the only Indian D2C SKU that is <strong>comprehensive Ayurvedic + dual
+clinical-grade branded</strong> (BacoMind from Natural Remedies +
+PrimaVie from Natreon), in capsule format (not gummy / powder / liquid
+gimmick), at the ₹1,199 MRP premium tier where no peer currently exists,
+with a moringa heritage thread in every cap — earning the premium via
+genuine COGS step-up from the branded clinical-grade actives, not
+optical premium.</p>
+<hr />
+<h2 id="9-right-to-win-why-a-real-woman-picks-root">9. Right to win (why
+a real woman picks Root)</h2>
+<p>Five reasons she chooses Root when she's looking at the shelf.</p>
+<p><strong>1. It addresses her actual problem with the depth she's
+looking for.</strong> She knows by Stage 5 of her journey
+(re-evaluation) that hair fall is rarely one cause — it's a stack. Root
+meets her with the comprehensive Ayurvedic stack response. Not a
+single-cofactor biotin gummy, not a luxury-heritage formulation she
+can't pronounce, not a synthetic-collagen lifestyle play. The ingredient
+list maps to her actual problem.</p>
+<p><strong>2. The two clinical-grade branded actives her
+ingredient-literate friends will respect.</strong> BacoMind from Natural
+Remedies (50% bacosides, the same standardised ingredient cited in
+Calabrese 2008 + Stough 2001 cognitive RCTs) and PrimaVie from Natreon
+(≥50% fulvic acid + 10.3% DBPs, NABL heavy-metal cleared, the only
+Shilajit ingredient on the planet with published RCTs) are the two
+ingredients she can Google and verify. No commodity-grade Bacopa, no raw
+Shilajit with mercury risk. This is the depth that justifies the premium
+positioning.</p>
+<p><strong>3. The classical kesha-raja stack her grandmother would
+recognise.</strong> Bhringraj + Manjistha + curry leaf are the classical
+Ayurvedic hair-care vocabulary — names that carry cultural weight even
+if she's never read Bhavaprakasha. The brand speaks both registers:
+clinical-grade modern science AND classical Indian heritage. She doesn't
+have to choose.</p>
+<p><strong>4. Honest about what it can and can't do.</strong> "Hair
+grows 1cm a month — that's biology, not marketing. Give it 90 days
+minimum." We say it directly. We're honest about the curry leaf NOT
+being iron-standardised (the iron narrative is supportive, not primary;
+pair with Bloom or practitioner-prescribed iron if you're deficient).
+Honest expectation-setting at the front protects the trust that
+compounds into a multi-year subscription.</p>
+<p><strong>5. The bundle math that makes it a no-brainer with Bloom or
+Cycle.</strong> Daily Woman Kit (Bloom + Root) at bundle pricing is more
+attractive than buying both standalone — and the formulations are
+designed to stack (Bloom's daily multi covers the iron + B-complex
+baseline; Root delivers the hair-specific Ayurvedic stack on top). Same
+logic with Cycle Glow Kit (Cycle + Root) for the PMS-cohort customer who
+has hair-fall as a known co-morbidity.</p>
+<p><strong>Two things that do not show up in the matrix but matter in
+real life:</strong></p>
+<ul>
+<li><strong>The "I checked the brand on Google" verifiability.</strong>
+BacoMind and PrimaVie are both branded actives with published
+clinical-trial dossiers (Natural Remedies' BacoMind dossier; Natreon's
+PrimaVie dossier). The ingredient-literate customer can verify exactly
+what TGL is putting in the cap. Most competitors hide behind
+"proprietary blend" or generic "Bacopa extract"; Root names the brand
+and the standardisation explicitly.</li>
+<li><strong>The label tells the same story Deepika tells in her
+Reels.</strong> No marketing-only descriptors. Standardisation
+percentages on the label (2.5% wedelolactone Bhringraj, 50% bacosides
+BacoMind, ≥50% fulvic + 10.3% DBPs PrimaVie) match what Deepika quotes
+in content. Internal-external consistency builds trust in a segment that
+scrutinises ingredient lists.</li>
+</ul>
+<p><strong>The single-sentence right to win</strong>: Root wins because
+it speaks the customer's actual problem with comprehensive Ayurvedic
+depth, names two clinical-grade branded actives (BacoMind + PrimaVie)
+she can verify, carries classical kesha-raja vocabulary her grandmother
+would recognise, sets honest expectations on the 90-day arc, and bundles
+cleanly with Bloom + Cycle to deliver portfolio-leading attach
+economics.</p>
+<hr />
+<h2 id="10-marketing-approach-brief">10. Marketing approach (brief)</h2>
+<p><strong>Channel mix is website-first / Shopify-led, NOT
+Amazon-first</strong> (per TGL-P1-DEC-017, locked 2026-05-09). Today's
+80% Amazon revenue concentration on TGL's existing moringa SKUs is a
+remediable weakness from inefficient website performance marketing — not
+strategic intent. Root's launch motion is built explicitly to fix the
+website under-performance: Meta + Google ads → Shopify PDP, founder
+Reels/Stories for organic, Klaviyo email/SMS for retention, native
+Shopify subscription mechanic. Amazon is added as a <strong>secondary
+channel in Month 2-3 post-launch</strong> after the website motion is
+proven.</p>
+<p>The new launch motion is the fix to the current Amazon
+over-dependence. Root specifically: hair-care is the #1 ad-funnel
+category for women's wellness, so the Meta + Google motion has the most
+volume to validate against. Bundle attach (Bloom + Root, Cycle + Root)
+is Shopify-native — Amazon's bundle execution is weak. Subscription
+ladder (₹891 sub vs ₹1,049 sale) is Shopify-mechanic.</p>
+<p><strong>Channel mix at launch (Q2)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta (Instagram + Facebook) → Shopify PDP</td>
+<td>Primary acquisition</td>
+<td>~55%</td>
+</tr>
+<tr>
+<td>Google Search + SEO → Shopify PDP</td>
+<td>Branded + non-branded hair-fall search</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Founder Reels + Stories (organic + boosted)</td>
+<td>Trust + content engine</td>
+<td>~15%</td>
+</tr>
+<tr>
+<td>Creator partnerships (hair-care creators)</td>
+<td>Cohort-matched activation</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Klaviyo email + SMS (Phase 1 Q1 buyer base + cross-sell from Cycle +
+Bloom)</td>
+<td>Warm cohort capture + bundle attach</td>
+<td>~10%</td>
+</tr>
+<tr>
+<td>Amazon (secondary, Month 2-3+)</td>
+<td>Channel diversification once website motion proven</td>
+<td>TBD</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pricing locked (V3, +₹100 LIFT from V2)</strong>: ₹1,199 MRP
+/ ₹1,049 sale / ₹891 sub. Premium tier defended by dual-branded
+clinical-grade actives. 75% GM at MRP.</p>
+<p><strong>Geography priority</strong>: Pan-Indian metro (Mumbai,
+Bangalore, Delhi, Pune, Chennai, Hyderabad). Hair-fall is
+geography-agnostic; less South-India-skewed than Cycle's launch
+concentration. Tamil Nadu / Karnataka still over-index due to TGL's
+existing customer base, but Root expands more broadly than Cycle from
+Day 1.</p>
+<p><strong>Deepika's content cadence</strong>: ~1 founder Reel per week
+through launch month. Pre-launch covers "why I'm building Root after
+Cycle and Bloom," "the modern hair-fall stack — postpartum, post-Covid,
+stress, PCOS," "BacoMind and PrimaVie — what these branded actives
+actually mean," "why curry leaf is for the brand story, not the iron,"
+"the 90-day arc — give it time." Launch month rotates: founder use,
+customer Q&amp;A, ingredient story, bundle pitches.</p>
+<p><strong>Asset list (Boco produces, pre-launch)</strong>: Root PDP,
+brand kit refinement (carrying Cycle's Q1 design language), 5 ad
+creative templates including bundle creative, Klaviyo email flows for
+launch + onboarding + 6-month retention + bundle attach, Ingredient
+Library entry. Live by launch -2 weeks.</p>
+<p><strong>Owner split</strong>: Deepika owns founder content (~6-8
+hrs/week launch month). Unnati owns Meta channel ops + creator outreach
++ email execution (~12-15 hrs/week launch month). Boco (Meera, Kavya,
+Aarav) owns asset production, front-loaded in launch -8 to -2 weeks.</p>
+<hr />
+<h2 id="11-sales-pitch-customer-facing-version">11. Sales pitch
+(customer-facing version)</h2>
+<p>Three pitches scaled to the conversation length.</p>
+<p><strong>5-second elevator</strong> (chance encounters, quick brand
+mentions):</p>
+<blockquote>
+<p>"Root is our hair supplement. Two capsules a day, every day.
+Bhringraj, BacoMind Bacopa, PrimaVie Shilajit, plus our farm-grown
+moringa. Built on Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<p><strong>30-second customer pitch</strong> (the version most people
+will hear, in Deepika's voice):</p>
+<blockquote>
+<p>"Hair grows 1cm a month — that's biology, not marketing. Root is
+built for the long arc, not the quick fix. Two capsules a day, every
+day: Bhringraj at classical-equivalent dose for the kesha-raja
+anagen-phase work, BacoMind Bacopa from Natural Remedies for the
+stress-axis adaptogen layer, PrimaVie Shilajit from Natreon for the
+micronutrient and adaptogenic depth, Manjistha and curry leaf for scalp
+circulation, and our farm-grown moringa as the heritage thread. Give it
+90 days. The Ayurvedic stack your grandmother would recognise, plus the
+clinical-grade actives your dermatologist would respect."</p>
+</blockquote>
+<p><strong>60-second partner pitch</strong> (creator partnerships,
+retail conversations, in Unnati's or Deepika's voice):</p>
+<blockquote>
+<p>"Root is The Good Leaf's comprehensive Ayurvedic hair-care SKU,
+designed for women 25-50 with the modern hair-fall stack — postpartum
+telogen effluvium, post-Covid shedding, stress / PCOS-linked thinning.
+Six actives at clinical or supportive doses: Bhringraj 8:1 at 200mg per
+day (classical kesha-raja, Datta 2009 Eclipta-vs-Minoxidil mouse model),
+BacoMind Bacopa from Natural Remedies at 100mg per day (50% bacosides
+standardised — same ingredient as the Calabrese 2008 cognitive RCT),
+PrimaVie Shilajit from Natreon at 100mg per day (the only Shilajit with
+published RCTs at clinical dose, NABL heavy-metal cleared, ≥50% fulvic
+acid + 10.3% DBPs), Manjistha 8:1 at 50mg per day (anti-inflammatory +
+scalp microcirculation), curry leaf 100mg per day (brand-story leverage
++ supportive phytochemicals), and farm-grown moringa as the heritage
+signature. Two capsules a day, ₹1,049 sale, around ₹35 per day, designed
+for a 3-6 month arc with subscription cadence at ₹891. We're the only
+Indian D2C SKU at the comprehensive premium Ayurvedic tier with two
+clinical-grade branded actives at this depth — Earthful Root Nourish at
+₹658 is the closest peer with a lighter formulation; Be Bodywise et al.
+play the synthetic-biotin gummy game. Bundle with Cycle (Cycle Glow Kit)
+or Bloom (Daily Woman Kit) for the highest-attach bundles in the
+portfolio. Founder Deepika is genuinely in this audience's life-stage;
+that authenticity is hard to fake."</p>
+</blockquote>
+<p><strong>The honest message Deepika repeats across organic
+content</strong> (the recurring tagline pattern):</p>
+<blockquote>
+<p>"Hair grows 1cm a month — that's biology, not marketing. Root is the
+comprehensive Ayurvedic stack for the long arc. Two caps a day. Give it
+90 days before you decide. Built on Moringa. Powered by Ayurveda."</p>
+</blockquote>
+<hr />
+<h2 id="12-sourcing-plan-and-feasibility">12. Sourcing plan and
+feasibility</h2>
+<p>The "can we actually build this" layer. How we judge vendor quality,
+per-active vendor candidates, packaging, capsule shell, manufacturing,
+QC, capsule fill, regulatory, aggregate risk.</p>
+<h3 id="121-how-we-judge-vendor-quality-the-compliance-framework">12.1
+How we judge vendor quality (the compliance framework)</h3>
+<p>Same 3-tier framework as Cycle
+(<code>sku-1-cycle-product-brief.md</code> Section 12.1). Tier 1
+mandatory: FSSAI Central + GMP + per-batch CoA + NABL-accredited lab
+inputs + HPLC/HPTLC standardisation + Pillar 1 extraction method. Tier 2
+strongly preferred: ISO 22000 + HACCP + ISO 9001 + USDA Organic +
+multi-batch reproducibility + 24-month stability + public CoA
+transparency. Tier 3 application-specific: branded clinical-grade
+attribution for BacoMind (Natural Remedies) and PrimaVie (Natreon) with
+batch-level brand-licensee documentation; NABL heavy-metal clearance per
+batch for PrimaVie (Shilajit-source-specific risk); cultivated-origin
+certification for Bhringraj (vs wild-collected variant).</p>
+<h3 id="122-per-active-vendor-matrix">12.2 Per-active vendor matrix</h3>
+<p><strong>Bhringraj extract (8:1, 2.5% wedelolactone)</strong> —
+multi-vendor:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Akay Group</strong></td>
+<td>Cochin, Kerala</td>
+<td>Eclipta alba 8:1, 2.5% wedelolactone</td>
+<td>10-25kg</td>
+<td><strong>Tier-1 priority</strong> on cost (~₹3K/kg). Multi-active
+capability across Manjistha + Yashtimadhu adjacencies.</td>
+</tr>
+<tr>
+<td><strong>Plant Lipids</strong></td>
+<td>Cochin, Kerala</td>
+<td>Eclipta alba extract</td>
+<td>TBD</td>
+<td>Backup</td>
+</tr>
+<tr>
+<td><strong>Sami-Sabinsa BhringaPlex</strong></td>
+<td>Bangalore</td>
+<td>Standardised Eclipta extract</td>
+<td>5-25kg</td>
+<td>Backup; brand-name premium</td>
+</tr>
+<tr>
+<td>Arjuna Natural</td>
+<td>Aluva, Kerala</td>
+<td>Eclipta extract</td>
+<td>10-25kg</td>
+<td>Backup</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BacoMind Bacopa — Natural Remedies (Bangalore)</strong>
+primary; brand-attribution corrected per DEC-024. <strong>NOT
+Sami-Sabinsa.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Natural Remedies BacoMind</strong></td>
+<td>Bangalore</td>
+<td><strong>50% bacosides</strong> standardised; clinical-trial-backed
+(Stough 2001, Roodenrys 2002, Calabrese 2008 lineage)</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 priority</strong> per DEC-024. ~₹15K/kg
+specialty-channel.</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa Bacopin (V3 fallback)</td>
+<td>Bangalore</td>
+<td>50% bacosides; commercial peer to BacoMind</td>
+<td>5-25kg</td>
+<td>Cost-fallback only — brand-narrative compromise (lose BacoMind
+clinical-trial-citable leverage)</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa Bacognize (premium)</td>
+<td>Bangalore</td>
+<td>45% bacosides</td>
+<td>5-25kg</td>
+<td>Backup; over-spec for adjunctive 100mg dose</td>
+</tr>
+<tr>
+<td>Vidya Herbs Bacopa</td>
+<td>Bangalore</td>
+<td>20% bacosides commodity</td>
+<td>TBD</td>
+<td>Last-resort cost fallback</td>
+</tr>
+</tbody>
+</table>
+<p><strong>PrimaVie Shilajit — Natreon Inc</strong> primary;
+brand-attribution corrected per DEC-024. <strong>NOT
+Sami-Sabinsa.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Natreon PrimaVie</strong></td>
+<td>US-headquartered, India distributed via specialty channel</td>
+<td><strong>≥50% fulvic acid + 10.3% DBPs</strong> (dibenzo-α-pyrones),
+NABL heavy-metal cleared, clinical-grade purified</td>
+<td>5-25kg</td>
+<td><strong>Tier-1 priority</strong> per DEC-024. ~₹22-30K/kg
+specialty-channel. Only RCT-backed Shilajit ingredient.</td>
+</tr>
+<tr>
+<td>Sami-Sabinsa Shilajit Extract (V3 fallback)</td>
+<td>Bangalore</td>
+<td>Commodity-grade Shilajit</td>
+<td>5-25kg</td>
+<td>Cost-fallback only — NO published RCTs, NO DBPs standardisation;
+brand-narrative compromise</td>
+</tr>
+<tr>
+<td>Dabur Shilajit (raw)</td>
+<td>India</td>
+<td>Raw Shilajit resin</td>
+<td>TBD</td>
+<td>NOT recommended — heavy-metal risk without NABL clearance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Manjistha extract (8:1, ~10% anthraquinones)</strong> — same
+vendor matrix as Cycle (Akay Group / Vidya Herbs / Phyto Life Sciences /
+MUBY Chemicals).</p>
+<p><strong>Curry leaf extract (carbazole alkaloid
+standardisation)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Location</th>
+<th>Specification</th>
+<th>MOQ</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plant Lipids</strong></td>
+<td>Cochin, Kerala</td>
+<td>Murraya koenigii extract, carbazole alkaloid standard</td>
+<td>10-25kg</td>
+<td>Tier-1 priority</td>
+</tr>
+<tr>
+<td><strong>Vidya Herbs</strong></td>
+<td>Bangalore</td>
+<td>Curry leaf extract</td>
+<td>10-25kg</td>
+<td>Backup</td>
+</tr>
+<tr>
+<td>Akay Group</td>
+<td>Cochin, Kerala</td>
+<td>Curry leaf extract</td>
+<td>TBD</td>
+<td>Backup</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important caveat</strong>: NONE of these vendors offer
+iron-standardised curry leaf at clinical-grade. The iron narrative is
+supportive (delivered via moringa), not primary.</p>
+<p><strong>Moringa whole-leaf</strong> — TGL captive supply (DPR
+Moringa, heat-treated). Same as Cycle.</p>
+<h3 id="123-consolidated-vendor-contact-directory">12.3 Consolidated
+vendor contact directory</h3>
+<p>Same primary contact set as Cycle (Sami-Sabinsa, Vidya Herbs, Akay
+Group, Plant Lipids, Indfrag) plus <strong>Natural Remedies Bangalore
+for BacoMind</strong> and <strong>Natreon Inc India specialty-channel
+for PrimaVie</strong> (DEC-024 — replaces incorrect Sami-Sabinsa
+attribution for both). Full directory in
+<code>sku-1-cycle-product-brief.md</code> Section 12.3.</p>
+<h3 id="124-packaging-capsule-shell-bottle-manufacturing">12.4
+Packaging, capsule shell, bottle, manufacturing</h3>
+<p>Same packaging vendor stack as Cycle (Pragati Pack India for label +
+monocarton; HPMC capsule shells via Deepika's vendor relationship per
+TGL-P1-DEC-002; HDPE amber bottle from Karur-area Deepika source).
+Manufacturing per V3 plan-level changes (master MD Part 0):
+<strong>in-house at Deepika's facility</strong> (FSSAI nutraceutical
+license; phycocyanin R&amp;D capsule already produced) rather than
+external CMO. Capsule fill at 325 mg in Size #0 is well within in-house
+capability. Desiccant pouch mandatory (Shilajit + multi-extract matrix
+is moisture-sensitive).</p>
+<h3 id="125-quality-control-protocol">12.5 Quality control protocol</h3>
+<p>Same QC framework as Cycle. Per-batch testing for:</p>
+<ul>
+<li><strong>PrimaVie heavy-metal panel</strong> (mandatory —
+Shilajit-source-specific risk, NABL-accredited lab per shipment)</li>
+<li><strong>BacoMind bacoside assay</strong> (verify 50% standardisation
+per batch)</li>
+<li><strong>Bhringraj wedelolactone marker</strong> (verify 2.5%
+standardisation per batch)</li>
+<li>Microbial limits across all actives + finished product</li>
+<li>Stability testing at Month 3/6/12/24 for the multi-extract +
+Shilajit matrix</li>
+</ul>
+<h3 id="126-capsule-fill-feasibility">12.6 Capsule fill feasibility</h3>
+<p>325 mg total fill in Size #0 capsule (capacity ~410-500mg standard
+density). <strong>Comfortable fit, no granulation step
+required.</strong> Headroom available if vendor-formulator (Dr. Lakshmi
+Kala) recommends adding sesbania-biotin (small mass) at trial-fill
+review.</p>
+<h3 id="127-regulatory-feasibility">12.7 Regulatory feasibility</h3>
+<p>All 6 actives FSSAI-permitted under Schedule VI of the Health
+Supplements Regulations 2022. Shilajit (PrimaVie format with NABL
+heavy-metal clearance) acceptable; raw Shilajit would warrant additional
+regulatory consultant scrutiny on heavy-metal risk. Bacopa permitted.
+Eclipta (Bhringraj) permitted. Manjistha + curry leaf + moringa all
+unambiguously permitted.</p>
+<p><strong>Permitted claim language</strong>: "supports healthy hair
+growth," "helps reduce hair fall," "nourishes hair follicles," "supports
+scalp wellness," "replenishes nutrients essential for hair vitality,"
+"traditional Ayurvedic herbs that have nourished hair for centuries,"
+"Built on Moringa. Powered by Ayurveda."</p>
+<p><strong>NOT permitted</strong>: "reverses hair loss," "cures
+alopecia," "regrows hair," "treats baldness," "reverses androgenic
+alopecia," any specific clinical-trial-derived efficacy claim without
+IRB-approved Indian clinical trial substantiation on the finished
+blend.</p>
+<p>AYUSH cert in parallel per V3 plan-level changes (FSS Chennai officer
+route).</p>
+<h3 id="128-aggregate-supply-chain-risk-and-mitigation">12.8 Aggregate
+supply chain risk and mitigation</h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Severity</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BacoMind specialty-channel MOQ insufficient at our batch tier</td>
+<td>Medium</td>
+<td>Sabinsa Bacopin as cost-fallback (with brand-narrative compromise);
+Sabinsa Bacognize as backup</td>
+</tr>
+<tr>
+<td>PrimaVie specialty-channel MOQ insufficient or India-supply
+concentration risk</td>
+<td>Medium-high</td>
+<td>Sabinsa Shilajit Extract as cost-fallback (with brand-narrative
+compromise — lose RCT-backed positioning); raw Shilajit explicitly NOT a
+fallback (heavy-metal risk)</td>
+</tr>
+<tr>
+<td>PrimaVie heavy-metal CoA discipline (Shilajit-source-specific)</td>
+<td>Low (Natreon's spec is industry-best)</td>
+<td>Per-batch NABL heavy-metal panel mandatory regardless of vendor
+CoA</td>
+</tr>
+<tr>
+<td>Bhringraj wild-collection vs cultivated</td>
+<td>Medium</td>
+<td>Specification insists on cultivated origin in PO; Akay Group has
+documented Tamil Nadu cultivated supply</td>
+</tr>
+<tr>
+<td>Manjistha heavy metal contamination (Himalayan tracts)</td>
+<td>Medium</td>
+<td>Mandatory per-batch heavy-metal panel; cultivated Karnataka source
+preferred</td>
+</tr>
+<tr>
+<td>Moringa supply continuity (single-source DPR)</td>
+<td>Low (captive)</td>
+<td>TGL existing flow; backup CMO Andhra/TN identified</td>
+</tr>
+<tr>
+<td>Curry leaf iron narrative honesty</td>
+<td>n/a (positioning, not supply)</td>
+<td>PDP discloses NOT iron-standardised; iron-deficient users directed
+to Bloom or practitioner-prescribed iron</td>
+</tr>
+<tr>
+<td>Pragati Pack 8K packaging MOQ vs first-batch demand</td>
+<td>Low</td>
+<td>Root is Q2 launch; Phase 1 Q1 trio absorbs first MOQ run; Root joins
+second-MOQ cycle</td>
+</tr>
+</tbody>
+</table>
+<h3 id="129-open-sourcing-questions-for-phase-2-vendor-calls">12.9 Open
+sourcing questions for Phase 2 vendor calls</h3>
+<ol type="1">
+<li><strong>Natural Remedies BacoMind MOQ + pricing at TGL Q2 batch
+tier.</strong> Confirm specialty-channel terms. ~₹15K/kg landed range;
+lock at ₹15K/kg for COGS planning. Activate Sabinsa Bacopin fallback
+only if economics turn adverse (with brand-narrative compromise).</li>
+<li><strong>Natreon PrimaVie MOQ + India-supply lead times.</strong>
+~₹22-30K/kg specialty-channel; lock at ₹26K/kg mid for COGS planning.
+Confirm Natreon's NABL heavy-metal CoA discipline (per-batch).</li>
+<li><strong>Akay Group Bhringraj cultivated-origin
+certification</strong> (vs wild-collected). Tamil Nadu cluster
+preferred.</li>
+<li><strong>In-house capsule fill validation at 325 mg Size #0 +
+multi-active blend (5 extracts + heritage moringa + Shilajit
+matrix).</strong> Trial-fill at Deepika's facility pre-launch.</li>
+<li><strong>V3 cost lock confirmation.</strong> Confirm BacoMind +
+PrimaVie per-mg costs at Q2 vendor terms; the ~₹302/pack COGS + 75% GM
+at ₹1,199 MRP is the locked planning baseline (DEC-023). Variance
+&gt;10% triggers reformulation lever (PrimaVie dose right-size or
+BacoMind → Bacopin fallback with brand-narrative compromise).</li>
+</ol>
+<hr />
+<h2 id="13-effort-capital-and-execution-action-plan">13. Effort,
+capital, and execution action plan</h2>
+<p><em>Pending. Phase 2 (Q2) launch critical path mapped to owner +
+spend bucket. The "who does what, when, with how much money" layer.
+Bridges this brief to the program management spec
+(<code>10-phase-1-program-management.md</code>) once Phase 2 is
+sequenced.</em></p>
+<h2 id="14-technical-appendix">14. Technical appendix</h2>
+<p><em>Pending. References V3 dossier
+(<code>dossiers/05-root-hair.md</code>), formulation spec (to be drafted
+at Dr. Lakshmi Kala handoff), governance doc 10
+(<code>10-phase-1-program-management.md</code>), brand DNA
+(<code>02-brand-dna.md</code>).</em></p>
+<hr />
+<h2 id="status">Status</h2>
+<p>V1 with Sections 1-12 locked 2026-05-09 by Aarav, V3 cost lock +
+brand-attribution corrections + price-lift applied. Sections 13-14
+pending. On full lock, brief is shareable with Deepika + Unnati for
+input + alignment.</p>
+<h2 id="revision-history">Revision History</h2>
+<p>V1 (2026-05-09): Initial full brief, drafted by Aarav post-Deepika V3
+reformulation + verified V3 cost lock + brand attribution corrections +
+formulation switches per DEC-023/024/025.</p>
+<ul>
+<li><strong>DEC-023 (V3 cost lock)</strong>: COGS ~₹302/pack at in-house
+manufacturing; 75% GM at MRP ₹1,199. <strong>+₹100 MRP lift from V2's
+₹1,099</strong> reflects the genuine COGS step-up from the dual-premium
+PrimaVie + BacoMind ingredient stack.</li>
+<li><strong>DEC-024 (BacoMind + PrimaVie brand attribution
+corrections)</strong>: BacoMind is <strong>Natural Remedies
+Bangalore</strong> branded (50% bacosides), NOT Sami-Sabinsa (whose
+equivalent is Bacopin). PrimaVie is <strong>Natreon Inc</strong> branded
+(≥50% fulvic + 10.3% DBPs, NABL heavy-metal cleared), NOT Sami-Sabinsa
+(whose equivalent is commodity Shilajit Extract with no published RCTs).
+Earlier mis-attributions corrected throughout.</li>
+<li><strong>DEC-025 (Phase 2 Q2 batch sequencing)</strong>: Root sits in
+batch 2 (Q2) per the 12-month rollout. Q1 trio (Cycle + Bloom + Reset)
+provides the bundle-attach base; Root joins as the Daily Woman Kit /
+Cycle Glow Kit cross-sell anchor.</li>
+<li><strong>Channel mix</strong>: WEBSITE-FIRST / Shopify-led per
+TGL-P1-DEC-017 (Section 10). Amazon Month 2-3 secondary.</li>
+<li><strong>Manufacturing</strong>: in-house at Deepika's FSSAI-licensed
+facility per V3 plan-level (NOT external CMO). The ~₹40/pack saving vs
+Greenfield CMO is what makes the 75% GM target feasible at the
+dual-branded-actives cost structure.</li>
+</ul>
+</main>
+</body>
+</html>
