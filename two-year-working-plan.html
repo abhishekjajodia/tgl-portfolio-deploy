@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Good Leaf: Two-Year Working Plan</title>
+  
+  <style>
+  :root {
+    --bg: #fbf8f0;
+    --surface: #ffffff;
+    --surface-warm: #f5f1e6;
+    --text: #2c3e2d;
+    --text-muted: #6b6b5a;
+    --heading: #1a4d2e;
+    --accent: #a8551e;
+    --accent-soft: #fdf2e9;
+    --accent-deep: #7a3d14;
+    --border: #e0d8c5;
+    --quote-border: #8aa37a;
+    --code-bg: #efe9d9;
+    --tier-a: #1a4d2e;
+    --tier-a-soft: #e6efe7;
+    --tier-b: #6b8e4e;
+    --tier-b-soft: #ecf2e3;
+    --tier-c: #b8956a;
+    --tier-c-soft: #f5ede0;
+    --shadow: 0 1px 3px rgba(28, 50, 30, 0.05), 0 8px 24px rgba(28, 50, 30, 0.04);
+    --shadow-strong: 0 4px 12px rgba(28, 50, 30, 0.08), 0 16px 32px rgba(28, 50, 30, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+  }
+
+  main.content {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  /* ============ HERO SECTION ============ */
+  .hero {
+    margin: 0 -32px 48px;
+    padding: 80px 32px 64px;
+    background: linear-gradient(135deg, var(--heading) 0%, #2d6a44 100%);
+    color: var(--bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 30, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tagline {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: rgba(251, 248, 240, 0.85);
+    margin-bottom: 16px;
+  }
+
+  .hero-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    color: var(--bg);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(251, 248, 240, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(251, 248, 240, 0.15);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bg);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(251, 248, 240, 0.6);
+    margin-top: 4px;
+  }
+
+  /* ============ PORTFOLIO MAP DIAGRAM ============ */
+  .portfolio-map {
+    margin: 48px 0;
+  }
+
+  .portfolio-map-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    color: var(--heading);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .portfolio-map-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .tier {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+
+  .tier-header {
+    padding: 16px 24px;
+    color: var(--bg);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tier-a .tier-header { background: var(--tier-a); }
+  .tier-b .tier-header { background: var(--tier-b); }
+  .tier-c .tier-header { background: var(--tier-c); }
+
+  .tier-header-meta {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: -apple-system, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  .sku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .sku-card {
+    background: var(--surface);
+    padding: 20px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .sku-card:hover { background: var(--surface-warm); }
+
+  .sku-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .sku-phase {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .sku-name {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 0 0 4px;
+  }
+
+  .sku-outcome {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 12px;
+  }
+
+  .sku-price {
+    font-size: 13px;
+    color: var(--text);
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sku-heritage {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-timeline {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .phase-timeline-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    position: relative;
+  }
+
+  .phase-grid::before {
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--tier-b) 50%, var(--tier-c) 100%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .phase-card {
+    background: var(--surface);
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 4px solid var(--bg);
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .phase-when {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .phase-skus {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ BRAND FOUNDATION ============ */
+  .brand-foundation {
+    margin: 56px 0;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-warm) 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .brand-thesis {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .brand-thesis-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .brand-thesis-statement {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.3;
+  }
+
+  .brand-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand-col-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  .brand-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .brand-list li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-list li:last-child { border-bottom: none; }
+
+  .brand-list li::before {
+    content: counter(step);
+    counter-increment: step;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-list { counter-reset: step; }
+
+  /* ============ CYCLE 28-DAY JOURNEY ============ */
+  .cycle-journey {
+    margin: 32px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cycle-journey-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 20px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .cycle-journey-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cycle-bar {
+    display: flex;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .cycle-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .cycle-segment.menstrual { background: #b04545; flex: 5; }
+  .cycle-segment.follicular { background: #d4a05c; flex: 7; }
+  .cycle-segment.ovulation { background: #6b8e4e; flex: 5; }
+  .cycle-segment.luteal { background: #8b6f9c; flex: 9; }
+  .cycle-segment.preperiod { background: #a8551e; flex: 2; }
+
+  .cycle-segment-day {
+    font-size: 10px;
+    opacity: 0.8;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .cycle-dosing {
+    display: flex;
+    font-size: 11px;
+    margin-bottom: 4px;
+    height: 24px;
+  }
+
+  .cycle-dose {
+    background: var(--heading);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .cycle-dose.full { background: var(--heading); }
+  .cycle-dose.optional { background: var(--tier-b); }
+  .cycle-dose.none { background: transparent; color: var(--text-muted); border: 1px dashed var(--border); }
+
+  .cycle-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .legend-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============ CRITICAL PATH GANTT ============ */
+  .critical-path {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .critical-path-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .critical-path-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .gantt {
+    display: grid;
+    grid-template-columns: 200px repeat(17, minmax(36px, 1fr));
+    gap: 2px;
+    font-size: 11px;
+    min-width: 880px;
+  }
+
+  .gantt-header {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .gantt-row-label {
+    background: var(--surface-warm);
+    padding: 10px 12px;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+  }
+
+  .gantt-cell {
+    background: var(--bg);
+    padding: 10px 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gantt-cell.active {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .gantt-cell.milestone {
+    background: var(--accent-deep);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .gantt-cell.research { background: var(--tier-b-soft); color: var(--tier-b); }
+  .gantt-cell.outreach { background: rgba(168, 85, 30, 0.4); color: var(--accent-deep); }
+  .gantt-cell.build { background: rgba(107, 142, 78, 0.7); color: var(--bg); }
+  .gantt-cell.launch { background: var(--tier-a); color: var(--bg); }
+
+  /* ============ CAPITAL ALLOCATION ============ */
+  .capital-chart {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .capital-chart-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .capital-chart-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .capital-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capital-bar-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .capital-bar-label {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .capital-bar-track {
+    background: var(--surface-warm);
+    border-radius: 4px;
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capital-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--tier-a) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: var(--bg);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .capital-bar-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--heading);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ ACTIVE LIBRARY MATRIX ============ */
+  .active-matrix {
+    margin: 56px 0;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .active-matrix-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 0 0 6px;
+  }
+
+  .active-matrix-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .matrix-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .matrix-table th {
+    background: var(--heading);
+    color: var(--bg);
+    padding: 10px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .matrix-table th:first-child {
+    text-align: left;
+    background: var(--accent-deep);
+  }
+
+  .matrix-table td {
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .matrix-table td.label {
+    text-align: left;
+    background: var(--surface-warm);
+    font-weight: 600;
+    color: var(--heading);
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .matrix-table td.heritage {
+    background: var(--tier-a);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .matrix-table td.extract {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+
+  .matrix-table td.captive {
+    background: var(--tier-c-soft);
+    color: var(--tier-c);
+    font-weight: 700;
+  }
+
+  /* ============ TOC ============ */
+  nav#TOC {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 32px 0 48px;
+    font-size: 14.5px;
+    box-shadow: var(--shadow);
+  }
+
+  nav#TOC::before {
+    content: "Quick navigation";
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav#TOC ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav#TOC > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  nav#TOC ul ul {
+    padding-left: 14px;
+    margin-top: 2px;
+    display: block;
+  }
+
+  nav#TOC li {
+    margin: 4px 0;
+  }
+
+  nav#TOC a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  nav#TOC a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--heading);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+  }
+
+  h1 {
+    font-size: 30px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+    margin-top: 1.5em;
+  }
+
+  main.content > h1:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  h3 { font-size: 19px; }
+  h4 { font-size: 17px; }
+
+  p {
+    margin: 0.9em 0;
+  }
+
+  ul, ol {
+    margin: 0.9em 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin: 0.4em 0;
+  }
+
+  li > p { margin: 0.4em 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 30, 0.35);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  strong {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  em {
+    color: var(--text-muted);
+  }
+
+  /* ============ TABLES ============ */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    font-size: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+  }
+
+  @media (min-width: 600px) {
+    table { display: table; }
+  }
+
+  th {
+    background: var(--heading);
+    color: var(--bg);
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--surface-warm); }
+  tr:hover td { background: var(--accent-soft); }
+
+  /* ============ BLOCKQUOTES ============ */
+  blockquote {
+    margin: 1.5em 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--quote-border);
+    background: var(--surface);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+
+  blockquote p { margin: 0.4em 0; }
+  blockquote p:first-child { margin-top: 0; }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ CODE ============ */
+  code {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+    font-size: 13.5px;
+    background: var(--code-bg);
+    color: var(--heading);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: var(--code-bg);
+    padding: 16px 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 13px;
+  }
+
+  pre code { background: transparent; padding: 0; }
+
+  /* ============ HR ============ */
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3em 0;
+  }
+
+  /* ============ TARGET HIGHLIGHT ============ */
+  :target {
+    scroll-margin-top: 16px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    .hero { background: var(--surface); color: var(--text); page-break-after: avoid; }
+    .hero-title, .hero-tagline, .hero-subtitle, .stat-num, .stat-label { color: var(--text); }
+    nav#TOC { display: none; }
+    main.content { max-width: 100%; padding: 20px; }
+    h1, h2 { page-break-after: avoid; }
+    table, .tier, .phase-timeline, .cycle-journey, .critical-path, .capital-chart, .active-matrix { page-break-inside: avoid; }
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  /* ============ MOBILE RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    main.content { padding: 0 20px 48px; }
+
+    .hero { padding: 56px 20px 48px; margin: 0 -20px 32px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-num { font-size: 26px; }
+
+    .portfolio-map-title { font-size: 24px; }
+    .sku-grid { grid-template-columns: 1fr; }
+
+    .phase-timeline { padding: 24px 16px; }
+    .phase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .phase-grid::before { display: none; }
+    .phase-card { text-align: left; padding: 12px; border: 1px solid var(--border); border-radius: 6px; display: flex; gap: 12px; align-items: center; }
+    .phase-marker { margin: 0; flex-shrink: 0; }
+
+    .brand-cols { grid-template-columns: 1fr; gap: 24px; }
+    .brand-thesis-statement { font-size: 22px; }
+
+    nav#TOC > ul { grid-template-columns: 1fr; }
+
+    .capital-bar-row { grid-template-columns: 1fr; gap: 4px; }
+    .capital-bar-value { text-align: left; }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 30px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<main class="content">
+<div style="margin: 16px 0 32px; padding: 12px 16px; background: var(--surface-warm); border-left: 4px solid var(--accent); border-radius: 6px; font-size: 14px;">← <a href="index.html" style="font-weight: 600;">Back to TGL Product Portfolio</a> · You are reading the <strong>Two-Year Working Plan</strong></div>
+
+<h1 id="the-good-leaf-two-year-working-plan">The Good Leaf: Two-Year
+Working Plan</h1>
+<h2 id="the-execution-pathway-for-the-next-24-months">The execution
+pathway for the next 24 months</h2>
+<hr />
+<h2 id="why-this-document-exists">Why this document exists</h2>
+<p>You asked for a structured two-year plan ahead of the LOI redraft.
+This is that document. It is deliberately not a financial model or a
+turnover projection. The honest answer is that we will know more at
+Month 3 than we do today, and more at Month 6 than at Month 3. Numbers
+in writing today would either be conservative enough to be useless or
+aggressive enough to be misleading. The value sits in the discipline of
+the execution pathway itself: who does what, by when, in what
+sequence.</p>
+<p>Both of our payouts are tied to the brand's growth. That is what
+makes timelines and follow-through the spine of this plan. Numbers will
+populate themselves as the work compounds. We will revise this document
+at Month 3, 6, 12 and 18 with what we have actually learned.</p>
+<hr />
+<h2 id="the-two-engines-of-growth">The two engines of growth</h2>
+<p>There are two engines that decide whether a brand at our stage
+compounds or stalls.</p>
+<h3 id="the-strategic-engine">The strategic engine</h3>
+<p>Insights, capabilities and capital. Customer research, competitive
+intelligence, marketing capability deployment, brand and product
+expansion, technology, working-capital float. This is what Boco brings.
+We run as much of this as we can through structured systems and tooling,
+so the engine compounds without scaling cost. That is how we can deploy
+at this depth on a brand at this stage of revenue without breaking the
+unit economics.</p>
+<h3 id="the-execution-engine">The execution engine</h3>
+<p>The human mindshare on the ground that makes the brand actually move.
+Marketplace conversations, content velocity, founder presence in vendor
+and partnership calls, day-to-day production oversight, regulatory
+follow-through. This is what Deepika brings as the fulcrum.</p>
+<p>Neither engine works alone. Strategic insight without ground-level
+execution sits on slides. Ground-level execution without strategic
+insight is busy-work. The two engines are designed to compound each
+other.</p>
+<hr />
+<h2 id="deepika-as-the-fulcrum">Deepika as the fulcrum</h2>
+<p>The role is not a daily KRA list. It is the conscious effort across
+seven areas that gives the brand the tangible mindshare it needs to
+compound. Right intent and right motivation matter more than a
+checklist.</p>
+<h3 id="1-marketplace-relationships">1. Marketplace relationships</h3>
+<p>Amazon Brand Team, Blinkit category managers, Flipkart KAM, Quick
+Commerce reps. Onboarding executions, listings refresh, weekly
+check-ins, escalations when stocks slip or visibility drops.</p>
+<h3 id="2-founder-content-velocity">2. Founder content velocity</h3>
+<p>Founder-led Reels, day-to-day stories, the unscripted pieces only the
+founder can carry. Deepika's voice is the brand's most defensible asset.
+Cadence matters more than polish.</p>
+<h3 id="3-media-conceptualisation">3. Media conceptualisation</h3>
+<p>Working with the Boco team on what creative gets made, what the story
+for each campaign is, what is authentic and what is not. Conceptual
+lead, not production lead.</p>
+<h3 id="4-customer-and-operational-communications">4. Customer and
+operational communications</h3>
+<p>The voice on customer queries, vendor calls, partnership
+conversations. The exchanges where founder presence changes the
+outcome.</p>
+<h3 id="5-production-oversight">5. Production oversight</h3>
+<p>DPR-side production sequencing, batch planning, testing schedules,
+packaging coordination. The cost-plus margin structure rewards
+efficiency here directly.</p>
+<h3 id="6-channel-and-partnership-presence">6. Channel and partnership
+presence</h3>
+<p>Founder presence in calls with marketplace KAMs, distributors,
+channel partners, agencies. Conversations that need a founder, not a
+representative.</p>
+<h3 id="7-regulatory-follow-through">7. Regulatory follow-through</h3>
+<p>AYUSH certification, FSSAI renewals, NABL lab relationships, batch
+testing audits. The unglamorous work that keeps the brand operating
+cleanly.</p>
+<p>The throughline across all seven: this is not transactional
+execution. It is the conscious effort that turns a brand into a
+compounding asset.</p>
+<hr />
+<h2 id="boco-as-the-strategic-engine">Boco as the strategic engine</h2>
+<p>What Boco brings sits in three layers.</p>
+<h3 id="insights-and-analytics">Insights and analytics</h3>
+<p>Customer research, competitive landscape mapping, formulation
+strategy, product portfolio sequencing, marketing performance analytics,
+channel-level economics. The work that decides what to build and how to
+build it.</p>
+<h3 id="capability-deployment">Capability deployment</h3>
+<p>Marketing (creative, performance, content production, brand asset
+development), brand (positioning, packaging, naming), technology (D2C
+site, subscription, customer data, marketplace integrations), supply
+chain coordination (vendor outreach, sourcing assistance), team and
+program management.</p>
+<h3 id="capital-deployment">Capital deployment</h3>
+<p>Working-capital float for packaging procurement, raw material
+forward-supply where Boco floats ingredients, marketing spend ahead of
+revenue, technology, team and operating cost. Formalised as a 12 percent
+IRR preferred-return capital account so it is not an open-ended
+unstructured commitment.</p>
+<p>Underneath all three: structured systems and tooling that compound.
+Most of the day-to-day operational infrastructure that makes this
+possible is non-headcount. That is how we plan to fast-track.</p>
+<hr />
+<h2 id="the-execution-arc-m0-to-m24">The execution arc, M0 to M24</h2>
+<p>Five phases. Each phase has a window, what Boco delivers, what
+Deepika delivers, and a clean exit signal that says "this phase is done,
+the next one begins."</p>
+<h3 id="phase-1-foundation-m1-to-m3">Phase 1: Foundation (M1 to M3)</h3>
+<p><strong>Window</strong>: First three months from LOI redraft
+sign.</p>
+<p><strong>What Boco delivers</strong></p>
+<ul>
+<li>V3 product portfolio finalised (already shared)</li>
+<li>Vendor outreach packet activated; vendor responses synthesised</li>
+<li>Brand kit V0 for Cycle, Bloom and Reset (logo, packaging, naming
+lock)</li>
+<li>Dr. Lakshmi Kala formulation review coordinated and signed off</li>
+<li>Capital deployment plan confirmed and live</li>
+<li>D2C site V2 readied for V3 launch</li>
+</ul>
+<p><strong>What Deepika delivers</strong></p>
+<ul>
+<li>Phase 1 vendor calls and site visits (Hyderabad, Chennai, Bangalore
+as relevant)</li>
+<li>Capsule shell and bottle vendor pricing share for cost lock</li>
+<li>DPR conversion-cost rate card share</li>
+<li>AYUSH application filed</li>
+<li>Founder content sprint plan confirmed (~12 founder Reels for the
+launch month)</li>
+</ul>
+<p><strong>Exit signal</strong>: First batch of Cycle, Bloom and Reset
+is in production. AYUSH application is live. Brand kit is locked.</p>
+<h3 id="phase-2-wave-1-launch-m4-to-m6">Phase 2: Wave 1 launch (M4 to
+M6)</h3>
+<p><strong>Window</strong>: Months 4 to 6.</p>
+<p><strong>What Boco delivers</strong></p>
+<ul>
+<li>Cycle, Bloom and Reset go live on D2C with full creative wave 1</li>
+<li>Performance marketing set up across Meta, Google and organic
+social</li>
+<li>Subscription mechanic live for Cycle and Bloom</li>
+<li>Founder-led launch month content programme deployed</li>
+</ul>
+<p><strong>What Deepika delivers</strong></p>
+<ul>
+<li>Founder content cadence sustained (target 12 to 15 pieces in the
+launch month)</li>
+<li>DPR production scaling to meet launch demand</li>
+<li>First operational cadence settle-in: weekly review with the Boco TGL
+pod</li>
+<li>Amazon onboarding application submitted</li>
+</ul>
+<p><strong>Exit signal</strong>: Cycle, Bloom and Reset are live,
+performance marketing has stabilised, and the early demand signal is
+read clearly enough to make Wave 2 launch decisions in Phase 3.</p>
+<h3 id="phase-3-scale-plus-wave-2-launch-m7-to-m12">Phase 3: Scale plus
+Wave 2 launch (M7 to M12)</h3>
+<p><strong>Window</strong>: Months 7 to 12.</p>
+<p><strong>What Boco delivers</strong></p>
+<ul>
+<li>Wave 2 SKUs launched: Root (M7 to M9), Calm and Nourish (M9 to
+M12)</li>
+<li>Marketplace expansion: Amazon live by M9, Blinkit pilot by M11</li>
+<li>Influencer programme built out</li>
+<li>D2C subscription mechanic optimised for retention</li>
+<li>First annual brand asset refresh (creative, packaging
+touch-ups)</li>
+</ul>
+<p><strong>What Deepika delivers</strong></p>
+<ul>
+<li>Marketplace onboarding executions (Amazon, Blinkit)</li>
+<li>Sustained founder content velocity, cycle 2 of the founder
+programme</li>
+<li>DPR production scaling to handle the 6-SKU portfolio</li>
+<li>Influencer-side conversations where founder presence is needed</li>
+<li>First quarterly review of the cost-plus margin rate card</li>
+</ul>
+<p><strong>Exit signal</strong>: Six SKUs live across D2C and at least
+two marketplaces. The brand is no longer "small launcher" coded.</p>
+<h3 id="phase-4-wave-3-plus-crest-m13-to-m18">Phase 4: Wave 3 plus Crest
+(M13 to M18)</h3>
+<p><strong>Window</strong>: Months 13 to 18.</p>
+<p><strong>What Boco delivers</strong></p>
+<ul>
+<li>Wave 3 SKUs launched: Pulse, Glide, Spark (family-wellness
+adjacencies)</li>
+<li>Crest (menopause) launched at the M16 to M18 mark</li>
+<li>Family-wellness category positioning activated</li>
+<li>Marketing scale-up to support the 10-SKU portfolio</li>
+<li>Institutional capital readiness work begins (data room, deck,
+governance polish)</li>
+</ul>
+<p><strong>What Deepika delivers</strong></p>
+<ul>
+<li>DPR ingredient procurement at scale; consistency under volume</li>
+<li>Sustained founder content programme</li>
+<li>Channel expansion conversations: distributor pilots, retail offline
+pilots</li>
+<li>AYUSH certification fully landed across the SKU set</li>
+</ul>
+<p><strong>Exit signal</strong>: Ten SKUs live. Brand is recognisable in
+the multi-ingredient women's-wellness category. Margin and unit
+economics holding at portfolio level.</p>
+<h3
+id="phase-5-stabilisation-plus-next-phase-readiness-m19-to-m24">Phase 5:
+Stabilisation plus next-phase readiness (M19 to M24)</h3>
+<p><strong>Window</strong>: Months 19 to 24.</p>
+<p><strong>What Boco delivers</strong></p>
+<ul>
+<li>Marketing efficiency optimisation across the full 10-SKU
+portfolio</li>
+<li>Customer LTV programme (subscription deep, bundles, win-back)</li>
+<li>Institutional capital path activated if economics support it (deck,
+conversations, term sheet readiness)</li>
+<li>Formal review of the partnership against the LOI commitments</li>
+</ul>
+<p><strong>What Deepika delivers</strong></p>
+<ul>
+<li>Steady-state founder content cadence</li>
+<li>DPR production and supply chain in compounding-not-firefighting
+mode</li>
+<li>Founder presence in any institutional capital conversations</li>
+<li>Co-architect of the next 12 to 24 month plan</li>
+</ul>
+<p><strong>Exit signal</strong>: Brand is at a sustained run rate that
+supports either continued bootstrapped growth or a credible
+institutional raise. Operational maturity on both sides.</p>
+<hr />
+<h2 id="profitability-and-margin-orientation">Profitability and margin
+orientation</h2>
+<p>Numbers are not in this document because they are premature. What is
+locked is the orientation:</p>
+<ul>
+<li>Every SKU launches at a margin-led price point. We do not chase
+volume at margin loss.</li>
+<li>Portfolio-average gross margin holds at 75 to 85 percent at retail
+across the 10 SKUs. The SKU floor is 75 percent.</li>
+<li>The DPR cost-plus margin in the 10 to 15 percent band carries the
+real cost of factory upkeep and manufacturing volatility, without
+putting that load anywhere else.</li>
+<li>The negative-ROI guardrail kicks in if any SKU or the
+multi-ingredient line as a whole is at sustained negative contribution
+margin three months in. We trigger a joint scaling review before pushing
+more capital at a problem that is not converting.</li>
+<li>Marketing spend tracks against a defined ROAS floor per
+channel.</li>
+</ul>
+<p>Profitability is a steady function of execution. It is not a separate
+workstream.</p>
+<hr />
+<h2 id="cadence-of-working-together">Cadence of working together</h2>
+<h3 id="monthly-governance-touchpoint">Monthly governance
+touchpoint</h3>
+<p>Boco shares: P&amp;L summary, capital deployment ledger, marketing
+spend allocation, customer cohort and revenue trends. Deepika shares:
+production progress, batch yields, content programme, marketplace
+conversation status, regulatory progress. Anything off-plan gets
+surfaced and addressed in this meeting, not deferred.</p>
+<h3 id="quarterly-milestone-review">Quarterly milestone review</h3>
+<p>Walk the phase exit signals against the actual state. Recalibrate the
+next quarter if the plan needs to flex. Update this document.</p>
+<h3 id="semi-annual-reset">Semi-annual reset</h3>
+<p>At Month 6, 12 and 18: walk the full plan together, lock the next six
+months in detail, and revise this document to reflect what we have
+learned.</p>
+<h3 id="ad-hoc-operational">Ad-hoc operational</h3>
+<p>Weekly stand-up between the Boco TGL pod and Deepika for live
+escalations. Slack as the working channel.</p>
+<hr />
+<h2 id="the-24-month-timeline-at-a-glance">The 24-month timeline at a
+glance</h2>
+<table>
+<thead>
+<tr>
+<th>Marker</th>
+<th>What is true</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M3</strong></td>
+<td>First batch live (Cycle, Bloom, Reset). AYUSH filed. Brand kit
+locked. Vendor relationships established.</td>
+</tr>
+<tr>
+<td><strong>M6</strong></td>
+<td>D2C launch live for the Q1 SKUs. Founder content programme in steady
+cadence. Amazon onboarding submitted.</td>
+</tr>
+<tr>
+<td><strong>M9</strong></td>
+<td>Root launched. Amazon live. Subscription retention pattern
+established.</td>
+</tr>
+<tr>
+<td><strong>M12</strong></td>
+<td>Six SKUs live. Calm and Nourish launched. Blinkit pilot underway.
+End-of-Year-1 review.</td>
+</tr>
+<tr>
+<td><strong>M15</strong></td>
+<td>Wave 3 batch in production (Pulse, Glide, Spark). Marketplace
+footprint at three channels.</td>
+</tr>
+<tr>
+<td><strong>M18</strong></td>
+<td>Ten SKUs live including Crest. Family-wellness category positioning
+active.</td>
+</tr>
+<tr>
+<td><strong>M21</strong></td>
+<td>Stabilisation phase, optimisation focus. Institutional capital
+readiness work underway if economics support it.</td>
+</tr>
+<tr>
+<td><strong>M24</strong></td>
+<td>Brand at the run rate that supports either continued bootstrapped
+growth or a credible institutional raise. Formal partnership review
+against the LOI. Next phase plan locked.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="what-this-plan-is-not">What this plan is not</h2>
+<p>It does not lock revenue numbers or build a turnover model. That
+comes at Month 3 quarterly review, with first run-rate data in hand.</p>
+<p>It does not define every operational detail. It defines the shape of
+the work, who carries which engine, and the phase exit signals. The
+detail gets defined inside each phase as we get there.</p>
+<p>It is not a final word. The partnership agreement, the scope-of-work
+annex, and the cost-plus rate card are the binding documents. This is
+the working plan that runs alongside them.</p>
+<hr />
+<p><em>Last updated 2026-05-10 by Boco. Revisions scheduled at M3, M6,
+M12, M18, and on demand if the brand's reality shifts ahead of those
+markers.</em></p>
+</main>
+</body>
+</html>
